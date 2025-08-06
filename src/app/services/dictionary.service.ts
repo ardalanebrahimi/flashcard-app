@@ -72,12 +72,20 @@ export class DictionaryService {
   /**
    * Add a new word to the custom dictionary
    */
-  async addNewWord(germanWord: string): Promise<{ success: boolean; word?: Word; error?: string }> {
+  async addNewWord(germanWord: string, existingWords?: Word[]): Promise<{ success: boolean; word?: Word; error?: string }> {
     try {
       const cleanWord = germanWord.trim();
       
       if (!cleanWord) {
         return { success: false, error: 'Word cannot be empty' };
+      }
+
+      // Check if word already exists in original dictionary (if provided)
+      if (existingWords) {
+        const existingInOriginal = this.searchExistingWord(cleanWord, existingWords);
+        if (existingInOriginal) {
+          return { success: false, error: 'Word already exists in the original dictionary' };
+        }
       }
 
       // Check if word already exists in custom dictionary

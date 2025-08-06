@@ -108,30 +108,27 @@ export class AddWordComponent implements OnInit, OnDestroy {
       // First check if word exists in original dictionary
       const existingWord = this.dictionaryService.searchExistingWord(word, this.existingWords);
       if (existingWord) {
-        this.showMessage(`Word found: "${existingWord.word}" = ${existingWord.translation}`, 'info');
+        this.showMessage(`✓ Word found in dictionary:\n\n"${existingWord.word}" = ${existingWord.translation}`, 'info');
         this.isLoading = false;
+        this.wordInput = ''; // Clear input but keep dialog open
         return;
       }
 
       // Check if word exists in custom dictionary
       const customWord = this.dictionaryService.searchCustomWord(word);
       if (customWord) {
-        this.showMessage(`Word found in your dictionary: "${customWord.word}" = ${customWord.translation}`, 'info');
+        this.showMessage(`✓ Word found in your custom dictionary:\n\n"${customWord.word}" = ${customWord.translation}`, 'info');
         this.isLoading = false;
+        this.wordInput = ''; // Clear input but keep dialog open
         return;
       }
 
       // Add new word using OpenAI
-      const result = await this.dictionaryService.addNewWord(word);
+      const result = await this.dictionaryService.addNewWord(word, this.existingWords);
       
       if (result.success && result.word) {
-        this.showMessage(`Added: "${result.word.word}" = ${result.word.translation}`, 'success');
-        this.wordInput = '';
-        
-        // Close dialog after successful addition
-        setTimeout(() => {
-          this.isVisible = false;
-        }, 2000);
+        this.showMessage(`✅ New word added:\n\n"${result.word.word}" = ${result.word.translation}`, 'success');
+        this.wordInput = ''; // Clear input but keep dialog open for user to read translation
       } else {
         this.showMessage(result.error || 'Failed to add word', 'error');
       }

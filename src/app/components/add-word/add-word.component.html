@@ -32,7 +32,7 @@
       </div>
       
       <div class="message" *ngIf="message" [class]="'message-' + messageType">
-        {{ message }}
+        <div class="message-content">{{ message }}</div>
       </div>
     </div>
   </div>
