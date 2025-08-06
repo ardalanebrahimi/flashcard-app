@@ -1,218 +1,79 @@
 [
-  {
-    "word": "die Bewerbung",
-    "lesson": "Lektion 1"
-  },
-  {
-    "word": "der Umzug",
-    "lesson": "Lektion 1"
-  },
-  {
-    "word": "die Ausbildung",
-    "lesson": "Lektion 1"
-  },
-  {
-    "word": "der Arbeitsplatz",
-    "lesson": "Lektion 2"
-  },
-  {
-    "word": "die Erfahrung",
-    "lesson": "Lektion 2"
-  },
-  {
-    "word": "das Praktikum",
-    "lesson": "Lektion 2"
-  },
-  {
-    "word": "die Beratung",
-    "lesson": "Lektion 3"
-  },
-  {
-    "word": "die Entscheidung",
-    "lesson": "Lektion 3"
-  },
-  {
-    "word": "die Möglichkeit",
-    "lesson": "Lektion 3"
-  },
-  {
-    "word": "die Verantwortung",
-    "lesson": "Lektion 4"
-  },
-  {
-    "word": "die Zusammenarbeit",
-    "lesson": "Lektion 4"
-  },
-  {
-    "word": "das Verständnis",
-    "lesson": "Lektion 4"
-  },
-  {
-    "word": "die Entwicklung",
-    "lesson": "Lektion 5"
-  },
-  {
-    "word": "die Verbesserung",
-    "lesson": "Lektion 5"
-  },
-  {
-    "word": "die Unterstützung",
-    "lesson": "Lektion 5"
-  },
-  {
-    "word": "die Besichtigung",
-    "lesson": "Lektion 6"
-  },
-  {
-    "word": "die Vereinbarung",
-    "lesson": "Lektion 6"
-  },
-  {
-    "word": "die Vorbereitung",
-    "lesson": "Lektion 6"
-  },
-  {
-    "word": "die Überraschung",
-    "lesson": "Lektion 7"
-  },
-  {
-    "word": "die Aufregung",
-    "lesson": "Lektion 7"
-  },
-  {
-    "word": "die Enttäuschung",
-    "lesson": "Lektion 7"
-  },
-  {
-    "word": "die Entspannung",
-    "lesson": "Lektion 8"
-  },
-  {
-    "word": "die Anstrengung",
-    "lesson": "Lektion 8"
-  },
-  {
-    "word": "die Begeisterung",
-    "lesson": "Lektion 8"
-  },
-  {
-    "word": "abholen",
-    "lesson": "Lektion 9"
-  },
-  {
-    "word": "ankommen",
-    "lesson": "Lektion 9"
-  },
-  {
-    "word": "aufstehen",
-    "lesson": "Lektion 9"
-  },
-  {
-    "word": "beginnen",
-    "lesson": "Lektion 10"
-  },
-  {
-    "word": "entscheiden",
-    "lesson": "Lektion 10"
-  },
-  {
-    "word": "erklären",
-    "lesson": "Lektion 10"
-  },
-  {
-    "word": "erwarten",
-    "lesson": "Lektion 11"
-  },
-  {
-    "word": "funktionieren",
-    "lesson": "Lektion 11"
-  },
-  {
-    "word": "gewinnen",
-    "lesson": "Lektion 11"
-  },
-  {
-    "word": "organisieren",
-    "lesson": "Lektion 12"
-  },
-  {
-    "word": "teilnehmen",
-    "lesson": "Lektion 12"
-  },
-  {
-    "word": "verändern",
-    "lesson": "Lektion 12"
-  },
-  {
-    "word": "vergleichen",
-    "lesson": "Lektion 13"
-  },
-  {
-    "word": "versprechen",
-    "lesson": "Lektion 13"
-  },
-  {
-    "word": "verstehen",
-    "lesson": "Lektion 13"
-  },
-  {
-    "word": "vorschlagen",
-    "lesson": "Lektion 14"
-  },
-  {
-    "word": "wiederholen",
-    "lesson": "Lektion 14"
-  },
-  {
-    "word": "zusagen",
-    "lesson": "Lektion 14"
-  },
-  {
-    "word": "beruflich",
-    "lesson": "Lektion 15"
-  },
-  {
-    "word": "erfolgreich",
-    "lesson": "Lektion 15"
-  },
-  {
-    "word": "gewöhnlich",
-    "lesson": "Lektion 15"
-  },
-  {
-    "word": "notwendig",
-    "lesson": "Lektion 16"
-  },
-  {
-    "word": "persönlich",
-    "lesson": "Lektion 16"
-  },
-  {
-    "word": "praktisch",
-    "lesson": "Lektion 16"
-  },
-  {
-    "word": "regelmäßig",
-    "lesson": "Lektion 17"
-  },
-  {
-    "word": "selbstständig",
-    "lesson": "Lektion 17"
-  },
-  {
-    "word": "verschieden",
-    "lesson": "Lektion 17"
-  },
-  {
-    "word": "vollständig",
-    "lesson": "Lektion 18"
-  },
-  {
-    "word": "wöchentlich",
-    "lesson": "Lektion 18"
-  },
-  {
-    "word": "zukünftig",
-    "lesson": "Lektion 18"
-  }
+  { "word": "abdecken", "translation": "to cover (e.g., Ich decke den Tisch.)" },
+  { "word": "abdrehen", "translation": "to turn off (e.g., Er dreht den Wasserhahn ab.)" },
+  { "word": "Abfall", "translation": "waste, garbage" },
+  { "word": "Abflug", "translation": "departure (flight)" },
+  { "word": "Abgas", "translation": "exhaust gas" },
+  { "word": "abhängig", "translation": "dependent (e.g., Ich bin abhängig vom Internet.)" },
+  { "word": "abheften", "translation": "to file (documents)" },
+  { "word": "abnehmen", "translation": "to lose weight / to decrease" },
+  { "word": "Absage", "translation": "cancellation, rejection" },
+  { "word": "abschicken", "translation": "to send off (e.g., Ich schicke den Brief ab.)" },
+  { "word": "absichtlich", "translation": "intentional, on purpose" },
+  { "word": "absolvieren", "translation": "to complete (e.g., ein Studium absolvieren)" },
+  { "word": "absprechen", "translation": "to arrange, agree upon" },
+  { "word": "Abstellplatz", "translation": "parking space, storage area" },
+  { "word": "Abteilungsleiter/in", "translation": "department manager" },
+  { "word": "Abwasser", "translation": "wastewater, sewage" },
+  { "word": "abwechslungsreich", "translation": "varied, diverse" },
+  { "word": "Abwicklung", "translation": "handling, processing" },
+  { "word": "achten", "translation": "to pay attention to (e.g., Achten Sie auf den Verkehr!)" },
+  { "word": "AGB", "translation": "terms and conditions (Allgemeine Geschäftsbedingungen)" },
+  { "word": "aktiv", "translation": "active" },
+  { "word": "akzeptieren", "translation": "to accept" },
+  { "word": "Alkohol", "translation": "alcohol" },
+  { "word": "allerdings", "translation": "however, though" },
+  { "word": "Allergie", "translation": "allergy" },
+  { "word": "allergisch", "translation": "allergic (e.g., Ich bin allergisch gegen Milch.)" },
+  { "word": "Alliierte", "translation": "allies" },
+  { "word": "Altenpfleger/in", "translation": "geriatric nurse" },
+  { "word": "Alter", "translation": "age" },
+  { "word": "Altöl", "translation": "used oil" },
+  { "word": "Altpapier", "translation": "waste paper" },
+  { "word": "Aluminium", "translation": "aluminum" },
+  { "word": "amtlich", "translation": "official" },
+  { "word": "Amtssprache", "translation": "official language" },
+  { "word": "Anbau", "translation": "cultivation, extension" },
+  { "word": "andauernd", "translation": "constantly, continuously" },
+  { "word": "anerkennen", "translation": "to recognize, acknowledge" },
+  { "word": "Anerkennung", "translation": "recognition, appreciation" },
+  { "word": "anfahren", "translation": "to drive towards / to start moving" },
+  { "word": "Anfang", "translation": "beginning" },
+  { "word": "anfangs", "translation": "at first, initially" },
+  { "word": "anfassen", "translation": "to touch (e.g., Fassen Sie das Bild nicht an.)" },
+  { "word": "angenehm", "translation": "pleasant, comfortable" },
+  { "word": "angewöhnen", "translation": "to get used to" },
+  { "word": "anheben", "translation": "to lift" },
+  { "word": "ankündigen", "translation": "to announce" },
+  { "word": "Anlage", "translation": "facility, system" },
+  { "word": "anmachen", "translation": "to turn on (light, device)" },
+  { "word": "Annahme", "translation": "assumption, acceptance" },
+  { "word": "annulliert", "translation": "cancelled" },
+  { "word": "Anprobe", "translation": "fitting (trying on clothes)" },
+  { "word": "anprobieren", "translation": "to try on (clothes)" },
+  { "word": "anrechnen", "translation": "to credit, to take into account" },
+  { "word": "anschauen", "translation": "to look at, watch" },
+  { "word": "ansehen", "translation": "to look at, to view" },
+  { "word": "anstatt", "translation": "instead of" },
+  { "word": "ansteckend", "translation": "contagious" },
+  { "word": "Anstellung", "translation": "employment, job" },
+  { "word": "Anstoß", "translation": "kick-off, impetus" },
+  { "word": "anstreichen", "translation": "to paint" },
+  { "word": "anstrengend", "translation": "exhausting" },
+  { "word": "Anzeigetafel", "translation": "display board" },
+  { "word": "Arbeitskraft", "translation": "workforce" },
+  { "word": "Arbeitslosigkeit", "translation": "unemployment" },
+  { "word": "Arbeitsstelle", "translation": "job position" },
+  { "word": "Arbeitsweise", "translation": "working method" },
+  { "word": "Arbeitszeit", "translation": "working hours" },
+  { "word": "Ärger", "translation": "trouble, annoyance" },
+  { "word": "ärgerlich", "translation": "annoying" },
+  { "word": "Art", "translation": "type, kind" },
+  { "word": "Artikelnummer", "translation": "article number" },
+  { "word": "ärztlich", "translation": "medical" },
+  { "word": "Assistenz", "translation": "assistance" },
+  { "word": "Astronaut/in", "translation": "astronaut" },
+  { "word": "Asyl", "translation": "asylum" },
+  { "word": "Atmung", "translation": "breathing" },
+  { "word": "atmungsaktiv", "translation": "breathable" }
 ]

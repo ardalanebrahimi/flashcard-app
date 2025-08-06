@@ -1,4 +1,4 @@
 export interface Word {
   word: string;
-  lesson: string;
+  translation: string;
 }

@@ -129,21 +129,6 @@ export class WordService {
   }
 
   /**
-   * Get words filtered by lesson
-   */
-  getWordsByLesson(lesson: string): Word[] {
-    return this.words.filter(word => word.lesson === lesson);
-  }
-
-  /**
-   * Get all unique lessons
-   */
-  getAllLessons(): string[] {
-    const lessons = this.words.map(word => word.lesson);
-    return [...new Set(lessons)].sort();
-  }
-
-  /**
    * Get current progress (current word index out of total)
    */
   getProgress(): { current: number; total: number } {

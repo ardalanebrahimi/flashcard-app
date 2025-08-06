@@ -3,7 +3,7 @@ import { Preferences } from '@capacitor/preferences';
 
 export interface WordProgress {
   word: string;
-  lesson: string;
+  translation: string;
   isKnown: boolean;
   lastStudied: Date;
   studyCount: number;

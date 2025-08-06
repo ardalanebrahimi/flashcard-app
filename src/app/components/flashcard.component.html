@@ -47,7 +47,6 @@
     <!-- German word display -->
     <div class="word-container">
       <div class="german-word">{{ currentWord.word }}</div>
-      <div class="lesson-info">Lesson {{ currentWord.lesson }}</div>
       
       <!-- Progress indicators -->
       <div class="word-progress" *ngIf="isCurrentWordKnown || isCurrentWordUnknown">
@@ -73,8 +72,7 @@
       <div *ngIf="showMeaning" class="translation">
         <div class="translation-label">English:</div>
         <div class="translation-text">
-          <!-- For now, we'll show a placeholder since we don't have translations -->
-          <em>Translation will be added later</em>
+          {{ currentWord.translation }}
         </div>
       </div>
     </div>
