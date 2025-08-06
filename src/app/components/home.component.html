@@ -1,0 +1,97 @@
+<div class="home-container">
+  <!-- Header -->
+  <div class="header">
+    <h1>German B1 Flashcards</h1>
+    <p class="subtitle">Master your German vocabulary with interactive flashcards</p>
+  </div>
+
+  <!-- Main Actions -->
+  <div class="main-actions">
+    <button class="primary-btn" routerLink="/flashcards">
+      <span class="btn-icon">🎯</span>
+      <span class="btn-text">Start Learning</span>
+    </button>
+  </div>
+
+  <!-- Progress Overview -->
+  <div class="progress-section" *ngIf="hasAnyProgress">
+    <h2>Your Progress</h2>
+    
+    <!-- Overall Statistics -->
+    <div class="stats-card">
+      <h3>Overall Progress</h3>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number known">{{ overallKnownCount }}</div>
+          <div class="stat-label">Words Known</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number unknown">{{ overallUnknownCount }}</div>
+          <div class="stat-label">Words to Review</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number success">{{ overallSuccessRate }}%</div>
+          <div class="stat-label">Success Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Current Session -->
+    <div class="stats-card" *ngIf="currentSessionStats.totalWordsStudied > 0">
+      <h3>Today's Session</h3>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number known">{{ currentSessionStats.knownCount }}</div>
+          <div class="stat-label">Known Today</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number unknown">{{ currentSessionStats.unknownCount }}</div>
+          <div class="stat-label">Unknown Today</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">{{ currentSessionStats.totalWordsStudied }}</div>
+          <div class="stat-label">Words Studied</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Progress State -->
+  <div class="no-progress" *ngIf="!hasAnyProgress">
+    <div class="no-progress-icon">📚</div>
+    <h3>Ready to start your German learning journey?</h3>
+    <p>Click "Start Learning" to begin studying B1 German vocabulary with interactive flashcards.</p>
+  </div>
+
+  <!-- Data Management -->
+  <div class="data-management" *ngIf="hasAnyProgress">
+    <h3>Manage Your Data</h3>
+    <div class="management-buttons">
+      <button class="secondary-btn" (click)="onExportProgress()">
+        <span class="btn-icon">📤</span>
+        <span class="btn-text">Export Progress</span>
+      </button>
+      
+      <button class="secondary-btn" (click)="onImportProgress()">
+        <span class="btn-icon">📥</span>
+        <span class="btn-text">Import Progress</span>
+      </button>
+      
+      <button class="danger-btn" (click)="onClearAllProgress()">
+        <span class="btn-icon">🗑️</span>
+        <span class="btn-text">Clear All Data</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="quick-actions">
+    <h3>Quick Actions</h3>
+    <div class="action-buttons">
+      <button class="secondary-btn" *ngIf="!hasAnyProgress" (click)="onImportProgress()">
+        <span class="btn-icon">📥</span>
+        <span class="btn-text">Import Existing Progress</span>
+      </button>
+    </div>
+  </div>
+</div>
