@@ -58,6 +58,13 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     }
   }
 
+  async onPracticeAgain() {
+    if (this.currentWord) {
+      await this.progressService.markWordForPracticeAgain(this.currentWord.word);
+      this.nextWord();
+    }
+  }
+
   private nextWord() {
     this.wordService.getNextWord();
   }
@@ -81,6 +88,10 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     return this.progressService.getCurrentSession().unknownCount;
   }
 
+  get practiceAgainCount(): number {
+    return this.progressService.getCurrentSession().practiceAgainCount;
+  }
+
   get totalWordsStudied(): number {
     return this.progressService.getCurrentSession().totalWordsStudied;
   }
@@ -97,6 +108,10 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     return this.progressService.getUnknownWordsCount();
   }
 
+  get overallPracticeAgainCount(): number {
+    return this.progressService.getPracticeAgainWordsCount();
+  }
+
   get overallSuccessRate(): number {
     return this.progressService.getOverallSuccessRate();
   }
@@ -108,6 +123,10 @@ export class FlashcardComponent implements OnInit, OnDestroy {
 
   get isCurrentWordUnknown(): boolean {
     return this.currentWord ? this.progressService.isWordUnknown(this.currentWord.word) : false;
+  }
+
+  get isCurrentWordForPracticeAgain(): boolean {
+    return this.currentWord ? this.progressService.isWordForPracticeAgain(this.currentWord.word) : false;
   }
 
   async onClearAllProgress() {

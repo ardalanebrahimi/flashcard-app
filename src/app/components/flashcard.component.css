@@ -74,6 +74,10 @@
   color: #f87171;
 }
 
+.stat-value.practice {
+  color: #fbbf24;
+}
+
 .stat-value.success {
   color: #fbbf24;
 }
@@ -136,6 +140,12 @@
   background: #fef2f2;
   color: #991b1b;
   border: 1px solid #fecaca;
+}
+
+.progress-indicator.practice {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
 }
 
 /* Meaning section */
@@ -246,6 +256,18 @@
   background: #dc2626;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+.practice-btn {
+  background: #f59e0b;
+  color: white;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.practice-btn:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
 }
 
 .action-btn:active {

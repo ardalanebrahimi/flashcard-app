@@ -15,6 +15,10 @@
           <span class="stat-label">Unknown:</span>
           <span class="stat-value unknown">{{ unknownCount }}</span>
         </div>
+        <div class="stat-item">
+          <span class="stat-label">Practice:</span>
+          <span class="stat-value practice">{{ practiceAgainCount }}</span>
+        </div>
         <div class="stat-item" *ngIf="totalWordsStudied > 0">
           <span class="stat-label">Success:</span>
           <span class="stat-value success">{{ successRate }}%</span>
@@ -23,7 +27,7 @@
     </div>
 
     <!-- Overall Progress -->
-    <div class="stats-section" *ngIf="overallKnownCount > 0 || overallUnknownCount > 0">
+    <div class="stats-section" *ngIf="overallKnownCount > 0 || overallUnknownCount > 0 || overallPracticeAgainCount > 0">
       <h3>Overall Progress</h3>
       <div class="stats">
         <div class="stat-item">
@@ -33,6 +37,10 @@
         <div class="stat-item">
           <span class="stat-label">Total Unknown:</span>
           <span class="stat-value unknown">{{ overallUnknownCount }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Total Practice:</span>
+          <span class="stat-value practice">{{ overallPracticeAgainCount }}</span>
         </div>
         <div class="stat-item">
           <span class="stat-label">Overall:</span>
@@ -49,12 +57,15 @@
       <div class="german-word">{{ currentWord.word }}</div>
       
       <!-- Progress indicators -->
-      <div class="word-progress" *ngIf="isCurrentWordKnown || isCurrentWordUnknown">
+      <div class="word-progress" *ngIf="isCurrentWordKnown || isCurrentWordUnknown || isCurrentWordForPracticeAgain">
         <div class="progress-indicator known" *ngIf="isCurrentWordKnown">
           ✅ Previously marked as known
         </div>
         <div class="progress-indicator unknown" *ngIf="isCurrentWordUnknown">
           ❌ Previously marked as unknown
+        </div>
+        <div class="progress-indicator practice" *ngIf="isCurrentWordForPracticeAgain">
+          🔄 Previously marked for practice
         </div>
       </div>
     </div>
@@ -82,6 +93,11 @@
       <button class="action-btn know-btn" (click)="onKnowIt()">
         <span class="btn-icon">✅</span>
         <span class="btn-text">I know it</span>
+      </button>
+      
+      <button class="action-btn practice-btn" (click)="onPracticeAgain()">
+        <span class="btn-icon">🔄</span>
+        <span class="btn-text">Practice again</span>
       </button>
       
       <button class="action-btn dont-know-btn" (click)="onDontKnowIt()">

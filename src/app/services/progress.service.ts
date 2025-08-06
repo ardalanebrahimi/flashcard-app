@@ -12,6 +12,7 @@ export interface WordProgress {
 export interface StudySession {
   knownCount: number;
   unknownCount: number;
+  practiceAgainCount: number;
   totalWordsStudied: number;
   sessionDate: Date;
 }
@@ -22,14 +23,17 @@ export interface StudySession {
 export class ProgressService {
   private readonly KNOWN_WORDS_KEY = 'known_words';
   private readonly UNKNOWN_WORDS_KEY = 'unknown_words';
+  private readonly PRACTICE_AGAIN_WORDS_KEY = 'practice_again_words';
   private readonly STUDY_SESSIONS_KEY = 'study_sessions';
   private readonly CURRENT_SESSION_KEY = 'current_session';
 
   private knownWords: Set<string> = new Set();
   private unknownWords: Set<string> = new Set();
+  private practiceAgainWords: Set<string> = new Set();
   private currentSession: StudySession = {
     knownCount: 0,
     unknownCount: 0,
+    practiceAgainCount: 0,
     totalWordsStudied: 0,
     sessionDate: new Date()
   };
@@ -57,6 +61,13 @@ export class ProgressService {
         this.unknownWords = new Set(unknownWordsArray);
       }
 
+      // Load practice again words
+      const practiceAgainResult = await Preferences.get({ key: this.PRACTICE_AGAIN_WORDS_KEY });
+      if (practiceAgainResult.value) {
+        const practiceAgainWordsArray = JSON.parse(practiceAgainResult.value);
+        this.practiceAgainWords = new Set(practiceAgainWordsArray);
+      }
+
       // Load current session
       const sessionResult = await Preferences.get({ key: this.CURRENT_SESSION_KEY });
       if (sessionResult.value) {
@@ -72,7 +83,7 @@ export class ProgressService {
         }
       }
 
-      console.log(`Progress loaded: ${this.knownWords.size} known, ${this.unknownWords.size} unknown words`);
+      console.log(`Progress loaded: ${this.knownWords.size} known, ${this.unknownWords.size} unknown, ${this.practiceAgainWords.size} practice again words`);
     } catch (error) {
       console.error('Error loading progress:', error);
     }
@@ -82,8 +93,9 @@ export class ProgressService {
    * Mark a word as known
    */
   async markWordAsKnown(word: string): Promise<void> {
-    // Remove from unknown set if it exists there
+    // Remove from unknown and practice again sets if it exists there
     this.unknownWords.delete(word);
+    this.practiceAgainWords.delete(word);
     
     // Add to known set
     this.knownWords.add(word);
@@ -102,8 +114,9 @@ export class ProgressService {
    * Mark a word as unknown
    */
   async markWordAsUnknown(word: string): Promise<void> {
-    // Remove from known set if it exists there
+    // Remove from known and practice again sets if it exists there
     this.knownWords.delete(word);
+    this.practiceAgainWords.delete(word);
     
     // Add to unknown set
     this.unknownWords.add(word);
@@ -119,6 +132,27 @@ export class ProgressService {
   }
 
   /**
+   * Mark a word for practice again
+   */
+  async markWordForPracticeAgain(word: string): Promise<void> {
+    // Remove from known and unknown sets if it exists there
+    this.knownWords.delete(word);
+    this.unknownWords.delete(word);
+    
+    // Add to practice again set
+    this.practiceAgainWords.add(word);
+    
+    // Update current session
+    this.currentSession.practiceAgainCount++;
+    this.currentSession.totalWordsStudied++;
+    
+    // Save progress
+    await this.saveProgress();
+    
+    console.log(`Word "${word}" marked for practice again`);
+  }
+
+  /**
    * Check if a word is known
    */
   isWordKnown(word: string): boolean {
@@ -130,6 +164,13 @@ export class ProgressService {
    */
   isWordUnknown(word: string): boolean {
     return this.unknownWords.has(word);
+  }
+
+  /**
+   * Check if a word is marked for practice again
+   */
+  isWordForPracticeAgain(word: string): boolean {
+    return this.practiceAgainWords.has(word);
   }
 
   /**
@@ -154,6 +195,13 @@ export class ProgressService {
   }
 
   /**
+   * Get practice again words count
+   */
+  getPracticeAgainWordsCount(): number {
+    return this.practiceAgainWords.size;
+  }
+
+  /**
    * Get all known words
    */
   getKnownWords(): string[] {
@@ -168,6 +216,13 @@ export class ProgressService {
   }
 
   /**
+   * Get all practice again words
+   */
+  getPracticeAgainWords(): string[] {
+    return Array.from(this.practiceAgainWords);
+  }
+
+  /**
    * Calculate success rate for current session
    */
   getCurrentSessionSuccessRate(): number {
@@ -179,7 +234,7 @@ export class ProgressService {
    * Calculate overall success rate
    */
   getOverallSuccessRate(): number {
-    const totalWords = this.knownWords.size + this.unknownWords.size;
+    const totalWords = this.knownWords.size + this.unknownWords.size + this.practiceAgainWords.size;
     if (totalWords === 0) return 0;
     return Math.round((this.knownWords.size / totalWords) * 100);
   }
@@ -191,6 +246,7 @@ export class ProgressService {
     this.currentSession = {
       knownCount: 0,
       unknownCount: 0,
+      practiceAgainCount: 0,
       totalWordsStudied: 0,
       sessionDate: new Date()
     };
@@ -205,6 +261,7 @@ export class ProgressService {
   async clearAllProgress(): Promise<void> {
     this.knownWords.clear();
     this.unknownWords.clear();
+    this.practiceAgainWords.clear();
     
     await this.resetCurrentSession();
     await this.saveProgress();
@@ -240,6 +297,12 @@ export class ProgressService {
       await Preferences.set({
         key: this.UNKNOWN_WORDS_KEY,
         value: JSON.stringify(Array.from(this.unknownWords))
+      });
+
+      // Save practice again words
+      await Preferences.set({
+        key: this.PRACTICE_AGAIN_WORDS_KEY,
+        value: JSON.stringify(Array.from(this.practiceAgainWords))
       });
 
       // Save current session
@@ -332,6 +395,7 @@ export class ProgressService {
     const data = {
       knownWords: Array.from(this.knownWords),
       unknownWords: Array.from(this.unknownWords),
+      practiceAgainWords: Array.from(this.practiceAgainWords),
       currentSession: this.currentSession,
       sessionHistory: await this.getSessionHistory(),
       exportDate: new Date().toISOString()
@@ -349,6 +413,7 @@ export class ProgressService {
       
       this.knownWords = new Set(data.knownWords || []);
       this.unknownWords = new Set(data.unknownWords || []);
+      this.practiceAgainWords = new Set(data.practiceAgainWords || []);
       
       if (data.currentSession) {
         this.currentSession = {
