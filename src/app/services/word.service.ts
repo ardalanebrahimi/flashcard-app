@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, firstValueFrom } from 'rxjs';
+import { BehaviorSubject, Observable, firstValueFrom, combineLatest } from 'rxjs';
 import { Word } from '../models/word.model';
+import { DictionaryService } from './dictionary.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,12 @@ export class WordService {
   private wordsLoadedSubject = new BehaviorSubject<boolean>(false);
   public wordsLoaded$ = this.wordsLoadedSubject.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private dictionaryService: DictionaryService
+  ) {
     this.loadWords();
+    this.setupCustomWordsListener();
   }
 
   /**
@@ -33,15 +38,8 @@ export class WordService {
       );
       
       this.words = words;
-      this.shuffledWords = [...words];
-      this.shuffle();
+      this.updateShuffledWords();
       this.wordsLoadedSubject.next(true);
-      
-      // Set the first word as current
-      if (this.shuffledWords.length > 0) {
-        this.currentWordSubject.next(this.shuffledWords[0]);
-        this.currentWordIndex = 0;
-      }
       
       console.log(`Loaded ${this.words.length} words from assets/words.json`);
     } catch (error) {
@@ -51,17 +49,44 @@ export class WordService {
   }
 
   /**
+   * Setup listener for custom words changes
+   */
+  private setupCustomWordsListener(): void {
+    this.dictionaryService.customWords$.subscribe(() => {
+      this.updateShuffledWords();
+    });
+  }
+
+  /**
+   * Update shuffled words with both original and custom words
+   */
+  private updateShuffledWords(): void {
+    const customWords = this.dictionaryService.getCustomWords();
+    const allWords = [...this.words, ...customWords];
+    
+    this.shuffledWords = [...allWords];
+    this.shuffle();
+    
+    // Set the first word as current
+    if (this.shuffledWords.length > 0) {
+      this.currentWordSubject.next(this.shuffledWords[0]);
+      this.currentWordIndex = 0;
+    }
+  }
+
+  /**
    * Shuffle the words array using Fisher-Yates algorithm
    */
   shuffle(): void {
-    const array = [...this.words];
+    const customWords = this.dictionaryService.getCustomWords();
+    const allWords = [...this.words, ...customWords];
     
-    for (let i = array.length - 1; i > 0; i--) {
+    for (let i = allWords.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+      [allWords[i], allWords[j]] = [allWords[j], allWords[i]];
     }
     
-    this.shuffledWords = array;
+    this.shuffledWords = allWords;
     this.currentWordIndex = 0;
     
     // Update current word after shuffle
@@ -154,9 +179,17 @@ export class WordService {
   }
 
   /**
-   * Get total number of words
+   * Get total number of words (including custom words)
    */
   getTotalWordsCount(): number {
+    const customWords = this.dictionaryService.getCustomWords();
+    return this.words.length + customWords.length;
+  }
+
+  /**
+   * Get total number of original words only
+   */
+  getOriginalWordsCount(): number {
     return this.words.length;
   }
 

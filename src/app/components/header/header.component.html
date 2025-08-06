@@ -1,0 +1,18 @@
+<header class="app-header">
+  <div class="header-content">
+    <h1 class="app-title">German Flashcards</h1>
+    
+    <nav class="header-nav">
+      <button 
+        class="btn btn-add-word" 
+        (click)="openAddWordDialog()"
+        title="Add new word to dictionary">
+        <span class="btn-icon">+</span>
+        <span class="btn-text">Add Word</span>
+      </button>
+    </nav>
+  </div>
+  
+  <!-- Add Word Dialog Component -->
+  <app-add-word></app-add-word>
+</header>

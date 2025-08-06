@@ -1,0 +1,95 @@
+.app-header {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-add-word {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-add-word:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-add-word:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.btn-text {
+  line-height: 1;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 1rem 1rem;
+  }
+  
+  .app-title {
+    font-size: 1.25rem;
+  }
+  
+  .btn-text {
+    display: none;
+  }
+  
+  .btn-add-word {
+    padding: 8px 12px;
+    min-width: 40px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0.75rem 1rem;
+  }
+  
+  .app-title {
+    font-size: 1.1rem;
+  }
+}

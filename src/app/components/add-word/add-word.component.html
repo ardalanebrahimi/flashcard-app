@@ -1,0 +1,39 @@
+<div class="add-word-overlay" *ngIf="isVisible" (click)="close()">
+  <div class="add-word-dialog" (click)="$event.stopPropagation()">
+    <div class="dialog-header">
+      <h3>Add New Word</h3>
+      <button class="close-btn" (click)="close()" aria-label="Close">×</button>
+    </div>
+    
+    <div class="dialog-content">
+      <div class="input-group">
+        <label for="word-input">German Word:</label>
+        <input 
+          id="word-input"
+          type="text" 
+          [(ngModel)]="wordInput" 
+          (keydown)="onKeyDown($event)"
+          [disabled]="isLoading"
+          placeholder="Enter German word..."
+          class="word-input">
+      </div>
+      
+      <div class="dialog-actions">
+        <button 
+          class="btn btn-primary" 
+          (click)="onAddWord()" 
+          [disabled]="isLoading || !wordInput.trim()">
+          <span *ngIf="isLoading" class="loading-spinner"></span>
+          {{ isLoading ? 'Translating...' : 'Add Word' }}
+        </button>
+        <button class="btn btn-secondary" (click)="close()" [disabled]="isLoading">
+          Cancel
+        </button>
+      </div>
+      
+      <div class="message" *ngIf="message" [class]="'message-' + messageType">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+</div>
