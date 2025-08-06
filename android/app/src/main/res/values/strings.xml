@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">German Flashcard</string>
+    <string name="title_activity_main">German Flashcard</string>
+    <string name="package_name">com.example.germanflashcard</string>
+    <string name="custom_url_scheme">com.example.germanflashcard</string>
+</resources>
