@@ -81,7 +81,7 @@
       <div class="german-word">{{ currentWord.word }}</div>
       
       <!-- Progress indicators -->
-      <div class="word-progress" *ngIf="isCurrentWordKnown || isCurrentWordUnknown || isCurrentWordForPracticeAgain">
+      <div class="word-progress" *ngIf="isCurrentWordKnown || isCurrentWordUnknown || isCurrentWordForPracticeAgain || currentWordScore > 0">
         <div class="progress-indicator known" *ngIf="isCurrentWordKnown">
           ✅ Previously marked as known
         </div>
@@ -90,6 +90,9 @@
         </div>
         <div class="progress-indicator practice" *ngIf="isCurrentWordForPracticeAgain">
           🔄 Previously marked for practice
+        </div>
+        <div class="progress-indicator score" *ngIf="currentWord && currentWord.lastResults && currentWord.lastResults.length > 0">
+          🎯 Score: {{ currentWordScoreText }}
         </div>
       </div>
     </div>
@@ -115,11 +118,11 @@
     <!-- Bookmark section (separate from main actions) -->
     <div *ngIf="showMeaning" class="bookmark-section">
       <button class="bookmark-btn" 
-              [class.bookmarked]="currentWord?.bookmarked"
+              [class.bookmarked]="currentWord.bookmarked"
               (click)="onToggleBookmark()"
-              title="{{ currentWord?.bookmarked ? 'Remove bookmark' : 'Add bookmark' }}">
-        <span class="btn-icon">{{ currentWord?.bookmarked ? '⭐' : '☆' }}</span>
-        <span class="btn-text">{{ currentWord?.bookmarked ? 'Bookmarked' : 'Bookmark' }}</span>
+              title="{{ currentWord.bookmarked ? 'Remove bookmark' : 'Add bookmark' }}">
+        <span class="btn-icon">{{ currentWord.bookmarked ? '⭐' : '☆' }}</span>
+        <span class="btn-text">{{ currentWord.bookmarked ? 'Bookmarked' : 'Bookmark' }}</span>
       </button>
     </div>
 

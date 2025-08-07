@@ -10,9 +10,9 @@ import { DictionaryService } from './dictionary.service';
 })
 export class WordService {
   private words: Word[] = [];
-  private currentWordIndex = 0;
   private shuffledWords: Word[] = [];
   private bookmarkedWords: Set<string> = new Set();
+  private wordResults: Map<string, ("correct" | "wrong")[]> = new Map();
 
   // BehaviorSubject to notify components of the current word
   private currentWordSubject = new BehaviorSubject<Word | null>(null);
@@ -43,7 +43,8 @@ export class WordService {
   private async initializeService(): Promise<void> {
     await Promise.all([
       this.loadWords(),
-      this.loadBookmarkedWords()
+      this.loadBookmarkedWords(),
+      this.loadWordResults()
     ]);
     this.setupCustomWordsListener();
   }
@@ -67,6 +68,22 @@ export class WordService {
   }
 
   /**
+   * Load word results from storage
+   */
+  private async loadWordResults(): Promise<void> {
+    try {
+      const { value } = await Preferences.get({ key: 'word-results' });
+      if (value) {
+        const resultsData = JSON.parse(value) as Record<string, ("correct" | "wrong")[]>;
+        this.wordResults = new Map(Object.entries(resultsData));
+      }
+      console.log(`Loaded results for ${this.wordResults.size} words`);
+    } catch (error) {
+      console.error('Error loading word results:', error);
+    }
+  }
+
+  /**
    * Save bookmarked words to storage
    */
   private async saveBookmarkedWords(): Promise<void> {
@@ -78,6 +95,21 @@ export class WordService {
       });
     } catch (error) {
       console.error('Error saving bookmarked words:', error);
+    }
+  }
+
+  /**
+   * Save word results to storage
+   */
+  private async saveWordResults(): Promise<void> {
+    try {
+      const resultsObject = Object.fromEntries(this.wordResults);
+      await Preferences.set({
+        key: 'word-results',
+        value: JSON.stringify(resultsObject)
+      });
+    } catch (error) {
+      console.error('Error saving word results:', error);
     }
   }
 
@@ -97,13 +129,6 @@ export class WordService {
     
     this.bookmarkedWordsSubject.next(this.bookmarkedWords);
     await this.saveBookmarkedWords();
-  }
-
-  /**
-   * Check if a word is bookmarked
-   */
-  isWordBookmarked(wordText: string): boolean {
-    return this.bookmarkedWords.has(wordText);
   }
 
   /**
@@ -166,9 +191,10 @@ export class WordService {
     const customWords = this.dictionaryService.getCustomWords();
     const allWords = [...this.words, ...customWords];
     
-    // Set bookmark status for all words
+    // Set bookmark status and load results for all words
     allWords.forEach(word => {
       word.bookmarked = this.bookmarkedWords.has(word.word);
+      word.lastResults = this.wordResults.get(word.word) || [];
     });
     
     this.shuffledWords = [...allWords];
@@ -177,7 +203,6 @@ export class WordService {
     // Set the first word as current
     if (this.shuffledWords.length > 0) {
       this.currentWordSubject.next(this.shuffledWords[0]);
-      this.currentWordIndex = 0;
     }
   }
 
@@ -188,9 +213,10 @@ export class WordService {
     const customWords = this.dictionaryService.getCustomWords();
     const allWords = [...this.words, ...customWords];
     
-    // Set bookmark status for all words
+    // Set bookmark status and load results for all words
     allWords.forEach(word => {
       word.bookmarked = this.bookmarkedWords.has(word.word);
+      word.lastResults = this.wordResults.get(word.word) || [];
     });
     
     for (let i = allWords.length - 1; i > 0; i--) {
@@ -199,7 +225,6 @@ export class WordService {
     }
     
     this.shuffledWords = allWords;
-    this.currentWordIndex = 0;
     
     // Update current word after shuffle
     if (this.shuffledWords.length > 0) {
@@ -210,110 +235,58 @@ export class WordService {
   }
 
   /**
-   * Get the next word in the shuffled list
-   */
-  getNextWord(): Word | null {
-    if (this.shuffledWords.length === 0) {
-      console.warn('No words available');
-      return null;
-    }
-
-    // Move to next word
-    this.currentWordIndex = (this.currentWordIndex + 1) % this.shuffledWords.length;
-    const nextWord = this.shuffledWords[this.currentWordIndex];
-    
-    // Update the BehaviorSubject
-    this.currentWordSubject.next(nextWord);
-    
-    return nextWord;
-  }
-
-  /**
-   * Get the current word without advancing
-   */
-  getCurrentWord(): Word | null {
-    if (this.shuffledWords.length === 0) {
-      return null;
-    }
-    return this.shuffledWords[this.currentWordIndex];
-  }
-
-  /**
-   * Reset progress to the beginning of the shuffled list
-   */
-  resetProgress(): void {
-    this.currentWordIndex = 0;
-    
-    if (this.shuffledWords.length > 0) {
-      this.currentWordSubject.next(this.shuffledWords[0]);
-    }
-    
-    console.log('Progress reset to beginning');
-  }
-
-  /**
    * Get all words (original order) with bookmark status
    */
   getAllWords(): Word[] {
     const wordsWithBookmarks = [...this.words];
     wordsWithBookmarks.forEach(word => {
       word.bookmarked = this.bookmarkedWords.has(word.word);
+      word.lastResults = this.wordResults.get(word.word) || [];
     });
     return wordsWithBookmarks;
   }
 
   /**
-   * Get shuffled words in current order
+   * Update results for a word and save progress
    */
-  getShuffledWords(): Word[] {
-    return [...this.shuffledWords];
+  async updateResults(word: Word, result: "correct" | "wrong"): Promise<void> {
+    // Get current results from storage or initialize
+    let currentResults = this.wordResults.get(word.word) || [];
+    
+    // Push the new result
+    currentResults.push(result);
+    
+    // Keep only the last 3 entries
+    if (currentResults.length > 3) {
+      currentResults = currentResults.slice(-3);
+    }
+    
+    // Update in memory storage
+    this.wordResults.set(word.word, currentResults);
+    
+    // Update the word object
+    word.lastResults = currentResults;
+    
+    // Save to persistent storage
+    await this.saveWordResults();
+    
+    console.log(`Updated results for "${word.word}": ${currentResults.join(', ')}`);
   }
 
   /**
-   * Get current progress (current word index out of total)
+   * Calculate score for a word based on last 3 results
    */
-  getProgress(): { current: number; total: number } {
-    return {
-      current: this.currentWordIndex + 1,
-      total: this.shuffledWords.length
-    };
+  calculateScore(word: Word): number {
+    // Get the most up-to-date results
+    const results = this.wordResults.get(word.word) || word.lastResults || [];
+    
+    if (results.length === 0) {
+      return 0;
+    }
+    
+    // Count how many of the last 3 entries are "correct"
+    const correctCount = results.filter(result => result === "correct").length;
+    return correctCount;
   }
 
-  /**
-   * Check if there are more words after current one
-   */
-  hasNext(): boolean {
-    return this.shuffledWords.length > 0 && 
-           this.currentWordIndex < this.shuffledWords.length - 1;
-  }
-
-  /**
-   * Check if we're at the beginning
-   */
-  isAtBeginning(): boolean {
-    return this.currentWordIndex === 0;
-  }
-
-  /**
-   * Get total number of words (including custom words)
-   */
-  getTotalWordsCount(): number {
-    const customWords = this.dictionaryService.getCustomWords();
-    return this.words.length + customWords.length;
-  }
-
-  /**
-   * Get total number of original words only
-   */
-  getOriginalWordsCount(): number {
-    return this.words.length;
-  }
-
-  /**
-   * Reload words from the JSON file
-   */
-  async reloadWords(): Promise<void> {
-    this.wordsLoadedSubject.next(false);
-    await this.loadWords();
-  }
 }

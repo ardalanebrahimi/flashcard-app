@@ -99,6 +99,9 @@ export class FlashcardComponent implements OnInit, OnDestroy {
 
   async onKnowIt() {
     if (this.currentWord && this.sessionProgress && !this.sessionComplete) {
+      // Update scoring system
+      await this.wordService.updateResults(this.currentWord, "correct");
+      
       // Update progress services
       await this.progressService.markWordAsKnown(this.currentWord.word);
       
@@ -113,6 +116,9 @@ export class FlashcardComponent implements OnInit, OnDestroy {
 
   async onDontKnowIt() {
     if (this.currentWord && this.sessionProgress && !this.sessionComplete) {
+      // Update scoring system
+      await this.wordService.updateResults(this.currentWord, "wrong");
+      
       // Update progress services
       await this.progressService.markWordAsUnknown(this.currentWord.word);
       
@@ -122,20 +128,6 @@ export class FlashcardComponent implements OnInit, OnDestroy {
       
       // Update session progress
       await this.sessionService.updateSessionProgress(false, false);
-    }
-  }
-
-  async onPracticeAgain() {
-    if (this.currentWord && this.sessionProgress && !this.sessionComplete) {
-      // Update progress services
-      await this.progressService.markWordForPracticeAgain(this.currentWord.word);
-      
-      // Track in word tracking service
-      const source = this.isCustomWord(this.currentWord) ? 'custom' : 'dictionary';
-      await this.wordTrackingService.recordPractice(this.currentWord, false, source);
-      
-      // Update session progress
-      await this.sessionService.updateSessionProgress(false, true);
     }
   }
 
@@ -237,11 +229,15 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     return this.currentWord ? this.progressService.isWordForPracticeAgain(this.currentWord.word) : false;
   }
 
-  async onClearAllProgress() {
-    if (confirm('Are you sure you want to clear all progress? This cannot be undone.')) {
-      await this.progressService.clearAllProgress();
-      await this.sessionService.resetAllSessions();
-      await this.startNewSession();
-    }
+  get currentWordScore(): number {
+    return this.currentWord ? this.wordService.calculateScore(this.currentWord) : 0;
+  }
+
+  get currentWordScoreText(): string {
+    if (!this.currentWord) return '';
+    const score = this.currentWordScore;
+    const results = this.currentWord.lastResults || [];
+    if (results.length === 0) return 'No attempts yet';
+    return `${score}/3 correct (${results.join(', ')})`;
   }
 }
