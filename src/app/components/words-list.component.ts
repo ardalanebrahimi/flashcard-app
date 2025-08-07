@@ -195,13 +195,12 @@ export class WordsListComponent implements OnInit, OnDestroy {
   }
 
   onSortChange(sortBy: string): void {
-    if (this.filters.sortBy === sortBy) {
-      // Toggle direction if same sort
-      this.filters.sortDirection = this.filters.sortDirection === 'asc' ? 'desc' : 'asc';
-    } else {
-      this.filters.sortBy = sortBy as WordSortBy;
-      this.filters.sortDirection = 'asc';
-    }
+    this.filters.sortBy = sortBy as WordSortBy;
+    this.applyFilters();
+  }
+
+  toggleSortDirection(): void {
+    this.filters.sortDirection = this.filters.sortDirection === 'asc' ? 'desc' : 'asc';
     this.applyFilters();
   }
 

@@ -84,65 +84,70 @@
         </div>
 
         <div class="filter-row">
-        <div class="filter-group">
-          <label class="filter-label">Status:</label>
-          <select 
-            class="filter-select"
-            [value]="filters.status"
-            (change)="onStatusFilterChange($any($event.target).value)"
-          >
-            <option value="all">All Status</option>
-            <option value="new">New</option>
-            <option value="learning">Learning</option>
-            <option value="mastered">Mastered</option>
-          </select>
-        </div>
+          <div class="filter-group">
+            <label class="filter-label">Status:</label>
+            <select 
+              class="filter-select"
+              [value]="filters.status"
+              (change)="onStatusFilterChange($any($event.target).value)"
+            >
+              <option value="all">All Status</option>
+              <option value="new">New</option>
+              <option value="learning">Learning</option>
+              <option value="mastered">Mastered</option>
+            </select>
+          </div>
 
-        <div class="filter-group">
-          <label class="filter-label">Source:</label>
-          <select 
-            class="filter-select"
-            [value]="filters.source"
-            (change)="onSourceFilterChange($any($event.target).value)"
-          >
-            <option value="all">All Sources</option>
-            <option value="dictionary">Dictionary</option>
-            <option value="custom">Custom</option>
-          </select>
-        </div>
+          <div class="filter-group">
+            <label class="filter-label">Source:</label>
+            <select 
+              class="filter-select"
+              [value]="filters.source"
+              (change)="onSourceFilterChange($any($event.target).value)"
+            >
+              <option value="all">All Sources</option>
+              <option value="dictionary">Dictionary</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
 
-        <button class="clear-filters-btn" (click)="clearFilters()">
-          Clear Filters
-        </button>
-      </div>
+          <button class="clear-filters-btn" (click)="clearFilters()">
+            Clear Filters
+          </button>
+        </div>
       </div>
     </div>
 
-    <!-- Sort Controls -->
-    <div class="sort-controls">
-      <span class="sort-label">Sort by:</span>
-      <button 
-        *ngFor="let sortOption of [
-          {key: 'alphabetical', label: 'A-Z'},
-          {key: 'lastStudied', label: 'Last Studied'},
-          {key: 'practiceCount', label: 'Practice Count'},
-          {key: 'accuracy', label: 'Accuracy'},
-          {key: 'dateAdded', label: 'Date Added'}
-        ]"
-        class="sort-button"
-        [class.active]="filters.sortBy === sortOption.key"
-        (click)="onSortChange(sortOption.key)"
-      >
-        {{ sortOption.label }}
-        <span 
-          *ngIf="filters.sortBy === sortOption.key"
-          class="sort-direction"
+    <!-- Sort Controls - Compact -->
+    <div class="sort-controls-compact">
+      <div class="sort-group">
+        <label class="sort-label">
+          <svg class="sort-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 6h18M7 12h10m-7 6h4"/>
+          </svg>
+          Sort:
+        </label>
+        <select 
+          class="sort-select"
+          [value]="filters.sortBy"
+          (change)="onSortChange($any($event.target).value)"
         >
-          {{ filters.sortDirection === 'asc' ? '↑' : '↓' }}
-        </span>
+          <option value="alphabetical">A-Z</option>
+          <option value="lastStudied">Last Studied</option>
+          <option value="practiceCount">Practice Count</option>
+          <option value="accuracy">Accuracy</option>
+          <option value="dateAdded">Date Added</option>
+        </select>
+      </div>
+      <button 
+        class="sort-direction-btn"
+        (click)="toggleSortDirection()"
+        [title]="'Sort ' + (filters.sortDirection === 'asc' ? 'ascending' : 'descending')"
+      >
+        {{ filters.sortDirection === 'asc' ? '↑' : '↓' }}
       </button>
     </div>
-
+ 
     <!-- Results Info -->
     <div class="results-info">
       <span>{{ filteredWords.length }} words found</span>
