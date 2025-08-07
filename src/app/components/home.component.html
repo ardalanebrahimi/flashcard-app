@@ -62,29 +62,24 @@
   <div class="progress-section" *ngIf="hasAnyProgress">
     <h2>Your Progress</h2>
     
-    <!-- Condensed Overall Progress -->
+    <!-- Updated Progress Display -->
     <div class="condensed-progress">
       <div class="progress-item">
-        <span class="progress-label">Known:</span>
-        <span class="progress-value known">{{ overallKnownCount }}</span>
+        <span class="progress-label">Learned:</span>
+        <span class="progress-value learned">{{ learnedWordsCount }} ({{ learnedPercentage }}%)</span>
       </div>
       <div class="progress-item">
-        <span class="progress-label">To Review:</span>
-        <span class="progress-value unknown">{{ overallUnknownCount }}</span>
-      </div>
-      <div class="progress-item">
-        <span class="progress-label">Success Rate:</span>
-        <span class="progress-value success">{{ overallSuccessRate }}%</span>
+        <span class="progress-label">Studied:</span>
+        <span class="progress-value studied">{{ studiedWordsCount }} ({{ studiedPercentage }}%)</span>
       </div>
     </div>
 
-    <!-- Condensed Today's Session -->
+    <!-- Updated Recent Activity -->
     <div class="today-session" *ngIf="currentSessionStats.totalWordsStudied > 0">
       <div class="session-header">Recent Activity</div>
       <div class="session-stats">
-        <span class="session-stat known">{{ currentSessionStats.knownCount }} known</span>
-        <span class="session-stat unknown">{{ currentSessionStats.unknownCount }} unknown</span>
-        <span class="session-stat">{{ currentSessionStats.totalWordsStudied }} studied</span>
+        <span class="session-stat learned">{{ currentSessionStats.learnedCount }} learned</span>
+        <span class="session-stat total">{{ currentSessionStats.studiedCount }} studied</span>
       </div>
     </div>
   </div>
@@ -93,6 +88,6 @@
   <div class="no-progress" *ngIf="!hasAnyProgress">
     <div class="no-progress-icon">📚</div>
     <h3>Ready to start your German learning journey?</h3>
-    <p>Click "Start Learning" to begin studying B1 German vocabulary with interactive flashcards.</p>
+    <p>Click "Start Session" to begin studying B1 German vocabulary with interactive flashcards.</p>
   </div>
 </div>

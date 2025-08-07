@@ -358,6 +358,56 @@ export class WordService {
   }
 
   /**
+   * Get count of learned words (score = 3)
+   */
+  getLearnedWordsCount(): number {
+    const allWords = this.getAllWords();
+    return allWords.filter(word => this.calculateScore(word) === 3).length;
+  }
+
+  /**
+   * Get count of studied words (score > 0)
+   */
+  getStudiedWordsCount(): number {
+    const allWords = this.getAllWords();
+    return allWords.filter(word => this.calculateScore(word) > 0).length;
+  }
+
+  /**
+   * Get percentage of learned words
+   */
+  getLearnedPercentage(): number {
+    const allWords = this.getAllWords();
+    if (allWords.length === 0) return 0;
+    return Math.round((this.getLearnedWordsCount() / allWords.length) * 100);
+  }
+
+  /**
+   * Get percentage of studied words
+   */
+  getStudiedPercentage(): number {
+    const allWords = this.getAllWords();
+    if (allWords.length === 0) return 0;
+    return Math.round((this.getStudiedWordsCount() / allWords.length) * 100);
+  }
+
+  /**
+   * Get learned words (score = 3)
+   */
+  getLearnedWords(): Word[] {
+    const allWords = this.getAllWords();
+    return allWords.filter(word => this.calculateScore(word) === 3);
+  }
+
+  /**
+   * Get studied words (score > 0)
+   */
+  getStudiedWords(): Word[] {
+    const allWords = this.getAllWords();
+    return allWords.filter(word => this.calculateScore(word) > 0);
+  }
+
+  /**
    * Clear all word results
    */
   async clearAllWordResults(): Promise<void> {

@@ -69,24 +69,50 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   // Progress getters for template
-  get overallKnownCount(): number {
-    return this.progressService.getKnownWordsCount();
+  get learnedWordsCount(): number {
+    return this.wordService.getLearnedWordsCount();
   }
 
-  get overallUnknownCount(): number {
-    return this.progressService.getUnknownWordsCount();
+  get learnedPercentage(): number {
+    return this.wordService.getLearnedPercentage();
   }
 
-  get overallSuccessRate(): number {
-    return this.progressService.getOverallSuccessRate();
+  get studiedWordsCount(): number {
+    return this.wordService.getStudiedWordsCount();
+  }
+
+  get studiedPercentage(): number {
+    return this.wordService.getStudiedPercentage();
   }
 
   get currentSessionStats() {
-    return this.progressService.getCurrentSession();
+    // Get actual session stats from recent activity
+    const stats = this.progressService.getCurrentSession();
+    return {
+      ...stats,
+      learnedCount: this.getSessionLearnedCount(),
+      studiedCount: this.getSessionStudiedCount()
+    };
   }
 
   get hasAnyProgress(): boolean {
-    return this.overallKnownCount > 0 || this.overallUnknownCount > 0;
+    return this.studiedWordsCount > 0;
+  }
+
+  /**
+   * Get count of words learned in current session (simplified for now)
+   */
+  private getSessionLearnedCount(): number {
+    // For now, use the known count from current session
+    // This could be enhanced to track actual learned words in session
+    return this.progressService.getCurrentSession().knownCount;
+  }
+
+  /**
+   * Get count of words studied in current session
+   */
+  private getSessionStudiedCount(): number {
+    return this.progressService.getCurrentSession().totalWordsStudied;
   }
 
   // Session configuration methods
