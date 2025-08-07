@@ -415,11 +415,58 @@
 /* Action buttons */
 .action-buttons {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   margin-top: 12px;
   /* Ensure buttons stay within the card */
   width: 100%;
   box-sizing: border-box;
+}
+
+/* Bookmark section */
+.bookmark-section {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 8px 0;
+}
+
+.bookmark-btn {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.3);
+}
+
+.bookmark-btn:hover {
+  background: #4b5563;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);
+}
+
+.bookmark-btn.bookmarked {
+  background: #fbbf24;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
+}
+
+.bookmark-btn.bookmarked:hover {
+  background: #f59e0b;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+}
+
+.bookmark-btn .btn-icon {
+  font-size: 1.1rem;
+}
+
+.bookmark-btn .btn-text {
+  font-size: 0.85rem;
 }
 
 .action-btn {
@@ -539,6 +586,19 @@
     gap: 6px;
     /* Ensure buttons don't overlap with navigation bar */
     margin-bottom: max(6px, env(safe-area-inset-bottom, 16px));
+  }
+
+  .bookmark-section {
+    margin: 12px 0 6px 0;
+  }
+
+  .bookmark-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .bookmark-btn .btn-text {
+    font-size: 0.8rem;
   }
 
   .action-btn {

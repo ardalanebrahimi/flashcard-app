@@ -17,10 +17,17 @@
       <span class="btn-text">Session Settings</span>
     </button>
     
-    <button class="secondary-btn" routerLink="/words">
-      <span class="btn-icon">📊</span>
-      <span class="btn-text">View Progress</span>
-    </button>
+    <div class="secondary-actions">
+      <button class="secondary-btn" routerLink="/words">
+        <span class="btn-icon">📊</span>
+        <span class="btn-text">View Progress</span>
+      </button>
+      
+      <button class="secondary-btn" routerLink="/bookmarks">
+        <span class="btn-icon">⭐</span>
+        <span class="btn-text">Bookmarks ({{ bookmarkedWordsCount }})</span>
+      </button>
+    </div>
   </div>
 
   <!-- Session Settings Panel -->

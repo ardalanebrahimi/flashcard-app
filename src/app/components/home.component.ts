@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Subscription, combineLatest } from 'rxjs';
 import { ProgressService } from '../services/progress.service';
 import { SessionService, SessionConfig } from '../services/session.service';
+import { WordService } from '../services/word.service';
 
 @Component({
   selector: 'app-home',
@@ -12,21 +14,58 @@ import { SessionService, SessionConfig } from '../services/session.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   sessionConfig: SessionConfig = { cardsPerSession: 20, sessionType: 'mixed' };
   showSessionSettings = false;
+  bookmarkedWordsCount = 0;
+  
+  private subscription = new Subscription();
   
   constructor(
     private progressService: ProgressService,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private wordService: WordService
   ) {}
 
   ngOnInit() {
     this.loadSessionConfig();
+    
+    // Initialize bookmark count to 0
+    this.bookmarkedWordsCount = 0;
+    
+    // Wait for both words and bookmarks to be loaded
+    this.subscription.add(
+      combineLatest([
+        this.wordService.wordsLoaded$,
+        this.wordService.bookmarksLoaded$
+      ]).subscribe(([wordsLoaded, bookmarksLoaded]: [boolean, boolean]) => {
+        if (wordsLoaded && bookmarksLoaded) {
+          this.updateBookmarkedWordsCount();
+        }
+      })
+    );
+    
+    // Subscribe to bookmark changes (after initial load)
+    this.subscription.add(
+      this.wordService.bookmarkedWords$.subscribe(() => {
+        // Only update if both words and bookmarks are already loaded
+        if (this.bookmarkedWordsCount >= 0) {
+          this.updateBookmarkedWordsCount();
+        }
+      })
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   private async loadSessionConfig() {
     this.sessionConfig = this.sessionService.getSessionConfig();
+  }
+
+  private updateBookmarkedWordsCount() {
+    this.bookmarkedWordsCount = this.wordService.getBookmarkedWordsCount();
   }
 
   // Progress getters for template

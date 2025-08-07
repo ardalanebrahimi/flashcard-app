@@ -112,16 +112,22 @@
       </div>
     </div>
 
+    <!-- Bookmark section (separate from main actions) -->
+    <div *ngIf="showMeaning" class="bookmark-section">
+      <button class="bookmark-btn" 
+              [class.bookmarked]="currentWord?.bookmarked"
+              (click)="onToggleBookmark()"
+              title="{{ currentWord?.bookmarked ? 'Remove bookmark' : 'Add bookmark' }}">
+        <span class="btn-icon">{{ currentWord?.bookmarked ? '⭐' : '☆' }}</span>
+        <span class="btn-text">{{ currentWord?.bookmarked ? 'Bookmarked' : 'Bookmark' }}</span>
+      </button>
+    </div>
+
     <!-- Action buttons (only visible when meaning is shown) -->
     <div *ngIf="showMeaning" class="action-buttons">
       <button class="action-btn know-btn" (click)="onKnowIt()">
         <span class="btn-icon">✅</span>
         <span class="btn-text">I know it</span>
-      </button>
-      
-      <button class="action-btn practice-btn" (click)="onPracticeAgain()">
-        <span class="btn-icon">🔄</span>
-        <span class="btn-text">Practice again</span>
       </button>
       
       <button class="action-btn dont-know-btn" (click)="onDontKnowIt()">

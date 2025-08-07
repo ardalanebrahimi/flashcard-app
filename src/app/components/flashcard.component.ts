@@ -139,6 +139,12 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     }
   }
 
+  async onToggleBookmark() {
+    if (this.currentWord) {
+      await this.wordService.toggleBookmark(this.currentWord);
+    }
+  }
+
   private isCustomWord(word: Word): boolean {
     const customWords = this.dictionaryService.getCustomWords();
     return customWords.some(cw => cw.word === word.word);

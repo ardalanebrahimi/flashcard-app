@@ -69,6 +69,40 @@
   transform: translateY(-1px);
 }
 
+.secondary-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 140px;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
 /* Progress Section */
 .progress-section {
   margin-bottom: 30px;
@@ -219,6 +253,17 @@
     padding: 18px 32px;
     font-size: 1.1rem;
     min-width: 180px;
+  }
+
+  .secondary-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .secondary-btn {
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    min-width: unset;
   }
 
   .progress-item {
