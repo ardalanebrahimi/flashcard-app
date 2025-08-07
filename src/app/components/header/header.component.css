@@ -2,9 +2,13 @@
   background-color: #007bff;
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  /* Remove sticky positioning to work better with constrained layout */
+  position: relative;
+  z-index: 1000;
+  /* Ensure header doesn't add extra height */
+  flex-shrink: 0;
+  /* Ensure solid background */
+  background: #007bff;
 }
 
 .header-content {
@@ -14,6 +18,9 @@
   padding: 1rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  /* Add safe area padding for landscape orientation */
+  padding-left: max(2rem, var(--safe-area-inset-left));
+  padding-right: max(2rem, var(--safe-area-inset-right));
 }
 
 .app-title {
@@ -67,6 +74,9 @@
 @media (max-width: 768px) {
   .header-content {
     padding: 1rem 1rem;
+    /* Ensure safe area padding on mobile */
+    padding-left: max(1rem, var(--safe-area-inset-left));
+    padding-right: max(1rem, var(--safe-area-inset-right));
   }
   
   .app-title {
@@ -87,6 +97,9 @@
 @media (max-width: 480px) {
   .header-content {
     padding: 0.75rem 1rem;
+    /* Maintain safe area padding on small screens */
+    padding-left: max(1rem, var(--safe-area-inset-left));
+    padding-right: max(1rem, var(--safe-area-inset-right));
   }
   
   .app-title {

@@ -1,7 +1,49 @@
-/* App component styles - minimal since FlashcardComponent handles its own styling */
+/* App component styles - constrained mobile layout */
 
 :host {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  /* Ensure we fill the entire viewport */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  /* Constrain to safe area boundaries */
+  padding-top: var(--safe-area-inset-top, 0);
+  padding-bottom: var(--safe-area-inset-bottom, 0);
+  padding-left: var(--safe-area-inset-left, 0);
+  padding-right: var(--safe-area-inset-right, 0);
+  box-sizing: border-box;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  /* Ensure content stays within bounds */
+  height: 0; /* Important: forces flex child to respect parent constraints */
+  /* Add some padding to prevent content from touching edges */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    /* On mobile, add extra padding for system bars with multiple fallbacks */
+    padding-top: max(var(--safe-area-inset-top, 0), 24px); /* Status bar height */
+    /* Use detected navigation bar height, fallback to safe area, then standard height */
+    padding-bottom: max(
+      var(--safe-area-inset-bottom, 0), 
+      var(--detected-nav-bar-height, 48px)
+    );
+  }
+  
+  .main-content {
+    /* Ensure scrollable content on mobile */
+    -webkit-overflow-scrolling: touch;
+  }
 }

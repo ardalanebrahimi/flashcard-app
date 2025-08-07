@@ -1,7 +1,12 @@
 .words-list-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  height: 100%; /* Use full height of parent container */
+  /* Remove background - let parent handle it */
   padding: 0;
+  /* Add bottom padding for safe scrolling */
+  padding-bottom: max(40px, var(--safe-area-inset-bottom, 0));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent container scroll */
 }
 
 /* Header */
@@ -12,9 +17,10 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  position: sticky;
-  top: 0;
+  /* Remove sticky positioning to work better with constrained layout */
+  position: relative;
   z-index: 10;
+  flex-shrink: 0; /* Don't shrink */
 }
 
 .back-button {
@@ -71,6 +77,10 @@
   padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  flex: 1; /* Take remaining space */
+  overflow-y: auto; /* Allow scrolling */
+  /* Add webkit scrolling for better mobile performance */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Statistics Grid */

@@ -1,9 +1,33 @@
 /* Global styles for German Flashcard App */
 
+:root {
+  /* Safe area environment variables for iOS notch and Android navigation */
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-right: env(safe-area-inset-right);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  --safe-area-inset-left: env(safe-area-inset-left);
+  
+  /* Fallback values for Android devices without safe-area support */
+  --status-bar-height: 24px;
+  --navigation-bar-height: 48px;
+  
+  /* Detect if device has navigation bar (Android specific) */
+  --android-nav-bar-height: 48px; /* Standard Android nav bar */
+  
+  /* Dynamic detection will override this */
+  --detected-nav-bar-height: 48px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  /* Prevent zoom on mobile */
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -11,11 +35,15 @@ body {
   margin: 0;
   padding: 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
+  height: 100vh;
+  /* Remove any default padding - let the app component handle layout */
+  overflow: hidden; /* Prevent body scroll, let main-content handle it */
 }
 
 html, body {
   height: 100%;
+  /* Prevent overscroll bounce on iOS */
+  overscroll-behavior: none;
 }
 
 /* Remove default button styles */

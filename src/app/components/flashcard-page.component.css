@@ -1,7 +1,9 @@
 .flashcard-page {
   width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  height: 100%; /* Use full height of parent container */
+  /* Remove background - let parent handle it */
+  display: flex;
+  flex-direction: column;
 }
 
 .page-header {
@@ -52,6 +54,8 @@
 app-flashcard {
   display: block;
   padding-top: 0;
+  flex: 1; /* Take remaining space */
+  overflow-y: auto; /* Allow scrolling if needed */
 }
 
 /* Mobile optimizations */

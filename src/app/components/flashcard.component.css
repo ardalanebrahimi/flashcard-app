@@ -3,9 +3,13 @@
   margin: 0 auto;
   padding: 10px 20px 20px 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  min-height: calc(100vh - 60px);
+  /* Use full available height within parent container */
+  height: 100%;
   display: flex;
   flex-direction: column;
+  /* Add bottom padding for safe scrolling */
+  padding-bottom: max(40px, calc(20px + var(--safe-area-inset-bottom, 0)));
+  box-sizing: border-box;
 }
 
 /* Header */

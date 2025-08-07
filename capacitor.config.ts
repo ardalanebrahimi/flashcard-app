@@ -8,11 +8,17 @@ const config: CapacitorConfig = {
     androidScheme: 'https'
   },
   android: {
-    allowMixedContent: true
+    allowMixedContent: true,
+    webContentsDebuggingEnabled: true
   },
   plugins: {
     Preferences: {
       group: 'com.example.germanflashcard.preferences'
+    },
+    StatusBar: {
+      style: 'default',
+      backgroundColor: '#007bff',
+      overlaysWebView: false
     }
   }
 };
