@@ -136,6 +136,7 @@
           <option value="lastStudied">Last Studied</option>
           <option value="practiceCount">Practice Count</option>
           <option value="accuracy">Accuracy</option>
+          <option value="score">Quiz Score</option>
           <option value="dateAdded">Date Added</option>
         </select>
       </div>
@@ -198,6 +199,9 @@
           </span>
           <span class="stat-compact" title="Accuracy percentage">
             📊 {{ getAccuracy(word) }}%
+          </span>
+          <span class="stat-compact" title="Quiz score (last 3 attempts)">
+            🎲 {{ getWordScore(word) }}/3
           </span>
           <span class="stat-compact" *ngIf="word.masteredDate" title="Mastered date">
             🏆 {{ formatDate(word.masteredDate) }}

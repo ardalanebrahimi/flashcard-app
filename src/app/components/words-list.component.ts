@@ -163,7 +163,26 @@ export class WordsListComponent implements OnInit, OnDestroy {
   }
 
   applyFilters(): void {
-    this.filteredWords = this.wordTrackingService.getFilteredWordProgress(this.filters);
+    // Get filtered words from the service (handles all filters except score sorting)
+    if (this.filters.sortBy === 'score') {
+      // Handle score sorting manually since WordTrackingService doesn't have access to WordService
+      this.filteredWords = this.wordTrackingService.getFilteredWordProgress({
+        ...this.filters,
+        sortBy: 'alphabetical' // Use alphabetical as base, we'll sort by score after
+      });
+      
+      // Apply score-based sorting
+      this.filteredWords = this.filteredWords.sort((a, b) => {
+        const scoreA = this.getWordScore(a);
+        const scoreB = this.getWordScore(b);
+        const comparison = scoreA - scoreB;
+        return this.filters.sortDirection === 'desc' ? -comparison : comparison;
+      });
+    } else {
+      // Use service filtering for all other sort types
+      this.filteredWords = this.wordTrackingService.getFilteredWordProgress(this.filters);
+    }
+    
     this.updatePagination();
   }
 
@@ -277,6 +296,19 @@ export class WordsListComponent implements OnInit, OnDestroy {
 
   toggleFilters(): void {
     this.isFiltersCollapsed = !this.isFiltersCollapsed;
+  }
+
+  /**
+   * Get word score based on last 3 quiz results
+   */
+  getWordScore(word: WordProgress): number {
+    // Create a Word object from WordProgress to use with scoring system
+    const wordObj = {
+      word: word.word,
+      translation: word.translation,
+      bookmarked: false // This will be set by the service
+    };
+    return this.wordService.calculateScore(wordObj);
   }
 
   trackByWord(index: number, word: WordProgress): string {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Preferences } from '@capacitor/preferences';
 import { Word } from '../models/word.model';
+import { WordService } from './word.service';
 
 export interface SessionConfig {
   cardsPerSession: number;
@@ -55,7 +56,7 @@ export class SessionService {
   private sessionActiveSubject = new BehaviorSubject<boolean>(false);
   public sessionActive$ = this.sessionActiveSubject.asObservable();
 
-  constructor() {
+  constructor(private wordService: WordService) {
     this.loadSessionConfig();
   }
 
@@ -135,11 +136,47 @@ export class SessionService {
   }
 
   /**
-   * Select words for session based on configuration
+   * Select words for session based on configuration using intelligent weighted selection
    */
   private selectWordsForSession(words: Word[], config: SessionConfig): Word[] {
-    const shuffled = [...words].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, config.cardsPerSession);
+    const sessionCards: Word[] = [];
+    const targetCount = Math.min(config.cardsPerSession, words.length);
+    
+    // Use weighted selection for better learning experience
+    const usedWords = new Set<string>();
+    
+    for (let i = 0; i < targetCount; i++) {
+      const nextWord = this.wordService.getNextWord();
+      
+      if (nextWord && !usedWords.has(nextWord.word)) {
+        sessionCards.push(nextWord);
+        usedWords.add(nextWord.word);
+      } else {
+        // Fallback: find unused word with lowest score
+        const availableWords = words.filter(word => !usedWords.has(word.word));
+        if (availableWords.length > 0) {
+          // Sort by score (prioritize lower scores) then randomly
+          const sortedWords = availableWords.sort((a, b) => {
+            const scoreA = this.wordService.calculateScore(a);
+            const scoreB = this.wordService.calculateScore(b);
+            if (scoreA !== scoreB) return scoreA - scoreB;
+            return Math.random() - 0.5;
+          });
+          
+          const fallbackWord = sortedWords[0];
+          sessionCards.push(fallbackWord);
+          usedWords.add(fallbackWord.word);
+        }
+      }
+    }
+    
+    console.log(`Selected ${sessionCards.length} words for session using weighted selection`);
+    console.log(`Score distribution:`, sessionCards.map(w => ({
+      word: w.word,
+      score: this.wordService.calculateScore(w)
+    })));
+    
+    return sessionCards;
   }
 
   /**

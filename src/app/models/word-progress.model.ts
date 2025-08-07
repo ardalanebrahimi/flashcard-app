@@ -26,7 +26,7 @@ export interface WordStatistics {
 
 export type WordFilterStatus = 'all' | 'new' | 'learning' | 'mastered';
 export type WordFilterSource = 'all' | 'dictionary' | 'custom';
-export type WordSortBy = 'alphabetical' | 'lastStudied' | 'practiceCount' | 'accuracy' | 'dateAdded';
+export type WordSortBy = 'alphabetical' | 'lastStudied' | 'practiceCount' | 'accuracy' | 'dateAdded' | 'score';
 export type SortDirection = 'asc' | 'desc';
 
 export interface WordFilters {

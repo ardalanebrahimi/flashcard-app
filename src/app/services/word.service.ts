@@ -289,4 +289,87 @@ export class WordService {
     return correctCount;
   }
 
+  /**
+   * Get next word using weighted selection based on score
+   * - Filters out words with score of 3 (fully learned)
+   * - Uses weighted pool: Score 0 → 5x weight, Score 1 → 3x, Score 2 → 1x
+   * - Randomly selects from weighted pool
+   */
+  getNextWord(): Word | null {
+    // Get all available words (original + custom)
+    const customWords = this.dictionaryService.getCustomWords();
+    const allWords = [...this.words, ...customWords];
+    
+    // Ensure all words have their results loaded
+    allWords.forEach(word => {
+      word.bookmarked = this.bookmarkedWords.has(word.word);
+      word.lastResults = this.wordResults.get(word.word) || [];
+    });
+    
+    // Filter out words with score of 3 (fully learned)
+    const eligibleWords = allWords.filter(word => this.calculateScore(word) < 3);
+    
+    if (eligibleWords.length === 0) {
+      console.log('No eligible words found (all words have score 3)');
+      return null;
+    }
+    
+    // Build weighted pool based on score
+    const weightedPool: Word[] = [];
+    
+    eligibleWords.forEach(word => {
+      const score = this.calculateScore(word);
+      let weight = 0;
+      
+      if (score === 0) weight = 5;      // New/struggling words get highest priority
+      else if (score === 1) weight = 3; // Partially learned words get medium priority  
+      else if (score === 2) weight = 1; // Nearly learned words get lowest priority
+      
+      // Add word to pool multiple times based on weight
+      for (let i = 0; i < weight; i++) {
+        weightedPool.push(word);
+      }
+    });
+    
+    if (weightedPool.length === 0) {
+      console.log('No words in weighted pool');
+      return eligibleWords[0]; // Fallback to first eligible word
+    }
+    
+    // Randomly select from weighted pool
+    const selectedWord = weightedPool[Math.floor(Math.random() * weightedPool.length)];
+    
+    console.log(`Selected word: "${selectedWord.word}" (score: ${this.calculateScore(selectedWord)})`);
+    return selectedWord;
+  }
+
+  /**
+   * Get all words with their scores (for analytics/sorting)
+   */
+  getAllWordsWithScores(): Array<Word & { score: number }> {
+    const allWords = this.getAllWords();
+    const customWords = this.dictionaryService.getCustomWords();
+    const combined = [...allWords, ...customWords];
+    
+    return combined.map(word => ({
+      ...word,
+      score: this.calculateScore(word)
+    }));
+  }
+
+  /**
+   * Clear all word results
+   */
+  async clearAllWordResults(): Promise<void> {
+    this.wordResults.clear();
+    await this.saveWordResults();
+    
+    // Update all current words
+    this.shuffledWords.forEach(word => {
+      word.lastResults = [];
+    });
+    
+    console.log('All word results cleared');
+  }
+
 }
