@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { WordService } from '../services/word.service';
 import { ProgressService } from '../services/progress.service';
+import { WordTrackingService } from '../services/word-tracking.service';
+import { DictionaryService } from '../services/dictionary.service';
 import { Word } from '../models/word.model';
 
 @Component({
@@ -20,7 +22,9 @@ export class FlashcardComponent implements OnInit, OnDestroy {
 
   constructor(
     private wordService: WordService,
-    private progressService: ProgressService
+    private progressService: ProgressService,
+    private wordTrackingService: WordTrackingService,
+    private dictionaryService: DictionaryService
   ) {}
 
   ngOnInit() {
@@ -47,6 +51,11 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   async onKnowIt() {
     if (this.currentWord) {
       await this.progressService.markWordAsKnown(this.currentWord.word);
+      
+      // Also track in word tracking service
+      const source = this.isCustomWord(this.currentWord) ? 'custom' : 'dictionary';
+      await this.wordTrackingService.recordPractice(this.currentWord, true, source);
+      
       this.nextWord();
     }
   }
@@ -54,6 +63,11 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   async onDontKnowIt() {
     if (this.currentWord) {
       await this.progressService.markWordAsUnknown(this.currentWord.word);
+      
+      // Also track in word tracking service
+      const source = this.isCustomWord(this.currentWord) ? 'custom' : 'dictionary';
+      await this.wordTrackingService.recordPractice(this.currentWord, false, source);
+      
       this.nextWord();
     }
   }
@@ -61,8 +75,18 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   async onPracticeAgain() {
     if (this.currentWord) {
       await this.progressService.markWordForPracticeAgain(this.currentWord.word);
+      
+      // Also track in word tracking service
+      const source = this.isCustomWord(this.currentWord) ? 'custom' : 'dictionary';
+      await this.wordTrackingService.recordPractice(this.currentWord, false, source);
+      
       this.nextWord();
     }
+  }
+
+  private isCustomWord(word: Word): boolean {
+    const customWords = this.dictionaryService.getCustomWords();
+    return customWords.some(cw => cw.word === word.word);
   }
 
   private nextWord() {

@@ -33,6 +33,10 @@
 .main-actions {
   text-align: center;
   margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
 }
 
 .primary-btn {

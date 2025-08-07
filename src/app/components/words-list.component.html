@@ -1,0 +1,229 @@
+<div class="words-list-container">
+  <!-- Header -->
+  <header class="header">
+    <button class="back-button" (click)="goBack()" aria-label="Go back">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+    </button>
+    <h1 class="title">Words Progress</h1>
+  </header>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading && isInitializing" class="loading-container">
+    <div class="loading-spinner"></div>
+    <p>Loading word progress...</p>
+  </div>
+
+  <!-- Content -->
+  <div *ngIf="!isLoading || !isInitializing" class="content">
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">{{ statistics.totalWords }}</div>
+        <div class="stat-label">Total Words</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ statistics.newWords }}</div>
+        <div class="stat-label">New</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ statistics.learningWords }}</div>
+        <div class="stat-label">Learning</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ statistics.masteredWords }}</div>
+        <div class="stat-label">Mastered</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ statistics.overallAccuracy }}%</div>
+        <div class="stat-label">Accuracy</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ statistics.totalPractices }}</div>
+        <div class="stat-label">Total Practices</div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-section">
+      <div class="search-container">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input 
+          type="text" 
+          class="search-input"
+          placeholder="Search words or translations..."
+          [value]="filters.searchTerm"
+          (input)="onSearchChange($any($event.target).value || '')"
+        >
+      </div>
+
+      <div class="filter-row">
+        <div class="filter-group">
+          <label class="filter-label">Status:</label>
+          <select 
+            class="filter-select"
+            [value]="filters.status"
+            (change)="onStatusFilterChange($any($event.target).value)"
+          >
+            <option value="all">All Status</option>
+            <option value="new">New</option>
+            <option value="learning">Learning</option>
+            <option value="mastered">Mastered</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Source:</label>
+          <select 
+            class="filter-select"
+            [value]="filters.source"
+            (change)="onSourceFilterChange($any($event.target).value)"
+          >
+            <option value="all">All Sources</option>
+            <option value="dictionary">Dictionary</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+
+        <button class="clear-filters-btn" (click)="clearFilters()">
+          Clear Filters
+        </button>
+      </div>
+    </div>
+
+    <!-- Sort Controls -->
+    <div class="sort-controls">
+      <span class="sort-label">Sort by:</span>
+      <button 
+        *ngFor="let sortOption of [
+          {key: 'alphabetical', label: 'A-Z'},
+          {key: 'lastStudied', label: 'Last Studied'},
+          {key: 'practiceCount', label: 'Practice Count'},
+          {key: 'accuracy', label: 'Accuracy'},
+          {key: 'dateAdded', label: 'Date Added'}
+        ]"
+        class="sort-button"
+        [class.active]="filters.sortBy === sortOption.key"
+        (click)="onSortChange(sortOption.key)"
+      >
+        {{ sortOption.label }}
+        <span 
+          *ngIf="filters.sortBy === sortOption.key"
+          class="sort-direction"
+        >
+          {{ filters.sortDirection === 'asc' ? '↑' : '↓' }}
+        </span>
+      </button>
+    </div>
+
+    <!-- Results Info -->
+    <div class="results-info">
+      <span>{{ filteredWords.length }} words found</span>
+      <span *ngIf="filteredWords.length !== statistics.totalWords">
+        (filtered from {{ statistics.totalWords }} total)
+      </span>
+    </div>
+
+    <!-- Words List -->
+    <div class="words-list">
+      <div 
+        *ngFor="let word of paginatedWords; trackBy: trackByWord"
+        class="word-item"
+      >
+        <div class="word-header">
+          <div class="word-info">
+            <h3 class="word-german">{{ word.word }}</h3>
+            <p class="word-translation">{{ word.translation }}</p>
+          </div>
+          <div class="word-badges">
+            <span [class]="getStatusBadgeClass(word.status)" class="badge">
+              {{ word.status | titlecase }}
+            </span>
+            <span [class]="getSourceBadgeClass(word.source)" class="badge">
+              {{ word.source | titlecase }}
+            </span>
+          </div>
+        </div>
+
+        <div class="word-stats">
+          <div class="stat-item">
+            <span class="stat-icon">🎯</span>
+            <span class="stat-text">{{ word.practiceCount }} practices</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">✅</span>
+            <span class="stat-text">{{ word.correctCount }} correct</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">❌</span>
+            <span class="stat-text">{{ word.wrongCount }} wrong</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">📊</span>
+            <span class="stat-text">{{ getAccuracy(word) }}% accuracy</span>
+          </div>
+        </div>
+
+        <div class="word-dates">
+          <div class="date-item">
+            <span class="date-label">Last studied:</span>
+            <span class="date-value">{{ formatDate(word.lastStudied) }}</span>
+          </div>
+          <div class="date-item" *ngIf="word.masteredDate">
+            <span class="date-label">Mastered:</span>
+            <span class="date-value">{{ formatDate(word.masteredDate) }}</span>
+          </div>
+        </div>
+
+        <div class="word-actions">
+          <button 
+            class="action-button reset-button"
+            (click)="resetWordProgress(word)"
+            title="Reset progress for this word"
+          >
+            Reset Progress
+          </button>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div *ngIf="filteredWords.length === 0 && !isLoading" class="empty-state">
+        <div class="empty-icon">📚</div>
+        <h3>No words found</h3>
+        <p>Try adjusting your filters or search term.</p>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div *ngIf="totalPages > 1" class="pagination">
+      <button 
+        class="pagination-button"
+        [disabled]="currentPage === 1"
+        (click)="changePage(currentPage - 1)"
+      >
+        Previous
+      </button>
+
+      <button 
+        *ngFor="let page of pageNumbers"
+        class="pagination-button"
+        [class.active]="page === currentPage"
+        (click)="changePage(page)"
+      >
+        {{ page }}
+      </button>
+
+      <button 
+        class="pagination-button"
+        [disabled]="currentPage === totalPages"
+        (click)="changePage(currentPage + 1)"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>
