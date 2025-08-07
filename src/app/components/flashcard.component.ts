@@ -240,4 +240,12 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     if (results.length === 0) return 'No attempts yet';
     return `${score}/3 correct (${results.join(', ')})`;
   }
+
+  /**
+   * Get remaining slots for score indicator (to fill with gray)
+   */
+  getRemainingSlots(results: ("correct" | "wrong")[]): number[] {
+    const remaining = 3 - results.length;
+    return remaining > 0 ? Array(remaining).fill(0).map((_, i) => i) : [];
+  }
 }

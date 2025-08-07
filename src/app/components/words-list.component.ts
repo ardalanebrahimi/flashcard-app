@@ -311,6 +311,30 @@ export class WordsListComponent implements OnInit, OnDestroy {
     return this.wordService.calculateScore(wordObj);
   }
 
+  /**
+   * Get last quiz results for a word
+   */
+  getWordLastResults(word: WordProgress): ("correct" | "wrong")[] {
+    // Create a Word object from WordProgress to use with scoring system
+    const wordObj = {
+      word: word.word,
+      translation: word.translation,
+      bookmarked: false // This will be set by the service
+    };
+    
+    // Get results from word service - this will check both storage and word object
+    return this.wordService.getAllWords()
+      .find(w => w.word === word.word)?.lastResults || [];
+  }
+
+  /**
+   * Get remaining slots for score indicator (to fill with gray)
+   */
+  getRemainingSlots(results: ("correct" | "wrong")[]): number[] {
+    const remaining = 3 - results.length;
+    return remaining > 0 ? Array(remaining).fill(0).map((_, i) => i) : [];
+  }
+
   trackByWord(index: number, word: WordProgress): string {
     return word.word;
   }

@@ -92,7 +92,29 @@
           🔄 Previously marked for practice
         </div>
         <div class="progress-indicator score" *ngIf="currentWord && currentWord.lastResults && currentWord.lastResults.length > 0">
-          🎯 Score: {{ currentWordScoreText }}
+          <span class="score-text">🎯 Score:</span>
+          <div class="score-indicator">
+            <!-- Display actual results -->
+            <div
+              *ngFor="let result of currentWord.lastResults; let i = index"
+              [ngStyle]="{
+                'background-color': result === 'correct' ? '#4CAF50' : 
+                                    result === 'wrong' ? '#f44336' : '#ccc',
+                'width': '12px',
+                'height': '12px',
+                'margin': '2px',
+                'border-radius': '3px',
+                'display': 'inline-block',
+                'border': '1px solid rgba(0, 0, 0, 0.2)'
+              }"
+            ></div>
+            <!-- Fill remaining with gray if less than 3 entries -->
+            <div
+              *ngFor="let i of getRemainingSlots(currentWord.lastResults || [])"
+              style="background-color: #ccc; width: 12px; height: 12px; margin: 2px; border-radius: 3px; display: inline-block; border: 1px solid rgba(0, 0, 0, 0.2);"
+            ></div>
+          </div>
+          <span class="score-fraction">({{ currentWordScore }}/3)</span>
         </div>
       </div>
     </div>

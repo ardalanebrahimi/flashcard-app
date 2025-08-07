@@ -460,6 +460,26 @@
   background: #f3f4f6;
 }
 
+.stat-compact.score-visual {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.score-label {
+  font-size: 0.8rem;
+}
+
+.score-indicator {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.score-indicator div {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .badge-new {
   background: #fef3c7;
   color: #92400e;

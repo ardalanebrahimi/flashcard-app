@@ -200,8 +200,28 @@
           <span class="stat-compact" title="Accuracy percentage">
             📊 {{ getAccuracy(word) }}%
           </span>
-          <span class="stat-compact" title="Quiz score (last 3 attempts)">
-            🎲 {{ getWordScore(word) }}/3
+          <span class="stat-compact score-visual" title="Quiz score (last 3 attempts): {{ getWordScore(word) }}/3">
+            <span class="score-label">Quiz:</span>
+            <div class="score-indicator">
+              <!-- Display actual results -->
+              <div
+                *ngFor="let result of getWordLastResults(word); let i = index"
+                [ngStyle]="{
+                  'background-color': result === 'correct' ? '#4CAF50' : 
+                                      result === 'wrong' ? '#f44336' : '#ccc',
+                  'width': '8px',
+                  'height': '8px',
+                  'margin': '1px',
+                  'border-radius': '2px',
+                  'display': 'inline-block'
+                }"
+              ></div>
+              <!-- Fill remaining with gray if less than 3 entries -->
+              <div
+                *ngFor="let i of getRemainingSlots(getWordLastResults(word))"
+                style="background-color: #ccc; width: 8px; height: 8px; margin: 1px; border-radius: 2px; display: inline-block;"
+              ></div>
+            </div>
           </span>
           <span class="stat-compact" *ngIf="word.masteredDate" title="Mastered date">
             🏆 {{ formatDate(word.masteredDate) }}
