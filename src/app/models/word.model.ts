@@ -3,4 +3,5 @@ export interface Word {
   translation: string;
   bookmarked?: boolean;
   lastResults?: ("correct" | "wrong")[];
+  score?: number; // Cached score to avoid recalculation
 }

@@ -34,7 +34,7 @@ export class AddWordComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe(loaded => {
         if (loaded) {
-          this.existingWords = this.wordService.getAllWords();
+          this.existingWords = this.wordService.allWords;
         }
       });
   }

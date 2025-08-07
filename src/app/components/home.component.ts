@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   sessionConfig: SessionConfig = { cardsPerSession: 20, sessionType: 'mixed' };
   showSessionSettings = false;
   bookmarkedWordsCount = 0;
+  isCalculatingScores = false; // For temporary score calculation button
   
   private subscription = new Subscription();
   
@@ -144,5 +145,24 @@ export class HomeComponent implements OnInit, OnDestroy {
       { value: 'review', label: 'Review Previous' },
       { value: 'difficult', label: 'Difficult Words' }
     ];
+  }
+
+  /**
+   * Temporary method to calculate scores for all existing words
+   * This will be removed after migration is complete
+   */
+  async calculateAllScores() {
+    if (confirm('This will calculate and cache scores for all words that have existing quiz results. This is a one-time migration. Continue?')) {
+      this.isCalculatingScores = true;
+      try {
+        await this.wordService.calculateScoresForAllWords();
+        alert('Score calculation complete! All existing word results now have cached scores for better performance.');
+      } catch (error) {
+        console.error('Error calculating scores:', error);
+        alert('Error occurred while calculating scores. Please try again.');
+      } finally {
+        this.isCalculatingScores = false;
+      }
+    }
   }
 }

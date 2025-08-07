@@ -78,19 +78,14 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   /**
    * Start a new session with available words
    */
-  private async startNewSession(): Promise<void> {
-    // Get all available words (original + custom)
-    const originalWords = this.wordService.getAllWords();
-    const customWords = this.dictionaryService.getCustomWords();
-    const allWords = [...originalWords, ...customWords];
-    
-    if (allWords.length === 0) {
+  private async startNewSession(): Promise<void> {    
+    if (this.wordService.allWords.length === 0) {
       console.warn('No words available for session');
       return;
     }
 
     // Start new session
-    await this.sessionService.startSession(allWords);
+    await this.sessionService.startSession();
   }
 
   onShowMeaning() {
@@ -230,7 +225,7 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   }
 
   get currentWordScore(): number {
-    return this.currentWord ? this.wordService.calculateScore(this.currentWord) : 0;
+    return this.currentWord?.score ?? 0;
   }
 
   get currentWordScoreText(): string {

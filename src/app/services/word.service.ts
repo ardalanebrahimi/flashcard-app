@@ -10,7 +10,7 @@ import { DictionaryService } from './dictionary.service';
 })
 export class WordService {
   private words: Word[] = [];
-  private shuffledWords: Word[] = [];
+  public allWords: Word[] = [];
   private bookmarkedWords: Set<string> = new Set();
   private wordResults: Map<string, ("correct" | "wrong")[]> = new Map();
 
@@ -135,8 +135,7 @@ export class WordService {
    * Get all bookmarked words
    */
   getBookmarkedWords(): Word[] {
-    const allWords = [...this.words, ...this.dictionaryService.getCustomWords()];
-    return allWords.filter(word => this.bookmarkedWords.has(word.word));
+    return this.allWords.filter(word => this.bookmarkedWords.has(word.word));
   }
 
   /**
@@ -165,7 +164,8 @@ export class WordService {
       );
       
       this.words = words;
-      this.updateShuffledWords();
+      this.allWords = [...this.words, ...this.dictionaryService.getCustomWords()];
+      this.refreshAllWords();
       this.wordsLoadedSubject.next(true);
       
       console.log(`Loaded ${this.words.length} words from assets/words.json`);
@@ -180,70 +180,23 @@ export class WordService {
    */
   private setupCustomWordsListener(): void {
     this.dictionaryService.customWords$.subscribe(() => {
-      this.updateShuffledWords();
+      this.refreshAllWords();
     });
   }
 
   /**
-   * Update shuffled words with both original and custom words
+   * Refresh all words with current bookmark status and last results
    */
-  private updateShuffledWords(): void {
-    const customWords = this.dictionaryService.getCustomWords();
-    const allWords = [...this.words, ...customWords];
-    
-    // Set bookmark status and load results for all words
-    allWords.forEach(word => {
+  refreshAllWords() {
+    this.allWords.forEach(word => {
       word.bookmarked = this.bookmarkedWords.has(word.word);
       word.lastResults = this.wordResults.get(word.word) || [];
+      
+      // Initialize cached score if not present
+      if (word.score === undefined) {
+        word.score = this.calculateScoreFromResults(word.lastResults);
+      }
     });
-    
-    this.shuffledWords = [...allWords];
-    this.shuffle();
-    
-    // Set the first word as current
-    if (this.shuffledWords.length > 0) {
-      this.currentWordSubject.next(this.shuffledWords[0]);
-    }
-  }
-
-  /**
-   * Shuffle the words array using Fisher-Yates algorithm
-   */
-  shuffle(): void {
-    const customWords = this.dictionaryService.getCustomWords();
-    const allWords = [...this.words, ...customWords];
-    
-    // Set bookmark status and load results for all words
-    allWords.forEach(word => {
-      word.bookmarked = this.bookmarkedWords.has(word.word);
-      word.lastResults = this.wordResults.get(word.word) || [];
-    });
-    
-    for (let i = allWords.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [allWords[i], allWords[j]] = [allWords[j], allWords[i]];
-    }
-    
-    this.shuffledWords = allWords;
-    
-    // Update current word after shuffle
-    if (this.shuffledWords.length > 0) {
-      this.currentWordSubject.next(this.shuffledWords[0]);
-    }
-    
-    console.log('Words shuffled');
-  }
-
-  /**
-   * Get all words (original order) with bookmark status
-   */
-  getAllWords(): Word[] {
-    const wordsWithBookmarks = [...this.words];
-    wordsWithBookmarks.forEach(word => {
-      word.bookmarked = this.bookmarkedWords.has(word.word);
-      word.lastResults = this.wordResults.get(word.word) || [];
-    });
-    return wordsWithBookmarks;
   }
 
   /**
@@ -264,22 +217,17 @@ export class WordService {
     // Update in memory storage
     this.wordResults.set(word.word, currentResults);
     
-    // Update the word object
-    word.lastResults = currentResults;
-    
     // Save to persistent storage
     await this.saveWordResults();
     
-    console.log(`Updated results for "${word.word}": ${currentResults.join(', ')}`);
+    this.refreshAllWords();
+    console.log(`Updated results for "${word.word}": ${currentResults.join(', ')}, score: ${word.score}`);
   }
 
   /**
-   * Calculate score for a word based on last 3 results
+   * Calculate score from results array (internal method)
    */
-  calculateScore(word: Word): number {
-    // Get the most up-to-date results
-    const results = this.wordResults.get(word.word) || word.lastResults || [];
-    
+  private calculateScoreFromResults(results: ("correct" | "wrong")[]): number {
     if (results.length === 0) {
       return 0;
     }
@@ -290,25 +238,34 @@ export class WordService {
   }
 
   /**
+   * Calculate score for a word based on cached score or last 3 results
+   */
+  calculateScore(word: Word): number {
+    // Use cached score if available
+    if (word.score !== undefined) {
+      return word.score;
+    }
+    
+    // Fallback to calculation from results for backwards compatibility
+    const results = this.wordResults.get(word.word) || word.lastResults || [];
+    const calculatedScore = this.calculateScoreFromResults(results);
+    
+    // Cache the calculated score
+    word.score = calculatedScore;
+    
+    return calculatedScore;
+  }
+
+  /**
    * Get next word using weighted selection based on score
    * - Filters out words with score of 3 (fully learned)
    * - Uses weighted pool: Score 0 → 5x weight, Score 1 → 3x, Score 2 → 1x
    * - Randomly selects from weighted pool
    */
-  getNextWord(): Word | null {
-    // Get all available words (original + custom)
-    const customWords = this.dictionaryService.getCustomWords();
-    const allWords = [...this.words, ...customWords];
-    
-    // Ensure all words have their results loaded
-    allWords.forEach(word => {
-      word.bookmarked = this.bookmarkedWords.has(word.word);
-      word.lastResults = this.wordResults.get(word.word) || [];
-    });
-    
+  getNextWord(): Word | null {    
     // Filter out words with score of 3 (fully learned)
-    const eligibleWords = allWords.filter(word => this.calculateScore(word) < 3);
-    
+    const eligibleWords = this.allWords.filter(word => (word.score || 0) < 3);
+
     if (eligibleWords.length === 0) {
       console.log('No eligible words found (all words have score 3)');
       return null;
@@ -318,7 +275,7 @@ export class WordService {
     const weightedPool: Word[] = [];
     
     eligibleWords.forEach(word => {
-      const score = this.calculateScore(word);
+      const score = word.score || 0;
       let weight = 0;
       
       if (score === 0) weight = 5;      // New/struggling words get highest priority
@@ -339,87 +296,73 @@ export class WordService {
     // Randomly select from weighted pool
     const selectedWord = weightedPool[Math.floor(Math.random() * weightedPool.length)];
     
-    console.log(`Selected word: "${selectedWord.word}" (score: ${this.calculateScore(selectedWord)})`);
+    console.log(`Selected word: "${selectedWord.word}" (score: ${selectedWord.score})`);
     return selectedWord;
-  }
-
-  /**
-   * Get all words with their scores (for analytics/sorting)
-   */
-  getAllWordsWithScores(): Array<Word & { score: number }> {
-    const allWords = this.getAllWords();
-    const customWords = this.dictionaryService.getCustomWords();
-    const combined = [...allWords, ...customWords];
-    
-    return combined.map(word => ({
-      ...word,
-      score: this.calculateScore(word)
-    }));
   }
 
   /**
    * Get count of learned words (score = 3)
    */
   getLearnedWordsCount(): number {
-    const allWords = this.getAllWords();
-    return allWords.filter(word => this.calculateScore(word) === 3).length;
+    return this.allWords.filter(word => (word.score || 0) === 3).length;
   }
 
   /**
    * Get count of studied words (score > 0)
    */
   getStudiedWordsCount(): number {
-    const allWords = this.getAllWords();
-    return allWords.filter(word => this.calculateScore(word) > 0).length;
+    return this.wordResults.size;
   }
 
   /**
    * Get percentage of learned words
    */
   getLearnedPercentage(): number {
-    const allWords = this.getAllWords();
-    if (allWords.length === 0) return 0;
-    return Math.round((this.getLearnedWordsCount() / allWords.length) * 100);
+    if (this.allWords.length === 0) return 0;
+    return Math.round((this.getLearnedWordsCount() / this.allWords.length) * 100);
   }
 
   /**
    * Get percentage of studied words
    */
   getStudiedPercentage(): number {
-    const allWords = this.getAllWords();
-    if (allWords.length === 0) return 0;
-    return Math.round((this.getStudiedWordsCount() / allWords.length) * 100);
+    if (this.allWords.length === 0) return 0;
+    return Math.round((this.getStudiedWordsCount() / this.allWords.length) * 100);
   }
 
   /**
    * Get learned words (score = 3)
    */
   getLearnedWords(): Word[] {
-    const allWords = this.getAllWords();
-    return allWords.filter(word => this.calculateScore(word) === 3);
+    return this.allWords.filter(word => (word.score || 0) === 3);
   }
 
   /**
    * Get studied words (score > 0)
    */
   getStudiedWords(): Word[] {
-    const allWords = this.getAllWords();
-    return allWords.filter(word => this.calculateScore(word) > 0);
+    return this.allWords.filter(word => (word.score || 0) > 0);
   }
 
   /**
-   * Clear all word results
+   * Calculate and cache scores for all words that have results but no cached score
+   * This is a temporary method to migrate existing data
    */
-  async clearAllWordResults(): Promise<void> {
-    this.wordResults.clear();
-    await this.saveWordResults();
+  async calculateScoresForAllWords(): Promise<void> {
+    console.log('Starting score calculation for all words...');
     
-    // Update all current words
-    this.shuffledWords.forEach(word => {
-      word.lastResults = [];
+    let updatedCount = 0;
+    
+    // Process each word
+    this.allWords.forEach(word => {
+      word.score = this.calculateScoreFromResults(word.lastResults??[])
     });
+  
     
-    console.log('All word results cleared');
+    console.log(`Score calculation complete. Updated ${updatedCount} words.`);
+    
+    // Force save to ensure scores are persisted
+    await this.saveWordResults();
   }
 
 }

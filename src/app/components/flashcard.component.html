@@ -8,7 +8,7 @@
           <div class="progress-fill" [style.width.%]="progressPercentage"></div>
         </div>
       </div>
-      <button class="end-session-btn" (click)="onEndSession()">End Session</button>
+      <button class="end-session-btn" (click)="onEndSession()">❌</button>
     </div>
     
     <!-- Session Statistics -->
@@ -20,10 +20,6 @@
       <div class="stat-item incorrect">
         <span class="stat-icon">❌</span>
         <span class="stat-count">{{ sessionIncorrectCount }}</span>
-      </div>
-      <div class="stat-item practice">
-        <span class="stat-icon">🔄</span>
-        <span class="stat-count">{{ sessionPracticeAgainCount }}</span>
       </div>
       <div class="stat-item success" *ngIf="sessionCorrectCount + sessionIncorrectCount > 0">
         <span class="stat-label">{{ sessionSuccessRate }}%</span>
@@ -81,17 +77,8 @@
       <div class="german-word">{{ currentWord.word }}</div>
       
       <!-- Progress indicators -->
-      <div class="word-progress" *ngIf="isCurrentWordKnown || isCurrentWordUnknown || isCurrentWordForPracticeAgain || currentWordScore > 0">
-        <div class="progress-indicator known" *ngIf="isCurrentWordKnown">
-          ✅ Previously marked as known
-        </div>
-        <div class="progress-indicator unknown" *ngIf="isCurrentWordUnknown">
-          ❌ Previously marked as unknown
-        </div>
-        <div class="progress-indicator practice" *ngIf="isCurrentWordForPracticeAgain">
-          🔄 Previously marked for practice
-        </div>
-        <div class="progress-indicator score" *ngIf="currentWord && currentWord.lastResults && currentWord.lastResults.length > 0">
+      <div class="word-progress" >
+        <div class="progress-indicator score" >
           <span class="score-text">🎯 Score:</span>
           <div class="score-indicator">
             <!-- Display actual results -->

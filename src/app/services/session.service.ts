@@ -109,12 +109,12 @@ export class SessionService {
   /**
    * Start a new session with given words
    */
-  async startSession(availableWords: Word[]): Promise<SessionProgress> {
+  async startSession(): Promise<SessionProgress> {
     const config = this.sessionConfigSubject.value;
     
     // Select words for this session based on configuration
-    const sessionCards = this.selectWordsForSession(availableWords, config);
-    
+    const sessionCards = this.selectWordsForSession(this.wordService.allWords, config);
+
     const sessionProgress: SessionProgress = {
       currentCard: 0,
       totalCards: sessionCards.length,
@@ -155,10 +155,10 @@ export class SessionService {
         // Fallback: find unused word with lowest score
         const availableWords = words.filter(word => !usedWords.has(word.word));
         if (availableWords.length > 0) {
-          // Sort by score (prioritize lower scores) then randomly
+          // Sort by cached score (prioritize lower scores) then randomly
           const sortedWords = availableWords.sort((a, b) => {
-            const scoreA = this.wordService.calculateScore(a);
-            const scoreB = this.wordService.calculateScore(b);
+            const scoreA = a.score ?? 0;
+            const scoreB = b.score ?? 0;
             if (scoreA !== scoreB) return scoreA - scoreB;
             return Math.random() - 0.5;
           });
@@ -173,7 +173,7 @@ export class SessionService {
     console.log(`Selected ${sessionCards.length} words for session using weighted selection`);
     console.log(`Score distribution:`, sessionCards.map(w => ({
       word: w.word,
-      score: this.wordService.calculateScore(w)
+      score: w.score ?? 0
     })));
     
     return sessionCards;

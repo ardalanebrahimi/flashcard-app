@@ -27,6 +27,18 @@
         <span class="btn-icon">⭐</span>
         <span class="btn-text">Bookmarks ({{ bookmarkedWordsCount }})</span>
       </button>
+      
+      <!-- Temporary score calculation button -->
+      <button 
+        class="temporary-btn" 
+        (click)="calculateAllScores()"
+        [disabled]="isCalculatingScores"
+        title="One-time migration: Calculate scores for existing words">
+        <span class="btn-icon">🔄</span>
+        <span class="btn-text">
+          {{ isCalculatingScores ? 'Calculating...' : 'Calculate Scores' }}
+        </span>
+      </button>
     </div>
   </div>
 

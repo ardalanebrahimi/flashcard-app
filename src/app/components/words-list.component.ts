@@ -121,8 +121,9 @@ export class WordsListComponent implements OnInit, OnDestroy {
 
   private async initializeWordProgress(): Promise<void> {
     // Get all words from word service and dictionary service
-    const originalWords = this.wordService.getAllWords();
     const customWords = this.dictionaryService.getCustomWords();
+    const originalWords = this.wordService.allWords
+      .filter(word => !customWords.map(cw => cw.word).includes(word.word));
 
     // Initialize progress for words that don't have it yet
     for (const word of originalWords) {
@@ -171,10 +172,16 @@ export class WordsListComponent implements OnInit, OnDestroy {
         sortBy: 'alphabetical' // Use alphabetical as base, we'll sort by score after
       });
       
-      // Apply score-based sorting
+      // Create a map for quick score lookup
+      const scoreMap = new Map<string, number>();
+      this.wordService.allWords.forEach(word => {
+        scoreMap.set(word.word, word.score ?? 0);
+      });
+      
+      // Apply score-based sorting using cached scores
       this.filteredWords = this.filteredWords.sort((a, b) => {
-        const scoreA = this.getWordScore(a);
-        const scoreB = this.getWordScore(b);
+        const scoreA = scoreMap.get(a.word) ?? 0;
+        const scoreB = scoreMap.get(b.word) ?? 0;
         const comparison = scoreA - scoreB;
         return this.filters.sortDirection === 'desc' ? -comparison : comparison;
       });
@@ -299,31 +306,29 @@ export class WordsListComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Get word score based on last 3 quiz results
+   * Get word score based on cached value from WordService
    */
   getWordScore(word: WordProgress): number {
-    // Create a Word object from WordProgress to use with scoring system
-    const wordObj = {
+    // Find the actual Word object from WordService to get cached score
+    const foundWord = this.wordService.allWords.find(w => w.word === word.word);
+    if (foundWord && foundWord.score !== undefined) {
+      return foundWord.score;
+    }
+    
+    // Fallback: calculate from results if no cached score found
+    return this.wordService.calculateScore({
       word: word.word,
       translation: word.translation,
-      bookmarked: false // This will be set by the service
-    };
-    return this.wordService.calculateScore(wordObj);
+      bookmarked: false
+    });
   }
 
   /**
    * Get last quiz results for a word
    */
-  getWordLastResults(word: WordProgress): ("correct" | "wrong")[] {
-    // Create a Word object from WordProgress to use with scoring system
-    const wordObj = {
-      word: word.word,
-      translation: word.translation,
-      bookmarked: false // This will be set by the service
-    };
-    
+  getWordLastResults(word: WordProgress): ("correct" | "wrong")[] {    
     // Get results from word service - this will check both storage and word object
-    return this.wordService.getAllWords()
+    return this.wordService.allWords
       .find(w => w.word === word.word)?.lastResults || [];
   }
 
