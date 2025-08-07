@@ -139,54 +139,41 @@
             <h3 class="word-german">{{ word.word }}</h3>
             <p class="word-translation">{{ word.translation }}</p>
           </div>
-          <div class="word-badges">
-            <span [class]="getStatusBadgeClass(word.status)" class="badge">
-              {{ word.status | titlecase }}
-            </span>
-            <span [class]="getSourceBadgeClass(word.source)" class="badge">
-              {{ word.source | titlecase }}
-            </span>
+          <div class="word-meta">
+            <div class="word-badges">
+              <span [class]="getStatusBadgeClass(word.status)" class="badge-compact">
+                {{ word.status === 'new' ? '🆕' : word.status === 'learning' ? '📚' : '🏆' }}
+              </span>
+              <span [class]="getSourceBadgeClass(word.source)" class="badge-compact">
+                {{ word.source === 'dictionary' ? '📖' : '✏️' }}
+              </span>
+            </div>
+            <button 
+              class="reset-btn-compact"
+              (click)="resetWordProgress(word)"
+              title="Reset progress"
+            >
+              🔄
+            </button>
           </div>
         </div>
 
-        <div class="word-stats">
-          <div class="stat-item">
-            <span class="stat-icon">🎯</span>
-            <span class="stat-text">{{ word.practiceCount }} practices</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-icon">✅</span>
-            <span class="stat-text">{{ word.correctCount }} correct</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-icon">❌</span>
-            <span class="stat-text">{{ word.wrongCount }} wrong</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-icon">📊</span>
-            <span class="stat-text">{{ getAccuracy(word) }}% accuracy</span>
-          </div>
-        </div>
-
-        <div class="word-dates">
-          <div class="date-item">
-            <span class="date-label">Last studied:</span>
-            <span class="date-value">{{ formatDate(word.lastStudied) }}</span>
-          </div>
-          <div class="date-item" *ngIf="word.masteredDate">
-            <span class="date-label">Mastered:</span>
-            <span class="date-value">{{ formatDate(word.masteredDate) }}</span>
-          </div>
-        </div>
-
-        <div class="word-actions">
-          <button 
-            class="action-button reset-button"
-            (click)="resetWordProgress(word)"
-            title="Reset progress for this word"
-          >
-            Reset Progress
-          </button>
+        <div class="word-stats-compact">
+          <span class="stat-compact" title="Total practices">
+            🎯 {{ word.practiceCount }}
+          </span>
+          <span class="stat-compact" title="Correct answers">
+            ✅ {{ word.correctCount }}
+          </span>
+          <span class="stat-compact" title="Wrong answers">
+            ❌ {{ word.wrongCount }}
+          </span>
+          <span class="stat-compact" title="Accuracy percentage">
+            📊 {{ getAccuracy(word) }}%
+          </span>
+          <span class="stat-compact" *ngIf="word.masteredDate" title="Mastered date">
+            🏆 {{ formatDate(word.masteredDate) }}
+          </span>
         </div>
       </div>
 

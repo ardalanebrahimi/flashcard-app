@@ -240,8 +240,17 @@ export class WordTrackingService {
    * Reset progress for a specific word
    */
   async resetWordProgress(word: string): Promise<void> {
-    if (this.wordProgressMap.has(word)) {
-      this.wordProgressMap.delete(word);
+    const progress = this.wordProgressMap.get(word);
+    if (progress) {
+      // Reset all progress data but keep the word entry
+      progress.status = 'new';
+      progress.practiceCount = 0;
+      progress.correctCount = 0;
+      progress.wrongCount = 0;
+      progress.lastStudied = undefined;
+      progress.masteredDate = undefined;
+      // Keep firstStudied and source unchanged
+      
       await this.saveWordProgress();
     }
   }
