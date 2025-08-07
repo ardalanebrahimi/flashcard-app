@@ -22,41 +22,29 @@
   <div class="progress-section" *ngIf="hasAnyProgress">
     <h2>Your Progress</h2>
     
-    <!-- Overall Statistics -->
-    <div class="stats-card">
-      <h3>Overall Progress</h3>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number known">{{ overallKnownCount }}</div>
-          <div class="stat-label">Words Known</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number unknown">{{ overallUnknownCount }}</div>
-          <div class="stat-label">Words to Review</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number success">{{ overallSuccessRate }}%</div>
-          <div class="stat-label">Success Rate</div>
-        </div>
+    <!-- Condensed Overall Progress -->
+    <div class="condensed-progress">
+      <div class="progress-item">
+        <span class="progress-label">Known:</span>
+        <span class="progress-value known">{{ overallKnownCount }}</span>
+      </div>
+      <div class="progress-item">
+        <span class="progress-label">To Review:</span>
+        <span class="progress-value unknown">{{ overallUnknownCount }}</span>
+      </div>
+      <div class="progress-item">
+        <span class="progress-label">Success Rate:</span>
+        <span class="progress-value success">{{ overallSuccessRate }}%</span>
       </div>
     </div>
 
-    <!-- Current Session -->
-    <div class="stats-card" *ngIf="currentSessionStats.totalWordsStudied > 0">
-      <h3>Today's Session</h3>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number known">{{ currentSessionStats.knownCount }}</div>
-          <div class="stat-label">Known Today</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number unknown">{{ currentSessionStats.unknownCount }}</div>
-          <div class="stat-label">Unknown Today</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">{{ currentSessionStats.totalWordsStudied }}</div>
-          <div class="stat-label">Words Studied</div>
-        </div>
+    <!-- Condensed Today's Session -->
+    <div class="today-session" *ngIf="currentSessionStats.totalWordsStudied > 0">
+      <div class="session-header">Today's Session</div>
+      <div class="session-stats">
+        <span class="session-stat known">{{ currentSessionStats.knownCount }} known</span>
+        <span class="session-stat unknown">{{ currentSessionStats.unknownCount }} unknown</span>
+        <span class="session-stat">{{ currentSessionStats.totalWordsStudied }} studied</span>
       </div>
     </div>
   </div>
@@ -66,37 +54,5 @@
     <div class="no-progress-icon">📚</div>
     <h3>Ready to start your German learning journey?</h3>
     <p>Click "Start Learning" to begin studying B1 German vocabulary with interactive flashcards.</p>
-  </div>
-
-  <!-- Data Management -->
-  <div class="data-management" *ngIf="hasAnyProgress">
-    <h3>Manage Your Data</h3>
-    <div class="management-buttons">
-      <button class="secondary-btn" (click)="onExportProgress()">
-        <span class="btn-icon">📤</span>
-        <span class="btn-text">Export Progress</span>
-      </button>
-      
-      <button class="secondary-btn" (click)="onImportProgress()">
-        <span class="btn-icon">📥</span>
-        <span class="btn-text">Import Progress</span>
-      </button>
-      
-      <button class="danger-btn" (click)="onClearAllProgress()">
-        <span class="btn-icon">🗑️</span>
-        <span class="btn-text">Clear All Data</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Quick Actions -->
-  <div class="quick-actions">
-    <h3>Quick Actions</h3>
-    <div class="action-buttons">
-      <button class="secondary-btn" *ngIf="!hasAnyProgress" (click)="onImportProgress()">
-        <span class="btn-icon">📥</span>
-        <span class="btn-text">Import Existing Progress</span>
-      </button>
-    </div>
   </div>
 </div>

@@ -81,64 +81,94 @@
   font-weight: 400;
 }
 
-.stats-card {
+/* Condensed Progress */
+.condensed-progress {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 20px;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.stats-card h3 {
-  margin: 0 0 20px 0;
-  font-size: 1.2rem;
+.progress-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.progress-label {
+  font-size: 1rem;
   font-weight: 500;
+  opacity: 0.9;
+}
+
+.progress-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  min-width: 50px;
+  text-align: center;
+}
+
+.progress-value.known {
+  color: #4ade80;
+}
+
+.progress-value.unknown {
+  color: #f87171;
+}
+
+.progress-value.success {
+  color: #fbbf24;
+}
+
+/* Today's Session */
+.today-session {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.session-header {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 12px;
   text-align: center;
   opacity: 0.95;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  text-align: center;
-}
-
-.stat-item {
+.session-stats {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
-.stat-number {
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.2);
+.session-stat {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  text-align: center;
   min-width: 60px;
 }
 
-.stat-number.known {
+.session-stat.known {
   color: #4ade80;
 }
 
-.stat-number.unknown {
+.session-stat.unknown {
   color: #f87171;
-}
-
-.stat-number.success {
-  color: #fbbf24;
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  opacity: 0.8;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 500;
 }
 
 /* No Progress State */
@@ -169,75 +199,6 @@
   line-height: 1.5;
 }
 
-/* Data Management & Quick Actions */
-.data-management,
-.quick-actions {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 20px;
-  backdrop-filter: blur(10px);
-}
-
-.data-management h3,
-.quick-actions h3 {
-  margin: 0 0 20px 0;
-  font-size: 1.2rem;
-  font-weight: 500;
-  text-align: center;
-}
-
-.management-buttons,
-.action-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* Button Styles */
-.secondary-btn,
-.danger-btn {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  padding: 16px 24px;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  justify-content: center;
-  backdrop-filter: blur(10px);
-}
-
-.secondary-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-1px);
-}
-
-.danger-btn {
-  background: rgba(239, 68, 68, 0.2);
-  border-color: rgba(239, 68, 68, 0.4);
-}
-
-.danger-btn:hover {
-  background: rgba(239, 68, 68, 0.3);
-  border-color: rgba(239, 68, 68, 0.6);
-  transform: translateY(-1px);
-}
-
-.btn-icon {
-  font-size: 1.2rem;
-}
-
-.btn-text {
-  font-weight: 500;
-}
-
 /* Mobile Responsiveness */
 @media (max-width: 480px) {
   .home-container {
@@ -260,13 +221,27 @@
     min-width: 180px;
   }
 
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .progress-item {
+    padding: 6px 0;
   }
 
-  .stat-number {
-    font-size: 1.6rem;
+  .progress-label {
+    font-size: 0.9rem;
+  }
+
+  .progress-value {
+    font-size: 1.1rem;
+    padding: 3px 10px;
+  }
+
+  .session-stats {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .session-stat {
+    font-size: 0.85rem;
+    padding: 5px 8px;
   }
 
   .no-progress {
@@ -275,17 +250,6 @@
 
   .no-progress-icon {
     font-size: 3rem;
-  }
-
-  .management-buttons,
-  .action-buttons {
-    gap: 8px;
-  }
-
-  .secondary-btn,
-  .danger-btn {
-    padding: 14px 20px;
-    font-size: 0.95rem;
   }
 }
 
