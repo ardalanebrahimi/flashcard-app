@@ -1,49 +1,22 @@
 <div class="flashcard-container">
-  <!-- Header with progress info -->
-  <div class="header">
-    <h1>German Flashcards</h1>
-    
-    <!-- Session Stats -->
-    <div class="stats-section">
-      <h3>Today's Session</h3>
-      <div class="stats">
-        <div class="stat-item">
-          <span class="stat-label">Known:</span>
+  <!-- Condensed Statistics -->
+  <div class="stats-header">
+    <div class="stats-row">
+      <div class="stat-group">
+        <span class="stat-label">Session:</span>
+        <div class="stat-values">
           <span class="stat-value known">{{ knownCount }}</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">Unknown:</span>
           <span class="stat-value unknown">{{ unknownCount }}</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">Practice:</span>
           <span class="stat-value practice">{{ practiceAgainCount }}</span>
-        </div>
-        <div class="stat-item" *ngIf="totalWordsStudied > 0">
-          <span class="stat-label">Success:</span>
-          <span class="stat-value success">{{ successRate }}%</span>
+          <span class="stat-value success" *ngIf="totalWordsStudied > 0">{{ successRate }}%</span>
         </div>
       </div>
-    </div>
-
-    <!-- Overall Progress -->
-    <div class="stats-section" *ngIf="overallKnownCount > 0 || overallUnknownCount > 0 || overallPracticeAgainCount > 0">
-      <h3>Overall Progress</h3>
-      <div class="stats">
-        <div class="stat-item">
-          <span class="stat-label">Total Known:</span>
+      <div class="stat-group" *ngIf="overallKnownCount > 0 || overallUnknownCount > 0 || overallPracticeAgainCount > 0">
+        <span class="stat-label">Total:</span>
+        <div class="stat-values">
           <span class="stat-value known">{{ overallKnownCount }}</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">Total Unknown:</span>
           <span class="stat-value unknown">{{ overallUnknownCount }}</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">Total Practice:</span>
           <span class="stat-value practice">{{ overallPracticeAgainCount }}</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">Overall:</span>
           <span class="stat-value success">{{ overallSuccessRate }}%</span>
         </div>
       </div>
@@ -110,20 +83,5 @@
   <!-- Loading state -->
   <div *ngIf="!currentWord" class="loading">
     <div class="loading-text">Loading flashcards...</div>
-  </div>
-
-  <!-- Control buttons -->
-  <div class="controls">
-    <button class="control-btn" (click)="onShuffle()">
-      🔀 Shuffle
-    </button>
-    
-    <button class="control-btn" (click)="onReset()">
-      🔄 Reset Session
-    </button>
-    
-    <button class="control-btn danger" (click)="onClearAllProgress()">
-      🗑️ Clear All
-    </button>
   </div>
 </div>
