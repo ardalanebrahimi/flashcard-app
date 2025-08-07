@@ -1,10 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { WordService } from '../services/word.service';
 import { ProgressService } from '../services/progress.service';
 import { WordTrackingService } from '../services/word-tracking.service';
 import { DictionaryService } from '../services/dictionary.service';
+import { SessionService, SessionProgress } from '../services/session.service';
 import { Word } from '../models/word.model';
 
 @Component({
@@ -17,6 +19,8 @@ import { Word } from '../models/word.model';
 export class FlashcardComponent implements OnInit, OnDestroy {
   currentWord: Word | null = null;
   showMeaning = false;
+  sessionProgress: SessionProgress | null = null;
+  sessionComplete = false;
   
   private subscription = new Subscription();
 
@@ -24,24 +28,69 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     private wordService: WordService,
     private progressService: ProgressService,
     private wordTrackingService: WordTrackingService,
-    private dictionaryService: DictionaryService
+    private dictionaryService: DictionaryService,
+    private sessionService: SessionService,
+    private router: Router
   ) {}
 
   ngOnInit() {
-    // Subscribe to current word updates
+    // Subscribe to session progress updates
     this.subscription.add(
-      this.wordService.currentWord$.subscribe(word => {
-        this.currentWord = word;
-        this.showMeaning = false; // Reset meaning visibility for new word
+      this.sessionService.sessionProgress$.subscribe(progress => {
+        this.sessionProgress = progress;
+        this.sessionComplete = progress?.isComplete || false;
+        
+        if (this.sessionComplete) {
+          // Session is complete, show completion message
+          this.currentWord = null;
+        } else if (progress) {
+          // Get current word from session
+          this.currentWord = this.sessionService.getCurrentSessionWord();
+        }
+        
+        this.showMeaning = false; // Reset meaning visibility
       })
     );
 
-    // Load progress on startup
-    this.progressService.loadProgress();
+    // Load progress and check for existing session
+    this.initializeSession();
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  /**
+   * Initialize session - check for existing session or start new one
+   */
+  private async initializeSession(): Promise<void> {
+    await this.progressService.loadProgress();
+    
+    // Check if there's an existing session
+    const existingSession = await this.sessionService.loadCurrentSession();
+    
+    if (!existingSession || existingSession.isComplete) {
+      // Start a new session
+      await this.startNewSession();
+    }
+  }
+
+  /**
+   * Start a new session with available words
+   */
+  private async startNewSession(): Promise<void> {
+    // Get all available words (original + custom)
+    const originalWords = this.wordService.getAllWords();
+    const customWords = this.dictionaryService.getCustomWords();
+    const allWords = [...originalWords, ...customWords];
+    
+    if (allWords.length === 0) {
+      console.warn('No words available for session');
+      return;
+    }
+
+    // Start new session
+    await this.sessionService.startSession(allWords);
   }
 
   onShowMeaning() {
@@ -49,38 +98,44 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   }
 
   async onKnowIt() {
-    if (this.currentWord) {
+    if (this.currentWord && this.sessionProgress && !this.sessionComplete) {
+      // Update progress services
       await this.progressService.markWordAsKnown(this.currentWord.word);
       
-      // Also track in word tracking service
+      // Track in word tracking service
       const source = this.isCustomWord(this.currentWord) ? 'custom' : 'dictionary';
       await this.wordTrackingService.recordPractice(this.currentWord, true, source);
       
-      this.nextWord();
+      // Update session progress
+      await this.sessionService.updateSessionProgress(true, false);
     }
   }
 
   async onDontKnowIt() {
-    if (this.currentWord) {
+    if (this.currentWord && this.sessionProgress && !this.sessionComplete) {
+      // Update progress services
       await this.progressService.markWordAsUnknown(this.currentWord.word);
       
-      // Also track in word tracking service
+      // Track in word tracking service
       const source = this.isCustomWord(this.currentWord) ? 'custom' : 'dictionary';
       await this.wordTrackingService.recordPractice(this.currentWord, false, source);
       
-      this.nextWord();
+      // Update session progress
+      await this.sessionService.updateSessionProgress(false, false);
     }
   }
 
   async onPracticeAgain() {
-    if (this.currentWord) {
+    if (this.currentWord && this.sessionProgress && !this.sessionComplete) {
+      // Update progress services
       await this.progressService.markWordForPracticeAgain(this.currentWord.word);
       
-      // Also track in word tracking service
+      // Track in word tracking service
       const source = this.isCustomWord(this.currentWord) ? 'custom' : 'dictionary';
       await this.wordTrackingService.recordPractice(this.currentWord, false, source);
       
-      this.nextWord();
+      // Update session progress
+      await this.sessionService.updateSessionProgress(false, true);
     }
   }
 
@@ -89,41 +144,64 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     return customWords.some(cw => cw.word === word.word);
   }
 
-  private nextWord() {
-    this.wordService.getNextWord();
+  /**
+   * Return to home page after session completion
+   */
+  onReturnHome() {
+    this.router.navigate(['/']);
   }
 
-  async onReset() {
-    this.showMeaning = false;
-    await this.progressService.resetCurrentSession();
-    this.wordService.resetProgress();
+  /**
+   * Start a new session
+   */
+  async onStartNewSession() {
+    await this.startNewSession();
   }
 
-  onShuffle() {
-    this.wordService.shuffle();
+  /**
+   * End current session prematurely and return home
+   */
+  async onEndSession() {
+    if (confirm('Are you sure you want to end this session? Your progress will be saved.')) {
+      await this.sessionService.endCurrentSession();
+      this.router.navigate(['/']);
+    }
   }
 
-  // Getters for template to access ProgressService data
-  get knownCount(): number {
-    return this.progressService.getCurrentSession().knownCount;
+  // Session progress getters
+  get currentCardNumber(): number {
+    return this.sessionProgress ? this.sessionProgress.currentCard + 1 : 0;
   }
 
-  get unknownCount(): number {
-    return this.progressService.getCurrentSession().unknownCount;
+  get totalCards(): number {
+    return this.sessionProgress ? this.sessionProgress.totalCards : 0;
   }
 
-  get practiceAgainCount(): number {
-    return this.progressService.getCurrentSession().practiceAgainCount;
+  get sessionCorrectCount(): number {
+    return this.sessionProgress ? this.sessionProgress.correctCount : 0;
   }
 
-  get totalWordsStudied(): number {
-    return this.progressService.getCurrentSession().totalWordsStudied;
+  get sessionIncorrectCount(): number {
+    return this.sessionProgress ? this.sessionProgress.incorrectCount : 0;
   }
 
-  get successRate(): number {
-    return this.progressService.getCurrentSessionSuccessRate();
+  get sessionPracticeAgainCount(): number {
+    return this.sessionProgress ? this.sessionProgress.practiceAgainCount : 0;
   }
 
+  get sessionSuccessRate(): number {
+    if (!this.sessionProgress) return 0;
+    const totalAnswered = this.sessionProgress.correctCount + this.sessionProgress.incorrectCount;
+    if (totalAnswered === 0) return 0;
+    return Math.round((this.sessionProgress.correctCount / totalAnswered) * 100);
+  }
+
+  get progressPercentage(): number {
+    if (!this.sessionProgress || this.sessionProgress.totalCards === 0) return 0;
+    return Math.round((this.sessionProgress.currentCard / this.sessionProgress.totalCards) * 100);
+  }
+
+  // Overall progress getters (across all sessions)
   get overallKnownCount(): number {
     return this.progressService.getKnownWordsCount();
   }
@@ -140,7 +218,7 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     return this.progressService.getOverallSuccessRate();
   }
 
-  // Check if current word has been studied before
+  // Current word status getters
   get isCurrentWordKnown(): boolean {
     return this.currentWord ? this.progressService.isWordKnown(this.currentWord.word) : false;
   }
@@ -156,6 +234,8 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   async onClearAllProgress() {
     if (confirm('Are you sure you want to clear all progress? This cannot be undone.')) {
       await this.progressService.clearAllProgress();
+      await this.sessionService.resetAllSessions();
+      await this.startNewSession();
     }
   }
 }

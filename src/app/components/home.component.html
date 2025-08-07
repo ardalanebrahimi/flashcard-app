@@ -9,13 +9,46 @@
   <div class="main-actions">
     <button class="primary-btn" routerLink="/flashcards">
       <span class="btn-icon">🎯</span>
-      <span class="btn-text">Start Learning</span>
+      <span class="btn-text">Start Session ({{ sessionConfig.cardsPerSession }} cards)</span>
+    </button>
+    
+    <button class="settings-btn" (click)="toggleSessionSettings()">
+      <span class="btn-icon">⚙️</span>
+      <span class="btn-text">Session Settings</span>
     </button>
     
     <button class="secondary-btn" routerLink="/words">
       <span class="btn-icon">📊</span>
       <span class="btn-text">View Progress</span>
     </button>
+  </div>
+
+  <!-- Session Settings Panel -->
+  <div class="session-settings" *ngIf="showSessionSettings">
+    <h3>Session Configuration</h3>
+    
+    <div class="setting-group">
+      <label for="cardsPerSession">Cards per Session:</label>
+      <select id="cardsPerSession" [(ngModel)]="sessionConfig.cardsPerSession">
+        <option *ngFor="let option of sessionSizeOptions" [value]="option.value">
+          {{ option.label }}
+        </option>
+      </select>
+    </div>
+
+    <div class="setting-group">
+      <label for="sessionType">Session Type:</label>
+      <select id="sessionType" [(ngModel)]="sessionConfig.sessionType">
+        <option *ngFor="let option of sessionTypeOptions" [value]="option.value">
+          {{ option.label }}
+        </option>
+      </select>
+    </div>
+
+    <div class="settings-actions">
+      <button class="save-btn" (click)="updateSessionConfig()">Save Settings</button>
+      <button class="cancel-btn" (click)="toggleSessionSettings()">Cancel</button>
+    </div>
   </div>
 
   <!-- Progress Overview -->
@@ -40,7 +73,7 @@
 
     <!-- Condensed Today's Session -->
     <div class="today-session" *ngIf="currentSessionStats.totalWordsStudied > 0">
-      <div class="session-header">Today's Session</div>
+      <div class="session-header">Recent Activity</div>
       <div class="session-stats">
         <span class="session-stat known">{{ currentSessionStats.knownCount }} known</span>
         <span class="session-stat unknown">{{ currentSessionStats.unknownCount }} unknown</span>

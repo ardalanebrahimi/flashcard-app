@@ -1,30 +1,81 @@
 <div class="flashcard-container">
-  <!-- Condensed Statistics -->
-  <div class="stats-header">
-    <div class="stats-row">
-      <div class="stat-group">
-        <span class="stat-label">Session:</span>
-        <div class="stat-values">
-          <span class="stat-value known">{{ knownCount }}</span>
-          <span class="stat-value unknown">{{ unknownCount }}</span>
-          <span class="stat-value practice">{{ practiceAgainCount }}</span>
-          <span class="stat-value success" *ngIf="totalWordsStudied > 0">{{ successRate }}%</span>
+  <!-- Session Progress Header -->
+  <div class="session-header" *ngIf="sessionProgress && !sessionComplete">
+    <div class="session-progress">
+      <div class="progress-info">
+        <span class="card-counter">{{ currentCardNumber }} / {{ totalCards }}</span>
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width.%]="progressPercentage"></div>
         </div>
       </div>
-      <div class="stat-group" *ngIf="overallKnownCount > 0 || overallUnknownCount > 0 || overallPracticeAgainCount > 0">
-        <span class="stat-label">Total:</span>
-        <div class="stat-values">
-          <span class="stat-value known">{{ overallKnownCount }}</span>
-          <span class="stat-value unknown">{{ overallUnknownCount }}</span>
-          <span class="stat-value practice">{{ overallPracticeAgainCount }}</span>
-          <span class="stat-value success">{{ overallSuccessRate }}%</span>
-        </div>
+      <button class="end-session-btn" (click)="onEndSession()">End Session</button>
+    </div>
+    
+    <!-- Session Statistics -->
+    <div class="session-stats">
+      <div class="stat-item correct">
+        <span class="stat-icon">✅</span>
+        <span class="stat-count">{{ sessionCorrectCount }}</span>
+      </div>
+      <div class="stat-item incorrect">
+        <span class="stat-icon">❌</span>
+        <span class="stat-count">{{ sessionIncorrectCount }}</span>
+      </div>
+      <div class="stat-item practice">
+        <span class="stat-icon">🔄</span>
+        <span class="stat-count">{{ sessionPracticeAgainCount }}</span>
+      </div>
+      <div class="stat-item success" *ngIf="sessionCorrectCount + sessionIncorrectCount > 0">
+        <span class="stat-label">{{ sessionSuccessRate }}%</span>
       </div>
     </div>
   </div>
 
+  <!-- Session Completion Screen -->
+  <div class="session-complete" *ngIf="sessionComplete && sessionProgress">
+    <div class="completion-icon">🎉</div>
+    <h2>Session Complete!</h2>
+    
+    <div class="session-summary">
+      <h3>Session Summary</h3>
+      <div class="summary-stats">
+        <div class="summary-row">
+          <span class="summary-label">Cards Studied:</span>
+          <span class="summary-value">{{ sessionProgress.totalCards }}</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Correct:</span>
+          <span class="summary-value correct">{{ sessionProgress.correctCount }}</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Incorrect:</span>
+          <span class="summary-value incorrect">{{ sessionProgress.incorrectCount }}</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Practice Again:</span>
+          <span class="summary-value practice">{{ sessionProgress.practiceAgainCount }}</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Success Rate:</span>
+          <span class="summary-value success">{{ sessionSuccessRate }}%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="completion-actions">
+      <button class="primary-btn" (click)="onStartNewSession()">
+        <span class="btn-icon">🎯</span>
+        <span class="btn-text">Start New Session</span>
+      </button>
+      <button class="secondary-btn" (click)="onReturnHome()">
+        <span class="btn-icon">🏠</span>
+        <span class="btn-text">Return Home</span>
+      </button>
+    </div>
+  </div>
+
   <!-- Main flashcard area -->
-  <div class="flashcard" *ngIf="currentWord">
+  <div class="flashcard" *ngIf="currentWord && !sessionComplete">
     <!-- German word display -->
     <div class="word-container">
       <div class="german-word">{{ currentWord.word }}</div>
@@ -81,7 +132,30 @@
   </div>
 
   <!-- Loading state -->
-  <div *ngIf="!currentWord" class="loading">
-    <div class="loading-text">Loading flashcards...</div>
+  <div *ngIf="!currentWord && !sessionComplete" class="loading">
+    <div class="loading-text">Starting session...</div>
+  </div>
+
+  <!-- Overall Progress (bottom section for reference) -->
+  <div class="overall-progress" *ngIf="!sessionComplete && (overallKnownCount > 0 || overallUnknownCount > 0)">
+    <h4>Overall Progress</h4>
+    <div class="overall-stats">
+      <div class="overall-stat">
+        <span class="stat-label">Known:</span>
+        <span class="stat-value known">{{ overallKnownCount }}</span>
+      </div>
+      <div class="overall-stat">
+        <span class="stat-label">Unknown:</span>
+        <span class="stat-value unknown">{{ overallUnknownCount }}</span>
+      </div>
+      <div class="overall-stat">
+        <span class="stat-label">Practice:</span>
+        <span class="stat-value practice">{{ overallPracticeAgainCount }}</span>
+      </div>
+      <div class="overall-stat">
+        <span class="stat-label">Success:</span>
+        <span class="stat-value success">{{ overallSuccessRate }}%</span>
+      </div>
+    </div>
   </div>
 </div>

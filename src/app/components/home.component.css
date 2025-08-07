@@ -253,16 +253,124 @@
   }
 }
 
+/* Session Settings Panel */
+.settings-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.settings-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.session-settings {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 32px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.session-settings h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+}
+
+.setting-group {
+  margin-bottom: 20px;
+}
+
+.setting-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: white;
+  opacity: 0.9;
+}
+
+.setting-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  backdrop-filter: blur(5px);
+}
+
+.setting-group select option {
+  background: #1f2937;
+  color: white;
+}
+
+.settings-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.save-btn, .cancel-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.save-btn {
+  background: #10b981;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #059669;
+}
+
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 /* Touch device optimizations */
 @media (hover: none) {
   .primary-btn:hover,
   .secondary-btn:hover,
+  .settings-btn:hover,
   .danger-btn:hover {
     transform: none;
   }
   
   .primary-btn:active,
   .secondary-btn:active,
+  .settings-btn:active,
   .danger-btn:active {
     opacity: 0.8;
   }
