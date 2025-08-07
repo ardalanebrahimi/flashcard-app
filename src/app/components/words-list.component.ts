@@ -58,6 +58,9 @@ export class WordsListComponent implements OnInit, OnDestroy {
   isLoading = true;
   isInitializing = true;
 
+  // UI states
+  isFiltersCollapsed = true;
+
   constructor(
     private wordTrackingService: WordTrackingService,
     private wordService: WordService,
@@ -271,6 +274,10 @@ export class WordsListComponent implements OnInit, OnDestroy {
     }
     
     return pages;
+  }
+
+  toggleFilters(): void {
+    this.isFiltersCollapsed = !this.isFiltersCollapsed;
   }
 
   trackByWord(index: number, word: WordProgress): string {
