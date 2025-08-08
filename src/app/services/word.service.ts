@@ -41,6 +41,9 @@ export class WordService {
    * Initialize service by loading all data
    */
   private async initializeService(): Promise<void> {
+    // Wait for dictionary service to be ready
+    await firstValueFrom(this.dictionaryService.customWords$);
+    
     await Promise.all([
       this.loadWords(),
       this.loadBookmarkedWords(),
@@ -164,7 +167,6 @@ export class WordService {
       );
       
       this.words = words;
-      this.allWords = [...this.words, ...this.dictionaryService.getCustomWords()];
       this.refreshAllWords();
       this.wordsLoadedSubject.next(true);
       
@@ -188,6 +190,31 @@ export class WordService {
    * Refresh all words with current bookmark status and last results
    */
   refreshAllWords() {
+    // Create a map of custom words for quick lookup
+    const customWordsMap = new Map<string, Word>();
+    const customWords = this.dictionaryService.getCustomWords();
+    
+    customWords.forEach(word => {
+      customWordsMap.set(word.word, word);
+    });
+
+    // Start with dictionary words, but override with custom words if they exist
+    const mergedWords = new Map<string, Word>();
+    
+    // Add all dictionary words first
+    this.words.forEach(word => {
+      mergedWords.set(word.word, { ...word });
+    });
+    
+    // Override with custom words (including improved translations)
+    customWordsMap.forEach((customWord, wordKey) => {
+      mergedWords.set(wordKey, { ...customWord });
+    });
+    
+    // Convert back to array
+    this.allWords = Array.from(mergedWords.values());
+    
+    // Apply bookmark status, results, and scores
     this.allWords.forEach(word => {
       word.bookmarked = this.bookmarkedWords.has(word.word);
       word.lastResults = this.wordResults.get(word.word) || [];
@@ -342,6 +369,23 @@ export class WordService {
    */
   getStudiedWords(): Word[] {
     return this.allWords.filter(word => (word.score || 0) > 0);
+  }
+
+  /**
+   * Improve translation for a word
+   */
+  async improveTranslation(word: Word): Promise<{ success: boolean; improvedWord?: Word; error?: string }> {
+    const result = await this.dictionaryService.improveTranslation(word);
+    
+    if (result.success) {
+      // Refresh all words to include the improved translation
+      this.refreshAllWords();
+      
+      // Emit change to notify subscribers
+      this.wordsLoadedSubject.next(true);
+    }
+    
+    return result;
   }
 
   /**

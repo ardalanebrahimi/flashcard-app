@@ -121,6 +121,24 @@
         <div class="translation-text">
           {{ currentWord.translation }}
         </div>
+        
+        <!-- Improve Translation Button -->
+        <button 
+          class="improve-translation-btn" 
+          (click)="onImproveTranslation()"
+          [disabled]="isImprovingTranslation"
+          title="Get a better translation with example">
+          <span class="btn-icon">{{ isImprovingTranslation ? '⏳' : '🔄' }}</span>
+          <span class="btn-text">
+            {{ isImprovingTranslation ? 'Improving...' : 'Improve Translation' }}
+          </span>
+        </button>
+        
+        <!-- Show if this is a custom/improved translation -->
+        <div *ngIf="currentWord.isCustomTranslation" class="custom-translation-indicator">
+          <span class="indicator-icon">✨</span>
+          <span class="indicator-text">Improved translation</span>
+        </div>
       </div>
     </div>
 

@@ -21,6 +21,7 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   showMeaning = false;
   sessionProgress: SessionProgress | null = null;
   sessionComplete = false;
+  isImprovingTranslation = false;
   
   private subscription = new Subscription();
 
@@ -49,6 +50,26 @@ export class FlashcardComponent implements OnInit, OnDestroy {
         }
         
         this.showMeaning = false; // Reset meaning visibility
+      })
+    );
+
+    // Subscribe to word service updates to refresh current word when translations change
+    this.subscription.add(
+      this.wordService.wordsLoaded$.subscribe(loaded => {
+        if (loaded && this.sessionProgress && !this.sessionComplete) {
+          // Refresh current word to get updated translations
+          this.currentWord = this.sessionService.getCurrentSessionWord();
+        }
+      })
+    );
+
+    // Subscribe to custom words changes
+    this.subscription.add(
+      this.dictionaryService.customWords$.subscribe(() => {
+        if (this.sessionProgress && !this.sessionComplete) {
+          // Refresh current word to get updated translations
+          this.currentWord = this.sessionService.getCurrentSessionWord();
+        }
       })
     );
 
@@ -129,6 +150,32 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   async onToggleBookmark() {
     if (this.currentWord) {
       await this.wordService.toggleBookmark(this.currentWord);
+    }
+  }
+
+  async onImproveTranslation() {
+    if (!this.currentWord || this.isImprovingTranslation) {
+      return;
+    }
+
+    this.isImprovingTranslation = true;
+    
+    try {
+      const result = await this.wordService.improveTranslation(this.currentWord);
+      
+      if (result.success && result.improvedWord) {
+        // Update the current word with the improved translation
+        this.currentWord = result.improvedWord;
+        console.log('Translation improved successfully');
+      } else {
+        console.error('Failed to improve translation:', result.error);
+        alert(result.error || 'Failed to improve translation. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error improving translation:', error);
+      alert('An error occurred while improving the translation. Please try again.');
+    } finally {
+      this.isImprovingTranslation = false;
     }
   }
 

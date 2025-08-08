@@ -376,7 +376,15 @@ export class SessionService {
     if (!progress || progress.currentCard >= progress.sessionCards.length) {
       return null;
     }
-    return progress.sessionCards[progress.currentCard];
+    
+    // Get the stored word from session
+    const sessionWord = progress.sessionCards[progress.currentCard];
+    
+    // Find the current version of this word from WordService to get updated translations
+    const currentWord = this.wordService.allWords.find(w => w.word === sessionWord.word);
+    
+    // Return the updated word if found, otherwise return the session word
+    return currentWord || sessionWord;
   }
 
   /**

@@ -25,11 +25,14 @@ export class DictionaryService {
       const stored = localStorage.getItem(this.STORAGE_KEY);
       if (stored) {
         this.customWords = JSON.parse(stored);
-        this.customWordsSubject.next([...this.customWords]);
+      } else {
+        this.customWords = [];
       }
+      this.customWordsSubject.next([...this.customWords]);
     } catch (error) {
       console.error('Error loading custom words from localStorage:', error);
       this.customWords = [];
+      this.customWordsSubject.next([]);
     }
   }
 
@@ -67,6 +70,61 @@ export class DictionaryService {
       word.word.toLowerCase() === normalizedSearch ||
       word.word.toLowerCase().includes(normalizedSearch)
     ) || null;
+  }
+
+  /**
+   * Improve translation for an existing word
+   */
+  async improveTranslation(word: Word): Promise<{ success: boolean; improvedWord?: Word; error?: string }> {
+    try {
+      // Get improved translation using OpenAI
+      const translationResponse = await firstValueFrom(
+        this.openaiService.translateGermanWord(word.word)
+      );
+      
+      if (!translationResponse || !translationResponse.translation) {
+        return { success: false, error: 'Failed to get improved translation' };
+      }
+
+      // Create improved translation text
+      let improvedTranslation = translationResponse.translation;
+      
+      // Add example if available
+      if (translationResponse.example) {
+        improvedTranslation += ` (e.g., ${translationResponse.example})`;
+      }
+
+      // Check if word already exists in custom words
+      const existingCustomIndex = this.customWords.findIndex(w => w.word === word.word);
+      
+      const improvedWord: Word = {
+        word: word.word,
+        translation: improvedTranslation,
+        isCustomTranslation: true,
+        originalTranslation: word.originalTranslation || word.translation,
+        bookmarked: word.bookmarked,
+        lastResults: word.lastResults,
+        score: word.score
+      };
+
+      if (existingCustomIndex !== -1) {
+        // Replace existing custom word
+        this.customWords[existingCustomIndex] = improvedWord;
+      } else {
+        // Add new custom word
+        this.customWords.push(improvedWord);
+      }
+
+      this.saveCustomWords();
+      return { success: true, improvedWord };
+
+    } catch (error) {
+      console.error('Error improving translation:', error);
+      return { 
+        success: false, 
+        error: error instanceof Error ? error.message : 'Failed to improve translation' 
+      };
+    }
   }
 
   /**
