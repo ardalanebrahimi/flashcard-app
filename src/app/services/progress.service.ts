@@ -132,27 +132,6 @@ export class ProgressService {
   }
 
   /**
-   * Mark a word for practice again
-   */
-  async markWordForPracticeAgain(word: string): Promise<void> {
-    // Remove from known and unknown sets if it exists there
-    this.knownWords.delete(word);
-    this.unknownWords.delete(word);
-    
-    // Add to practice again set
-    this.practiceAgainWords.add(word);
-    
-    // Update current session
-    this.currentSession.practiceAgainCount++;
-    this.currentSession.totalWordsStudied++;
-    
-    // Save progress
-    await this.saveProgress();
-    
-    console.log(`Word "${word}" marked for practice again`);
-  }
-
-  /**
    * Check if a word is known
    */
   isWordKnown(word: string): boolean {
