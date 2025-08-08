@@ -305,16 +305,96 @@
   margin-bottom: env(safe-area-inset-bottom, 0);
 }
 
-.word-container {
-  margin-bottom: 15px;
+/* Top Actions Row */
+.top-actions-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 0 4px;
+  min-height: 32px;
 }
 
-.german-word-section {
+.top-action-btn {
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.3);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.top-action-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4);
+}
+
+.top-action-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.top-action-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Specific button colors */
+.top-action-btn.pronunciation-btn {
+  background: #8b5cf6;
+  box-shadow: 0 2px 6px rgba(139, 92, 246, 0.3);
+}
+
+.top-action-btn.pronunciation-btn:hover:not(:disabled) {
+  background: #7c3aed;
+  box-shadow: 0 4px 10px rgba(139, 92, 246, 0.4);
+}
+
+.top-action-btn.bookmark-btn {
+  background: #6b7280;
+  box-shadow: 0 2px 6px rgba(107, 114, 128, 0.3);
+}
+
+.top-action-btn.bookmark-btn:hover:not(:disabled) {
+  background: #4b5563;
+  box-shadow: 0 4px 10px rgba(107, 114, 128, 0.4);
+}
+
+.top-action-btn.bookmark-btn.bookmarked {
+  background: #fbbf24;
+  box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
+}
+
+.top-action-btn.bookmark-btn.bookmarked:hover:not(:disabled) {
+  background: #f59e0b;
+  box-shadow: 0 4px 10px rgba(251, 191, 36, 0.4);
+}
+
+.top-action-btn.improve-translation-btn {
+  background: #06b6d4;
+  box-shadow: 0 2px 6px rgba(6, 182, 212, 0.3);
+}
+
+.top-action-btn.improve-translation-btn:hover:not(:disabled) {
+  background: #0891b2;
+  box-shadow: 0 4px 10px rgba(6, 182, 212, 0.4);
+}
+
+.top-action-btn .btn-icon {
+  font-size: 0.9rem;
+}
+
+.word-container {
+  margin-bottom: 15px;
 }
 
 .german-word {
@@ -323,43 +403,16 @@
   color: #1f2937;
   line-height: 1.2;
   word-break: break-word;
-}
-
-.pronunciation-btn {
-  background: #8b5cf6;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
-  font-size: 1.1rem;
-  flex-shrink: 0;
-}
-
-.pronunciation-btn:hover:not(:disabled) {
-  background: #7c3aed;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
-}
-
-.pronunciation-btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.pronunciation-btn:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-.pronunciation-btn .btn-icon {
-  font-size: 1.1rem;
+  hyphens: auto;
+  margin-bottom: 8px;
+  padding: 0 8px;
+  /* Ensure word doesn't overflow with buttons above */
+  max-width: 100%;
+  overflow-wrap: break-word;
+  /* Handle very long compound German words */
+  text-align: center;
+  /* Responsive font sizing for very long words */
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
 }
 
 .lesson-info {
@@ -479,51 +532,6 @@
   margin-bottom: 0;
 }
 
-.improve-translation-btn {
-  background: #6366f1;
-  color: white;
-  border: none;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: auto;
-  min-width: 28px;
-  height: 28px;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
-  z-index: 10;
-}
-
-.improve-translation-btn:hover:not(:disabled) {
-  background: #4f46e5;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-}
-
-.improve-translation-btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.improve-translation-btn .btn-icon {
-  font-size: 0.8rem;
-}
-
-.improve-translation-btn .btn-text {
-  font-size: 0.7rem;
-  display: none; /* Hide text to make button smaller */
-}
-
 .custom-translation-indicator {
   display: flex;
   align-items: center;
@@ -555,53 +563,6 @@
   /* Ensure buttons stay within the card */
   width: 100%;
   box-sizing: border-box;
-}
-
-/* Bookmark section */
-.bookmark-section {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0 16px 0;
-}
-
-.bookmark-btn {
-  background: #6b7280;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.3);
-}
-
-.bookmark-btn:hover {
-  background: #4b5563;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);
-}
-
-.bookmark-btn.bookmarked {
-  background: #fbbf24;
-  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
-}
-
-.bookmark-btn.bookmarked:hover {
-  background: #f59e0b;
-  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
-}
-
-.bookmark-btn .btn-icon {
-  font-size: 1.1rem;
-}
-
-.bookmark-btn .btn-text {
-  font-size: 0.85rem;
 }
 
 .action-btn {
@@ -714,20 +675,24 @@
 
   .german-word {
     font-size: 1.8rem;
+    /* Use even smaller font for very long words on mobile */
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    padding: 0 4px;
   }
 
-  .german-word-section {
-    gap: 8px;
+  .top-actions-row {
+    gap: 6px;
+    margin-bottom: 12px;
   }
 
-  .pronunciation-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
+  .top-action-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
   }
 
-  .pronunciation-btn .btn-icon {
-    font-size: 1rem;
+  .top-action-btn .btn-icon {
+    font-size: 0.8rem;
   }
 
   .action-buttons {
@@ -738,35 +703,8 @@
     margin-bottom: max(8px, env(safe-area-inset-bottom, 16px));
   }
 
-  .bookmark-section {
-    margin: 16px 0 12px 0;
-  }
-
   .meaning-section {
     margin: 16px 0;
-  }
-
-  .bookmark-btn {
-    padding: 6px 12px;
-    font-size: 0.85rem;
-  }
-
-  .bookmark-btn .btn-text {
-    font-size: 0.8rem;
-  }
-
-  .improve-translation-btn {
-    padding: 3px 6px;
-    font-size: 0.65rem;
-    top: 8px;
-    right: 8px;
-    min-width: 24px;
-    height: 24px;
-  }
-
-  .improve-translation-btn .btn-text {
-    font-size: 0.65rem;
-    display: none; /* Keep text hidden on mobile too */
   }
 
   .custom-translation-indicator {

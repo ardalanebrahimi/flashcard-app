@@ -72,21 +72,41 @@
 
   <!-- Main flashcard area -->
   <div class="flashcard" *ngIf="currentWord && !sessionComplete">
+    <!-- Top Action Buttons Row -->
+    <div class="top-actions-row">
+      <!-- Pronunciation button -->
+      <button 
+        *ngIf="isSpeechSupported"
+        class="top-action-btn pronunciation-btn" 
+        (click)="onPronounceWord()"
+        [disabled]="isPronouncing"
+        title="{{ isPronouncing ? 'Playing pronunciation...' : 'Listen to German pronunciation' }}">
+        <span class="btn-icon">{{ isPronouncing ? '🔊' : '🔉' }}</span>
+      </button>
+
+      <!-- Bookmark button -->
+      <button 
+        class="top-action-btn bookmark-btn" 
+        [class.bookmarked]="currentWord.bookmarked"
+        (click)="onToggleBookmark()"
+        title="{{ currentWord.bookmarked ? 'Remove bookmark' : 'Add bookmark' }}">
+        <span class="btn-icon">{{ currentWord.bookmarked ? '⭐' : '☆' }}</span>
+      </button>
+
+      <!-- Improve Translation Button -->
+      <button 
+        *ngIf="showMeaning"
+        class="top-action-btn improve-translation-btn" 
+        (click)="onImproveTranslation()"
+        [disabled]="isImprovingTranslation"
+        title="{{ isImprovingTranslation ? 'Improving translation...' : 'Get a better translation with example' }}">
+        <span class="btn-icon">{{ isImprovingTranslation ? '⏳' : '�' }}</span>
+      </button>
+    </div>
+
     <!-- German word display -->
     <div class="word-container">
-      <div class="german-word-section">
-        <div class="german-word">{{ currentWord.word }}</div>
-        
-        <!-- Pronunciation button -->
-        <button 
-          *ngIf="isSpeechSupported"
-          class="pronunciation-btn" 
-          (click)="onPronounceWord()"
-          [disabled]="isPronouncing"
-          title="{{ isPronouncing ? 'Playing pronunciation...' : 'Listen to German pronunciation' }}">
-          <span class="btn-icon">{{ isPronouncing ? '🔊' : '🔉' }}</span>
-        </button>
-      </div>
+      <div class="german-word">{{ currentWord.word }}</div>
       
       <!-- Progress indicators -->
       <div class="word-progress" >
@@ -134,35 +154,12 @@
           {{ currentWord.translation }}
         </div>
         
-        <!-- Improve Translation Button -->
-        <button 
-          class="improve-translation-btn" 
-          (click)="onImproveTranslation()"
-          [disabled]="isImprovingTranslation"
-          title="{{ isImprovingTranslation ? 'Improving translation...' : 'Get a better translation with example' }}">
-          <span class="btn-icon">{{ isImprovingTranslation ? '⏳' : '🔄' }}</span>
-          <span class="btn-text">
-            {{ isImprovingTranslation ? 'Improving...' : 'Improve Translation' }}
-          </span>
-        </button>
-        
         <!-- Show if this is a custom/improved translation -->
         <div *ngIf="currentWord.isCustomTranslation" class="custom-translation-indicator">
           <span class="indicator-icon">✨</span>
           <span class="indicator-text">Improved translation</span>
         </div>
       </div>
-    </div>
-
-    <!-- Bookmark section (separate from main actions) -->
-    <div *ngIf="showMeaning" class="bookmark-section">
-      <button class="bookmark-btn" 
-              [class.bookmarked]="currentWord.bookmarked"
-              (click)="onToggleBookmark()"
-              title="{{ currentWord.bookmarked ? 'Remove bookmark' : 'Add bookmark' }}">
-        <span class="btn-icon">{{ currentWord.bookmarked ? '⭐' : '☆' }}</span>
-        <span class="btn-text">{{ currentWord.bookmarked ? 'Bookmarked' : 'Bookmark' }}</span>
-      </button>
     </div>
 
     <!-- Action buttons (only visible when meaning is shown) -->
