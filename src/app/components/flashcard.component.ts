@@ -187,11 +187,6 @@ export class FlashcardComponent implements OnInit, OnDestroy {
       return;
     }
 
-    if (!this.isSpeechSupported) {
-      alert('Speech synthesis is not supported on this device. This feature may not work on some Android browsers.');
-      return;
-    }
-
     this.isPronouncing = true;
     
     try {
@@ -200,8 +195,13 @@ export class FlashcardComponent implements OnInit, OnDestroy {
       console.error('Error pronouncing word:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
       
-      if (errorMessage.includes('not supported')) {
-        alert('Speech synthesis is not available on this device. Try using Chrome or Firefox for better speech support.');
+      // Provide user-friendly error messages
+      if (errorMessage.includes('OpenAI')) {
+        alert('Unable to generate pronunciation using AI. Please check your internet connection and try again.');
+      } else if (errorMessage.includes('not supported')) {
+        alert('Speech synthesis is not available on this device. This may be due to browser limitations or device settings.');
+      } else if (errorMessage.includes('timeout')) {
+        alert('Pronunciation request timed out. Please check your internet connection and try again.');
       } else {
         alert(`Unable to pronounce the word: ${errorMessage}`);
       }
@@ -211,7 +211,9 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   }
 
   get isSpeechSupported(): boolean {
-    return this.pronunciationService.isSpeechSynthesisSupported();
+    // With OpenAI TTS as primary and browser speech as fallback,
+    // we can always show the pronunciation button
+    return true;
   }
 
   private isCustomWord(word: Word): boolean {

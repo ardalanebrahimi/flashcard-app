@@ -9,11 +9,17 @@ export interface TranslationResponse {
   example?: string;
 }
 
+export interface TTSResponse {
+  audioUrl: string;
+  audioBlob: Blob;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class OpenaiService {
   private readonly apiUrl = 'https://api.openai.com/v1/chat/completions';
+  private readonly ttsApiUrl = 'https://api.openai.com/v1/audio/speech';
 
   constructor(private http: HttpClient) {}
 
@@ -57,6 +63,46 @@ export class OpenaiService {
       catchError(error => {
         console.error('OpenAI API error:', error);
         return throwError(() => new Error('Failed to translate word. Please try again.'));
+      })
+    );
+  }
+
+  /**
+   * Generate German pronunciation using OpenAI Text-to-Speech API
+   */
+  generateGermanPronunciation(germanWord: string): Observable<TTSResponse> {
+    if (!environment.openaiApiKey) {
+      return throwError(() => new Error('OpenAI API key not configured'));
+    }
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${environment.openaiApiKey}`
+    });
+
+    const body = {
+      model: 'tts-1', // OpenAI's Text-to-Speech model
+      input: germanWord,
+      voice: 'nova', // Female voice, good for language learning
+      response_format: 'mp3'
+    };
+
+    return this.http.post(this.ttsApiUrl, body, { 
+      headers, 
+      responseType: 'blob'
+    }).pipe(
+      map((audioBlob: any) => {
+        // Create a URL for the audio blob
+        const blob = audioBlob as Blob;
+        const audioUrl = URL.createObjectURL(blob);
+        return {
+          audioUrl,
+          audioBlob: blob
+        };
+      }),
+      catchError(error => {
+        console.error('OpenAI TTS API error:', error);
+        return throwError(() => new Error('Failed to generate pronunciation. Please try again.'));
       })
     );
   }

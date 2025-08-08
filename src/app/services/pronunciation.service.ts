@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { OpenaiService } from './openai.service';
+import { firstValueFrom } from 'rxjs';
 
 interface CachedPronunciation {
   word: string;
@@ -17,8 +19,11 @@ export class PronunciationService {
   private germanVoice: SpeechSynthesisVoice | null = null;
   private isSupported = false;
 
-  constructor() {
+  constructor(private openaiService: OpenaiService) {
+    console.log('PronunciationService constructor - checking support...');
     this.isSupported = this.checkSpeechSynthesisSupport();
+    console.log('PronunciationService constructor - support result:', this.isSupported);
+    
     if (this.isSupported) {
       this.synth = window.speechSynthesis;
       this.initializeGermanVoice();
@@ -30,12 +35,31 @@ export class PronunciationService {
    * Check if speech synthesis is properly supported
    */
   private checkSpeechSynthesisSupport(): boolean {
-    return (
-      'speechSynthesis' in window && 
-      window.speechSynthesis !== null && 
-      window.speechSynthesis !== undefined &&
-      typeof window.speechSynthesis.getVoices === 'function'
-    );
+    console.log('checkSpeechSynthesisSupport - starting check...');
+    
+    // Use a more lenient check for Android compatibility
+    if (!('speechSynthesis' in window)) {
+      console.log('checkSpeechSynthesisSupport - speechSynthesis not in window');
+      return false;
+    }
+    
+    if (window.speechSynthesis === null || window.speechSynthesis === undefined) {
+      console.log('checkSpeechSynthesisSupport - window.speechSynthesis is null/undefined');
+      return false;
+    }
+    
+    // On some Android devices, getVoices might not be available immediately
+    // but speechSynthesis itself works, so we'll be more lenient
+    try {
+      // Test if we can create a basic utterance
+      console.log('checkSpeechSynthesisSupport - testing SpeechSynthesisUtterance creation...');
+      const testUtterance = new SpeechSynthesisUtterance('test');
+      console.log('checkSpeechSynthesisSupport - SpeechSynthesisUtterance created successfully');
+      return true;
+    } catch (error) {
+      console.warn('checkSpeechSynthesisSupport - Speech synthesis test failed:', error);
+      return false;
+    }
   }
 
   /**
@@ -49,27 +73,31 @@ export class PronunciationService {
     const loadVoices = () => {
       if (!this.synth) return;
       
-      const voices = this.synth.getVoices();
-      
-      // Prefer German voices in order of quality
-      const germanVoices = voices.filter(voice => 
-        voice.lang.startsWith('de') || 
-        voice.lang.startsWith('de-DE') ||
-        voice.name.toLowerCase().includes('german')
-      );
+      try {
+        const voices = this.synth.getVoices();
+        
+        // Prefer German voices in order of quality
+        const germanVoices = voices.filter(voice => 
+          voice.lang.startsWith('de') || 
+          voice.lang.startsWith('de-DE') ||
+          voice.name.toLowerCase().includes('german')
+        );
 
-      if (germanVoices.length > 0) {
-        // Prefer native voices over network voices for offline capability
-        this.germanVoice = germanVoices.find(voice => voice.localService) || germanVoices[0];
-        console.log('German voice selected:', this.germanVoice.name, this.germanVoice.lang);
-      } else {
-        // Fallback to any available voice
-        this.germanVoice = voices[0] || null;
-        if (this.germanVoice) {
-          console.warn('No German voice found, using fallback:', this.germanVoice.name);
+        if (germanVoices.length > 0) {
+          // Prefer native voices over network voices for offline capability
+          this.germanVoice = germanVoices.find(voice => voice.localService) || germanVoices[0];
+          console.log('German voice selected:', this.germanVoice.name, this.germanVoice.lang);
         } else {
-          console.warn('No voices available');
+          // Fallback to any available voice
+          this.germanVoice = voices[0] || null;
+          if (this.germanVoice) {
+            console.warn('No German voice found, using fallback:', this.germanVoice.name);
+          } else {
+            console.warn('No voices available initially - will try again later');
+          }
         }
+      } catch (error) {
+        console.warn('Failed to get voices:', error);
       }
     };
 
@@ -77,7 +105,11 @@ export class PronunciationService {
     loadVoices();
 
     // Also listen for voiceschanged event (some browsers load voices asynchronously)
-    this.synth.addEventListener('voiceschanged', loadVoices);
+    try {
+      this.synth.addEventListener('voiceschanged', loadVoices);
+    } catch (error) {
+      console.warn('Failed to add voiceschanged listener:', error);
+    }
   }
 
   /**
@@ -88,10 +120,6 @@ export class PronunciationService {
       throw new Error('Word cannot be empty');
     }
 
-    if (!this.isSupported) {
-      throw new Error('Speech synthesis is not supported on this device');
-    }
-
     // Check if we have cached audio first
     const cached = this.getCachedPronunciation(word);
     if (cached) {
@@ -99,10 +127,42 @@ export class PronunciationService {
         await this.playAudioFromCache(cached.audioData);
         return;
       } catch (error) {
-        console.warn('Failed to play cached audio, falling back to speech synthesis:', error);
+        console.warn('Failed to play cached audio, trying fresh pronunciation:', error);
         // Remove invalid cache entry
         this.removeCachedPronunciation(word);
       }
+    }
+
+    // Try OpenAI TTS first (more reliable, especially on mobile)
+    try {
+      console.log('Attempting OpenAI TTS for word:', word);
+      await this.pronounceWithOpenAI(word);
+      return;
+    } catch (error) {
+      console.warn('OpenAI TTS failed, falling back to browser speech synthesis:', error);
+    }
+
+    // Fallback to browser speech synthesis
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    
+    if (!this.isSupported && isAndroid) {
+      console.log('Android device detected - attempting speech synthesis despite support check');
+      try {
+        // Try to initialize speech synthesis for Android
+        if ('speechSynthesis' in window) {
+          this.synth = window.speechSynthesis;
+          await this.speakWithSynthesis(word);
+          return;
+        }
+      } catch (error) {
+        console.warn('Android fallback speech synthesis failed:', error);
+        throw new Error('Both OpenAI TTS and device speech synthesis are unavailable. Please check your internet connection or device settings.');
+      }
+    }
+
+    // Standard support check for non-Android devices
+    if (!this.isSupported) {
+      throw new Error('Speech synthesis is not supported on this device and OpenAI TTS is unavailable');
     }
 
     // Use speech synthesis for pronunciation
@@ -110,17 +170,71 @@ export class PronunciationService {
   }
 
   /**
+   * Use OpenAI Text-to-Speech API for pronunciation
+   */
+  private async pronounceWithOpenAI(word: string): Promise<void> {
+    try {
+      const ttsResponse = await firstValueFrom(this.openaiService.generateGermanPronunciation(word));
+      
+      // Play the audio
+      const audio = new Audio(ttsResponse.audioUrl);
+      
+      return new Promise((resolve, reject) => {
+        audio.onended = () => {
+          // Clean up the blob URL
+          URL.revokeObjectURL(ttsResponse.audioUrl);
+          resolve();
+        };
+        
+        audio.onerror = () => {
+          URL.revokeObjectURL(ttsResponse.audioUrl);
+          reject(new Error('Failed to play OpenAI generated audio'));
+        };
+        
+        // Set a timeout in case audio doesn't play
+        const timeout = setTimeout(() => {
+          URL.revokeObjectURL(ttsResponse.audioUrl);
+          reject(new Error('OpenAI audio playback timeout'));
+        }, 15000); // 15 second timeout
+        
+        audio.onloadstart = () => {
+          clearTimeout(timeout);
+        };
+        
+        audio.play().catch(error => {
+          clearTimeout(timeout);
+          URL.revokeObjectURL(ttsResponse.audioUrl);
+          reject(new Error(`Failed to play OpenAI audio: ${error.message}`));
+        });
+      });
+      
+    } catch (error) {
+      console.error('OpenAI TTS error:', error);
+      throw new Error(`OpenAI pronunciation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  }
+
+  /**
    * Speak word using browser's speech synthesis
    */
   private async speakWithSynthesis(word: string): Promise<void> {
     return new Promise((resolve, reject) => {
-      if (!this.synth || !this.isSupported) {
-        reject(new Error('Speech synthesis not supported on this device'));
+      // Try to get speech synthesis if not already available
+      if (!this.synth && 'speechSynthesis' in window) {
+        this.synth = window.speechSynthesis;
+      }
+      
+      if (!this.synth) {
+        reject(new Error('Speech synthesis not available on this device'));
         return;
       }
 
       // Cancel any ongoing speech
-      this.synth.cancel();
+      try {
+        this.synth.cancel();
+      } catch (error) {
+        console.warn('Failed to cancel previous speech:', error);
+      }
 
       const utterance = new SpeechSynthesisUtterance(word);
       
@@ -143,10 +257,24 @@ export class PronunciationService {
         reject(new Error(`Speech synthesis error: ${event.error}`));
       };
 
+      // Set a timeout in case the speech doesn't start
+      const timeout = setTimeout(() => {
+        reject(new Error('Speech synthesis timeout'));
+      }, 10000); // 10 second timeout
+
+      utterance.onstart = () => {
+        clearTimeout(timeout);
+      };
+
       // Optional: Try to record and cache the audio (browser support varies)
       this.tryCacheAudio(word, utterance);
 
-      this.synth.speak(utterance);
+      try {
+        this.synth.speak(utterance);
+      } catch (error) {
+        clearTimeout(timeout);
+        reject(new Error(`Failed to start speech synthesis: ${error}`));
+      }
     });
   }
 
@@ -167,17 +295,25 @@ export class PronunciationService {
       return [];
     }
     
-    const voices = this.synth.getVoices();
-    return voices.filter(voice => 
-      voice.lang.startsWith('de') || 
-      voice.name.toLowerCase().includes('german')
-    );
+    try {
+      const voices = this.synth.getVoices();
+      return voices.filter(voice => 
+        voice.lang.startsWith('de') || 
+        voice.name.toLowerCase().includes('german')
+      );
+    } catch (error) {
+      console.warn('Failed to get German voices:', error);
+      return [];
+    }
   }
 
   /**
    * Check if speech synthesis is supported
    */
   isSpeechSynthesisSupported(): boolean {
+    console.log('PronunciationService - isSpeechSynthesisSupported called, returning:', this.isSupported);
+    console.log('PronunciationService - speechSynthesis in window:', 'speechSynthesis' in window);
+    console.log('PronunciationService - window.speechSynthesis exists:', !!window.speechSynthesis);
     return this.isSupported;
   }
 
