@@ -20,6 +20,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   bookmarkedWordsCount = 0;
   isCalculatingScores = false; // For temporary score calculation button
   
+  // Pronunciation preloading status
+  pronunciationPreloadStatus = {
+    isPreloading: false,
+    isComplete: false,
+    loaded: 0,
+    failed: 0,
+    showDetails: false
+  };
+  
   private subscription = new Subscription();
   
   constructor(
@@ -42,6 +51,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       ]).subscribe(([wordsLoaded, bookmarksLoaded]: [boolean, boolean]) => {
         if (wordsLoaded && bookmarksLoaded) {
           this.updateBookmarkedWordsCount();
+          // Trigger background preloading of common pronunciations
+          this.startBackgroundPronunciationPreloading();
         }
       })
     );
@@ -164,5 +175,77 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.isCalculatingScores = false;
       }
     }
+  }
+
+  /**
+   * Start background preloading of pronunciations
+   */
+  private async startBackgroundPronunciationPreloading(): Promise<void> {
+    // Don't start if already preloading or complete
+    if (this.pronunciationPreloadStatus.isPreloading || this.pronunciationPreloadStatus.isComplete) {
+      return;
+    }
+
+    this.pronunciationPreloadStatus.isPreloading = true;
+    
+    try {
+      // Get cache stats to check if we already have a good amount cached
+      const cacheStats = this.wordService.getPronunciationCacheStats();
+      
+      // If we already have 15+ pronunciations cached, don't preload more
+      if (cacheStats.size >= 15) {
+        console.log('Pronunciation cache already well populated, skipping preload');
+        this.pronunciationPreloadStatus.isComplete = true;
+        this.pronunciationPreloadStatus.isPreloading = false;
+        return;
+      }
+
+      console.log('Starting background pronunciation preloading...');
+      
+      // Preload common words (reduced to 10 to be conservative with API usage)
+      const commonResult = await this.wordService.preloadCommonPronunciations(10);
+      
+      // Small delay before next batch
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Preload bookmarked words (these are important to the user)
+      const bookmarkedResult = await this.wordService.preloadBookmarkedPronunciations();
+      
+      // Update status
+      this.pronunciationPreloadStatus.loaded = commonResult.loaded + bookmarkedResult.loaded;
+      this.pronunciationPreloadStatus.failed = commonResult.failed + bookmarkedResult.failed;
+      this.pronunciationPreloadStatus.isComplete = true;
+      
+      console.log(`Background pronunciation preloading complete: ${this.pronunciationPreloadStatus.loaded} loaded, ${this.pronunciationPreloadStatus.failed} failed`);
+      
+    } catch (error) {
+      console.error('Error during background pronunciation preloading:', error);
+      this.pronunciationPreloadStatus.failed++;
+    } finally {
+      this.pronunciationPreloadStatus.isPreloading = false;
+    }
+  }
+
+  /**
+   * Manually trigger pronunciation preloading (for testing/debugging)
+   */
+  async triggerPronunciationPreload(): Promise<void> {
+    this.pronunciationPreloadStatus = {
+      isPreloading: false,
+      isComplete: false,
+      loaded: 0,
+      failed: 0,
+      showDetails: true
+    };
+    
+    await this.startBackgroundPronunciationPreloading();
+  }
+
+  /**
+   * Get pronunciation cache statistics for display
+   */
+  getPronunciationCacheInfo(): string {
+    const stats = this.wordService.getPronunciationCacheStats();
+    return `${stats.size} pronunciations cached (${stats.totalSizeKB} KB, ${stats.totalAccesses} total plays)`;
   }
 }

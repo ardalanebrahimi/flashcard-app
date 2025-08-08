@@ -6,6 +6,8 @@ interface CachedPronunciation {
   word: string;
   audioData: string; // Base64 encoded audio data
   timestamp: number;
+  accessCount: number; // Track how often this is accessed
+  lastAccessed: number; // Track when it was last accessed
 }
 
 @Injectable({
@@ -15,9 +17,11 @@ export class PronunciationService {
   private cache = new Map<string, CachedPronunciation>();
   private readonly CACHE_KEY = 'german_pronunciation_cache';
   private readonly CACHE_EXPIRY_DAYS = 30;
+  private readonly MAX_CACHE_SIZE = 100; // Limit cache size for performance
   private synth: SpeechSynthesis | null = null;
   private germanVoice: SpeechSynthesisVoice | null = null;
   private isSupported = false;
+  private saveTimeout: any = null;
 
   constructor(private openaiService: OpenaiService) {
     console.log('PronunciationService constructor - checking support...');
@@ -124,6 +128,7 @@ export class PronunciationService {
     const cached = this.getCachedPronunciation(word);
     if (cached) {
       try {
+        console.log(`Playing cached pronunciation for "${word}"`);
         await this.playAudioFromCache(cached.audioData);
         return;
       } catch (error) {
@@ -175,6 +180,12 @@ export class PronunciationService {
   private async pronounceWithOpenAI(word: string): Promise<void> {
     try {
       const ttsResponse = await firstValueFrom(this.openaiService.generateGermanPronunciation(word));
+      
+      // Convert blob to base64 for caching
+      const audioBase64 = await this.blobToBase64(ttsResponse.audioBlob);
+      
+      // Cache the audio data for future use
+      this.cachePronunciation(word, audioBase64);
       
       // Play the audio
       const audio = new Audio(ttsResponse.audioUrl);
@@ -331,28 +342,60 @@ export class PronunciationService {
     try {
       const cached = localStorage.getItem(this.CACHE_KEY);
       if (cached) {
-        const data: CachedPronunciation[] = JSON.parse(cached);
+        const data: any[] = JSON.parse(cached);
         const now = Date.now();
         
-        // Filter out expired entries
-        const validEntries = data.filter(entry => {
-          const age = now - entry.timestamp;
-          const maxAge = this.CACHE_EXPIRY_DAYS * 24 * 60 * 60 * 1000;
-          return age < maxAge;
+        // Filter out expired entries and normalize data
+        const validEntries = data
+          .filter(entry => {
+            const age = now - entry.timestamp;
+            const maxAge = this.CACHE_EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+            return age < maxAge;
+          })
+          .map(entry => ({
+            word: entry.word,
+            audioData: entry.audioData,
+            timestamp: entry.timestamp,
+            accessCount: entry.accessCount || 1,
+            lastAccessed: entry.lastAccessed || entry.timestamp
+          } as CachedPronunciation));
+
+        // Sort by access count and last accessed time (most used first)
+        validEntries.sort((a, b) => {
+          const aScore = a.accessCount * 0.7 + (a.lastAccessed / 1000000) * 0.3;
+          const bScore = b.accessCount * 0.7 + (b.lastAccessed / 1000000) * 0.3;
+          return bScore - aScore;
         });
 
+        // Limit cache size to prevent memory issues
+        const limitedEntries = validEntries.slice(0, this.MAX_CACHE_SIZE);
+
         // Populate cache map
-        validEntries.forEach(entry => {
+        limitedEntries.forEach(entry => {
           this.cache.set(entry.word.toLowerCase(), entry);
         });
 
-        // Save cleaned cache back to storage
-        this.saveCacheToStorage();
+        // Save cleaned cache back to storage if we removed entries
+        if (limitedEntries.length !== data.length) {
+          this.saveCacheToStorage();
+        }
       }
     } catch (error) {
       console.warn('Failed to load pronunciation cache:', error);
       this.cache.clear();
     }
+  }
+
+  /**
+   * Save pronunciation cache to localStorage (debounced)
+   */
+  private debouncedSave(): void {
+    if (this.saveTimeout) {
+      clearTimeout(this.saveTimeout);
+    }
+    this.saveTimeout = setTimeout(() => {
+      this.saveCacheToStorage();
+    }, 1000); // Save after 1 second of inactivity
   }
 
   /**
@@ -371,7 +414,16 @@ export class PronunciationService {
    * Get cached pronunciation for a word
    */
   private getCachedPronunciation(word: string): CachedPronunciation | null {
-    return this.cache.get(word.toLowerCase()) || null;
+    const cached = this.cache.get(word.toLowerCase());
+    if (cached) {
+      // Update access statistics
+      cached.accessCount++;
+      cached.lastAccessed = Date.now();
+      this.cache.set(word.toLowerCase(), cached);
+      // Save updated stats to storage (debounced to avoid too frequent writes)
+      this.debouncedSave();
+    }
+    return cached || null;
   }
 
   /**
@@ -381,11 +433,38 @@ export class PronunciationService {
     const cached: CachedPronunciation = {
       word: word.toLowerCase(),
       audioData,
-      timestamp: Date.now()
+      timestamp: Date.now(),
+      accessCount: 1,
+      lastAccessed: Date.now()
     };
+
+    // If cache is full, remove least recently used entry
+    if (this.cache.size >= this.MAX_CACHE_SIZE) {
+      this.evictLeastUsedEntry();
+    }
 
     this.cache.set(word.toLowerCase(), cached);
     this.saveCacheToStorage();
+  }
+
+  /**
+   * Remove the least recently used entry from cache
+   */
+  private evictLeastUsedEntry(): void {
+    let leastUsed: { key: string; entry: CachedPronunciation } | null = null;
+    
+    for (const [key, entry] of this.cache.entries()) {
+      if (!leastUsed || 
+          entry.accessCount < leastUsed.entry.accessCount ||
+          (entry.accessCount === leastUsed.entry.accessCount && entry.lastAccessed < leastUsed.entry.lastAccessed)) {
+        leastUsed = { key, entry };
+      }
+    }
+    
+    if (leastUsed) {
+      this.cache.delete(leastUsed.key);
+      console.log('Evicted cached pronunciation for:', leastUsed.entry.word);
+    }
   }
 
   /**
@@ -394,6 +473,24 @@ export class PronunciationService {
   private removeCachedPronunciation(word: string): void {
     this.cache.delete(word.toLowerCase());
     this.saveCacheToStorage();
+  }
+
+  /**
+   * Convert blob to base64 string for caching
+   */
+  private async blobToBase64(blob: Blob): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (typeof reader.result === 'string') {
+          resolve(reader.result);
+        } else {
+          reject(new Error('Failed to convert blob to base64'));
+        }
+      };
+      reader.onerror = () => reject(new Error('FileReader error'));
+      reader.readAsDataURL(blob);
+    });
   }
 
   /**
@@ -415,6 +512,98 @@ export class PronunciationService {
   }
 
   /**
+   * Preload pronunciation for a word (cache without playing)
+   */
+  async preloadPronunciation(word: string): Promise<boolean> {
+    if (!word.trim()) {
+      return false;
+    }
+
+    // Check if already cached
+    const cached = this.getCachedPronunciation(word);
+    if (cached) {
+      return true;
+    }
+
+    try {
+      // Get OpenAI TTS audio
+      const ttsResponse = await firstValueFrom(this.openaiService.generateGermanPronunciation(word));
+      
+      // Convert blob to base64 for caching
+      const audioBase64 = await this.blobToBase64(ttsResponse.audioBlob);
+      
+      // Cache the audio data
+      this.cachePronunciation(word, audioBase64);
+      
+      // Clean up the blob URL
+      URL.revokeObjectURL(ttsResponse.audioUrl);
+      
+      return true;
+    } catch (error) {
+      console.warn('Failed to preload pronunciation for', word, ':', error);
+      return false;
+    }
+  }
+
+  /**
+   * Preload pronunciations for multiple words
+   */
+  async preloadPronunciations(words: string[]): Promise<{ loaded: number; failed: number }> {
+    let loaded = 0;
+    let failed = 0;
+
+    // Filter out already cached words
+    const wordsToLoad = words.filter(word => !this.isPronunciationCached(word));
+    
+    if (wordsToLoad.length === 0) {
+      console.log('All requested words are already cached');
+      return { loaded: words.length, failed: 0 };
+    }
+
+    console.log(`Preloading ${wordsToLoad.length} pronunciations...`);
+
+    // Process words in small batches to avoid overwhelming the API
+    const batchSize = 2; // Reduced batch size to be more conservative with API calls
+    for (let i = 0; i < wordsToLoad.length; i += batchSize) {
+      const batch = wordsToLoad.slice(i, i + batchSize);
+      const promises = batch.map(word => this.preloadPronunciation(word));
+      
+      const results = await Promise.allSettled(promises);
+      results.forEach(result => {
+        if (result.status === 'fulfilled' && result.value) {
+          loaded++;
+        } else {
+          failed++;
+        }
+      });
+
+      // Delay between batches to respect API rate limits
+      if (i + batchSize < wordsToLoad.length) {
+        await new Promise(resolve => setTimeout(resolve, 1000)); // 1 second delay
+      }
+    }
+
+    console.log(`Preloading complete: ${loaded} loaded, ${failed} failed`);
+    return { loaded, failed };
+  }
+
+  /**
+   * Preload pronunciations for the most commonly used words from a word list
+   */
+  async preloadCommonWords(allWords: any[], count: number = 20): Promise<{ loaded: number; failed: number }> {
+    // Extract the first N words (assumes they're ordered by frequency/importance)
+    const commonWords = allWords.slice(0, count).map(w => w.word);
+    return this.preloadPronunciations(commonWords);
+  }
+
+  /**
+   * Check if a word's pronunciation is cached
+   */
+  isPronunciationCached(word: string): boolean {
+    return this.cache.has(word.toLowerCase());
+  }
+
+  /**
    * Clear all cached pronunciations
    */
   clearCache(): void {
@@ -425,13 +614,32 @@ export class PronunciationService {
   /**
    * Get cache statistics
    */
-  getCacheStats(): { size: number; totalSizeKB: number } {
+  getCacheStats(): { 
+    size: number; 
+    totalSizeKB: number; 
+    totalAccesses: number;
+    mostUsedWord?: string;
+    maxCacheSize: number;
+  } {
     const data = Array.from(this.cache.values());
     const totalSize = data.reduce((sum, entry) => sum + entry.audioData.length, 0);
+    const totalAccesses = data.reduce((sum, entry) => sum + entry.accessCount, 0);
+    
+    let mostUsedWord: string | undefined;
+    let maxAccesses = 0;
+    data.forEach(entry => {
+      if (entry.accessCount > maxAccesses) {
+        maxAccesses = entry.accessCount;
+        mostUsedWord = entry.word;
+      }
+    });
     
     return {
       size: data.length,
-      totalSizeKB: Math.round(totalSize / 1024)
+      totalSizeKB: Math.round(totalSize / 1024),
+      totalAccesses,
+      mostUsedWord,
+      maxCacheSize: this.MAX_CACHE_SIZE
     };
   }
 }

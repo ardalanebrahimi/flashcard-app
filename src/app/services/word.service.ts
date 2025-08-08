@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, firstValueFrom, combineLatest } from 'rxjs
 import { Preferences } from '@capacitor/preferences';
 import { Word } from '../models/word.model';
 import { DictionaryService } from './dictionary.service';
+import { PronunciationService } from './pronunciation.service';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,8 @@ export class WordService {
 
   constructor(
     private http: HttpClient,
-    private dictionaryService: DictionaryService
+    private dictionaryService: DictionaryService,
+    private pronunciationService: PronunciationService
   ) {
     this.initializeService();
   }
@@ -407,6 +409,75 @@ export class WordService {
     
     // Force save to ensure scores are persisted
     await this.saveWordResults();
+  }
+
+  /**
+   * Preload pronunciations for commonly used words
+   */
+  async preloadCommonPronunciations(count: number = 20): Promise<{ loaded: number; failed: number }> {
+    if (this.allWords.length === 0) {
+      console.warn('No words loaded, cannot preload pronunciations');
+      return { loaded: 0, failed: 0 };
+    }
+
+    // Get the first N words (assumed to be ordered by frequency/importance)
+    const result = await this.pronunciationService.preloadCommonWords(this.allWords, count);
+    console.log(`Pronunciation preloading result: ${result.loaded} loaded, ${result.failed} failed`);
+    return result;
+  }
+
+  /**
+   * Preload pronunciations for bookmarked words
+   */
+  async preloadBookmarkedPronunciations(): Promise<{ loaded: number; failed: number }> {
+    const bookmarkedWords = this.getBookmarkedWords();
+    if (bookmarkedWords.length === 0) {
+      return { loaded: 0, failed: 0 };
+    }
+
+    const wordStrings = bookmarkedWords.map(w => w.word);
+    const result = await this.pronunciationService.preloadPronunciations(wordStrings);
+    console.log(`Bookmarked pronunciations preloading result: ${result.loaded} loaded, ${result.failed} failed`);
+    return result;
+  }
+
+  /**
+   * Preload pronunciations for low-scoring words (need more practice)
+   */
+  async preloadPracticePronunciations(count: number = 15): Promise<{ loaded: number; failed: number }> {
+    // Get words with low scores (0-1) as they need more practice
+    const practiceWords = this.allWords
+      .filter(word => (word.score || 0) <= 1)
+      .slice(0, count)
+      .map(w => w.word);
+
+    if (practiceWords.length === 0) {
+      return { loaded: 0, failed: 0 };
+    }
+
+    const result = await this.pronunciationService.preloadPronunciations(practiceWords);
+    console.log(`Practice pronunciations preloading result: ${result.loaded} loaded, ${result.failed} failed`);
+    return result;
+  }
+
+  /**
+   * Check if a word's pronunciation is cached
+   */
+  isPronunciationCached(word: string): boolean {
+    return this.pronunciationService.isPronunciationCached(word);
+  }
+
+  /**
+   * Get pronunciation cache statistics
+   */
+  getPronunciationCacheStats(): { 
+    size: number; 
+    totalSizeKB: number; 
+    totalAccesses: number;
+    mostUsedWord?: string;
+    maxCacheSize: number;
+  } {
+    return this.pronunciationService.getCacheStats();
   }
 
 }

@@ -305,106 +305,27 @@
   margin-bottom: env(safe-area-inset-bottom, 0);
 }
 
-/* Top Actions Row */
-.top-actions-row {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  padding: 0 4px;
-  min-height: 32px;
-}
-
-.top-action-btn {
-  background: #6366f1;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.3);
-  font-size: 0.9rem;
-  flex-shrink: 0;
-}
-
-.top-action-btn:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4);
-}
-
-.top-action-btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.top-action-btn:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-/* Specific button colors */
-.top-action-btn.pronunciation-btn {
-  background: #8b5cf6;
-  box-shadow: 0 2px 6px rgba(139, 92, 246, 0.3);
-}
-
-.top-action-btn.pronunciation-btn:hover:not(:disabled) {
-  background: #7c3aed;
-  box-shadow: 0 4px 10px rgba(139, 92, 246, 0.4);
-}
-
-.top-action-btn.bookmark-btn {
-  background: #6b7280;
-  box-shadow: 0 2px 6px rgba(107, 114, 128, 0.3);
-}
-
-.top-action-btn.bookmark-btn:hover:not(:disabled) {
-  background: #4b5563;
-  box-shadow: 0 4px 10px rgba(107, 114, 128, 0.4);
-}
-
-.top-action-btn.bookmark-btn.bookmarked {
-  background: #fbbf24;
-  box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
-}
-
-.top-action-btn.bookmark-btn.bookmarked:hover:not(:disabled) {
-  background: #f59e0b;
-  box-shadow: 0 4px 10px rgba(251, 191, 36, 0.4);
-}
-
-.top-action-btn.improve-translation-btn {
-  background: #06b6d4;
-  box-shadow: 0 2px 6px rgba(6, 182, 212, 0.3);
-}
-
-.top-action-btn.improve-translation-btn:hover:not(:disabled) {
-  background: #0891b2;
-  box-shadow: 0 4px 10px rgba(6, 182, 212, 0.4);
-}
-
-.top-action-btn .btn-icon {
-  font-size: 0.9rem;
-}
-
+/* Word container and header */
 .word-container {
   margin-bottom: 15px;
 }
 
+.word-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
 .german-word {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
   font-weight: bold;
   color: #1f2937;
   line-height: 1.2;
   word-break: break-word;
   hyphens: auto;
-  margin-bottom: 8px;
   padding: 0 8px;
   /* Ensure word doesn't overflow with buttons above */
   max-width: 100%;
@@ -412,7 +333,38 @@
   /* Handle very long compound German words */
   text-align: center;
   /* Responsive font sizing for very long words */
-  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  flex: 1;
+}
+
+.pronunciation-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #8b5cf6;
+  transition: all 0.2s ease;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.pronunciation-icon:hover {
+  background: rgba(139, 92, 246, 0.1);
+  transform: scale(1.1);
+}
+
+.pronunciation-icon.pronouncing {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 .lesson-info {
@@ -515,6 +467,63 @@
   border-radius: 8px;
   border-left: 3px solid #3b82f6;
   margin-bottom: 4px;
+  position: relative;
+}
+
+.translation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  position: absolute;
+  top: -8px;
+  left: 8px;
+  right: 8px;
+  z-index: 1;
+}
+
+.bookmark-icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #6b7280;
+  transition: all 0.2s ease;
+  padding: 4px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bookmark-icon:hover {
+  transform: scale(1.1);
+}
+
+.bookmark-icon.bookmarked {
+  color: #fbbf24;
+}
+
+.improve-translation-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #06b6d4;
+  transition: all 0.2s ease;
+  padding: 4px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.improve-translation-icon:hover {
+  transform: scale(1.1);
+  background: #f0f9ff;
+}
+
+.improve-translation-icon.improving {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .translation-label {
@@ -523,6 +532,7 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 6px;
+  margin-top: 16px;
 }
 
 .translation-text {
@@ -568,7 +578,7 @@
 .action-btn {
   flex: 1;
   border: none;
-  padding: 10px 8px;
+  padding: 16px 8px;
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
@@ -578,7 +588,7 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  min-height: 50px;
+  min-height: 70px;
   justify-content: center;
 }
 
@@ -674,29 +684,23 @@
   }
 
   .german-word {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     /* Use even smaller font for very long words on mobile */
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
     padding: 0 4px;
   }
 
-  .top-actions-row {
-    gap: 6px;
-    margin-bottom: 12px;
-  }
-
-  .top-action-btn {
+  .pronunciation-icon {
+    font-size: 1.2rem;
     width: 28px;
     height: 28px;
-    font-size: 0.8rem;
   }
 
-  .top-action-btn .btn-icon {
-    font-size: 0.8rem;
+  .bookmark-icon, .improve-translation-icon {
+    font-size: 1.2rem;
   }
 
   .action-buttons {
-    flex-direction: column;
     gap: 8px;
     margin-top: 16px;
     /* Ensure buttons don't overlap with navigation bar */
@@ -717,10 +721,8 @@
   }
 
   .action-btn {
-    flex-direction: row;
-    gap: 8px;
-    min-height: 40px;
-    justify-content: center;
+    min-height: 60px;
+    padding: 12px 8px;
   }
 
   .btn-icon {
@@ -794,14 +796,22 @@
   }
   
   .action-buttons {
-    flex-direction: row;
     gap: 6px;
     margin-top: 12px;
   }
   
   .action-btn {
-    flex-direction: column;
-    min-height: 35px;
-    padding: 6px 8px;
+    min-height: 50px;
+    padding: 8px 6px;
+  }
+  
+  .german-word {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+  }
+  
+  .pronunciation-icon {
+    font-size: 1.1rem;
+    width: 24px;
+    height: 24px;
   }
 }

@@ -468,3 +468,85 @@
   transform: none;
   background: rgba(251, 191, 36, 0.2);
 }
+
+/* Pronunciation Cache Debug Panel */
+.pronunciation-debug {
+  background: rgba(147, 51, 234, 0.1);
+  border: 1px solid rgba(147, 51, 234, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.pronunciation-debug h4 {
+  margin: 0 0 12px 0;
+  color: #8b5cf6;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.cache-info p {
+  margin: 0 0 12px 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.preload-status {
+  margin: 8px 0;
+  font-size: 0.85rem;
+}
+
+.status-loading {
+  color: #fbbf24;
+}
+
+.status-complete {
+  color: #4ade80;
+}
+
+.debug-btn {
+  background: rgba(147, 51, 234, 0.2);
+  color: #8b5cf6;
+  border: 1px solid rgba(147, 51, 234, 0.4);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+}
+
+.debug-btn:hover:not(:disabled) {
+  background: rgba(147, 51, 234, 0.3);
+  transform: translateY(-1px);
+}
+
+.debug-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cache-info-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(147, 51, 234, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.cache-info-btn:hover {
+  transform: scale(1.1);
+  background: rgba(147, 51, 234, 0.9);
+}
