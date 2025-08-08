@@ -296,8 +296,7 @@
   padding: 18px 15px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
   text-align: center;
-  flex: 1;
-  display: flex;
+  min-height: 320px;
   flex-direction: column;
   /* Remove fixed height and space-between to allow natural content flow */
   /* Ensure action buttons stay within card and safe areas */
@@ -310,13 +309,57 @@
   margin-bottom: 15px;
 }
 
+.german-word-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
 .german-word {
   font-size: 2.2rem;
   font-weight: bold;
   color: #1f2937;
-  margin-bottom: 8px;
   line-height: 1.2;
   word-break: break-word;
+}
+
+.pronunciation-btn {
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.pronunciation-btn:hover:not(:disabled) {
+  background: #7c3aed;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+.pronunciation-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pronunciation-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pronunciation-btn .btn-icon {
+  font-size: 1.1rem;
 }
 
 .lesson-info {
@@ -671,6 +714,20 @@
 
   .german-word {
     font-size: 1.8rem;
+  }
+
+  .german-word-section {
+    gap: 8px;
+  }
+
+  .pronunciation-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .pronunciation-btn .btn-icon {
+    font-size: 1rem;
   }
 
   .action-buttons {

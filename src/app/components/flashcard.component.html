@@ -74,7 +74,19 @@
   <div class="flashcard" *ngIf="currentWord && !sessionComplete">
     <!-- German word display -->
     <div class="word-container">
-      <div class="german-word">{{ currentWord.word }}</div>
+      <div class="german-word-section">
+        <div class="german-word">{{ currentWord.word }}</div>
+        
+        <!-- Pronunciation button -->
+        <button 
+          *ngIf="isSpeechSupported"
+          class="pronunciation-btn" 
+          (click)="onPronounceWord()"
+          [disabled]="isPronouncing"
+          title="{{ isPronouncing ? 'Playing pronunciation...' : 'Listen to German pronunciation' }}">
+          <span class="btn-icon">{{ isPronouncing ? '🔊' : '🔉' }}</span>
+        </button>
+      </div>
       
       <!-- Progress indicators -->
       <div class="word-progress" >
@@ -170,28 +182,5 @@
   <!-- Loading state -->
   <div *ngIf="!currentWord && !sessionComplete" class="loading">
     <div class="loading-text">Starting session...</div>
-  </div>
-
-  <!-- Overall Progress (bottom section for reference) -->
-  <div class="overall-progress" *ngIf="!sessionComplete && (overallKnownCount > 0 || overallUnknownCount > 0)">
-    <h4>Overall Progress</h4>
-    <div class="overall-stats">
-      <div class="overall-stat">
-        <span class="stat-label">Known:</span>
-        <span class="stat-value known">{{ overallKnownCount }}</span>
-      </div>
-      <div class="overall-stat">
-        <span class="stat-label">Unknown:</span>
-        <span class="stat-value unknown">{{ overallUnknownCount }}</span>
-      </div>
-      <div class="overall-stat">
-        <span class="stat-label">Practice:</span>
-        <span class="stat-value practice">{{ overallPracticeAgainCount }}</span>
-      </div>
-      <div class="overall-stat">
-        <span class="stat-label">Success:</span>
-        <span class="stat-value success">{{ overallSuccessRate }}%</span>
-      </div>
-    </div>
   </div>
 </div>

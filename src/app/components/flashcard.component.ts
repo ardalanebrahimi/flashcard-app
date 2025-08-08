@@ -7,6 +7,7 @@ import { ProgressService } from '../services/progress.service';
 import { WordTrackingService } from '../services/word-tracking.service';
 import { DictionaryService } from '../services/dictionary.service';
 import { SessionService, SessionProgress } from '../services/session.service';
+import { PronunciationService } from '../services/pronunciation.service';
 import { Word } from '../models/word.model';
 
 @Component({
@@ -22,6 +23,7 @@ export class FlashcardComponent implements OnInit, OnDestroy {
   sessionProgress: SessionProgress | null = null;
   sessionComplete = false;
   isImprovingTranslation = false;
+  isPronouncing = false;
   
   private subscription = new Subscription();
 
@@ -31,6 +33,7 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     private wordTrackingService: WordTrackingService,
     private dictionaryService: DictionaryService,
     private sessionService: SessionService,
+    private pronunciationService: PronunciationService,
     private router: Router
   ) {}
 
@@ -177,6 +180,27 @@ export class FlashcardComponent implements OnInit, OnDestroy {
     } finally {
       this.isImprovingTranslation = false;
     }
+  }
+
+  async onPronounceWord() {
+    if (!this.currentWord || this.isPronouncing) {
+      return;
+    }
+
+    this.isPronouncing = true;
+    
+    try {
+      await this.pronunciationService.pronounceWord(this.currentWord.word);
+    } catch (error) {
+      console.error('Error pronouncing word:', error);
+      alert('Unable to pronounce the word. Please check if your browser supports speech synthesis.');
+    } finally {
+      this.isPronouncing = false;
+    }
+  }
+
+  get isSpeechSupported(): boolean {
+    return this.pronunciationService.isSpeechSynthesisSupported();
   }
 
   private isCustomWord(word: Word): boolean {
