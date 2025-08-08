@@ -38,11 +38,21 @@ describe('PronunciationService', () => {
   });
 
   it('should handle empty word pronunciation gracefully', async () => {
-    try {
-      await service.pronounceWord('');
-      fail('Should have thrown an error for empty word');
-    } catch (error) {
-      expect(error).toBeTruthy();
+    if (service.isSpeechSynthesisSupported()) {
+      try {
+        await service.pronounceWord('');
+        fail('Should have thrown an error for empty word');
+      } catch (error) {
+        expect(error).toBeTruthy();
+      }
+    } else {
+      // If speech synthesis is not supported, the service should reject properly
+      try {
+        await service.pronounceWord('test');
+        fail('Should have thrown an error when speech synthesis is not supported');
+      } catch (error) {
+        expect(error).toBeTruthy();
+      }
     }
   });
 
@@ -51,5 +61,19 @@ describe('PronunciationService', () => {
     const stats = service.getCacheStats();
     expect(stats.size).toBe(0);
     expect(stats.totalSizeKB).toBe(0);
+  });
+
+  it('should handle unsupported speech synthesis gracefully', async () => {
+    // This test simulates the Android scenario where speechSynthesis might not be available
+    if (!service.isSpeechSynthesisSupported()) {
+      try {
+        await service.pronounceWord('test');
+        fail('Should have thrown an error when speech synthesis is not supported');
+      } catch (error) {
+        expect(error).toBeTruthy();
+        const errorMessage = error instanceof Error ? error.message : '';
+        expect(errorMessage).toContain('not supported');
+      }
+    }
   });
 });

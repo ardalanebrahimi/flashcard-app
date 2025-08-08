@@ -13,20 +13,42 @@ export class PronunciationService {
   private cache = new Map<string, CachedPronunciation>();
   private readonly CACHE_KEY = 'german_pronunciation_cache';
   private readonly CACHE_EXPIRY_DAYS = 30;
-  private synth: SpeechSynthesis;
+  private synth: SpeechSynthesis | null = null;
   private germanVoice: SpeechSynthesisVoice | null = null;
+  private isSupported = false;
 
   constructor() {
-    this.synth = window.speechSynthesis;
+    this.isSupported = this.checkSpeechSynthesisSupport();
+    if (this.isSupported) {
+      this.synth = window.speechSynthesis;
+      this.initializeGermanVoice();
+    }
     this.loadCacheFromStorage();
-    this.initializeGermanVoice();
+  }
+
+  /**
+   * Check if speech synthesis is properly supported
+   */
+  private checkSpeechSynthesisSupport(): boolean {
+    return (
+      'speechSynthesis' in window && 
+      window.speechSynthesis !== null && 
+      window.speechSynthesis !== undefined &&
+      typeof window.speechSynthesis.getVoices === 'function'
+    );
   }
 
   /**
    * Initialize and find the best German voice available
    */
   private initializeGermanVoice(): void {
+    if (!this.synth || !this.isSupported) {
+      return;
+    }
+
     const loadVoices = () => {
+      if (!this.synth) return;
+      
       const voices = this.synth.getVoices();
       
       // Prefer German voices in order of quality
@@ -43,7 +65,11 @@ export class PronunciationService {
       } else {
         // Fallback to any available voice
         this.germanVoice = voices[0] || null;
-        console.warn('No German voice found, using fallback:', this.germanVoice?.name);
+        if (this.germanVoice) {
+          console.warn('No German voice found, using fallback:', this.germanVoice.name);
+        } else {
+          console.warn('No voices available');
+        }
       }
     };
 
@@ -60,6 +86,10 @@ export class PronunciationService {
   async pronounceWord(word: string): Promise<void> {
     if (!word.trim()) {
       throw new Error('Word cannot be empty');
+    }
+
+    if (!this.isSupported) {
+      throw new Error('Speech synthesis is not supported on this device');
     }
 
     // Check if we have cached audio first
@@ -84,8 +114,8 @@ export class PronunciationService {
    */
   private async speakWithSynthesis(word: string): Promise<void> {
     return new Promise((resolve, reject) => {
-      if (!this.synth) {
-        reject(new Error('Speech synthesis not supported'));
+      if (!this.synth || !this.isSupported) {
+        reject(new Error('Speech synthesis not supported on this device'));
         return;
       }
 
@@ -133,6 +163,10 @@ export class PronunciationService {
    * Get available German voices
    */
   getAvailableGermanVoices(): SpeechSynthesisVoice[] {
+    if (!this.synth || !this.isSupported) {
+      return [];
+    }
+    
     const voices = this.synth.getVoices();
     return voices.filter(voice => 
       voice.lang.startsWith('de') || 
@@ -144,7 +178,7 @@ export class PronunciationService {
    * Check if speech synthesis is supported
    */
   isSpeechSynthesisSupported(): boolean {
-    return 'speechSynthesis' in window;
+    return this.isSupported;
   }
 
   /**

@@ -187,13 +187,24 @@ export class FlashcardComponent implements OnInit, OnDestroy {
       return;
     }
 
+    if (!this.isSpeechSupported) {
+      alert('Speech synthesis is not supported on this device. This feature may not work on some Android browsers.');
+      return;
+    }
+
     this.isPronouncing = true;
     
     try {
       await this.pronunciationService.pronounceWord(this.currentWord.word);
     } catch (error) {
       console.error('Error pronouncing word:', error);
-      alert('Unable to pronounce the word. Please check if your browser supports speech synthesis.');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      
+      if (errorMessage.includes('not supported')) {
+        alert('Speech synthesis is not available on this device. Try using Chrome or Firefox for better speech support.');
+      } else {
+        alert(`Unable to pronounce the word: ${errorMessage}`);
+      }
     } finally {
       this.isPronouncing = false;
     }
