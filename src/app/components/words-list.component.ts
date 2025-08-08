@@ -268,10 +268,6 @@ export class WordsListComponent implements OnInit, OnDestroy {
     }
   }
 
-  goBack(): void {
-    this.router.navigate(['/']);
-  }
-
   clearFilters(): void {
     this.filters = {
       status: 'all',

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { WordService } from '../../services/word.service';
 import { Word } from '../../models/word.model';
@@ -8,7 +8,7 @@ import { Word } from '../../models/word.model';
 @Component({
   selector: 'app-bookmarks',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './bookmarks.component.html',
   styleUrls: ['./bookmarks.component.css']
 })
@@ -61,10 +61,6 @@ export class BookmarksComponent implements OnInit, OnDestroy {
     if (confirm('Are you sure you want to remove all bookmarks? This cannot be undone.')) {
       await this.wordService.clearAllBookmarks();
     }
-  }
-
-  onGoBack(): void {
-    this.router.navigate(['/']);
   }
 
   onStartBookmarkedSession(): void {

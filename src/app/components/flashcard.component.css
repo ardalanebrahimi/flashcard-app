@@ -440,19 +440,24 @@
   background: #6366f1;
   color: white;
   border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.85rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  margin: 12px auto 0 auto;
-  width: fit-content;
+  gap: 4px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: auto;
+  min-width: 28px;
+  height: 28px;
   box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+  z-index: 10;
 }
 
 .improve-translation-btn:hover:not(:disabled) {
@@ -468,11 +473,12 @@
 }
 
 .improve-translation-btn .btn-icon {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .improve-translation-btn .btn-text {
-  font-size: 0.85rem;
+  font-size: 0.7rem;
+  display: none; /* Hide text to make button smaller */
 }
 
 .custom-translation-indicator {
@@ -693,12 +699,17 @@
   }
 
   .improve-translation-btn {
-    padding: 6px 12px;
-    font-size: 0.8rem;
+    padding: 3px 6px;
+    font-size: 0.65rem;
+    top: 8px;
+    right: 8px;
+    min-width: 24px;
+    height: 24px;
   }
 
   .improve-translation-btn .btn-text {
-    font-size: 0.8rem;
+    font-size: 0.65rem;
+    display: none; /* Keep text hidden on mobile too */
   }
 
   .custom-translation-indicator {

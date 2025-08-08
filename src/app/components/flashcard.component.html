@@ -127,7 +127,7 @@
           class="improve-translation-btn" 
           (click)="onImproveTranslation()"
           [disabled]="isImprovingTranslation"
-          title="Get a better translation with example">
+          title="{{ isImprovingTranslation ? 'Improving translation...' : 'Get a better translation with example' }}">
           <span class="btn-icon">{{ isImprovingTranslation ? '⏳' : '🔄' }}</span>
           <span class="btn-text">
             {{ isImprovingTranslation ? 'Improving...' : 'Improve Translation' }}
