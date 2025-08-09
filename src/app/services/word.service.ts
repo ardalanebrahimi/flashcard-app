@@ -305,11 +305,20 @@ export class WordService {
     
     eligibleWords.forEach(word => {
       const score = word.score || 0;
+      const practiceCount = word.lastResults?.length || 0;
       let weight = 0;
       
-      if (score === 0) weight = 5;      // New/struggling words get highest priority
-      else if (score === 1) weight = 3; // Partially learned words get medium priority  
-      else if (score === 2) weight = 1; // Nearly learned words get lowest priority
+      if (score === 0 && practiceCount === 0) weight = 9;           // New/struggling words get highest priority
+      else if (score === 0 && practiceCount === 1) weight = 8;      // New/struggling words get highest priority
+      else if (score === 0 && practiceCount === 2) weight = 7;      // New/struggling words get highest priority
+      else if (score === 0 && practiceCount === 3) weight = 6;      // New/struggling words get highest priority
+      
+      else if (score === 1 && practiceCount === 1) weight = 5;      // Partially learned words get medium priority
+      else if (score === 1 && practiceCount === 2) weight = 4;      // Partially learned words get medium priority
+      else if (score === 1 && practiceCount === 3) weight = 3;      // Partially learned words get medium priority
+      
+      else if (score === 2 && practiceCount === 2) weight = 2;      // Nearly learned words get lowest priority
+      else if (score === 2 && practiceCount === 3) weight = 1;      // Nearly learned words get lowest priority
       
       // Add word to pool multiple times based on weight
       for (let i = 0; i < weight; i++) {
