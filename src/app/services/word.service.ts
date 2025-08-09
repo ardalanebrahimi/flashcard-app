@@ -165,7 +165,7 @@ export class WordService {
   private async loadWords(): Promise<void> {
     try {
       const words = await firstValueFrom(
-        this.http.get<Word[]>('/assets/words.json')
+        this.http.get<Word[]>('/assets/words_B1.json')
       );
       
       this.words = words;
