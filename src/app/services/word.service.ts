@@ -349,7 +349,8 @@ export class WordService {
   getOverallProgress(): number {
       const maxScore = this.allWords.length * 3;
       const currentScore = Array.from(this.allWords).reduce((sum, word) => sum + (word.score || 0), 0);
-      return maxScore > 0 ? Math.round((currentScore / maxScore) * 100) : 0;
+      // add 1 decimal place for better readability
+      return maxScore > 0 ? Math.round(((currentScore / maxScore) * 1000)) / 10 : 0;
   }
 
   /**
