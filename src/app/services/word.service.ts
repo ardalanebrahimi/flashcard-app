@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, firstValueFrom, combineLatest } from 'rxjs';
+import { skip } from 'rxjs/operators';
 import { Preferences } from '@capacitor/preferences';
 import { Word } from '../models/word.model';
 import { DictionaryService } from './dictionary.service';
 import { PronunciationService } from './pronunciation.service';
+import { LevelService, LanguageLevel } from './level.service';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +36,8 @@ export class WordService {
   constructor(
     private http: HttpClient,
     private dictionaryService: DictionaryService,
-    private pronunciationService: PronunciationService
+    private pronunciationService: PronunciationService,
+    private levelService: LevelService
   ) {
     this.initializeService();
   }
@@ -46,12 +49,16 @@ export class WordService {
     // Wait for dictionary service to be ready
     await firstValueFrom(this.dictionaryService.customWords$);
     
+    // Wait for level service to initialize (including migration)
+    await firstValueFrom(this.levelService.currentLevel$);
+    
     await Promise.all([
       this.loadWords(),
       this.loadBookmarkedWords(),
       this.loadWordResults()
     ]);
     this.setupCustomWordsListener();
+    this.setupLevelChangeListener();
   }
 
   /**
@@ -59,10 +66,15 @@ export class WordService {
    */
   private async loadBookmarkedWords(): Promise<void> {
     try {
-      const { value } = await Preferences.get({ key: 'bookmarked-words' });
+      const currentLevel = this.levelService.getCurrentLevel();
+      const storageKeys = this.levelService.getLevelStorageKeys(currentLevel);
+      
+      const { value } = await Preferences.get({ key: storageKeys.bookmarks });
       if (value) {
         const bookmarkedArray = JSON.parse(value) as string[];
         this.bookmarkedWords = new Set(bookmarkedArray);
+      } else {
+        this.bookmarkedWords = new Set();
       }
       this.bookmarkedWordsSubject.next(this.bookmarkedWords);
       this.bookmarksLoadedSubject.next(true);
@@ -77,10 +89,15 @@ export class WordService {
    */
   private async loadWordResults(): Promise<void> {
     try {
-      const { value } = await Preferences.get({ key: 'word-results' });
+      const currentLevel = this.levelService.getCurrentLevel();
+      const storageKeys = this.levelService.getLevelStorageKeys(currentLevel);
+      
+      const { value } = await Preferences.get({ key: storageKeys.results });
       if (value) {
         const resultsData = JSON.parse(value) as Record<string, ("correct" | "wrong")[]>;
         this.wordResults = new Map(Object.entries(resultsData));
+      } else {
+        this.wordResults = new Map();
       }
       console.log(`Loaded results for ${this.wordResults.size} words`);
     } catch (error) {
@@ -93,9 +110,12 @@ export class WordService {
    */
   private async saveBookmarkedWords(): Promise<void> {
     try {
+      const currentLevel = this.levelService.getCurrentLevel();
+      const storageKeys = this.levelService.getLevelStorageKeys(currentLevel);
+      
       const bookmarkedArray = Array.from(this.bookmarkedWords);
       await Preferences.set({
-        key: 'bookmarked-words',
+        key: storageKeys.bookmarks,
         value: JSON.stringify(bookmarkedArray)
       });
     } catch (error) {
@@ -108,9 +128,12 @@ export class WordService {
    */
   private async saveWordResults(): Promise<void> {
     try {
+      const currentLevel = this.levelService.getCurrentLevel();
+      const storageKeys = this.levelService.getLevelStorageKeys(currentLevel);
+      
       const resultsObject = Object.fromEntries(this.wordResults);
       await Preferences.set({
-        key: 'word-results',
+        key: storageKeys.results,
         value: JSON.stringify(resultsObject)
       });
     } catch (error) {
@@ -164,15 +187,18 @@ export class WordService {
    */
   private async loadWords(): Promise<void> {
     try {
+      const currentLevel = this.levelService.getCurrentLevel();
+      const assetPath = this.levelService.getAssetPath(currentLevel);
+      
       const words = await firstValueFrom(
-        this.http.get<Word[]>('/assets/words_B1.json')
+        this.http.get<Word[]>(assetPath)
       );
       
       this.words = words;
       this.refreshAllWords();
       this.wordsLoadedSubject.next(true);
       
-      console.log(`Loaded ${this.words.length} words from assets/words.json`);
+      console.log(`Loaded ${this.words.length} words from ${assetPath}`);
     } catch (error) {
       console.error('Error loading words:', error);
       this.wordsLoadedSubject.next(false);
@@ -185,6 +211,26 @@ export class WordService {
   private setupCustomWordsListener(): void {
     this.dictionaryService.customWords$.subscribe(() => {
       this.refreshAllWords();
+    });
+  }
+
+  /**
+   * Setup listener for level changes
+   */
+  private setupLevelChangeListener(): void {
+    // Skip the first emission to avoid double loading
+    this.levelService.currentLevel$.pipe(
+      skip(1)
+    ).subscribe(async (level) => {
+      console.log(`Level changed to: ${level}, reloading data...`);
+      // Reload all data for the new level
+      await Promise.all([
+        this.loadWords(),
+        this.loadBookmarkedWords(),
+        this.loadWordResults()
+      ]);
+      this.refreshAllWords();
+      console.log(`Data reloaded for level: ${level}`);
     });
   }
 

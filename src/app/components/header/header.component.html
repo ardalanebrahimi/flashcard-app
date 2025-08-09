@@ -10,6 +10,21 @@
       <h1 class="app-title">German Flashcards</h1>
     </div>
     
+    <div class="header-center">
+      <div class="level-selector">
+        <label for="levelSelect" class="level-label">Level:</label>
+        <select 
+          id="levelSelect"
+          class="level-dropdown"
+          [value]="currentLevel"
+          (change)="onLevelChange($event)">
+          <option *ngFor="let level of availableLevels" [value]="level">
+            {{level}}
+          </option>
+        </select>
+      </div>
+    </div>
+    
     <nav class="header-nav">
       <button 
         class="btn btn-add-word" 

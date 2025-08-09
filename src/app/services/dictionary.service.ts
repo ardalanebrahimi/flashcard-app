@@ -1,50 +1,89 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, from, firstValueFrom } from 'rxjs';
+import { skip } from 'rxjs/operators';
 import { Word } from '../models/word.model';
 import { OpenaiService, TranslationResponse } from './openai.service';
+import { LevelService, LanguageLevel } from './level.service';
+import { Preferences } from '@capacitor/preferences';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DictionaryService {
-  private readonly STORAGE_KEY = 'german-flashcard-custom-words';
   private customWords: Word[] = [];
   private customWordsSubject = new BehaviorSubject<Word[]>([]);
 
   public customWords$ = this.customWordsSubject.asObservable();
 
-  constructor(private openaiService: OpenaiService) {
-    this.loadCustomWords();
+  constructor(
+    private openaiService: OpenaiService,
+    private levelService: LevelService
+  ) {
+    this.initializeService();
   }
 
   /**
-   * Load custom words from localStorage
+   * Initialize service and setup level change listener
    */
-  private loadCustomWords(): void {
+  private async initializeService(): Promise<void> {
+    // Wait for level service to initialize
+    await firstValueFrom(this.levelService.currentLevel$);
+    
+    await this.loadCustomWords();
+    this.setupLevelChangeListener();
+  }
+
+  /**
+   * Setup listener for level changes
+   */
+  private setupLevelChangeListener(): void {
+    this.levelService.currentLevel$.pipe(
+      skip(1)
+    ).subscribe(async (level) => {
+      console.log(`Dictionary service: Level changed to ${level}`);
+      await this.loadCustomWords();
+    });
+  }
+
+  /**
+   * Load custom words from storage
+   */
+  private async loadCustomWords(): Promise<void> {
     try {
-      const stored = localStorage.getItem(this.STORAGE_KEY);
-      if (stored) {
-        this.customWords = JSON.parse(stored);
+      const currentLevel = this.levelService.getCurrentLevel();
+      const storageKeys = this.levelService.getLevelStorageKeys(currentLevel);
+      
+      const { value } = await Preferences.get({ key: storageKeys.customWords });
+      if (value) {
+        this.customWords = JSON.parse(value);
       } else {
         this.customWords = [];
       }
       this.customWordsSubject.next([...this.customWords]);
+      console.log(`Loaded ${this.customWords.length} custom words for level ${currentLevel}`);
     } catch (error) {
-      console.error('Error loading custom words from localStorage:', error);
+      console.error('Error loading custom words from storage:', error);
       this.customWords = [];
       this.customWordsSubject.next([]);
     }
   }
 
   /**
-   * Save custom words to localStorage
+   * Save custom words to storage
    */
-  private saveCustomWords(): void {
+  private async saveCustomWords(): Promise<void> {
     try {
-      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.customWords));
+      const currentLevel = this.levelService.getCurrentLevel();
+      const storageKeys = this.levelService.getLevelStorageKeys(currentLevel);
+      
+      await Preferences.set({
+        key: storageKeys.customWords,
+        value: JSON.stringify(this.customWords)
+      });
       this.customWordsSubject.next([...this.customWords]);
+      console.log(`Saved ${this.customWords.length} custom words for level ${currentLevel}`);
     } catch (error) {
-      console.error('Error saving custom words to localStorage:', error);
+      console.error('Error saving custom words to storage:', error);
     }
   }
 
@@ -115,7 +154,7 @@ export class DictionaryService {
         this.customWords.push(improvedWord);
       }
 
-      this.saveCustomWords();
+      await this.saveCustomWords();
       return { success: true, improvedWord };
 
     } catch (error) {
@@ -176,7 +215,7 @@ export class DictionaryService {
 
       // Add to custom words
       this.customWords.push(newWord);
-      this.saveCustomWords();
+      await this.saveCustomWords();
 
       return { success: true, word: newWord };
 
@@ -199,11 +238,11 @@ export class DictionaryService {
   /**
    * Remove a custom word
    */
-  removeCustomWord(word: string): boolean {
+  async removeCustomWord(word: string): Promise<boolean> {
     const index = this.customWords.findIndex(w => w.word === word);
     if (index !== -1) {
       this.customWords.splice(index, 1);
-      this.saveCustomWords();
+      await this.saveCustomWords();
       return true;
     }
     return false;
@@ -212,10 +251,18 @@ export class DictionaryService {
   /**
    * Clear all custom words
    */
-  clearCustomWords(): void {
-    this.customWords = [];
-    localStorage.removeItem(this.STORAGE_KEY);
-    this.customWordsSubject.next([]);
+  async clearCustomWords(): Promise<void> {
+    try {
+      const currentLevel = this.levelService.getCurrentLevel();
+      const storageKeys = this.levelService.getLevelStorageKeys(currentLevel);
+      
+      this.customWords = [];
+      await Preferences.remove({ key: storageKeys.customWords });
+      this.customWordsSubject.next([]);
+      console.log(`Cleared custom words for level ${currentLevel}`);
+    } catch (error) {
+      console.error('Error clearing custom words:', error);
+    }
   }
 
   /**
