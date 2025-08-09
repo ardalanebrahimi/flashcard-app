@@ -151,11 +151,8 @@
           (change)="onSortChange($any($event.target).value)"
         >
           <option value="alphabetical">A-Z</option>
-          <option value="lastStudied">Last Studied</option>
           <option value="practiceCount">Practice Count</option>
-          <option value="accuracy">Accuracy</option>
           <option value="score">Quiz Score</option>
-          <option value="dateAdded">Date Added</option>
         </select>
       </div>
       <button 
@@ -218,6 +215,39 @@
                 </svg>
                 <span class="badge-text">{{ word.source | titlecase }}</span>
               </span>
+              
+              <span class="stat-compact score-visual" title="Recent quiz performance (last 3 attempts): {{ getWordScore(word) }}/3">
+                <span class="score-label">
+                  <svg class="stat-icon-mini" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Recent:
+                </span>
+                <div class="score-indicator">
+                  <!-- Display actual results -->
+                  <div
+                    *ngFor="let result of getWordLastResults(word); let i = index"
+                    [ngStyle]="{
+                      'background-color': result === 'correct' ? '#22c55e' : 
+                                          result === 'wrong' ? '#ef4444' : '#d1d5db',
+                      'width': '10px',
+                      'height': '10px',
+                      'margin': '1px',
+                      'border-radius': '50%',
+                      'display': 'inline-block',
+                      'border': '1px solid rgba(0,0,0,0.1)'
+                    }"
+                    [title]="result === 'correct' ? 'Correct answer' : 'Wrong answer'"
+                  ></div>
+                  <!-- Fill remaining with gray if less than 3 entries -->
+                  <div
+                    *ngFor="let i of getRemainingSlots(getWordLastResults(word))"
+                    style="background-color: #e5e7eb; width: 10px; height: 10px; margin: 1px; border-radius: 50%; display: inline-block; border: 1px solid rgba(0,0,0,0.1);"
+                    title="No attempt yet"
+                  ></div>
+                </div>
+              </span>
             </div>
             <button 
               class="reset-btn-compact"
@@ -232,77 +262,6 @@
               </svg>
             </button>
           </div>
-        </div>
-
-        <div class="word-stats-compact">
-          <span class="stat-compact" title="Total practice attempts">
-            <svg class="stat-icon-mini" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>
-            </svg>
-            <span class="stat-text">{{ word.practiceCount }} attempts</span>
-          </span>
-          <span class="stat-compact correct" title="Correct answers">
-            <svg class="stat-icon-mini" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 12l2 2 4-4"/>
-              <circle cx="12" cy="12" r="10"/>
-            </svg>
-            <span class="stat-text">{{ word.correctCount }} correct</span>
-          </span>
-          <span class="stat-compact wrong" title="Wrong answers">
-            <svg class="stat-icon-mini" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M15 9l-6 6"/>
-              <path d="M9 9l6 6"/>
-            </svg>
-            <span class="stat-text">{{ word.wrongCount }} wrong</span>
-          </span>
-          <span class="stat-compact accuracy" title="Success rate percentage">
-            <svg class="stat-icon-mini" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-            <span class="stat-text">{{ getAccuracy(word) }}% success</span>
-          </span>
-          <span class="stat-compact score-visual" title="Recent quiz performance (last 3 attempts): {{ getWordScore(word) }}/3">
-            <span class="score-label">
-              <svg class="stat-icon-mini" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 12l2 2 4-4"/>
-                <circle cx="12" cy="12" r="10"/>
-              </svg>
-              Recent:
-            </span>
-            <div class="score-indicator">
-              <!-- Display actual results -->
-              <div
-                *ngFor="let result of getWordLastResults(word); let i = index"
-                [ngStyle]="{
-                  'background-color': result === 'correct' ? '#22c55e' : 
-                                      result === 'wrong' ? '#ef4444' : '#d1d5db',
-                  'width': '10px',
-                  'height': '10px',
-                  'margin': '1px',
-                  'border-radius': '50%',
-                  'display': 'inline-block',
-                  'border': '1px solid rgba(0,0,0,0.1)'
-                }"
-                [title]="result === 'correct' ? 'Correct answer' : 'Wrong answer'"
-              ></div>
-              <!-- Fill remaining with gray if less than 3 entries -->
-              <div
-                *ngFor="let i of getRemainingSlots(getWordLastResults(word))"
-                style="background-color: #e5e7eb; width: 10px; height: 10px; margin: 1px; border-radius: 50%; display: inline-block; border: 1px solid rgba(0,0,0,0.1);"
-                title="No attempt yet"
-              ></div>
-            </div>
-          </span>
-          <span class="stat-compact" *ngIf="word.masteredDate" title="Date when word was mastered">
-            <svg class="stat-icon-mini" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-            <span class="stat-text">Mastered {{ formatDate(word.masteredDate) }}</span>
-          </span>
         </div>
       </div>
 

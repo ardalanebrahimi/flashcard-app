@@ -5,7 +5,6 @@ export interface WordProgress {
   word: string;
   translation: string;
   isKnown: boolean;
-  lastStudied: Date;
   studyCount: number;
 }
 

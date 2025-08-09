@@ -104,9 +104,6 @@ export class WordsListComponent implements OnInit, OnDestroy {
   private async loadData(): Promise<void> {
     this.isLoading = true;
     try {
-      // Ensure word tracking service is loaded
-      await this.wordTrackingService.loadWordProgress();
-      
       // Initialize word progress for all available words
       await this.initializeWordProgress();
       
@@ -137,7 +134,6 @@ export class WordsListComponent implements OnInit, OnDestroy {
           progress.correctCount = 0;
           progress.wrongCount = 0;
           progress.status = 'new';
-          progress.lastStudied = undefined;
         }
       }
     }
@@ -151,7 +147,6 @@ export class WordsListComponent implements OnInit, OnDestroy {
           progress.correctCount = 0;
           progress.wrongCount = 0;
           progress.status = 'new';
-          progress.lastStudied = undefined;
         }
       }
     }

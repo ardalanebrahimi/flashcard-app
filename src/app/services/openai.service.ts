@@ -84,7 +84,9 @@ export class OpenaiService {
       model: 'tts-1', // OpenAI's Text-to-Speech model
       input: germanWord,
       voice: 'nova', // Female voice, good for language learning
-      response_format: 'mp3'
+      response_format: 'mp3',
+      speed: 0.8,
+      instructions: "Speak in a cheerful and positive tone and not too fast. Emphasize the correct German pronunciation of the word.",
     };
 
     return this.http.post(this.ttsApiUrl, body, { 

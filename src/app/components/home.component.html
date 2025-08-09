@@ -85,15 +85,6 @@
         <span class="progress-value studied">{{ studiedWordsCount }} ({{ studiedPercentage }}%)</span>
       </div>
     </div>
-
-    <!-- Updated Recent Activity -->
-    <div class="today-session" *ngIf="currentSessionStats.totalWordsStudied > 0">
-      <div class="session-header">Recent Activity</div>
-      <div class="session-stats">
-        <span class="session-stat learned">{{ currentSessionStats.learnedCount }} learned</span>
-        <span class="session-stat total">{{ currentSessionStats.studiedCount }} studied</span>
-      </div>
-    </div>
   </div>
 
   <!-- No Progress State -->
@@ -102,33 +93,4 @@
     <h3>Ready to start your German learning journey?</h3>
     <p>Click "Start Session" to begin studying B1 German vocabulary with interactive flashcards.</p>
   </div>
-
-  <!-- Pronunciation Cache Debug Panel (can be removed in production) -->
-  <div class="pronunciation-debug" *ngIf="pronunciationPreloadStatus.showDetails">
-    <h4>🔊 Pronunciation Cache Status</h4>
-    <div class="cache-info">
-      <p>{{ getPronunciationCacheInfo() }}</p>
-      <div class="preload-status" *ngIf="pronunciationPreloadStatus.isPreloading || pronunciationPreloadStatus.isComplete">
-        <span *ngIf="pronunciationPreloadStatus.isPreloading" class="status-loading">⏳ Preloading pronunciations...</span>
-        <span *ngIf="pronunciationPreloadStatus.isComplete" class="status-complete">
-          ✅ Preload complete: {{ pronunciationPreloadStatus.loaded }} loaded, {{ pronunciationPreloadStatus.failed }} failed
-        </span>
-      </div>
-      <button class="debug-btn" (click)="triggerPronunciationPreload()" [disabled]="pronunciationPreloadStatus.isPreloading">
-        🔄 Trigger Preload
-      </button>
-      <button class="debug-btn" (click)="pronunciationPreloadStatus.showDetails = false">
-        ❌ Hide
-      </button>
-    </div>
-  </div>
-  
-  <!-- Show Cache Info Button (small, unobtrusive) -->
-  <button 
-    class="cache-info-btn" 
-    (click)="pronunciationPreloadStatus.showDetails = true"
-    *ngIf="!pronunciationPreloadStatus.showDetails"
-    title="Show pronunciation cache info">
-    🔊
-  </button>
 </div>
