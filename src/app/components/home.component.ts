@@ -97,6 +97,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     return this.wordService.getStudiedPercentage();
   }
 
+  get overallProgress(): number {
+    return this.wordService.getOverallProgress();
+  }
+
   get currentSessionStats() {
     // Get actual session stats from recent activity
     const stats = this.progressService.getCurrentSession();
