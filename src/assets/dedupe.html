@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>German Dictionary Dedupe</title>
+    <style>
+      :root {
+        --fg: #222;
+        --muted: #666;
+        --bg: #fafafa;
+        --card: #fff;
+        --accent: #2e7dff;
+        --border: #e6e6e6;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+          Arial, sans-serif;
+        color: var(--fg);
+        background: var(--bg);
+      }
+      header {
+        padding: 20px;
+        background: linear-gradient(180deg, #fff, #f6f8ff);
+        border-bottom: 1px solid var(--border);
+      }
+      h1 {
+        margin: 0 0 6px;
+        font-size: 20px;
+      }
+      p.subtitle {
+        margin: 0;
+        color: var(--muted);
+      }
+      main {
+        max-width: 1100px;
+        margin: 24px auto;
+        padding: 0 16px 48px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      @media (min-width: 860px) {
+        .grid {
+          grid-template-columns: 1.2fr 0.8fr;
+        }
+      }
+      label {
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      input[type="file"] {
+        padding: 10px;
+        background: #fff;
+        border: 1px dashed var(--border);
+        border-radius: 10px;
+        width: 100%;
+      }
+      textarea {
+        width: 100%;
+        min-height: 140px;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      .opts {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: 1fr 1fr;
+      }
+      .opts label {
+        font-weight: 500;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-size: 13px;
+        color: #333;
+      }
+      .btns {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      button {
+        border: 0;
+        padding: 10px 14px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button.secondary {
+        background: #eef3ff;
+        color: #204ce5;
+      }
+      button.ghost {
+        background: transparent;
+        color: #204ce5;
+        border: 1px solid #d9e2ff;
+      }
+      .results {
+        margin-top: 20px;
+      }
+      .stat {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 6px 0 14px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+      th,
+      td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+        background: #f8fafc;
+        font-size: 13px;
+        color: #334155;
+      }
+      td pre {
+        margin: 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px;
+        color: #111;
+      }
+      .key {
+        font-weight: 700;
+      }
+      .pill {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #eef2ff;
+        color: #4338ca;
+        font-size: 12px;
+        margin-left: 6px;
+      }
+      .entry-row {
+        margin-bottom: 12px;
+        padding: 8px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        background: #f8fafc;
+      }
+      .entry-row.selected {
+        background: #dcfce7;
+        border-color: #16a34a;
+      }
+      .entry-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+      .entry-content {
+        margin-left: 24px;
+      }
+      .entry-word {
+        font-weight: 600;
+        color: #1e293b;
+      }
+      .entry-translation {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px;
+        color: #475569;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        margin-top: 4px;
+      }
+      .select-radio {
+        margin: 0;
+      }
+      footer {
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>German Dictionary Dedupe</h1>
+      <p class="subtitle">
+        Find duplicate entries in your
+        <code>[{ "word": "...", "translation": "..." }]</code> JSON.
+      </p>
+    </header>
+    <main>
+      <div class="grid">
+        <section class="card">
+          <div class="row"><label for="file">Upload JSON file</label></div>
+          <input id="file" type="file" accept=".json,application/json" />
+          <div style="margin: 12px 0; color: var(--muted); font-size: 13px">
+            — or paste JSON below —
+          </div>
+          <textarea
+            id="paste"
+            placeholder='[{"word":"Abteilung","translation":"department (e.g., ...)"}, ...]'
+          ></textarea>
+
+          <div style="margin-top: 14px"><label>Comparison options</label></div>
+          <div class="opts" style="margin-top: 8px">
+            <label
+              ><input type="checkbox" id="optCase" checked />
+              Case-insensitive</label
+            >
+            <label
+              ><input type="checkbox" id="optNFC" checked /> Unicode normalize
+              (NFC)</label
+            >
+            <label
+              ><input type="checkbox" id="optTrim" checked /> Trim & collapse
+              spaces</label
+            >
+            <label
+              ><input type="checkbox" id="optStripParens" /> Strip text in
+              parentheses from <em>word</em></label
+            >
+            <label
+              ><input type="checkbox" id="optIgnoreArticles" /> Ignore leading
+              articles (der/die/das/den/dem/des)</label
+            >
+            <label
+              ><input type="checkbox" id="optSplitSlashes" /> Split slashes “/”
+              as separate lemmas</label
+            >
+          </div>
+
+          <div class="btns" style="margin-top: 14px">
+            <button id="btnFind">Find duplicates</button>
+            <button id="btnDownload" class="secondary" disabled>
+              Download JSON report
+            </button>
+            <button id="btnApplyChanges" class="secondary" disabled>
+              Apply changes & download
+            </button>
+            <button id="btnClear" class="ghost">Clear</button>
+          </div>
+        </section>
+
+        <section class="card results">
+          <div class="row">
+            <label>Results</label
+            ><span id="count" class="pill" style="display: none"></span>
+          </div>
+          <div class="stat" id="stat">No results yet.</div>
+          <div id="tableWrap"></div>
+          <footer id="foot"></footer>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        const $ = (sel) => document.querySelector(sel);
+        const fileInput = $("#file");
+        const paste = $("#paste");
+        const btnFind = $("#btnFind");
+        const btnDownload = $("#btnDownload");
+        const btnApplyChanges = $("#btnApplyChanges");
+        const btnClear = $("#btnClear");
+        const stat = $("#stat");
+        const tableWrap = $("#tableWrap");
+        const countPill = $("#count");
+        const foot = $("#foot");
+
+        const opt = {
+          case: $("#optCase"),
+          nfc: $("#optNFC"),
+          trim: $("#optTrim"),
+          stripParens: $("#optStripParens"),
+          ignoreArticles: $("#optIgnoreArticles"),
+          splitSlashes: $("#optSplitSlashes"),
+        };
+
+        const ARTICLES = ["der", "die", "das", "den", "dem", "des"];
+
+        function normalizeWord(w, options) {
+          if (typeof w !== "string") return "";
+          let x = w;
+          if (options.nfc) x = x.normalize("NFC");
+
+          // fix common pasted artifacts (non-breaking spaces etc.)
+          x = x.replace(/\u00A0/g, " ");
+
+          // optionally strip parentheses content in the "word" field (e.g., "Feierabend (kein Pl.)")
+          if (options.stripParens)
+            x = x.replace(/\s*\([^)]*\)\s*/g, " ").trim();
+
+          // collapse spaces & trim
+          if (options.trim) x = x.replace(/\s+/g, " ").trim();
+
+          // optionally drop leading article tokens
+          if (options.ignoreArticles) {
+            const parts = x.split(" ");
+            if (parts.length > 1 && ARTICLES.includes(parts[0].toLowerCase())) {
+              parts.shift();
+              x = parts.join(" ");
+            }
+          }
+
+          // case-insensitive
+          if (options.case) x = x.toLowerCase();
+
+          return x;
+        }
+
+        function explodeSlash(word, options) {
+          // turns "Lehre/Lehrstelle" into ["Lehre", "Lehrstelle"]; otherwise single element array
+          if (!options.splitSlashes) return [word];
+          if (typeof word !== "string") return [word];
+          if (!word.includes("/")) return [word];
+          return word
+            .split("/")
+            .map((s) => s.trim())
+            .filter(Boolean);
+        }
+
+        function parseJSON(text) {
+          try {
+            const data = JSON.parse(text);
+            if (!Array.isArray(data))
+              throw new Error("JSON root must be an array");
+            return data;
+          } catch (e) {
+            throw new Error("Invalid JSON: " + e.message);
+          }
+        }
+
+        function renderTable(dupes, total) {
+          if (!dupes.length) {
+            tableWrap.innerHTML = "";
+            countPill.style.display = "none";
+            stat.textContent = "No duplicates found.";
+            return;
+          }
+          countPill.textContent = dupes.length + " duplicate keys";
+          countPill.style.display = "inline-block";
+          stat.textContent = `Scanned ${total} entries. Found ${dupes.length} duplicate keys (see groups below).`;
+
+          const rows = dupes
+            .map((group, groupIdx) => {
+              const groupKey = `group_${groupIdx}`;
+              const selectedIndex = duplicateSelections.get(groupKey) ?? 0;
+
+              const entriesHtml = group.entries
+                .map((e, entryIdx) => {
+                  const src =
+                    e._sourceIndex != null ? `#${e._sourceIndex}` : "";
+                  const isSelected = entryIdx === selectedIndex;
+                  const radioId = `radio_${groupKey}_${entryIdx}`;
+
+                  return `<div class="entry-row ${
+                    isSelected ? "selected" : ""
+                  }">
+                    <div class="entry-header">
+                      <input type="radio" 
+                             class="select-radio" 
+                             name="${groupKey}" 
+                             id="${radioId}"
+                             value="${entryIdx}" 
+                             ${isSelected ? "checked" : ""}
+                             onchange="handleEntrySelection('${groupKey}', ${entryIdx})">
+                      <label for="${radioId}" class="entry-word">${escapeHtml(
+                    e.word ?? "(missing word)"
+                  )}</label>
+                      <span class="pill">${src}</span>
+                    </div>
+                    <div class="entry-content">
+                      <div class="entry-translation">${escapeHtml(
+                        e.translation ?? ""
+                      )}</div>
+                    </div>
+                  </div>`;
+                })
+                .join("");
+
+              return `<tr>
+                <td class="key">${escapeHtml(group.key)}</td>
+                <td>${group.count}</td>
+                <td>${entriesHtml}</td>
+              </tr>`;
+            })
+            .join("");
+
+          tableWrap.innerHTML = `
+            <table>
+              <thead><tr><th>Duplicate key</th><th>Count</th><th>Entries (select one to keep)</th></tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+          `;
+        }
+
+        function escapeHtml(s) {
+          return String(s).replace(
+            /[&<>"']/g,
+            (c) =>
+              ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;",
+              }[c])
+          );
+        }
+
+        function dedupe(data, options) {
+          const map = new Map();
+          const pushToKey = (normKey, entry, idx) => {
+            if (!normKey) return;
+            if (!map.has(normKey)) map.set(normKey, []);
+            // store shallow copy plus index for debugging
+            map.get(normKey).push({ ...entry, _sourceIndex: idx });
+          };
+
+          data.forEach((entry, i) => {
+            // Expect {word, translation}; skip if not present
+            const rawWord = entry?.word ?? "";
+            // optionally split on slashes into multiple keys
+            const words = explodeSlash(rawWord, options);
+            words.forEach((w) => {
+              const key = normalizeWord(w, options);
+              pushToKey(key, entry, i);
+            });
+          });
+
+          // collect groups with count > 1
+          const groups = [];
+          for (const [key, arr] of map.entries()) {
+            if (key && arr.length > 1) {
+              groups.push({ key, count: arr.length, entries: arr });
+            }
+          }
+          // sort by key asc then by count desc
+          groups.sort(
+            (a, b) => a.key.localeCompare(b.key, "de") || b.count - a.count
+          );
+          return groups;
+        }
+
+        function collectOptions() {
+          return {
+            case: opt.case.checked,
+            nfc: opt.nfc.checked,
+            trim: opt.trim.checked,
+            stripParens: opt.stripParens.checked,
+            ignoreArticles: opt.ignoreArticles.checked,
+            splitSlashes: opt.splitSlashes.checked,
+          };
+        }
+
+        function handleEntrySelection(groupKey, entryIndex) {
+          duplicateSelections.set(groupKey, entryIndex);
+          // Update visual selection
+          const groupRows = document.querySelectorAll(`[name="${groupKey}"]`);
+          groupRows.forEach((radio, idx) => {
+            const entryRow = radio.closest(".entry-row");
+            if (idx === entryIndex) {
+              entryRow.classList.add("selected");
+            } else {
+              entryRow.classList.remove("selected");
+            }
+          });
+
+          // Enable apply button if we have selections for all groups
+          updateApplyButton();
+        }
+
+        function updateApplyButton() {
+          if (!lastReport || !lastReport.duplicateGroups.length) {
+            btnApplyChanges.disabled = true;
+            return;
+          }
+
+          // Check if we have selections for all duplicate groups
+          const hasAllSelections = lastReport.duplicateGroups.every((_, idx) =>
+            duplicateSelections.has(`group_${idx}`)
+          );
+
+          btnApplyChanges.disabled = !hasAllSelections;
+        }
+
+        function applySelections() {
+          if (!originalData || !lastReport) return null;
+
+          const result = [...originalData];
+          const toRemove = new Set();
+
+          // Collect indices to remove based on selections
+          lastReport.duplicateGroups.forEach((group, groupIdx) => {
+            const groupKey = `group_${groupIdx}`;
+            const selectedIndex = duplicateSelections.get(groupKey) ?? 0;
+
+            group.entries.forEach((entry, entryIdx) => {
+              if (entryIdx !== selectedIndex) {
+                toRemove.add(entry._sourceIndex);
+              }
+            });
+          });
+
+          // Remove duplicates (in reverse order to maintain indices)
+          const sortedIndices = Array.from(toRemove).sort((a, b) => b - a);
+          sortedIndices.forEach((idx) => {
+            if (idx >= 0 && idx < result.length) {
+              result.splice(idx, 1);
+            }
+          });
+
+          return result;
+        }
+
+        let lastReport = null;
+        let originalData = null;
+        let duplicateSelections = new Map(); // groupKey -> selectedEntryIndex
+
+        btnFind.addEventListener("click", () => {
+          try {
+            const pasted = paste.value.trim();
+            if (!pasted && !fileInput.files[0]) {
+              alert("Please upload a JSON file or paste JSON into the box.");
+              return;
+            }
+
+            const parseAndRun = (text) => {
+              const data = parseJSON(text);
+              originalData = [...data]; // Store original data
+              const options = collectOptions();
+              const dupes = dedupe(data, options);
+
+              // Initialize selections (default to first entry in each group)
+              duplicateSelections.clear();
+              dupes.forEach((_, idx) => {
+                duplicateSelections.set(`group_${idx}`, 0);
+              });
+
+              renderTable(dupes, data.length);
+              lastReport = {
+                options,
+                totalEntries: data.length,
+                duplicateGroups: dupes,
+              };
+              btnDownload.disabled = dupes.length === 0;
+              updateApplyButton();
+              foot.textContent = `Options: ${JSON.stringify(
+                options
+              )} • ${new Date().toLocaleString()}`;
+            };
+
+            if (pasted) {
+              parseAndRun(pasted);
+            } else {
+              const file = fileInput.files[0];
+              const reader = new FileReader();
+              reader.onload = () => parseAndRun(reader.result);
+              reader.onerror = () => alert("Could not read file.");
+              reader.readAsText(file, "utf-8");
+            }
+          } catch (e) {
+            stat.textContent = e.message;
+            tableWrap.innerHTML = "";
+            btnDownload.disabled = true;
+          }
+        });
+
+        btnDownload.addEventListener("click", () => {
+          if (!lastReport) return;
+          const blob = new Blob([JSON.stringify(lastReport, null, 2)], {
+            type: "application/json",
+          });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "duplicate_report.json";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        });
+
+        btnApplyChanges.addEventListener("click", () => {
+          if (!originalData || !lastReport) return;
+
+          const cleanedData = applySelections();
+          if (!cleanedData) return;
+
+          const removedCount = originalData.length - cleanedData.length;
+          const filename = `cleaned_dictionary_${new Date()
+            .toISOString()
+            .slice(0, 10)}.json`;
+
+          const blob = new Blob([JSON.stringify(cleanedData, null, 2)], {
+            type: "application/json",
+          });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+
+          alert(
+            `Cleaned data downloaded! Removed ${removedCount} duplicate entries. New file has ${cleanedData.length} entries.`
+          );
+        });
+
+        btnClear.addEventListener("click", () => {
+          paste.value = "";
+          fileInput.value = "";
+          stat.textContent = "No results yet.";
+          tableWrap.innerHTML = "";
+          countPill.style.display = "none";
+          btnDownload.disabled = true;
+          btnApplyChanges.disabled = true;
+          foot.textContent = "";
+          lastReport = null;
+          originalData = null;
+          duplicateSelections.clear();
+        });
+
+        // Convenience: load example when pasting is empty to help first-time use (comment out if not wanted)
+        // paste.value = JSON.stringify([{word:"Abteilung",translation:"..."},{word:"Abteilung",translation:"..."}],null,2);
+
+        // Make handleEntrySelection globally available
+        window.handleEntrySelection = handleEntrySelection;
+      })();
+    </script>
+  </body>
+</html>
