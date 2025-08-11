@@ -180,7 +180,10 @@
       >
         <div class="word-header">
           <div class="word-info">
-            <h3 class="word-german">{{ word.word }}</h3>
+            <h3 class="word-german">
+              <span *ngIf="word.article" class="article">{{ word.article }}</span>
+              {{ word.word }}
+            </h3>
             <p class="word-translation">{{ word.translation }}</p>
           </div>
           <div class="word-meta">

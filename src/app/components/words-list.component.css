@@ -441,6 +441,13 @@
   color: #1f2937;
 }
 
+.word-german .article {
+  color: #6366f1;
+  font-weight: 600;
+  margin-right: 0.3em;
+  font-size: 0.9em;
+}
+
 .word-translation {
   margin: 0;
   color: #6b7280;

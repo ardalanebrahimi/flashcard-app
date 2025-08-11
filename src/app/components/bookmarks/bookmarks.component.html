@@ -41,7 +41,10 @@
     <div class="words-list">
       <div *ngFor="let word of bookmarkedWords; trackBy: trackByWord" class="word-card">
         <div class="word-info">
-          <div class="german-word">{{ word.word }}</div>
+          <div class="german-word">
+            <span *ngIf="word.article" class="article">{{ word.article }}</span>
+            {{ word.word }}
+          </div>
           <div class="translation">{{ word.translation }}</div>
         </div>
         <div class="word-actions">

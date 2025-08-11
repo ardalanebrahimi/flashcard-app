@@ -1,6 +1,7 @@
 export interface WordProgress {
   word: string;
   translation: string;
+  article?: string; // German article (der, die, das) for nouns
   source: 'dictionary' | 'custom';
   status: 'new' | 'learning' | 'mastered';
   practiceCount: number;

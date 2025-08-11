@@ -9,15 +9,18 @@
   },
   {
     "word": "Abfall",
-    "translation": "waste, garbage (e.g., Bitte werfen Sie den Abfall in den Mülleimer.)"
+    "translation": "waste, garbage (e.g., Bitte werfen Sie den Abfall in den Mülleimer.)",
+    "article": "der"
   },
   {
     "word": "Abflug",
-    "translation": "departure (flight) (e.g., Der Abflug ist um 14 Uhr.)"
+    "translation": "departure (flight) (e.g., Der Abflug ist um 14 Uhr.)",
+    "article": "der"
   },
   {
     "word": "Abgas",
-    "translation": "exhaust gas (e.g., Abgase verschmutzen die Luft.)"
+    "translation": "exhaust gas (e.g., Abgase verschmutzen die Luft.)",
+    "article": "das"
   },
   {
     "word": "abhängig",
@@ -33,7 +36,8 @@
   },
   {
     "word": "Absage",
-    "translation": "cancellation, rejection (e.g., Leider habe ich eine Absage für den Job erhalten.)"
+    "translation": "cancellation, rejection (e.g., Leider habe ich eine Absage für den Job erhalten.)",
+    "article": "die"
   },
   {
     "word": "abschicken",
@@ -53,15 +57,18 @@
   },
   {
     "word": "Abstellplatz",
-    "translation": "parking space, storage area (e.g., Der Abstellplatz ist hinter dem Haus.)"
+    "translation": "parking space, storage area (e.g., Der Abstellplatz ist hinter dem Haus.)",
+    "article": "der"
   },
   {
     "word": "Abteilungsleiter/in",
-    "translation": "department manager (e.g., Der Abteilungsleiter hat die Besprechung geleitet.)"
+    "translation": "department manager (e.g., Der Abteilungsleiter hat die Besprechung geleitet.)",
+    "article": "der"
   },
   {
     "word": "Abwasser",
-    "translation": "wastewater, sewage (e.g., Das Abwasser wird in der Kläranlage gereinigt.)"
+    "translation": "wastewater, sewage (e.g., Das Abwasser wird in der Kläranlage gereinigt.)",
+    "article": "das"
   },
   {
     "word": "abwechslungsreich",
@@ -69,7 +76,8 @@
   },
   {
     "word": "Abwicklung",
-    "translation": "handling, processing (e.g., Die Abwicklung der Bestellung dauert zwei Tage.)"
+    "translation": "handling, processing (e.g., Die Abwicklung der Bestellung dauert zwei Tage.)",
+    "article": "die"
   },
   {
     "word": "achten",
@@ -89,7 +97,8 @@
   },
   {
     "word": "Alkohol",
-    "translation": "alcohol (e.g., Alkohol ist in vielen Ländern ab 18 erlaubt.)"
+    "translation": "alcohol (e.g., Alkohol ist in vielen Ländern ab 18 erlaubt.)",
+    "article": "der"
   },
   {
     "word": "allerdings",
@@ -97,7 +106,8 @@
   },
   {
     "word": "Allergie",
-    "translation": "allergy (e.g., Sie hat eine Allergie gegen Pollen.)"
+    "translation": "allergy (e.g., Sie hat eine Allergie gegen Pollen.)",
+    "article": "die"
   },
   {
     "word": "allergisch",
@@ -105,27 +115,33 @@
   },
   {
     "word": "Alliierte",
-    "translation": "allies (e.g., Die Alliierten haben den Krieg gewonnen.)"
+    "translation": "allies (e.g., Die Alliierten haben den Krieg gewonnen.)",
+    "article": "die"
   },
   {
     "word": "Altenpfleger/in",
-    "translation": "geriatric nurse (e.g., Der Altenpfleger kümmert sich um die Senioren.)"
+    "translation": "geriatric nurse (e.g., Der Altenpfleger kümmert sich um die Senioren.)",
+    "article": "der"
   },
   {
     "word": "Alter",
-    "translation": "age (e.g., Sein Alter ist schwer zu schätzen.)"
+    "translation": "age (e.g., Sein Alter ist schwer zu schätzen.)",
+    "article": "das"
   },
   {
     "word": "Altöl",
-    "translation": "used oil (e.g., Altöl muss fachgerecht entsorgt werden.)"
+    "translation": "used oil (e.g., Altöl muss fachgerecht entsorgt werden.)",
+    "article": "das"
   },
   {
     "word": "Altpapier",
-    "translation": "waste paper (e.g., Altpapier wird recycelt.)"
+    "translation": "waste paper (e.g., Altpapier wird recycelt.)",
+    "article": "das"
   },
   {
     "word": "Aluminium",
-    "translation": "aluminum (e.g., Aluminium ist ein leichtes Metall.)"
+    "translation": "aluminum (e.g., Aluminium ist ein leichtes Metall.)",
+    "article": "das"
   },
   {
     "word": "amtlich",
@@ -133,11 +149,13 @@
   },
   {
     "word": "Amtssprache",
-    "translation": "official language (e.g., Deutsch ist die Amtssprache in Deutschland.)"
+    "translation": "official language (e.g., Deutsch ist die Amtssprache in Deutschland.)",
+    "article": "die"
   },
   {
     "word": "Anbau",
-    "translation": "cultivation, extension (e.g., Der Anbau von Gemüse ist in dieser Region verbreitet.)"
+    "translation": "cultivation, extension (e.g., Der Anbau von Gemüse ist in dieser Region verbreitet.)",
+    "article": "der"
   },
   {
     "word": "andauernd",
@@ -149,7 +167,8 @@
   },
   {
     "word": "Anerkennung",
-    "translation": "recognition, appreciation (e.g., Er erhielt viel Anerkennung für seine Arbeit.)"
+    "translation": "recognition, appreciation (e.g., Er erhielt viel Anerkennung für seine Arbeit.)",
+    "article": "die"
   },
   {
     "word": "anfahren",
@@ -157,7 +176,8 @@
   },
   {
     "word": "Anfang",
-    "translation": "beginning (e.g., Der Anfang des Films war spannend.)"
+    "translation": "beginning (e.g., Der Anfang des Films war spannend.)",
+    "article": "der"
   },
   {
     "word": "anfangs",
@@ -185,7 +205,8 @@
   },
   {
     "word": "Anlage",
-    "translation": "facility, system (e.g., Die Anlage ist modern und effizient.)"
+    "translation": "facility, system (e.g., Die Anlage ist modern und effizient.)",
+    "article": "die"
   },
   {
     "word": "anmachen",
@@ -193,7 +214,8 @@
   },
   {
     "word": "Annahme",
-    "translation": "assumption, acceptance (e.g., Die Annahme war falsch.)"
+    "translation": "assumption, acceptance (e.g., Die Annahme war falsch.)",
+    "article": "die"
   },
   {
     "word": "annulliert",
@@ -201,7 +223,8 @@
   },
   {
     "word": "Anprobe",
-    "translation": "fitting (trying on clothes) (e.g., Die Anprobe der neuen Kleider war erfolgreich.)"
+    "translation": "fitting (trying on clothes) (e.g., Die Anprobe der neuen Kleider war erfolgreich.)",
+    "article": "die"
   },
   {
     "word": "anprobieren",
@@ -229,11 +252,13 @@
   },
   {
     "word": "Anstellung",
-    "translation": "employment, job (e.g., Er hat eine feste Anstellung gefunden.)"
+    "translation": "employment, job (e.g., Er hat eine feste Anstellung gefunden.)",
+    "article": "die"
   },
   {
     "word": "Anstoß",
-    "translation": "kick-off, impetus (e.g., Der Anstoß des Spiels ist um 15 Uhr.)"
+    "translation": "kick-off, impetus (e.g., Der Anstoß des Spiels ist um 15 Uhr.)",
+    "article": "der"
   },
   {
     "word": "anstreichen",
@@ -245,31 +270,38 @@
   },
   {
     "word": "Anzeigetafel",
-    "translation": "display board (e.g., Die Anzeigetafel zeigt die Abfahrtszeiten an.)"
+    "translation": "display board (e.g., Die Anzeigetafel zeigt die Abfahrtszeiten an.)",
+    "article": "die"
   },
   {
     "word": "Arbeitskraft",
-    "translation": "workforce (e.g., Die Arbeitskraft ist in diesem Bereich sehr gefragt.)"
+    "translation": "workforce (e.g., Die Arbeitskraft ist in diesem Bereich sehr gefragt.)",
+    "article": "die"
   },
   {
     "word": "Arbeitslosigkeit",
-    "translation": "unemployment (e.g., Die Arbeitslosigkeit ist in der Stadt gesunken.)"
+    "translation": "unemployment (e.g., Die Arbeitslosigkeit ist in der Stadt gesunken.)",
+    "article": "die"
   },
   {
     "word": "Arbeitsstelle",
-    "translation": "job position (e.g., Sie hat eine neue Arbeitsstelle gefunden.)"
+    "translation": "job position (e.g., Sie hat eine neue Arbeitsstelle gefunden.)",
+    "article": "die"
   },
   {
     "word": "Arbeitsweise",
-    "translation": "working method (e.g., Seine Arbeitsweise ist sehr effizient.)"
+    "translation": "working method (e.g., Seine Arbeitsweise ist sehr effizient.)",
+    "article": "die"
   },
   {
     "word": "Arbeitszeit",
-    "translation": "working hours (e.g., Die Arbeitszeit beginnt um 8 Uhr.)"
+    "translation": "working hours (e.g., Die Arbeitszeit beginnt um 8 Uhr.)",
+    "article": "die"
   },
   {
     "word": "Ärger",
-    "translation": "trouble, annoyance (e.g., Ich habe Ärger mit meinem Nachbarn.)"
+    "translation": "trouble, annoyance (e.g., Ich habe Ärger mit meinem Nachbarn.)",
+    "article": "der"
   },
   {
     "word": "ärgerlich",
@@ -277,11 +309,13 @@
   },
   {
     "word": "Art",
-    "translation": "type, kind (e.g., Diese Art von Musik gefällt mir.)"
+    "translation": "type, kind (e.g., Diese Art von Musik gefällt mir.)",
+    "article": "die"
   },
   {
     "word": "Artikelnummer",
-    "translation": "article number (e.g., Die Artikelnummer steht auf der Verpackung.)"
+    "translation": "article number (e.g., Die Artikelnummer steht auf der Verpackung.)",
+    "article": "die"
   },
   {
     "word": "ärztlich",
@@ -289,19 +323,23 @@
   },
   {
     "word": "Assistenz",
-    "translation": "assistance (e.g., Er arbeitet in der Assistenz der Geschäftsleitung.)"
+    "translation": "assistance (e.g., Er arbeitet in der Assistenz der Geschäftsleitung.)",
+    "article": "die"
   },
   {
     "word": "Astronaut/in",
-    "translation": "astronaut (e.g., Der Astronaut fliegt ins All.)"
+    "translation": "astronaut (e.g., Der Astronaut fliegt ins All.)",
+    "article": "der"
   },
   {
     "word": "Asyl",
-    "translation": "asylum (e.g., Sie beantragen Asyl in Deutschland.)"
+    "translation": "asylum (e.g., Sie beantragen Asyl in Deutschland.)",
+    "article": "das"
   },
   {
     "word": "Atmung",
-    "translation": "breathing (e.g., Die Atmung ist bei Sport wichtig.)"
+    "translation": "breathing (e.g., Die Atmung ist bei Sport wichtig.)",
+    "article": "die"
   },
   {
     "word": "atmungsaktiv",
@@ -325,11 +363,13 @@
   },
   {
     "word": "Aufregung",
-    "translation": "excitement, agitation (e.g., Die Aufregung vor der Prüfung war groß.)"
+    "translation": "excitement, agitation (e.g., Die Aufregung vor der Prüfung war groß.)",
+    "article": "die"
   },
   {
     "word": "Aufruf",
-    "translation": "appeal, call (e.g., Der Aufruf zur Hilfe war erfolgreich.)"
+    "translation": "appeal, call (e.g., Der Aufruf zur Hilfe war erfolgreich.)",
+    "article": "der"
   },
   {
     "word": "aufschreiben",
@@ -341,15 +381,18 @@
   },
   {
     "word": "Aufteilung",
-    "translation": "division, distribution (e.g., Die Aufteilung der Arbeit ist fair.)"
+    "translation": "division, distribution (e.g., Die Aufteilung der Arbeit ist fair.)",
+    "article": "die"
   },
   {
     "word": "Auftrag",
-    "translation": "order, assignment (e.g., Ich habe einen neuen Auftrag bekommen.)"
+    "translation": "order, assignment (e.g., Ich habe einen neuen Auftrag bekommen.)",
+    "article": "der"
   },
   {
     "word": "Auftragsnummer",
-    "translation": "order number (e.g., Die Auftragsnummer finden Sie auf der Rechnung.)"
+    "translation": "order number (e.g., Die Auftragsnummer finden Sie auf der Rechnung.)",
+    "article": "die"
   },
   {
     "word": "auseinandersetzen",
@@ -357,7 +400,8 @@
   },
   {
     "word": "Ausgang",
-    "translation": "exit (e.g., Der Ausgang ist am Ende des Flurs.)"
+    "translation": "exit (e.g., Der Ausgang ist am Ende des Flurs.)",
+    "article": "der"
   },
   {
     "word": "ausgewogen",
@@ -369,7 +413,8 @@
   },
   {
     "word": "Ausnahme",
-    "translation": "exception (e.g., Es gibt keine Ausnahme von dieser Regel.)"
+    "translation": "exception (e.g., Es gibt keine Ausnahme von dieser Regel.)",
+    "article": "die"
   },
   {
     "word": "ausparken",
@@ -389,11 +434,13 @@
   },
   {
     "word": "Außenspiegel",
-    "translation": "side mirror (e.g., Der Außenspiegel ist kaputt.)"
+    "translation": "side mirror (e.g., Der Außenspiegel ist kaputt.)",
+    "article": "der"
   },
   {
     "word": "Ausstattung",
-    "translation": "equipment, furnishing (e.g., Die Ausstattung der Wohnung ist modern.)"
+    "translation": "equipment, furnishing (e.g., Die Ausstattung der Wohnung ist modern.)",
+    "article": "die"
   },
   {
     "word": "ausstellen",
@@ -401,55 +448,68 @@
   },
   {
     "word": "Auswahl",
-    "translation": "selection, choice (e.g., Die Auswahl an Produkten ist groß.)"
+    "translation": "selection, choice (e.g., Die Auswahl an Produkten ist groß.)",
+    "article": "die"
   },
   {
     "word": "Auswanderer",
-    "translation": "emigrant (e.g., Viele Auswanderer suchen ein neues Leben im Ausland.)"
+    "translation": "emigrant (e.g., Viele Auswanderer suchen ein neues Leben im Ausland.)",
+    "article": "der"
   },
   {
     "word": "Auswanderung",
-    "translation": "emigration (e.g., Die Auswanderung nach Amerika war früher sehr beliebt.)"
+    "translation": "emigration (e.g., Die Auswanderung nach Amerika war früher sehr beliebt.)",
+    "article": "die"
   },
   {
     "word": "Auszug",
-    "translation": "excerpt, extract (e.g., Der Auszug aus dem Buch ist spannend.)"
+    "translation": "excerpt, extract (e.g., Der Auszug aus dem Buch ist spannend.)",
+    "article": "der"
   },
   {
     "word": "Autofahrer/in",
-    "translation": "car driver (e.g., Der Autofahrer hält an der Ampel.)"
+    "translation": "car driver (e.g., Der Autofahrer hält an der Ampel.)",
+    "article": "der"
   },
   {
     "word": "Automarke",
-    "translation": "car brand (e.g., Welche Automarke fährst du?)"
+    "translation": "car brand (e.g., Welche Automarke fährst du?)",
+    "article": "die"
   },
   {
     "word": "Autorennen",
-    "translation": "car race (e.g., Das Autorennen war sehr spannend.)"
+    "translation": "car race (e.g., Das Autorennen war sehr spannend.)",
+    "article": "das"
   },
   {
     "word": "Autoteil",
-    "translation": "car part (e.g., Das Autoteil muss ersetzt werden.)"
+    "translation": "car part (e.g., Das Autoteil muss ersetzt werden.)",
+    "article": "das"
   },
   {
     "word": "Autoversicherung",
-    "translation": "car insurance (e.g., Die Autoversicherung ist teuer.)"
+    "translation": "car insurance (e.g., Die Autoversicherung ist teuer.)",
+    "article": "die"
   },
   {
     "word": "Bachelor",
-    "translation": "Bachelor's degree (e.g., Sie hat einen Bachelor in Biologie.)"
+    "translation": "Bachelor's degree (e.g., Sie hat einen Bachelor in Biologie.)",
+    "article": "der"
   },
   {
     "word": "Balkongeländer",
-    "translation": "balcony railing (e.g., Das Balkongeländer ist aus Metall.)"
+    "translation": "balcony railing (e.g., Das Balkongeländer ist aus Metall.)",
+    "article": "das"
   },
   {
     "word": "Bankeinzug",
-    "translation": "direct debit (e.g., Die Miete wird per Bankeinzug bezahlt.)"
+    "translation": "direct debit (e.g., Die Miete wird per Bankeinzug bezahlt.)",
+    "article": "der"
   },
   {
     "word": "Bearbeitung",
-    "translation": "processing, editing (e.g., Die Bearbeitung des Antrags dauert eine Woche.)"
+    "translation": "processing, editing (e.g., Die Bearbeitung des Antrags dauert eine Woche.)",
+    "article": "die"
   },
   {
     "word": "bedenklich",
@@ -457,7 +517,8 @@
   },
   {
     "word": "Bedingung",
-    "translation": "condition, requirement (e.g., Die Bedingungen sind akzeptabel.)"
+    "translation": "condition, requirement (e.g., Die Bedingungen sind akzeptabel.)",
+    "article": "die"
   },
   {
     "word": "befestigen",
@@ -477,11 +538,13 @@
   },
   {
     "word": "Beglaubigung",
-    "translation": "certification (e.g., Die Beglaubigung ist erforderlich.)"
+    "translation": "certification (e.g., Die Beglaubigung ist erforderlich.)",
+    "article": "die"
   },
   {
     "word": "Begleitperson",
-    "translation": "companion (e.g., Jeder Patient darf eine Begleitperson mitbringen.)"
+    "translation": "companion (e.g., Jeder Patient darf eine Begleitperson mitbringen.)",
+    "article": "die"
   },
   {
     "word": "behalten",
@@ -489,7 +552,8 @@
   },
   {
     "word": "Behälter",
-    "translation": "container (e.g., Der Behälter ist voll.)"
+    "translation": "container (e.g., Der Behälter ist voll.)",
+    "article": "der"
   },
   {
     "word": "behaupten",
@@ -505,7 +569,8 @@
   },
   {
     "word": "Bekannte",
-    "translation": "acquaintance (e.g., Sie ist eine alte Bekannte von mir.)"
+    "translation": "acquaintance (e.g., Sie ist eine alte Bekannte von mir.)",
+    "article": "die"
   },
   {
     "word": "belasten",
@@ -513,7 +578,8 @@
   },
   {
     "word": "Belastung",
-    "translation": "load, burden (e.g., Die Belastung ist zu hoch.)"
+    "translation": "load, burden (e.g., Die Belastung ist zu hoch.)",
+    "article": "die"
   },
   {
     "word": "beleidigen",
@@ -521,7 +587,8 @@
   },
   {
     "word": "Beleidigung",
-    "translation": "insult (e.g., Die Beleidigung war nicht nötig.)"
+    "translation": "insult (e.g., Die Beleidigung war nicht nötig.)",
+    "article": "die"
   },
   {
     "word": "beliebt",
@@ -533,7 +600,8 @@
   },
   {
     "word": "Benzin",
-    "translation": "petrol, gasoline (e.g., Das Auto braucht Benzin.)"
+    "translation": "petrol, gasoline (e.g., Das Auto braucht Benzin.)",
+    "article": "das"
   },
   {
     "word": "beobachten",
@@ -553,23 +621,28 @@
   },
   {
     "word": "Berufsbezeichnung",
-    "translation": "job title (e.g., Meine Berufsbezeichnung ist Ingenieur.)"
+    "translation": "job title (e.g., Meine Berufsbezeichnung ist Ingenieur.)",
+    "article": "die"
   },
   {
     "word": "Berufserfahrung",
-    "translation": "work experience (e.g., Sie hat 10 Jahre Berufserfahrung.)"
+    "translation": "work experience (e.g., Sie hat 10 Jahre Berufserfahrung.)",
+    "article": "die"
   },
   {
     "word": "Berufsleben",
-    "translation": "professional life (e.g., Das Berufsleben beginnt nach dem Studium.)"
+    "translation": "professional life (e.g., Das Berufsleben beginnt nach dem Studium.)",
+    "article": "das"
   },
   {
     "word": "Berufstätigkeit",
-    "translation": "employment, professional activity (e.g., Die Berufstätigkeit nimmt viel Zeit in Anspruch.)"
+    "translation": "employment, professional activity (e.g., Die Berufstätigkeit nimmt viel Zeit in Anspruch.)",
+    "article": "die"
   },
   {
     "word": "Besatzungszone",
-    "translation": "occupation zone (e.g., Deutschland war in vier Besatzungszonen geteilt.)"
+    "translation": "occupation zone (e.g., Deutschland war in vier Besatzungszonen geteilt.)",
+    "article": "die"
   },
   {
     "word": "beschädigen",
@@ -589,7 +662,8 @@
   },
   {
     "word": "Beschimpfung",
-    "translation": "insult (e.g., Die Beschimpfung war völlig unnötig.)"
+    "translation": "insult (e.g., Die Beschimpfung war völlig unnötig.)",
+    "article": "die"
   },
   {
     "word": "beschweren",
@@ -601,15 +675,18 @@
   },
   {
     "word": "Besprechungszimmer",
-    "translation": "meeting room (e.g., Das Besprechungszimmer ist reserviert.)"
+    "translation": "meeting room (e.g., Das Besprechungszimmer ist reserviert.)",
+    "article": "das"
   },
   {
     "word": "Bestellhotline",
-    "translation": "order hotline (e.g., Die Bestellhotline ist 24 Stunden geöffnet.)"
+    "translation": "order hotline (e.g., Die Bestellhotline ist 24 Stunden geöffnet.)",
+    "article": "die"
   },
   {
     "word": "Betrag",
-    "translation": "amount (money) (e.g., Der Betrag wird von Ihrem Konto abgebucht.)"
+    "translation": "amount (money) (e.g., Der Betrag wird von Ihrem Konto abgebucht.)",
+    "article": "der"
   },
   {
     "word": "betreten",
@@ -617,7 +694,8 @@
   },
   {
     "word": "Betriebswirtschaft",
-    "translation": "business administration (e.g., Sie studiert Betriebswirtschaft.)"
+    "translation": "business administration (e.g., Sie studiert Betriebswirtschaft.)",
+    "article": "die"
   },
   {
     "word": "betrunken",
@@ -629,19 +707,23 @@
   },
   {
     "word": "Beutel",
-    "translation": "bag (e.g., Der Beutel ist aus Plastik.)"
+    "translation": "bag (e.g., Der Beutel ist aus Plastik.)",
+    "article": "der"
   },
   {
     "word": "Bevölkerung",
-    "translation": "population (e.g., Die Bevölkerung wächst schnell.)"
+    "translation": "population (e.g., Die Bevölkerung wächst schnell.)",
+    "article": "die"
   },
   {
     "word": "Bewerbungsschreiben",
-    "translation": "application letter (e.g., Das Bewerbungsschreiben muss fehlerfrei sein.)"
+    "translation": "application letter (e.g., Das Bewerbungsschreiben muss fehlerfrei sein.)",
+    "article": "das"
   },
   {
     "word": "Bewohner/in",
-    "translation": "resident (e.g., Die Bewohner sind mit der Situation unzufrieden.)"
+    "translation": "resident (e.g., Die Bewohner sind mit der Situation unzufrieden.)",
+    "article": "der"
   },
   {
     "word": "bewusst",
@@ -649,15 +731,18 @@
   },
   {
     "word": "Bezahlvorgang",
-    "translation": "payment process (e.g., Der Bezahlvorgang ist sicher.)"
+    "translation": "payment process (e.g., Der Bezahlvorgang ist sicher.)",
+    "article": "der"
   },
   {
     "word": "Biergarten",
-    "translation": "beer garden (e.g., Im Sommer gehen wir oft in den Biergarten.)"
+    "translation": "beer garden (e.g., Im Sommer gehen wir oft in den Biergarten.)",
+    "article": "der"
   },
   {
     "word": "Bilanzbuchhalter/in",
-    "translation": "chartered accountant (e.g., Der Bilanzbuchhalter prüft die Zahlen.)"
+    "translation": "chartered accountant (e.g., Der Bilanzbuchhalter prüft die Zahlen.)",
+    "article": "der"
   },
   {
     "word": "bio (=biologisch)",
@@ -669,7 +754,8 @@
   },
   {
     "word": "Bioprodukt",
-    "translation": "organic product (e.g., Bioprodukte sind teurer, aber gesünder.)"
+    "translation": "organic product (e.g., Bioprodukte sind teurer, aber gesünder.)",
+    "article": "das"
   },
   {
     "word": "bisher",
@@ -677,7 +763,8 @@
   },
   {
     "word": "Blinker",
-    "translation": "turn signal (e.g., Der Blinker am Auto ist kaputt.)"
+    "translation": "turn signal (e.g., Der Blinker am Auto ist kaputt.)",
+    "article": "der"
   },
   {
     "word": "bloß",
@@ -685,7 +772,8 @@
   },
   {
     "word": "Blumentopf",
-    "translation": "flowerpot (e.g., Der Blumentopf steht auf der Fensterbank.)"
+    "translation": "flowerpot (e.g., Der Blumentopf steht auf der Fensterbank.)",
+    "article": "der"
   },
   {
     "word": "bohren",
@@ -693,11 +781,13 @@
   },
   {
     "word": "Bordkarte",
-    "translation": "boarding pass (e.g., Bitte zeigen Sie Ihre Bordkarte vor.)"
+    "translation": "boarding pass (e.g., Bitte zeigen Sie Ihre Bordkarte vor.)",
+    "article": "die"
   },
   {
     "word": "Boxen",
-    "translation": "boxing (e.g., Boxen ist ein harter Sport.)"
+    "translation": "boxing (e.g., Boxen ist ein harter Sport.)",
+    "article": "das"
   },
   {
     "word": "bremsen",
@@ -705,79 +795,98 @@
   },
   {
     "word": "Briefpapier",
-    "translation": "stationery (e.g., Das Briefpapier ist sehr elegant.)"
+    "translation": "stationery (e.g., Das Briefpapier ist sehr elegant.)",
+    "article": "das"
   },
   {
     "word": "Bundeskanzler/in",
-    "translation": "federal chancellor (e.g., Der Bundeskanzler hält eine Rede.)"
+    "translation": "federal chancellor (e.g., Der Bundeskanzler hält eine Rede.)",
+    "article": "der"
   },
   {
     "word": "Bundesrepublik (BRD)",
-    "translation": "Federal Republic of Germany (e.g., Die Bundesrepublik wurde 1949 gegründet.)"
+    "translation": "Federal Republic of Germany (e.g., Die Bundesrepublik wurde 1949 gegründet.)",
+    "article": "die"
   },
   {
     "word": "Bürger/in",
-    "translation": "citizen (e.g., Jeder Bürger hat Rechte und Pflichten.)"
+    "translation": "citizen (e.g., Jeder Bürger hat Rechte und Pflichten.)",
+    "article": "der"
   },
   {
     "word": "Bürgerkrieg",
-    "translation": "civil war (e.g., Der Bürgerkrieg dauerte Jahre.)"
+    "translation": "civil war (e.g., Der Bürgerkrieg dauerte Jahre.)",
+    "article": "der"
   },
   {
     "word": "Büroalltag",
-    "translation": "office routine (e.g., Der Büroalltag kann stressig sein.)"
+    "translation": "office routine (e.g., Der Büroalltag kann stressig sein.)",
+    "article": "der"
   },
   {
     "word": "Büroassistent/in",
-    "translation": "office assistant (e.g., Die Büroassistentin organisiert die Termine.)"
+    "translation": "office assistant (e.g., Die Büroassistentin organisiert die Termine.)",
+    "article": "der"
   },
   {
     "word": "Büromaterial",
-    "translation": "office supplies (e.g., Wir brauchen neues Büromaterial.)"
+    "translation": "office supplies (e.g., Wir brauchen neues Büromaterial.)",
+    "article": "das"
   },
   {
     "word": "Büroraum",
-    "translation": "office space (e.g., Der Büroraum ist hell und freundlich.)"
+    "translation": "office space (e.g., Der Büroraum ist hell und freundlich.)",
+    "article": "der"
   },
   {
     "word": "Bürozeit",
-    "translation": "office hours (e.g., Die Bürozeit ist von 9 bis 17 Uhr.)"
+    "translation": "office hours (e.g., Die Bürozeit ist von 9 bis 17 Uhr.)",
+    "article": "die"
   },
   {
     "word": "Callcenter",
-    "translation": "call center (e.g., Sie arbeitet in einem Callcenter.)"
+    "translation": "call center (e.g., Sie arbeitet in einem Callcenter.)",
+    "article": "das"
   },
   {
     "word": "Camper/in",
-    "translation": "camper (e.g., Die Camper zelten am See.)"
+    "translation": "camper (e.g., Die Camper zelten am See.)",
+    "article": "der"
   },
   {
     "word": "Campingplatz",
-    "translation": "camping site (e.g., Der Campingplatz ist gut ausgestattet.)"
+    "translation": "camping site (e.g., Der Campingplatz ist gut ausgestattet.)",
+    "article": "der"
   },
   {
     "word": "Catering",
-    "translation": "catering (e.g., Das Catering für die Hochzeit war excellent.)"
+    "translation": "catering (e.g., Das Catering für die Hochzeit war excellent.)",
+    "article": "das"
   },
   {
     "word": "Check-in-Schalter",
-    "translation": "check-in counter (e.g., Der Check-in-Schalter ist gleich dort drüben.)"
+    "translation": "check-in counter (e.g., Der Check-in-Schalter ist gleich dort drüben.)",
+    "article": "der"
   },
   {
     "word": "Chemikalie",
-    "translation": "chemical (e.g., Chemikalien können gefährlich sein.)"
+    "translation": "chemical (e.g., Chemikalien können gefährlich sein.)",
+    "article": "die"
   },
   {
     "word": "Chips",
-    "translation": "chips (crisps) (e.g., Ich esse gerne Chips beim Fernsehen.)"
+    "translation": "chips (crisps) (e.g., Ich esse gerne Chips beim Fernsehen.)",
+    "article": "die"
   },
   {
     "word": "Container",
-    "translation": "container (e.g., Der Container ist voller Müll.)"
+    "translation": "container (e.g., Der Container ist voller Müll.)",
+    "article": "der"
   },
   {
     "word": "Dach",
-    "translation": "roof (e.g., Das Dach muss repariert werden.)"
+    "translation": "roof (e.g., Das Dach muss repariert werden.)",
+    "article": "das"
   },
   {
     "word": "daneben",
@@ -785,11 +894,13 @@
   },
   {
     "word": "Datenschutz",
-    "translation": "data protection (e.g., Datenschutz ist sehr wichtig.)"
+    "translation": "data protection (e.g., Datenschutz ist sehr wichtig.)",
+    "article": "der"
   },
   {
     "word": "Deckel",
-    "translation": "lid (e.g., Der Deckel der Dose ist fest.)"
+    "translation": "lid (e.g., Der Deckel der Dose ist fest.)",
+    "article": "der"
   },
   {
     "word": "demnächst",
@@ -797,7 +908,8 @@
   },
   {
     "word": "Demokratie",
-    "translation": "democracy (e.g., Deutschland ist eine Demokratie.)"
+    "translation": "democracy (e.g., Deutschland ist eine Demokratie.)",
+    "article": "die"
   },
   {
     "word": "demokratisch",
@@ -805,7 +917,8 @@
   },
   {
     "word": "Demonstration",
-    "translation": "demonstration (protest) (e.g., Die Demonstration war friedlich.)"
+    "translation": "demonstration (protest) (e.g., Die Demonstration war friedlich.)",
+    "article": "die"
   },
   {
     "word": "deswegen",
@@ -813,19 +926,23 @@
   },
   {
     "word": "Detektivgeschichte",
-    "translation": "detective story (e.g., Ich lese gerne Detektivgeschichten.)"
+    "translation": "detective story (e.g., Ich lese gerne Detektivgeschichten.)",
+    "article": "die"
   },
   {
     "word": "Deutsche Demokratische Republik (DDR)",
-    "translation": "German Democratic Republic (GDR) (e.g., Die DDR existierte von 1949 bis 1990.)"
+    "translation": "German Democratic Republic (GDR) (e.g., Die DDR existierte von 1949 bis 1990.)",
+    "article": "die"
   },
   {
     "word": "Diabetiker/in",
-    "translation": "diabetic (e.g., Als Diabetiker muss er auf den Zucker achten.)"
+    "translation": "diabetic (e.g., Als Diabetiker muss er auf den Zucker achten.)",
+    "article": "der"
   },
   {
     "word": "Diagramm",
-    "translation": "diagram (e.g., Das Diagramm zeigt die Entwicklung.)"
+    "translation": "diagram (e.g., Das Diagramm zeigt die Entwicklung.)",
+    "article": "das"
   },
   {
     "word": "dicht",
@@ -833,27 +950,33 @@
   },
   {
     "word": "Diebstahl",
-    "translation": "theft (e.g., Der Diebstahl wurde angezeigt.)"
+    "translation": "theft (e.g., Der Diebstahl wurde angezeigt.)",
+    "article": "der"
   },
   {
     "word": "Dienstleistung",
-    "translation": "service (e.g., Die Bank bietet verschiedene Dienstleistungen an.)"
+    "translation": "service (e.g., Die Bank bietet verschiedene Dienstleistungen an.)",
+    "article": "die"
   },
   {
     "word": "Dienstreise",
-    "translation": "business trip (e.g., Er ist auf Dienstreise in München.)"
+    "translation": "business trip (e.g., Er ist auf Dienstreise in München.)",
+    "article": "die"
   },
   {
     "word": "Diskussion",
-    "translation": "discussion (e.g., Wir hatten eine interessante Diskussion.)"
+    "translation": "discussion (e.g., Wir hatten eine interessante Diskussion.)",
+    "article": "die"
   },
   {
     "word": "Dokumentation (Doku)",
-    "translation": "documentation; documentary (e.g., Die Dokumentation war sehr informativ.)"
+    "translation": "documentation; documentary (e.g., Die Dokumentation war sehr informativ.)",
+    "article": "die"
   },
   {
     "word": "Döner",
-    "translation": "kebab (e.g., Ich esse gerne Döner zum Mittagessen.)"
+    "translation": "kebab (e.g., Ich esse gerne Döner zum Mittagessen.)",
+    "article": "der"
   },
   {
     "word": "doof",
@@ -861,7 +984,8 @@
   },
   {
     "word": "Doppelbett",
-    "translation": "double bed (e.g., Das Hotelzimmer hat ein Doppelbett.)"
+    "translation": "double bed (e.g., Das Hotelzimmer hat ein Doppelbett.)",
+    "article": "das"
   },
   {
     "word": "doppelt",
@@ -869,11 +993,13 @@
   },
   {
     "word": "Doppelzimmer (DZ)",
-    "translation": "double room (e.g., Wir haben ein Doppelzimmer reserviert.)"
+    "translation": "double room (e.g., Wir haben ein Doppelzimmer reserviert.)",
+    "article": "das"
   },
   {
     "word": "Dorf",
-    "translation": "village (e.g., Sie wohnt in einem kleinen Dorf.)"
+    "translation": "village (e.g., Sie wohnt in einem kleinen Dorf.)",
+    "article": "das"
   },
   {
     "word": "dramatisch",
@@ -897,7 +1023,8 @@
   },
   {
     "word": "Durchschnitt",
-    "translation": "average (e.g., Der Durchschnitt liegt bei 50%.)"
+    "translation": "average (e.g., Der Durchschnitt liegt bei 50%.)",
+    "article": "der"
   },
   {
     "word": "durchschnittlich",
@@ -925,15 +1052,18 @@
   },
   {
     "word": "Eierkarton",
-    "translation": "egg carton (e.g., Der Eierkarton ist aus Pappe.)"
+    "translation": "egg carton (e.g., Der Eierkarton ist aus Pappe.)",
+    "article": "der"
   },
   {
     "word": "Eierschale",
-    "translation": "eggshell (e.g., Die Eierschale ist zerbrochen.)"
+    "translation": "eggshell (e.g., Die Eierschale ist zerbrochen.)",
+    "article": "die"
   },
   {
     "word": "Eigentum",
-    "translation": "property (e.g., Das ist mein Eigentum.)"
+    "translation": "property (e.g., Das ist mein Eigentum.)",
+    "article": "das"
   },
   {
     "word": "eigenverantwortlich",
@@ -949,11 +1079,13 @@
   },
   {
     "word": "Einbrecher/in",
-    "translation": "burglar (e.g., Der Einbrecher wurde gefasst.)"
+    "translation": "burglar (e.g., Der Einbrecher wurde gefasst.)",
+    "article": "der"
   },
   {
     "word": "Einbruch",
-    "translation": "burglary (e.g., Nach dem Einbruch fehlte Schmuck.)"
+    "translation": "burglary (e.g., Nach dem Einbruch fehlte Schmuck.)",
+    "article": "der"
   },
   {
     "word": "einchecken",
@@ -977,7 +1109,8 @@
   },
   {
     "word": "Einkommen",
-    "translation": "income (e.g., Sein Einkommen ist gestiegen.)"
+    "translation": "income (e.g., Sein Einkommen ist gestiegen.)",
+    "article": "das"
   },
   {
     "word": "einlegen",
@@ -1017,7 +1150,8 @@
   },
   {
     "word": "Einsteigezeit",
-    "translation": "boarding time (e.g., Die Einsteigezeit beginnt in 10 Minuten.)"
+    "translation": "boarding time (e.g., Die Einsteigezeit beginnt in 10 Minuten.)",
+    "article": "die"
   },
   {
     "word": "einstellen",
@@ -1025,31 +1159,38 @@
   },
   {
     "word": "Eintrittsdatum",
-    "translation": "start date (e.g., Das Eintrittsdatum ist der 1. Januar.)"
+    "translation": "start date (e.g., Das Eintrittsdatum ist der 1. Januar.)",
+    "article": "das"
   },
   {
     "word": "Einwanderung",
-    "translation": "immigration (e.g., Die Einwanderung nach Deutschland ist gestiegen.)"
+    "translation": "immigration (e.g., Die Einwanderung nach Deutschland ist gestiegen.)",
+    "article": "die"
   },
   {
     "word": "Einzelzimmer (EZ)",
-    "translation": "single room (e.g., Ich möchte ein Einzelzimmer buchen.)"
+    "translation": "single room (e.g., Ich möchte ein Einzelzimmer buchen.)",
+    "article": "das"
   },
   {
     "word": "Eishockey",
-    "translation": "ice hockey (e.g., Eishockey ist ein schneller Sport.)"
+    "translation": "ice hockey (e.g., Eishockey ist ein schneller Sport.)",
+    "article": "das"
   },
   {
     "word": "Eiskunstlauf",
-    "translation": "figure skating (e.g., Eiskunstlauf ist elegant und schwierig.)"
+    "translation": "figure skating (e.g., Eiskunstlauf ist elegant und schwierig.)",
+    "article": "der"
   },
   {
     "word": "Eiweiß",
-    "translation": "protein (e.g., Eiweiß ist wichtig für die Muskeln.)"
+    "translation": "protein (e.g., Eiweiß ist wichtig für die Muskeln.)",
+    "article": "das"
   },
   {
     "word": "Elektroauto",
-    "translation": "electric car (e.g., Ein Elektroauto ist umweltfreundlich.)"
+    "translation": "electric car (e.g., Ein Elektroauto ist umweltfreundlich.)",
+    "article": "das"
   },
   {
     "word": "emotional",
@@ -1057,7 +1198,8 @@
   },
   {
     "word": "Empfang",
-    "translation": "reception (e.g., Der Empfang ist im Erdgeschoss.)"
+    "translation": "reception (e.g., Der Empfang ist im Erdgeschoss.)",
+    "article": "der"
   },
   {
     "word": "empfangen",
@@ -1069,19 +1211,23 @@
   },
   {
     "word": "Energiekosten",
-    "translation": "energy costs (e.g., Die Energiekosten steigen jedes Jahr.)"
+    "translation": "energy costs (e.g., Die Energiekosten steigen jedes Jahr.)",
+    "article": "die"
   },
   {
     "word": "Energiesparhaus",
-    "translation": "energy-saving house (e.g., Ein Energiesparhaus spart Geld.)"
+    "translation": "energy-saving house (e.g., Ein Energiesparhaus spart Geld.)",
+    "article": "das"
   },
   {
     "word": "Energiesparlampe",
-    "translation": "energy-saving lamp (e.g., Energiesparlampen sind umweltfreundlich.)"
+    "translation": "energy-saving lamp (e.g., Energiesparlampen sind umweltfreundlich.)",
+    "article": "die"
   },
   {
     "word": "Energieverschwendung",
-    "translation": "energy waste (e.g., Dauerlicht ist Energieverschwendung.)"
+    "translation": "energy waste (e.g., Dauerlicht ist Energieverschwendung.)",
+    "article": "die"
   },
   {
     "word": "englischsprachig",
@@ -1093,7 +1239,8 @@
   },
   {
     "word": "Entscheidung",
-    "translation": "decision (e.g., Die Entscheidung war schwer.)"
+    "translation": "decision (e.g., Die Entscheidung war schwer.)",
+    "article": "die"
   },
   {
     "word": "entspannend",
@@ -1113,7 +1260,8 @@
   },
   {
     "word": "Enttäuschung",
-    "translation": "disappointment (e.g., Die Enttäuschung war groß.)"
+    "translation": "disappointment (e.g., Die Enttäuschung war groß.)",
+    "article": "die"
   },
   {
     "word": "entwickeln",
@@ -1121,19 +1269,23 @@
   },
   {
     "word": "Erdbeben",
-    "translation": "earthquake (e.g., Das Erdbeben war sehr stark.)"
+    "translation": "earthquake (e.g., Das Erdbeben war sehr stark.)",
+    "article": "das"
   },
   {
     "word": "Erde",
-    "translation": "earth, soil, planet (e.g., Die Erde ist rund.)"
+    "translation": "earth, soil, planet (e.g., Die Erde ist rund.)",
+    "article": "die"
   },
   {
     "word": "Erderwärmung",
-    "translation": "global warming (e.g., Die Erderwärmung ist ein Problem.)"
+    "translation": "global warming (e.g., Die Erderwärmung ist ein Problem.)",
+    "article": "die"
   },
   {
     "word": "Ereignis",
-    "translation": "event (e.g., Das Konzert war ein großes Ereignis.)"
+    "translation": "event (e.g., Das Konzert war ein großes Ereignis.)",
+    "article": "das"
   },
   {
     "word": "erfolgreich",
@@ -1141,15 +1293,18 @@
   },
   {
     "word": "Ergänzung",
-    "translation": "addition, supplement (e.g., Das ist eine nützliche Ergänzung.)"
+    "translation": "addition, supplement (e.g., Das ist eine nützliche Ergänzung.)",
+    "article": "die"
   },
   {
     "word": "Ergebnis",
-    "translation": "result (e.g., Das Ergebnis war überraschend.)"
+    "translation": "result (e.g., Das Ergebnis war überraschend.)",
+    "article": "das"
   },
   {
     "word": "Erhalt",
-    "translation": "receipt, preservation (e.g., Der Erhalt der Natur ist wichtig.)"
+    "translation": "receipt, preservation (e.g., Der Erhalt der Natur ist wichtig.)",
+    "article": "der"
   },
   {
     "word": "erhältlich",
@@ -1165,7 +1320,8 @@
   },
   {
     "word": "Erinnerung",
-    "translation": "memory (e.g., Das ist eine schöne Erinnerung.)"
+    "translation": "memory (e.g., Das ist eine schöne Erinnerung.)",
+    "article": "die"
   },
   {
     "word": "erkennen",
@@ -1173,7 +1329,8 @@
   },
   {
     "word": "Erklärung",
-    "translation": "explanation (e.g., Ich brauche eine Erklärung.)"
+    "translation": "explanation (e.g., Ich brauche eine Erklärung.)",
+    "article": "die"
   },
   {
     "word": "erkundigen",
@@ -1181,7 +1338,8 @@
   },
   {
     "word": "Erlaubnis",
-    "translation": "permission (e.g., Ich brauche eine Erlaubnis.)"
+    "translation": "permission (e.g., Ich brauche eine Erlaubnis.)",
+    "article": "die"
   },
   {
     "word": "erleben",
@@ -1197,11 +1355,13 @@
   },
   {
     "word": "Ernährung",
-    "translation": "nutrition, diet (e.g., Gesunde Ernährung ist wichtig.)"
+    "translation": "nutrition, diet (e.g., Gesunde Ernährung ist wichtig.)",
+    "article": "die"
   },
   {
     "word": "Erstellung",
-    "translation": "creation, preparation (e.g., Die Erstellung des Plans dauert lange.)"
+    "translation": "creation, preparation (e.g., Die Erstellung des Plans dauert lange.)",
+    "article": "die"
   },
   {
     "word": "erwähnen",
@@ -1213,15 +1373,18 @@
   },
   {
     "word": "Esser/in",
-    "translation": "eater (e.g., Er ist ein schneller Esser.)"
+    "translation": "eater (e.g., Er ist ein schneller Esser.)",
+    "article": "der"
   },
   {
     "word": "Euroeinführung",
-    "translation": "introduction of the euro (e.g., Die Euroeinführung war 2002.)"
+    "translation": "introduction of the euro (e.g., Die Euroeinführung war 2002.)",
+    "article": "die"
   },
   {
     "word": "Europäische Union (EU)",
-    "translation": "European Union (EU)"
+    "translation": "European Union (EU)",
+    "article": "die"
   },
   {
     "word": "eventuell",
@@ -1233,15 +1396,18 @@
   },
   {
     "word": "Experte/Expertin",
-    "translation": "expert (e.g., Sie ist Expertin für Computersicherheit.)"
+    "translation": "expert (e.g., Sie ist Expertin für Computersicherheit.)",
+    "article": "der"
   },
   {
     "word": "Fähigkeit",
-    "translation": "ability, skill (e.g., Er hat viele Fähigkeiten.)"
+    "translation": "ability, skill (e.g., Er hat viele Fähigkeiten.)",
+    "article": "die"
   },
   {
     "word": "Fahrerseite",
-    "translation": "driver's side (e.g., Der Schaden ist auf der Fahrerseite.)"
+    "translation": "driver's side (e.g., Der Schaden ist auf der Fahrerseite.)",
+    "article": "die"
   },
   {
     "word": "fair",
@@ -1253,11 +1419,13 @@
   },
   {
     "word": "Fan",
-    "translation": "fan (e.g., Ich bin ein großer Fan dieser Band.)"
+    "translation": "fan (e.g., Ich bin ein großer Fan dieser Band.)",
+    "article": "der"
   },
   {
     "word": "Fantasie",
-    "translation": "imagination (e.g., Kinder haben viel Fantasie.)"
+    "translation": "imagination (e.g., Kinder haben viel Fantasie.)",
+    "article": "die"
   },
   {
     "word": "färben",
@@ -1265,15 +1433,18 @@
   },
   {
     "word": "Fax",
-    "translation": "fax (e.g., Schicken Sie das Dokument per Fax.)"
+    "translation": "fax (e.g., Schicken Sie das Dokument per Fax.)",
+    "article": "das"
   },
   {
     "word": "Fertiggericht",
-    "translation": "ready meal (e.g., Fertiggerichte sind praktisch, aber ungesund.)"
+    "translation": "ready meal (e.g., Fertiggerichte sind praktisch, aber ungesund.)",
+    "article": "das"
   },
   {
     "word": "Festanstellung",
-    "translation": "permanent job (e.g., Er sucht eine Festanstellung.)"
+    "translation": "permanent job (e.g., Er sucht eine Festanstellung.)",
+    "article": "die"
   },
   {
     "word": "festkleben",
@@ -1293,11 +1464,13 @@
   },
   {
     "word": "Finanzwesen",
-    "translation": "finance sector (e.g., Sie arbeitet im Finanzwesen.)"
+    "translation": "finance sector (e.g., Sie arbeitet im Finanzwesen.)",
+    "article": "das"
   },
   {
     "word": "Firmensitz",
-    "translation": "company headquarters (e.g., Der Firmensitz ist in München.)"
+    "translation": "company headquarters (e.g., Der Firmensitz ist in München.)",
+    "article": "der"
   },
   {
     "word": "fix",
@@ -1317,27 +1490,33 @@
   },
   {
     "word": "Flüchtling",
-    "translation": "refugee (e.g., Viele Flüchtlinge suchen Schutz.)"
+    "translation": "refugee (e.g., Viele Flüchtlinge suchen Schutz.)",
+    "article": "der"
   },
   {
     "word": "Flug",
-    "translation": "flight (e.g., Der Flug ist pünktlich.)"
+    "translation": "flight (e.g., Der Flug ist pünktlich.)",
+    "article": "der"
   },
   {
     "word": "Flugbegleiter/in",
-    "translation": "flight attendant (e.g., Die Flugbegleiterin ist freundlich.)"
+    "translation": "flight attendant (e.g., Die Flugbegleiterin ist freundlich.)",
+    "article": "der"
   },
   {
     "word": "Fluggast",
-    "translation": "air passenger (e.g., Alle Fluggäste sind an Bord.)"
+    "translation": "air passenger (e.g., Alle Fluggäste sind an Bord.)",
+    "article": "der"
   },
   {
     "word": "Fluggesellschaft",
-    "translation": "airline (e.g., Welche Fluggesellschaft ist das?)"
+    "translation": "airline (e.g., Welche Fluggesellschaft ist das?)",
+    "article": "die"
   },
   {
     "word": "Föhn",
-    "translation": "hairdryer (e.g., Der Föhn ist kaputt.)"
+    "translation": "hairdryer (e.g., Der Föhn ist kaputt.)",
+    "article": "der"
   },
   {
     "word": "fordern",
@@ -1349,7 +1528,8 @@
   },
   {
     "word": "Formalität",
-    "translation": "formality (e.g., Das ist nur eine Formalität.)"
+    "translation": "formality (e.g., Das ist nur eine Formalität.)",
+    "article": "die"
   },
   {
     "word": "förmlich",
@@ -1357,39 +1537,48 @@
   },
   {
     "word": "Formulierung",
-    "translation": "wording, phrasing (e.g., Die Formulierung ist unklar.)"
+    "translation": "wording, phrasing (e.g., Die Formulierung ist unklar.)",
+    "article": "die"
   },
   {
     "word": "Förster/in",
-    "translation": "forester (e.g., Der Förster kümmert sich um den Wald.)"
+    "translation": "forester (e.g., Der Förster kümmert sich um den Wald.)",
+    "article": "der"
   },
   {
     "word": "Fortbildung",
-    "translation": "advanced training (e.g., Sie nimmt an einer Fortbildung teil.)"
+    "translation": "advanced training (e.g., Sie nimmt an einer Fortbildung teil.)",
+    "article": "die"
   },
   {
     "word": "Fotokopie",
-    "translation": "photocopy (e.g., Ich brauche eine Fotokopie des Ausweises.)"
+    "translation": "photocopy (e.g., Ich brauche eine Fotokopie des Ausweises.)",
+    "article": "die"
   },
   {
     "word": "Freiwillige",
-    "translation": "volunteer (e.g., Viele Freiwillige helfen bei der Veranstaltung.)"
+    "translation": "volunteer (e.g., Viele Freiwillige helfen bei der Veranstaltung.)",
+    "article": "die"
   },
   {
     "word": "Fremdsprache",
-    "translation": "foreign language (e.g., Englisch ist meine erste Fremdsprache.)"
+    "translation": "foreign language (e.g., Englisch ist meine erste Fremdsprache.)",
+    "article": "die"
   },
   {
     "word": "Freude",
-    "translation": "joy (e.g., Die Kinder haben große Freude am Spielen.)"
+    "translation": "joy (e.g., Die Kinder haben große Freude am Spielen.)",
+    "article": "die"
   },
   {
     "word": "Freundeskreis",
-    "translation": "circle of friends (e.g., Mein Freundeskreis ist sehr klein.)"
+    "translation": "circle of friends (e.g., Mein Freundeskreis ist sehr klein.)",
+    "article": "der"
   },
   {
     "word": "Frieden",
-    "translation": "peace (e.g., Endlich herrscht Frieden.)"
+    "translation": "peace (e.g., Endlich herrscht Frieden.)",
+    "article": "der"
   },
   {
     "word": "friedlich",
@@ -1397,7 +1586,8 @@
   },
   {
     "word": "Frist",
-    "translation": "deadline (e.g., Die Frist läuft morgen ab.)"
+    "translation": "deadline (e.g., Die Frist läuft morgen ab.)",
+    "article": "die"
   },
   {
     "word": "fristgerecht",
@@ -1409,11 +1599,13 @@
   },
   {
     "word": "Frisur",
-    "translation": "hairstyle (e.g., Ihre neue Frisur steht ihr gut.)"
+    "translation": "hairstyle (e.g., Ihre neue Frisur steht ihr gut.)",
+    "article": "die"
   },
   {
     "word": "Frust",
-    "translation": "frustration (e.g., Der Frust über die Niederlage war groß.)"
+    "translation": "frustration (e.g., Der Frust über die Niederlage war groß.)",
+    "article": "der"
   },
   {
     "word": "frustriert",
@@ -1425,7 +1617,8 @@
   },
   {
     "word": "Führungszeugnis",
-    "translation": "certificate of conduct (e.g., Für den Job brauche ich ein Führungszeugnis.)"
+    "translation": "certificate of conduct (e.g., Für den Job brauche ich ein Führungszeugnis.)",
+    "article": "das"
   },
   {
     "word": "furchtbar",
@@ -1433,7 +1626,8 @@
   },
   {
     "word": "Fußballclub",
-    "translation": "football club (e.g., Welchen Fußballclub unterstützt du?)"
+    "translation": "football club (e.g., Welchen Fußballclub unterstützt du?)",
+    "article": "der"
   },
   {
     "word": "füttern",
@@ -1441,7 +1635,8 @@
   },
   {
     "word": "Gang",
-    "translation": "hallway; gear (in a car) (e.g., Der Gang ist sehr lang.)"
+    "translation": "hallway; gear (in a car) (e.g., Der Gang ist sehr lang.)",
+    "article": "der"
   },
   {
     "word": "garantieren",
@@ -1449,23 +1644,28 @@
   },
   {
     "word": "Gastarbeiter/in",
-    "translation": "guest worker (e.g., Viele Gastarbeiter kamen in den 60er Jahren.)"
+    "translation": "guest worker (e.g., Viele Gastarbeiter kamen in den 60er Jahren.)",
+    "article": "der"
   },
   {
     "word": "Gate",
-    "translation": "gate (airport) (e.g., Das Gate 12 ist sehr weit weg.)"
+    "translation": "gate (airport) (e.g., Das Gate 12 ist sehr weit weg.)",
+    "article": "das"
   },
   {
     "word": "Gebrauchtwagen",
-    "translation": "used car (e.g., Ich kaufe einen Gebrauchtwagen.)"
+    "translation": "used car (e.g., Ich kaufe einen Gebrauchtwagen.)",
+    "article": "der"
   },
   {
     "word": "Gedanke",
-    "translation": "thought (e.g., Das war ein guter Gedanke.)"
+    "translation": "thought (e.g., Das war ein guter Gedanke.)",
+    "article": "der"
   },
   {
     "word": "Geduld",
-    "translation": "patience (e.g., Ich brauche mehr Geduld.)"
+    "translation": "patience (e.g., Ich brauche mehr Geduld.)",
+    "article": "die"
   },
   {
     "word": "geduldig",
@@ -1473,67 +1673,83 @@
   },
   {
     "word": "Gefühl",
-    "translation": "feeling (e.g., Ich habe ein schlechtes Gefühl.)"
+    "translation": "feeling (e.g., Ich habe ein schlechtes Gefühl.)",
+    "article": "das"
   },
   {
     "word": "Gegenstand",
-    "translation": "object, item (e.g., Was ist das für ein Gegenstand?)"
+    "translation": "object, item (e.g., Was ist das für ein Gegenstand?)",
+    "article": "der"
   },
   {
     "word": "Gegenvorschlag",
-    "translation": "counterproposal (e.g., Ich mache einen Gegenvorschlag.)"
+    "translation": "counterproposal (e.g., Ich mache einen Gegenvorschlag.)",
+    "article": "der"
   },
   {
     "word": "Gegner/in",
-    "translation": "opponent (e.g., Der Gegner war sehr stark.)"
+    "translation": "opponent (e.g., Der Gegner war sehr stark.)",
+    "article": "der"
   },
   {
     "word": "Gehalt",
-    "translation": "salary (e.g., Mein Gehalt wird nächsten Monat erhöht.)"
+    "translation": "salary (e.g., Mein Gehalt wird nächsten Monat erhöht.)",
+    "article": "das"
   },
   {
     "word": "Gehaltsvorstellung",
-    "translation": "salary expectation (e.g., Wie hoch ist Ihre Gehaltsvorstellung?)"
+    "translation": "salary expectation (e.g., Wie hoch ist Ihre Gehaltsvorstellung?)",
+    "article": "die"
   },
   {
     "word": "Gemeinsamkeit",
-    "translation": "similarity, common feature (e.g., Wir haben viele Gemeinsamkeiten.)"
+    "translation": "similarity, common feature (e.g., Wir haben viele Gemeinsamkeiten.)",
+    "article": "die"
   },
   {
     "word": "Gemeinschaftsraum",
-    "translation": "common room (e.g., Der Gemeinschaftsraum ist im Erdgeschoss.)"
+    "translation": "common room (e.g., Der Gemeinschaftsraum ist im Erdgeschoss.)",
+    "article": "der"
   },
   {
     "word": "Gemüsehändler/in",
-    "translation": "greengrocer (e.g., Der Gemüsehändler verkauft frisches Obst.)"
+    "translation": "greengrocer (e.g., Der Gemüsehändler verkauft frisches Obst.)",
+    "article": "der"
   },
   {
     "word": "Gepäck",
-    "translation": "luggage (e.g., Mein Gepäck ist zu schwer.)"
+    "translation": "luggage (e.g., Mein Gepäck ist zu schwer.)",
+    "article": "das"
   },
   {
     "word": "Gepäckausgabe",
-    "translation": "baggage claim (e.g., Die Gepäckausgabe ist im Erdgeschoss.)"
+    "translation": "baggage claim (e.g., Die Gepäckausgabe ist im Erdgeschoss.)",
+    "article": "die"
   },
   {
     "word": "Gepäckband",
-    "translation": "baggage carousel (e.g., Das Gepäckband dreht sich langsam.)"
+    "translation": "baggage carousel (e.g., Das Gepäckband dreht sich langsam.)",
+    "article": "das"
   },
   {
     "word": "Geruch",
-    "translation": "smell, odor (e.g., Der Geruch von frischem Brot ist toll.)"
+    "translation": "smell, odor (e.g., Der Geruch von frischem Brot ist toll.)",
+    "article": "der"
   },
   {
     "word": "Geschäftsführer/in",
-    "translation": "managing director, CEO (e.g., Die Geschäftsführerin leitet das Meeting.)"
+    "translation": "managing director, CEO (e.g., Die Geschäftsführerin leitet das Meeting.)",
+    "article": "der"
   },
   {
     "word": "Geschäftsführung",
-    "translation": "management (e.g., Die Geschäftsführung trifft wichtige Entscheidungen.)"
+    "translation": "management (e.g., Die Geschäftsführung trifft wichtige Entscheidungen.)",
+    "article": "die"
   },
   {
     "word": "Geschmack",
-    "translation": "taste (e.g., Der Kuchen hat einen süßen Geschmack.)"
+    "translation": "taste (e.g., Der Kuchen hat einen süßen Geschmack.)",
+    "article": "der"
   },
   {
     "word": "gesetzlich",
@@ -1545,11 +1761,13 @@
   },
   {
     "word": "Gesundheitszeugnis",
-    "translation": "health certificate (e.g., Für den Job brauche ich ein Gesundheitszeugnis.)"
+    "translation": "health certificate (e.g., Für den Job brauche ich ein Gesundheitszeugnis.)",
+    "article": "das"
   },
   {
     "word": "Getreide",
-    "translation": "grain, cereals (e.g., Weizen ist ein wichtiges Getreide.)"
+    "translation": "grain, cereals (e.g., Weizen ist ein wichtiges Getreide.)",
+    "article": "das"
   },
   {
     "word": "gewährleisten",
@@ -1557,11 +1775,13 @@
   },
   {
     "word": "Gewohnheit",
-    "translation": "habit (e.g., Früh aufstehen ist eine gute Gewohnheit.)"
+    "translation": "habit (e.g., Früh aufstehen ist eine gute Gewohnheit.)",
+    "article": "die"
   },
   {
     "word": "Gewürz",
-    "translation": "spice (e.g., Pfeffer ist ein scharfes Gewürz.)"
+    "translation": "spice (e.g., Pfeffer ist ein scharfes Gewürz.)",
+    "article": "das"
   },
   {
     "word": "giftig",
@@ -1577,11 +1797,13 @@
   },
   {
     "word": "Golf",
-    "translation": "golf (e.g., Am Wochenende spiele ich Golf.)"
+    "translation": "golf (e.g., Am Wochenende spiele ich Golf.)",
+    "article": "der"
   },
   {
     "word": "Grenze",
-    "translation": "border, limit (e.g., Die Grenze zwischen den Ländern ist geschlossen.)"
+    "translation": "border, limit (e.g., Die Grenze zwischen den Ländern ist geschlossen.)",
+    "article": "die"
   },
   {
     "word": "gründen",
@@ -1593,23 +1815,28 @@
   },
   {
     "word": "Gutschein",
-    "translation": "voucher (e.g., Ich habe einen Gutschein für das Restaurant.)"
+    "translation": "voucher (e.g., Ich habe einen Gutschein für das Restaurant.)",
+    "article": "der"
   },
   {
     "word": "Haftpflicht",
-    "translation": "liability (e.g., Die Haftpflicht übernimmt die Kosten.)"
+    "translation": "liability (e.g., Die Haftpflicht übernimmt die Kosten.)",
+    "article": "die"
   },
   {
     "word": "Haftpflichtversicherung",
-    "translation": "liability insurance (e.g., Eine Haftpflichtversicherung ist wichtig.)"
+    "translation": "liability insurance (e.g., Eine Haftpflichtversicherung ist wichtig.)",
+    "article": "die"
   },
   {
     "word": "Hagel",
-    "translation": "hail (e.g., Der Hagel hat das Auto beschädigt.)"
+    "translation": "hail (e.g., Der Hagel hat das Auto beschädigt.)",
+    "article": "der"
   },
   {
     "word": "Halbpension (HP)",
-    "translation": "half board (e.g., Wir haben ein Zimmer mit Halbpension gebucht.)"
+    "translation": "half board (e.g., Wir haben ein Zimmer mit Halbpension gebucht.)",
+    "article": "die"
   },
   {
     "word": "hämmern",
@@ -1617,19 +1844,23 @@
   },
   {
     "word": "Handball",
-    "translation": "handball (e.g., Handball ist ein beliebter Sport.)"
+    "translation": "handball (e.g., Handball ist ein beliebter Sport.)",
+    "article": "der"
   },
   {
     "word": "Handgepäck",
-    "translation": "hand luggage, carry-on (e.g., Das Handgepäck ist zu groß.)"
+    "translation": "hand luggage, carry-on (e.g., Das Handgepäck ist zu groß.)",
+    "article": "das"
   },
   {
     "word": "Handlung",
-    "translation": "plot, action (e.g., Die Handlung des Films war spannend.)"
+    "translation": "plot, action (e.g., Die Handlung des Films war spannend.)",
+    "article": "die"
   },
   {
     "word": "Handwerker/in",
-    "translation": "craftsman, tradesperson (e.g., Der Handwerker repariert das Dach.)"
+    "translation": "craftsman, tradesperson (e.g., Der Handwerker repariert das Dach.)",
+    "article": "der"
   },
   {
     "word": "hart",
@@ -1637,11 +1868,13 @@
   },
   {
     "word": "Hartweizen",
-    "translation": "durum wheat (e.g., Nudeln werden aus Hartweizen gemacht.)"
+    "translation": "durum wheat (e.g., Nudeln werden aus Hartweizen gemacht.)",
+    "article": "der"
   },
   {
     "word": "Haselnuss",
-    "translation": "hazelnut (e.g., Ich mag Schokolade mit Haselnuss.)"
+    "translation": "hazelnut (e.g., Ich mag Schokolade mit Haselnuss.)",
+    "article": "die"
   },
   {
     "word": "häufig",
@@ -1649,23 +1882,28 @@
   },
   {
     "word": "Hauptgrund",
-    "translation": "main reason (e.g., Der Hauptgrund für die Verspätung war der Stau.)"
+    "translation": "main reason (e.g., Der Hauptgrund für die Verspätung war der Stau.)",
+    "article": "der"
   },
   {
     "word": "Hauptstadt",
-    "translation": "capital city (e.g., Berlin ist die Hauptstadt von Deutschland.)"
+    "translation": "capital city (e.g., Berlin ist die Hauptstadt von Deutschland.)",
+    "article": "die"
   },
   {
     "word": "Haushalt",
-    "translation": "household (e.g., Der Haushalt führt viel Arbeit mit sich.)"
+    "translation": "household (e.g., Der Haushalt führt viel Arbeit mit sich.)",
+    "article": "der"
   },
   {
     "word": "Heimat",
-    "translation": "home country (e.g., Deutschland ist meine Heimat.)"
+    "translation": "home country (e.g., Deutschland ist meine Heimat.)",
+    "article": "die"
   },
   {
     "word": "Heimweh",
-    "translation": "homesickness (e.g., Ich habe Heimweh nach meiner Familie.)"
+    "translation": "homesickness (e.g., Ich habe Heimweh nach meiner Familie.)",
+    "article": "das"
   },
   {
     "word": "heizen",
@@ -1673,11 +1911,13 @@
   },
   {
     "word": "Heizkosten",
-    "translation": "heating costs (e.g., Die Heizkosten sind sehr hoch.)"
+    "translation": "heating costs (e.g., Die Heizkosten sind sehr hoch.)",
+    "article": "die"
   },
   {
     "word": "Herausforderung",
-    "translation": "challenge (e.g., Das ist eine große Herausforderung.)"
+    "translation": "challenge (e.g., Das ist eine große Herausforderung.)",
+    "article": "die"
   },
   {
     "word": "herkommen",
@@ -1685,7 +1925,8 @@
   },
   {
     "word": "Herkunftsland",
-    "translation": "country of origin (e.g., Mein Herkunftsland ist Iran.)"
+    "translation": "country of origin (e.g., Mein Herkunftsland ist Iran.)",
+    "article": "das"
   },
   {
     "word": "herstellen",
@@ -1693,11 +1934,13 @@
   },
   {
     "word": "Herstellung",
-    "translation": "production, manufacturing (e.g., Die Herstellung dauert drei Wochen.)"
+    "translation": "production, manufacturing (e.g., Die Herstellung dauert drei Wochen.)",
+    "article": "die"
   },
   {
     "word": "Herz",
-    "translation": "heart (e.g., Mein Herz schlägt schnell.)"
+    "translation": "heart (e.g., Mein Herz schlägt schnell.)",
+    "article": "das"
   },
   {
     "word": "hierher",
@@ -1713,27 +1956,33 @@
   },
   {
     "word": "Hochwasser",
-    "translation": "flood (e.g., Das Hochwasser hat viele Häuser zerstört.)"
+    "translation": "flood (e.g., Das Hochwasser hat viele Häuser zerstört.)",
+    "article": "das"
   },
   {
     "word": "Hörer/in",
-    "translation": "listener (e.g., Die Hörer rufen im Radio an.)"
+    "translation": "listener (e.g., Die Hörer rufen im Radio an.)",
+    "article": "der"
   },
   {
     "word": "Horrorfilm",
-    "translation": "horror movie (e.g., Ich schaue keine Horrorfilme.)"
+    "translation": "horror movie (e.g., Ich schaue keine Horrorfilme.)",
+    "article": "der"
   },
   {
     "word": "Hostel",
-    "translation": "hostel (e.g., Das Hostel ist günstig aber einfach.)"
+    "translation": "hostel (e.g., Das Hostel ist günstig aber einfach.)",
+    "article": "das"
   },
   {
     "word": "Hügel",
-    "translation": "hill (e.g., Wir wandern über den Hügel.)"
+    "translation": "hill (e.g., Wir wandern über den Hügel.)",
+    "article": "der"
   },
   {
     "word": "Hülsenfrucht",
-    "translation": "legume, pulse (e.g., Bohnen sind Hülsenfrüchte.)"
+    "translation": "legume, pulse (e.g., Bohnen sind Hülsenfrüchte.)",
+    "article": "die"
   },
   {
     "word": "hygienisch",
@@ -1741,7 +1990,8 @@
   },
   {
     "word": "Impressum",
-    "translation": "legal notice (e.g., Jede Website braucht ein Impressum.)"
+    "translation": "legal notice (e.g., Jede Website braucht ein Impressum.)",
+    "article": "das"
   },
   {
     "word": "indem",
@@ -1753,7 +2003,8 @@
   },
   {
     "word": "Industrie",
-    "translation": "industry (e.g., Die Autoindustrie ist wichtig für Deutschland.)"
+    "translation": "industry (e.g., Die Autoindustrie ist wichtig für Deutschland.)",
+    "article": "die"
   },
   {
     "word": "industriell",
@@ -1761,7 +2012,8 @@
   },
   {
     "word": "Inlineskaten",
-    "translation": "inline skating (e.g., Inlineskaten macht Spaß.)"
+    "translation": "inline skating (e.g., Inlineskaten macht Spaß.)",
+    "article": "das"
   },
   {
     "word": "innerhalb",
@@ -1773,11 +2025,13 @@
   },
   {
     "word": "Instandhaltung",
-    "translation": "maintenance (e.g., Die Instandhaltung der Maschinen ist teuer.)"
+    "translation": "maintenance (e.g., Die Instandhaltung der Maschinen ist teuer.)",
+    "article": "die"
   },
   {
     "word": "Institution",
-    "translation": "institution (e.g., Die Universität ist eine wichtige Institution.)"
+    "translation": "institution (e.g., Die Universität ist eine wichtige Institution.)",
+    "article": "die"
   },
   {
     "word": "intern",
@@ -1809,59 +2063,73 @@
   },
   {
     "word": "Jahrhundert",
-    "translation": "century (e.g., Das 21. Jahrhundert hat begonnen.)"
+    "translation": "century (e.g., Das 21. Jahrhundert hat begonnen.)",
+    "article": "das"
   },
   {
     "word": "Jahrzehnt",
-    "translation": "decade (e.g., In den letzten zwei Jahrzehnten hat sich viel verändert.)"
+    "translation": "decade (e.g., In den letzten zwei Jahrzehnten hat sich viel verändert.)",
+    "article": "das"
   },
   {
     "word": "Jobbezeichnung",
-    "translation": "job title (e.g., Meine Jobbezeichnung ist Projektmanager.)"
+    "translation": "job title (e.g., Meine Jobbezeichnung ist Projektmanager.)",
+    "article": "die"
   },
   {
     "word": "Jude/Jüdin",
-    "translation": "Jew (male/female) (e.g., Er ist Jude und sie ist Jüdin.)"
+    "translation": "Jew (male/female) (e.g., Er ist Jude und sie ist Jüdin.)",
+    "article": "der"
   },
   {
     "word": "Jugendherberge",
-    "translation": "youth hostel (e.g., Wir übernachten in einer Jugendherberge.)"
+    "translation": "youth hostel (e.g., Wir übernachten in einer Jugendherberge.)",
+    "article": "die"
   },
   {
     "word": "Kaffeefilter",
-    "translation": "coffee filter (e.g., Der Kaffeefilter muss gewechselt werden.)"
+    "translation": "coffee filter (e.g., Der Kaffeefilter muss gewechselt werden.)",
+    "article": "der"
   },
   {
     "word": "Kamm",
-    "translation": "comb (e.g., Ich kämme meine Haare mit einem Kamm.)"
+    "translation": "comb (e.g., Ich kämme meine Haare mit einem Kamm.)",
+    "article": "der"
   },
   {
     "word": "Kandidat/in",
-    "translation": "candidate (e.g., Sie ist eine gute Kandidatin für den Job.)"
+    "translation": "candidate (e.g., Sie ist eine gute Kandidatin für den Job.)",
+    "article": "der"
   },
   {
     "word": "Kaskoversicherung",
-    "translation": "comprehensive car insurance (e.g., Die Kaskoversicherung ist teurer.)"
+    "translation": "comprehensive car insurance (e.g., Die Kaskoversicherung ist teurer.)",
+    "article": "die"
   },
   {
     "word": "Katalog",
-    "translation": "catalog (e.g., Der Katalog hat viele schöne Produkte.)"
+    "translation": "catalog (e.g., Der Katalog hat viele schöne Produkte.)",
+    "article": "der"
   },
   {
     "word": "Kauf",
-    "translation": "purchase, buying (e.g., Der Kauf war eine gute Entscheidung.)"
+    "translation": "purchase, buying (e.g., Der Kauf war eine gute Entscheidung.)",
+    "article": "der"
   },
   {
     "word": "Kaufbestätigung",
-    "translation": "purchase confirmation (e.g., Ich habe die Kaufbestätigung per E-Mail erhalten.)"
+    "translation": "purchase confirmation (e.g., Ich habe die Kaufbestätigung per E-Mail erhalten.)",
+    "article": "die"
   },
   {
     "word": "Käufer/in",
-    "translation": "buyer, purchaser (e.g., Der Käufer war mit dem Auto zufrieden.)"
+    "translation": "buyer, purchaser (e.g., Der Käufer war mit dem Auto zufrieden.)",
+    "article": "der"
   },
   {
     "word": "Kaufvertrag",
-    "translation": "purchase agreement (e.g., Der Kaufvertrag muss unterschrieben werden.)"
+    "translation": "purchase agreement (e.g., Der Kaufvertrag muss unterschrieben werden.)",
+    "article": "der"
   },
   {
     "word": "kaum",
@@ -1869,11 +2137,13 @@
   },
   {
     "word": "Kilometer",
-    "translation": "kilometer (e.g., Es sind noch 50 Kilometer bis zum Ziel.)"
+    "translation": "kilometer (e.g., Es sind noch 50 Kilometer bis zum Ziel.)",
+    "article": "der"
   },
   {
     "word": "Kindheit",
-    "translation": "childhood (e.g., Meine Kindheit war sehr schön.)"
+    "translation": "childhood (e.g., Meine Kindheit war sehr schön.)",
+    "article": "die"
   },
   {
     "word": "kippen",
@@ -1885,11 +2155,13 @@
   },
   {
     "word": "Klima",
-    "translation": "climate (e.g., Das Klima hier ist sehr mild.)"
+    "translation": "climate (e.g., Das Klima hier ist sehr mild.)",
+    "article": "das"
   },
   {
     "word": "Klimawandel",
-    "translation": "climate change (e.g., Der Klimawandel ist ein großes Problem.)"
+    "translation": "climate change (e.g., Der Klimawandel ist ein großes Problem.)",
+    "article": "der"
   },
   {
     "word": "klug",
@@ -1897,11 +2169,13 @@
   },
   {
     "word": "Kochbuch",
-    "translation": "cookbook (e.g., Ich habe ein neues Kochbuch gekauft.)"
+    "translation": "cookbook (e.g., Ich habe ein neues Kochbuch gekauft.)",
+    "article": "das"
   },
   {
     "word": "Kofferraum",
-    "translation": "car trunk (e.g., Der Kofferraum ist voll.)"
+    "translation": "car trunk (e.g., Der Kofferraum ist voll.)",
+    "article": "der"
   },
   {
     "word": "komfortabel",
@@ -1909,15 +2183,18 @@
   },
   {
     "word": "Kommentator/in",
-    "translation": "commentator (e.g., Der Kommentator erklärt das Spiel.)"
+    "translation": "commentator (e.g., Der Kommentator erklärt das Spiel.)",
+    "article": "der"
   },
   {
     "word": "Kommissar/in",
-    "translation": "detective inspector (e.g., Der Kommissar löst den Fall.)"
+    "translation": "detective inspector (e.g., Der Kommissar löst den Fall.)",
+    "article": "der"
   },
   {
     "word": "Kommunikationsstärke",
-    "translation": "strong communication skills (e.g., Kommunikationsstärke ist wichtig im Beruf.)"
+    "translation": "strong communication skills (e.g., Kommunikationsstärke ist wichtig im Beruf.)",
+    "article": "die"
   },
   {
     "word": "kommunikativ",
@@ -1925,35 +2202,43 @@
   },
   {
     "word": "Komödie",
-    "translation": "comedy (e.g., Wir haben eine lustige Komödie gesehen.)"
+    "translation": "comedy (e.g., Wir haben eine lustige Komödie gesehen.)",
+    "article": "die"
   },
   {
     "word": "Konferenzraum",
-    "translation": "conference room (e.g., Das Meeting findet im Konferenzraum statt.)"
+    "translation": "conference room (e.g., Das Meeting findet im Konferenzraum statt.)",
+    "article": "der"
   },
   {
     "word": "Konflikt",
-    "translation": "conflict (e.g., Der Konflikt muss gelöst werden.)"
+    "translation": "conflict (e.g., Der Konflikt muss gelöst werden.)",
+    "article": "der"
   },
   {
     "word": "König/in",
-    "translation": "king/queen (e.g., Der König regiert das Land.)"
+    "translation": "king/queen (e.g., Der König regiert das Land.)",
+    "article": "der"
   },
   {
     "word": "Konservendose",
-    "translation": "tin can (e.g., Die Konservendose ist noch zu.)"
+    "translation": "tin can (e.g., Die Konservendose ist noch zu.)",
+    "article": "die"
   },
   {
     "word": "Kontaktdaten",
-    "translation": "contact information (e.g., Bitte geben Sie mir Ihre Kontaktdaten.)"
+    "translation": "contact information (e.g., Bitte geben Sie mir Ihre Kontaktdaten.)",
+    "article": "die"
   },
   {
     "word": "Kopie",
-    "translation": "copy (e.g., Ich brauche eine Kopie des Dokuments.)"
+    "translation": "copy (e.g., Ich brauche eine Kopie des Dokuments.)",
+    "article": "die"
   },
   {
     "word": "Kopierer",
-    "translation": "copier, copy machine (e.g., Der Kopierer ist kaputt.)"
+    "translation": "copier, copy machine (e.g., Der Kopierer ist kaputt.)",
+    "article": "der"
   },
   {
     "word": "korrekt",
@@ -1961,7 +2246,8 @@
   },
   {
     "word": "Kosmetik",
-    "translation": "cosmetics (e.g., Sie verwendet teure Kosmetik.)"
+    "translation": "cosmetics (e.g., Sie verwendet teure Kosmetik.)",
+    "article": "die"
   },
   {
     "word": "krachen",
@@ -1969,27 +2255,33 @@
   },
   {
     "word": "Kratzer",
-    "translation": "scratch (e.g., Das Auto hat einen Kratzer.)"
+    "translation": "scratch (e.g., Das Auto hat einen Kratzer.)",
+    "article": "der"
   },
   {
     "word": "Krieg",
-    "translation": "war (e.g., Der Krieg dauerte vier Jahre.)"
+    "translation": "war (e.g., Der Krieg dauerte vier Jahre.)",
+    "article": "der"
   },
   {
     "word": "Kriegsende",
-    "translation": "end of the war (e.g., Das Kriegsende war 1945.)"
+    "translation": "end of the war (e.g., Das Kriegsende war 1945.)",
+    "article": "das"
   },
   {
     "word": "Krimi",
-    "translation": "crime novel, detective story (e.g., Ich lese gerne Krimis.)"
+    "translation": "crime novel, detective story (e.g., Ich lese gerne Krimis.)",
+    "article": "der"
   },
   {
     "word": "Krippe",
-    "translation": "crib, daycare (e.g., Das Kind geht in die Krippe.)"
+    "translation": "crib, daycare (e.g., Das Kind geht in die Krippe.)",
+    "article": "die"
   },
   {
     "word": "Kritiker/in",
-    "translation": "critic"
+    "translation": "critic",
+    "article": "der"
   },
   {
     "word": "kulinarisch",
@@ -2001,7 +2293,8 @@
   },
   {
     "word": "Kundenbefragung",
-    "translation": "customer survey (e.g., Die Kundenbefragung war sehr positiv.)"
+    "translation": "customer survey (e.g., Die Kundenbefragung war sehr positiv.)",
+    "article": "die"
   },
   {
     "word": "kundenfreundlich",
@@ -2009,11 +2302,13 @@
   },
   {
     "word": "Kündigung",
-    "translation": "termination, cancellation (e.g., Ich habe meine Kündigung eingereicht.)"
+    "translation": "termination, cancellation (e.g., Ich habe meine Kündigung eingereicht.)",
+    "article": "die"
   },
   {
     "word": "Kunststoff",
-    "translation": "plastic (e.g., Die Flasche ist aus Kunststoff.)"
+    "translation": "plastic (e.g., Die Flasche ist aus Kunststoff.)",
+    "article": "der"
   },
   {
     "word": "kuscheln",
@@ -2021,15 +2316,18 @@
   },
   {
     "word": "Lage",
-    "translation": "location, situation (e.g., Die Lage des Hotels ist perfekt.)"
+    "translation": "location, situation (e.g., Die Lage des Hotels ist perfekt.)",
+    "article": "die"
   },
   {
     "word": "Lager",
-    "translation": "warehouse, storage (e.g., Die Ware ist im Lager.)"
+    "translation": "warehouse, storage (e.g., Die Ware ist im Lager.)",
+    "article": "das"
   },
   {
     "word": "Lagerfeuer",
-    "translation": "campfire (e.g., Wir sitzen am Lagerfeuer.)"
+    "translation": "campfire (e.g., Wir sitzen am Lagerfeuer.)",
+    "article": "das"
   },
   {
     "word": "laktosefrei",
@@ -2041,7 +2339,8 @@
   },
   {
     "word": "Langeweile",
-    "translation": "boredom (e.g., Mir ist langweilig - ich habe Langeweile.)"
+    "translation": "boredom (e.g., Mir ist langweilig - ich habe Langeweile.)",
+    "article": "die"
   },
   {
     "word": "langfristig",
@@ -2049,15 +2348,18 @@
   },
   {
     "word": "Lärm",
-    "translation": "noise (e.g., Der Lärm von der Straße ist störend.)"
+    "translation": "noise (e.g., Der Lärm von der Straße ist störend.)",
+    "article": "der"
   },
   {
     "word": "Laune",
-    "translation": "mood (e.g., Sie hat gute Laune.)"
+    "translation": "mood (e.g., Sie hat gute Laune.)",
+    "article": "die"
   },
   {
     "word": "Lautsprecherdurchsage",
-    "translation": "loudspeaker announcement (e.g., Eine Lautsprecherdurchsage informiert die Passagiere.)"
+    "translation": "loudspeaker announcement (e.g., Eine Lautsprecherdurchsage informiert die Passagiere.)",
+    "article": "die"
   },
   {
     "word": "lebhaft",
@@ -2065,7 +2367,8 @@
   },
   {
     "word": "Leichtathletik",
-    "translation": "track and field, athletics (e.g., Leichtathletik ist mein Lieblingssport.)"
+    "translation": "track and field, athletics (e.g., Leichtathletik ist mein Lieblingssport.)",
+    "article": "die"
   },
   {
     "word": "leiden",
@@ -2073,7 +2376,8 @@
   },
   {
     "word": "Leine",
-    "translation": "leash (e.g., Der Hund ist an der Leine.)"
+    "translation": "leash (e.g., Der Hund ist an der Leine.)",
+    "article": "die"
   },
   {
     "word": "leistungsgerecht",
@@ -2089,11 +2393,13 @@
   },
   {
     "word": "Leuchtturm",
-    "translation": "lighthouse (e.g., Der Leuchtturm ist 50 Meter hoch.)"
+    "translation": "lighthouse (e.g., Der Leuchtturm ist 50 Meter hoch.)",
+    "article": "der"
   },
   {
     "word": "Lieblingsbeschäftigung",
-    "translation": "favorite activity (e.g., Lesen ist meine Lieblingsbeschäftigung.)"
+    "translation": "favorite activity (e.g., Lesen ist meine Lieblingsbeschäftigung.)",
+    "article": "die"
   },
   {
     "word": "lieferbar",
@@ -2101,11 +2407,13 @@
   },
   {
     "word": "Lieferbedingung",
-    "translation": "delivery condition (e.g., Die Lieferbedingungen sind günstig.)"
+    "translation": "delivery condition (e.g., Die Lieferbedingungen sind günstig.)",
+    "article": "die"
   },
   {
     "word": "Lieferung",
-    "translation": "delivery (e.g., Die Lieferung kommt morgen.)"
+    "translation": "delivery (e.g., Die Lieferung kommt morgen.)",
+    "article": "die"
   },
   {
     "word": "lohnen",
@@ -2113,7 +2421,8 @@
   },
   {
     "word": "Luft",
-    "translation": "air (e.g., Die Luft ist heute sehr frisch.)"
+    "translation": "air (e.g., Die Luft ist heute sehr frisch.)",
+    "article": "die"
   },
   {
     "word": "luftdurchlässig",
@@ -2125,23 +2434,28 @@
   },
   {
     "word": "Magazin",
-    "translation": "magazine (e.g., Ich lese ein interessantes Magazin.)"
+    "translation": "magazine (e.g., Ich lese ein interessantes Magazin.)",
+    "article": "das"
   },
   {
     "word": "Manager/in",
-    "translation": "manager (e.g., Sie ist Managerin einer großen Firma.)"
+    "translation": "manager (e.g., Sie ist Managerin einer großen Firma.)",
+    "article": "der"
   },
   {
     "word": "Mannschaft",
-    "translation": "team (e.g., Unsere Mannschaft hat gewonnen.)"
+    "translation": "team (e.g., Unsere Mannschaft hat gewonnen.)",
+    "article": "die"
   },
   {
     "word": "Maschinenbau",
-    "translation": "mechanical engineering (e.g., Er studiert Maschinenbau.)"
+    "translation": "mechanical engineering (e.g., Er studiert Maschinenbau.)",
+    "article": "der"
   },
   {
     "word": "Massentierhaltung",
-    "translation": "factory farming (e.g., Massentierhaltung ist umstritten.)"
+    "translation": "factory farming (e.g., Massentierhaltung ist umstritten.)",
+    "article": "die"
   },
   {
     "word": "massiv",
@@ -2149,19 +2463,23 @@
   },
   {
     "word": "Matratze",
-    "translation": "mattress (e.g., Die Matratze ist sehr bequem.)"
+    "translation": "mattress (e.g., Die Matratze ist sehr bequem.)",
+    "article": "die"
   },
   {
     "word": "Mauer",
-    "translation": "wall (e.g., Die Mauer ist sehr hoch.)"
+    "translation": "wall (e.g., Die Mauer ist sehr hoch.)",
+    "article": "die"
   },
   {
     "word": "Mauerbau",
-    "translation": "construction of the wall (e.g., Der Mauerbau begann 1961.)"
+    "translation": "construction of the wall (e.g., Der Mauerbau begann 1961.)",
+    "article": "der"
   },
   {
     "word": "Mauerfall",
-    "translation": "fall of the wall (e.g., Der Mauerfall war 1989.)"
+    "translation": "fall of the wall (e.g., Der Mauerfall war 1989.)",
+    "article": "der"
   },
   {
     "word": "meckern",
@@ -2169,23 +2487,28 @@
   },
   {
     "word": "Medizin",
-    "translation": "medicine (e.g., Ich studiere Medizin.)"
+    "translation": "medicine (e.g., Ich studiere Medizin.)",
+    "article": "die"
   },
   {
     "word": "Meerblick",
-    "translation": "sea view (e.g., Das Hotel hat einen schönen Meerblick.)"
+    "translation": "sea view (e.g., Das Hotel hat einen schönen Meerblick.)",
+    "article": "der"
   },
   {
     "word": "Meerschweinchen",
-    "translation": "guinea pig (e.g., Mein Meerschweinchen ist süß.)"
+    "translation": "guinea pig (e.g., Mein Meerschweinchen ist süß.)",
+    "article": "das"
   },
   {
     "word": "Mehrheit",
-    "translation": "majority (e.g., Die Mehrheit stimmt dafür.)"
+    "translation": "majority (e.g., Die Mehrheit stimmt dafür.)",
+    "article": "die"
   },
   {
     "word": "Mehrkosten",
-    "translation": "additional costs (e.g., Es entstehen Mehrkosten.)"
+    "translation": "additional costs (e.g., Es entstehen Mehrkosten.)",
+    "article": "die"
   },
   {
     "word": "mehrmals",
@@ -2197,7 +2520,8 @@
   },
   {
     "word": "Mentalität",
-    "translation": "mentality (e.g., Die deutsche Mentalität ist anders.)"
+    "translation": "mentality (e.g., Die deutsche Mentalität ist anders.)",
+    "article": "die"
   },
   {
     "word": "merken",
@@ -2205,43 +2529,53 @@
   },
   {
     "word": "Metall",
-    "translation": "metal (e.g., Das Auto ist aus Metall.)"
+    "translation": "metal (e.g., Das Auto ist aus Metall.)",
+    "article": "das"
   },
   {
     "word": "Mieterhöhung",
-    "translation": "rent increase (e.g., Die Mieterhöhung ist zu hoch.)"
+    "translation": "rent increase (e.g., Die Mieterhöhung ist zu hoch.)",
+    "article": "die"
   },
   {
     "word": "Mietspiegel",
-    "translation": "rent index (e.g., Der Mietspiegel zeigt die Preise.)"
+    "translation": "rent index (e.g., Der Mietspiegel zeigt die Preise.)",
+    "article": "der"
   },
   {
     "word": "Mietvertrag",
-    "translation": "rental contract (e.g., Ich unterschreibe den Mietvertrag.)"
+    "translation": "rental contract (e.g., Ich unterschreibe den Mietvertrag.)",
+    "article": "der"
   },
   {
     "word": "Migration",
-    "translation": "migration (e.g., Migration ist ein wichtiges Thema.)"
+    "translation": "migration (e.g., Migration ist ein wichtiges Thema.)",
+    "article": "die"
   },
   {
     "word": "Milchkarton",
-    "translation": "milk carton (e.g., Der Milchkarton ist leer.)"
+    "translation": "milk carton (e.g., Der Milchkarton ist leer.)",
+    "article": "der"
   },
   {
     "word": "Milchzucker",
-    "translation": "milk sugar (lactose) (e.g., Ich vertrage keinen Milchzucker.)"
+    "translation": "milk sugar (lactose) (e.g., Ich vertrage keinen Milchzucker.)",
+    "article": "der"
   },
   {
     "word": "Million",
-    "translation": "million (e.g., Eine Million Euro ist viel Geld.)"
+    "translation": "million (e.g., Eine Million Euro ist viel Geld.)",
+    "article": "die"
   },
   {
     "word": "Millionär/in",
-    "translation": "millionaire (e.g., Er ist Millionär geworden.)"
+    "translation": "millionaire (e.g., Er ist Millionär geworden.)",
+    "article": "der"
   },
   {
     "word": "Minderheit",
-    "translation": "minority (e.g., Die Minderheit hat auch Rechte.)"
+    "translation": "minority (e.g., Die Minderheit hat auch Rechte.)",
+    "article": "die"
   },
   {
     "word": "mitdenken",
@@ -2261,7 +2595,8 @@
   },
   {
     "word": "Mittelfeld",
-    "translation": "midfield (e.g., Er spielt im Mittelfeld.)"
+    "translation": "midfield (e.g., Er spielt im Mittelfeld.)",
+    "article": "das"
   },
   {
     "word": "mittelständisch",
@@ -2273,11 +2608,13 @@
   },
   {
     "word": "Moderation",
-    "translation": "moderation, hosting (e.g., Die Moderation der Show ist gut.)"
+    "translation": "moderation, hosting (e.g., Die Moderation der Show ist gut.)",
+    "article": "die"
   },
   {
     "word": "Modernisierung",
-    "translation": "modernization (e.g., Die Modernisierung ist nötig.)"
+    "translation": "modernization (e.g., Die Modernisierung ist nötig.)",
+    "article": "die"
   },
   {
     "word": "moralisch",
@@ -2285,7 +2622,8 @@
   },
   {
     "word": "Mord",
-    "translation": "murder (e.g., Der Mord schockiert alle.)"
+    "translation": "murder (e.g., Der Mord schockiert alle.)",
+    "article": "der"
   },
   {
     "word": "motiviert",
@@ -2293,23 +2631,28 @@
   },
   {
     "word": "Motor",
-    "translation": "engine (e.g., Der Motor läuft ruhig.)"
+    "translation": "engine (e.g., Der Motor läuft ruhig.)",
+    "article": "der"
   },
   {
     "word": "Motorhaube",
-    "translation": "car hood (e.g., Öffne die Motorhaube!)"
+    "translation": "car hood (e.g., Öffne die Motorhaube!)",
+    "article": "die"
   },
   {
     "word": "Motorradfahrer/in",
-    "translation": "motorcyclist (e.g., Der Motorradfahrer trägt einen Helm.)"
+    "translation": "motorcyclist (e.g., Der Motorradfahrer trägt einen Helm.)",
+    "article": "der"
   },
   {
     "word": "Mülltonne",
-    "translation": "garbage bin (e.g., Die Mülltonne ist voll.)"
+    "translation": "garbage bin (e.g., Die Mülltonne ist voll.)",
+    "article": "die"
   },
   {
     "word": "Mülltrennung",
-    "translation": "waste separation (e.g., Mülltrennung ist wichtig für die Umwelt.)"
+    "translation": "waste separation (e.g., Mülltrennung ist wichtig für die Umwelt.)",
+    "article": "die"
   },
   {
     "word": "musikalisch",
@@ -2317,7 +2660,8 @@
   },
   {
     "word": "Muttersprache",
-    "translation": "native language (e.g., Deutsch ist meine Muttersprache.)"
+    "translation": "native language (e.g., Deutsch ist meine Muttersprache.)",
+    "article": "die"
   },
   {
     "word": "nachdem",
@@ -2333,11 +2677,13 @@
   },
   {
     "word": "Nachkriegszeit",
-    "translation": "post-war period (e.g., Die Nachkriegszeit war schwer.)"
+    "translation": "post-war period (e.g., Die Nachkriegszeit war schwer.)",
+    "article": "die"
   },
   {
     "word": "Nachnahme",
-    "translation": "cash on delivery (e.g., Versand per Nachnahme.)"
+    "translation": "cash on delivery (e.g., Versand per Nachnahme.)",
+    "article": "der"
   },
   {
     "word": "nachsehen",
@@ -2345,15 +2691,18 @@
   },
   {
     "word": "Nachteil",
-    "translation": "disadvantage (e.g., Das ist ein großer Nachteil.)"
+    "translation": "disadvantage (e.g., Das ist ein großer Nachteil.)",
+    "article": "der"
   },
   {
     "word": "Nährstoff",
-    "translation": "nutrient (e.g., Obst enthält viele Nährstoffe.)"
+    "translation": "nutrient (e.g., Obst enthält viele Nährstoffe.)",
+    "article": "der"
   },
   {
     "word": "Nahrungsmittel",
-    "translation": "food product (e.g., Gesunde Nahrungsmittel sind wichtig.)"
+    "translation": "food product (e.g., Gesunde Nahrungsmittel sind wichtig.)",
+    "article": "das"
   },
   {
     "word": "naschen",
@@ -2361,7 +2710,8 @@
   },
   {
     "word": "Nationalsozialismus",
-    "translation": "National Socialism (e.g., Der Nationalsozialismus endete 1945.)"
+    "translation": "National Socialism (e.g., Der Nationalsozialismus endete 1945.)",
+    "article": "der"
   },
   {
     "word": "NATO",
@@ -2369,15 +2719,18 @@
   },
   {
     "word": "Naturkatastrophe",
-    "translation": "natural disaster (e.g., Der Tsunami war eine Naturkatastrophe.)"
+    "translation": "natural disaster (e.g., Der Tsunami war eine Naturkatastrophe.)",
+    "article": "die"
   },
   {
     "word": "Naturprodukt",
-    "translation": "natural product (e.g., Honig ist ein Naturprodukt.)"
+    "translation": "natural product (e.g., Honig ist ein Naturprodukt.)",
+    "article": "das"
   },
   {
     "word": "Nebel",
-    "translation": "fog (e.g., Der Nebel ist sehr dicht.)"
+    "translation": "fog (e.g., Der Nebel ist sehr dicht.)",
+    "article": "der"
   },
   {
     "word": "nebenbei",
@@ -2393,27 +2746,33 @@
   },
   {
     "word": "Neuwagen",
-    "translation": "new car (e.g., Ich kaufe einen Neuwagen.)"
+    "translation": "new car (e.g., Ich kaufe einen Neuwagen.)",
+    "article": "der"
   },
   {
     "word": "Niederlage",
-    "translation": "defeat (e.g., Die Niederlage war bitter.)"
+    "translation": "defeat (e.g., Die Niederlage war bitter.)",
+    "article": "die"
   },
   {
     "word": "Niveau",
-    "translation": "level, standard (e.g., Das Niveau ist sehr hoch.)"
+    "translation": "level, standard (e.g., Das Niveau ist sehr hoch.)",
+    "article": "das"
   },
   {
     "word": "Notunterkunft",
-    "translation": "emergency shelter (e.g., Sie leben in einer Notunterkunft.)"
+    "translation": "emergency shelter (e.g., Sie leben in einer Notunterkunft.)",
+    "article": "die"
   },
   {
     "word": "Nummernschild",
-    "translation": "license plate (e.g., Das Nummernschild ist unleserlich.)"
+    "translation": "license plate (e.g., Das Nummernschild ist unleserlich.)",
+    "article": "das"
   },
   {
     "word": "Nuss",
-    "translation": "nut (e.g., Ich esse gerne Nüsse.)"
+    "translation": "nut (e.g., Ich esse gerne Nüsse.)",
+    "article": "die"
   },
   {
     "word": "objektiv",
@@ -2421,7 +2780,8 @@
   },
   {
     "word": "Obstschale",
-    "translation": "fruit bowl (e.g., Die Obstschale ist leer.)"
+    "translation": "fruit bowl (e.g., Die Obstschale ist leer.)",
+    "article": "die"
   },
   {
     "word": "obwohl",
@@ -2437,23 +2797,28 @@
   },
   {
     "word": "Öffnung",
-    "translation": "opening (e.g., Die Öffnung ist zu klein.)"
+    "translation": "opening (e.g., Die Öffnung ist zu klein.)",
+    "article": "die"
   },
   {
     "word": "Oldtimer",
-    "translation": "vintage car (e.g., Sein Oldtimer ist sehr wertvoll.)"
+    "translation": "vintage car (e.g., Sein Oldtimer ist sehr wertvoll.)",
+    "article": "der"
   },
   {
     "word": "Onlineeinkauf",
-    "translation": "online shopping (purchase) (e.g., Der Onlineeinkauf ist bequem.)"
+    "translation": "online shopping (purchase) (e.g., Der Onlineeinkauf ist bequem.)",
+    "article": "der"
   },
   {
     "word": "Onlineshop",
-    "translation": "online shop (e.g., Der Onlineshop hat gute Preise.)"
+    "translation": "online shop (e.g., Der Onlineshop hat gute Preise.)",
+    "article": "der"
   },
   {
     "word": "Onlineshopping",
-    "translation": "online shopping (e.g., Onlineshopping ist sehr beliebt.)"
+    "translation": "online shopping (e.g., Onlineshopping ist sehr beliebt.)",
+    "article": "das"
   },
   {
     "word": "optimistisch",
@@ -2461,31 +2826,38 @@
   },
   {
     "word": "Original",
-    "translation": "original (e.g., Das ist das Original.)"
+    "translation": "original (e.g., Das ist das Original.)",
+    "article": "das"
   },
   {
     "word": "Paket",
-    "translation": "package (e.g., Das Paket ist angekommen.)"
+    "translation": "package (e.g., Das Paket ist angekommen.)",
+    "article": "das"
   },
   {
     "word": "Paketbote",
-    "translation": "parcel delivery person (e.g., Der Paketbote klingelt.)"
+    "translation": "parcel delivery person (e.g., Der Paketbote klingelt.)",
+    "article": "der"
   },
   {
     "word": "Paketdienst",
-    "translation": "parcel service (e.g., Welchen Paketdienst nutzt ihr?)"
+    "translation": "parcel service (e.g., Welchen Paketdienst nutzt ihr?)",
+    "article": "der"
   },
   {
     "word": "Papiermüll",
-    "translation": "paper waste (e.g., Der Papiermüll wird recycelt.)"
+    "translation": "paper waste (e.g., Der Papiermüll wird recycelt.)",
+    "article": "der"
   },
   {
     "word": "Pappe",
-    "translation": "cardboard (e.g., Die Schachtel ist aus Pappe.)"
+    "translation": "cardboard (e.g., Die Schachtel ist aus Pappe.)",
+    "article": "die"
   },
   {
     "word": "Paradies",
-    "translation": "paradise (e.g., Diese Insel ist ein Paradies.)"
+    "translation": "paradise (e.g., Diese Insel ist ein Paradies.)",
+    "article": "das"
   },
   {
     "word": "parken",
@@ -2493,15 +2865,18 @@
   },
   {
     "word": "Parklücke",
-    "translation": "parking space (e.g., Ich suche eine Parklücke.)"
+    "translation": "parking space (e.g., Ich suche eine Parklücke.)",
+    "article": "die"
   },
   {
     "word": "Passagier/in",
-    "translation": "passenger (e.g., Der Passagier ist verletzt.)"
+    "translation": "passenger (e.g., Der Passagier ist verletzt.)",
+    "article": "der"
   },
   {
     "word": "Passkontrolle",
-    "translation": "passport control (e.g., Die Passkontrolle dauert lange.)"
+    "translation": "passport control (e.g., Die Passkontrolle dauert lange.)",
+    "article": "die"
   },
   {
     "word": "PC",
@@ -2509,35 +2884,43 @@
   },
   {
     "word": "Personenschaden",
-    "translation": "personal injury (e.g., Es gab einen Personenschaden.)"
+    "translation": "personal injury (e.g., Es gab einen Personenschaden.)",
+    "article": "der"
   },
   {
     "word": "Pflegehelfer/in",
-    "translation": "nursing assistant (e.g., Die Pflegehelferin ist freundlich.)"
+    "translation": "nursing assistant (e.g., Die Pflegehelferin ist freundlich.)",
+    "article": "die"
   },
   {
     "word": "Pflegekraft",
-    "translation": "care worker (e.g., Wir brauchen mehr Pflegekräfte.)"
+    "translation": "care worker (e.g., Wir brauchen mehr Pflegekräfte.)",
+    "article": "die"
   },
   {
     "word": "Phase",
-    "translation": "phase (e.g., Das ist eine schwierige Phase.)"
+    "translation": "phase (e.g., Das ist eine schwierige Phase.)",
+    "article": "die"
   },
   {
     "word": "Picknick",
-    "translation": "picnic (e.g., Wir machen ein Picknick im Park.)"
+    "translation": "picnic (e.g., Wir machen ein Picknick im Park.)",
+    "article": "das"
   },
   {
     "word": "Pilotenstreik",
-    "translation": "pilot strike (e.g., Der Pilotenstreik verzögert Flüge.)"
+    "translation": "pilot strike (e.g., Der Pilotenstreik verzögert Flüge.)",
+    "article": "der"
   },
   {
     "word": "Planet",
-    "translation": "planet (e.g., Die Erde ist unser Planet.)"
+    "translation": "planet (e.g., Die Erde ist unser Planet.)",
+    "article": "der"
   },
   {
     "word": "Plastik",
-    "translation": "plastic (e.g., Plastik schadet der Umwelt.)"
+    "translation": "plastic (e.g., Plastik schadet der Umwelt.)",
+    "article": "das"
   },
   {
     "word": "politisch",
@@ -2545,11 +2928,13 @@
   },
   {
     "word": "Pool",
-    "translation": "pool (e.g., Der Pool ist beheizt.)"
+    "translation": "pool (e.g., Der Pool ist beheizt.)",
+    "article": "der"
   },
   {
     "word": "Porto",
-    "translation": "postage (e.g., Das Porto ist teuer.)"
+    "translation": "postage (e.g., Das Porto ist teuer.)",
+    "article": "das"
   },
   {
     "word": "portofrei",
@@ -2557,11 +2942,13 @@
   },
   {
     "word": "Portokosten",
-    "translation": "postage costs (e.g., Die Portokosten sind hoch.)"
+    "translation": "postage costs (e.g., Die Portokosten sind hoch.)",
+    "article": "die"
   },
   {
     "word": "Posteingang",
-    "translation": "inbox (e.g., Mein Posteingang ist voll.)"
+    "translation": "inbox (e.g., Mein Posteingang ist voll.)",
+    "article": "der"
   },
   {
     "word": "präsentieren",
@@ -2569,11 +2956,13 @@
   },
   {
     "word": "Privatnummer",
-    "translation": "private number (e.g., Das ist meine Privatnummer.)"
+    "translation": "private number (e.g., Das ist meine Privatnummer.)",
+    "article": "die"
   },
   {
     "word": "Probezeit",
-    "translation": "probation period (e.g., Die Probezeit dauert sechs Monate.)"
+    "translation": "probation period (e.g., Die Probezeit dauert sechs Monate.)",
+    "article": "die"
   },
   {
     "word": "problemlos",
@@ -2585,7 +2974,8 @@
   },
   {
     "word": "Protest",
-    "translation": "protest (e.g., Der Protest war friedlich.)"
+    "translation": "protest (e.g., Der Protest war friedlich.)",
+    "article": "der"
   },
   {
     "word": "protestieren",
@@ -2593,19 +2983,23 @@
   },
   {
     "word": "PS (=Pferdestärke)",
-    "translation": "horsepower (e.g., Das Auto hat 150 PS.)"
+    "translation": "horsepower (e.g., Das Auto hat 150 PS.)",
+    "article": "die"
   },
   {
     "word": "Qualifikation",
-    "translation": "qualification (e.g., Seine Qualifikation ist gut.)"
+    "translation": "qualification (e.g., Seine Qualifikation ist gut.)",
+    "article": "die"
   },
   {
     "word": "Qualität",
-    "translation": "quality (e.g., Die Qualität ist ausgezeichnet.)"
+    "translation": "quality (e.g., Die Qualität ist ausgezeichnet.)",
+    "article": "die"
   },
   {
     "word": "Quark",
-    "translation": "quark (fresh dairy product) (e.g., Ich esse Quark mit Früchten.)"
+    "translation": "quark (fresh dairy product) (e.g., Ich esse Quark mit Früchten.)",
+    "article": "der"
   },
   {
     "word": "quietschen",
@@ -2613,15 +3007,18 @@
   },
   {
     "word": "Quizshow",
-    "translation": "quiz show (e.g., Die Quizshow ist lustig.)"
+    "translation": "quiz show (e.g., Die Quizshow ist lustig.)",
+    "article": "die"
   },
   {
     "word": "Radrennen",
-    "translation": "cycling race (e.g., Das Radrennen ist spannend.)"
+    "translation": "cycling race (e.g., Das Radrennen ist spannend.)",
+    "article": "das"
   },
   {
     "word": "Rangliste",
-    "translation": "ranking list (e.g., Er steht auf der Rangliste.)"
+    "translation": "ranking list (e.g., Er steht auf der Rangliste.)",
+    "article": "die"
   },
   {
     "word": "rasieren",
@@ -2629,7 +3026,8 @@
   },
   {
     "word": "Rätsel",
-    "translation": "puzzle, riddle (e.g., Das Rätsel ist schwer.)"
+    "translation": "puzzle, riddle (e.g., Das Rätsel ist schwer.)",
+    "article": "das"
   },
   {
     "word": "rechtzeitig",
@@ -2649,7 +3047,8 @@
   },
   {
     "word": "Regierung",
-    "translation": "government (e.g., Die Regierung entscheidet.)"
+    "translation": "government (e.g., Die Regierung entscheidet.)",
+    "article": "die"
   },
   {
     "word": "regulieren",
@@ -2657,35 +3056,43 @@
   },
   {
     "word": "Regulierung",
-    "translation": "regulation (e.g., Die Regulierung ist nötig.)"
+    "translation": "regulation (e.g., Die Regulierung ist nötig.)",
+    "article": "die"
   },
   {
     "word": "Reifen",
-    "translation": "tire (e.g., Der Reifen ist platt.)"
+    "translation": "tire (e.g., Der Reifen ist platt.)",
+    "article": "der"
   },
   {
     "word": "Reihe",
-    "translation": "row, series (e.g., Ich sitze in der ersten Reihe.)"
+    "translation": "row, series (e.g., Ich sitze in der ersten Reihe.)",
+    "article": "die"
   },
   {
     "word": "Reinigungsfirma",
-    "translation": "cleaning company (e.g., Die Reinigungsfirma kommt montags.)"
+    "translation": "cleaning company (e.g., Die Reinigungsfirma kommt montags.)",
+    "article": "die"
   },
   {
     "word": "Reinigungsvertrag",
-    "translation": "cleaning contract (e.g., Wir haben einen Reinigungsvertrag.)"
+    "translation": "cleaning contract (e.g., Wir haben einen Reinigungsvertrag.)",
+    "article": "der"
   },
   {
     "word": "Reisebüro",
-    "translation": "travel agency (e.g., Ich gehe ins Reisebüro.)"
+    "translation": "travel agency (e.g., Ich gehe ins Reisebüro.)",
+    "article": "das"
   },
   {
     "word": "Reiseplan",
-    "translation": "travel plan (e.g., Mein Reiseplan ist fertig.)"
+    "translation": "travel plan (e.g., Mein Reiseplan ist fertig.)",
+    "article": "der"
   },
   {
     "word": "Reiseplanung",
-    "translation": "travel planning (e.g., Die Reiseplanung dauert lange.)"
+    "translation": "travel planning (e.g., Die Reiseplanung dauert lange.)",
+    "article": "die"
   },
   {
     "word": "reiten",
@@ -2693,27 +3100,33 @@
   },
   {
     "word": "Reklamation",
-    "translation": "complaint (about a product/service) (e.g., Ich mache eine Reklamation.)"
+    "translation": "complaint (about a product/service) (e.g., Ich mache eine Reklamation.)",
+    "article": "die"
   },
   {
     "word": "Reportage",
-    "translation": "report, feature (e.g., Die Reportage ist interessant.)"
+    "translation": "report, feature (e.g., Die Reportage ist interessant.)",
+    "article": "die"
   },
   {
     "word": "Reporter/in",
-    "translation": "reporter (e.g., Der Reporter stellt Fragen.)"
+    "translation": "reporter (e.g., Der Reporter stellt Fragen.)",
+    "article": "der"
   },
   {
     "word": "Republik",
-    "translation": "republic (e.g., Deutschland ist eine Republik.)"
+    "translation": "republic (e.g., Deutschland ist eine Republik.)",
+    "article": "die"
   },
   {
     "word": "Retoure",
-    "translation": "return (of goods) (e.g., Ich schicke eine Retoure.)"
+    "translation": "return (of goods) (e.g., Ich schicke eine Retoure.)",
+    "article": "die"
   },
   {
     "word": "Retourenschein",
-    "translation": "return form/slip (e.g., Füll den Retourenschein aus!)"
+    "translation": "return form/slip (e.g., Füll den Retourenschein aus!)",
+    "article": "der"
   },
   {
     "word": "retten",
@@ -2721,7 +3134,8 @@
   },
   {
     "word": "Richter/in",
-    "translation": "judge (e.g., Der Richter entscheidet.)"
+    "translation": "judge (e.g., Der Richter entscheidet.)",
+    "article": "der"
   },
   {
     "word": "romantisch",
@@ -2729,19 +3143,23 @@
   },
   {
     "word": "Rücklicht",
-    "translation": "rear light (e.g., Das Rücklicht ist kaputt.)"
+    "translation": "rear light (e.g., Das Rücklicht ist kaputt.)",
+    "article": "das"
   },
   {
     "word": "Rückscheibe",
-    "translation": "rear window (e.g., Die Rückscheibe ist beschädigt.)"
+    "translation": "rear window (e.g., Die Rückscheibe ist beschädigt.)",
+    "article": "die"
   },
   {
     "word": "Rücksendung",
-    "translation": "return shipment (e.g., Die Rücksendung ist kostenlos.)"
+    "translation": "return shipment (e.g., Die Rücksendung ist kostenlos.)",
+    "article": "die"
   },
   {
     "word": "Rücksicht",
-    "translation": "consideration (e.g., Bitte nehmen Sie Rücksicht auf andere.)"
+    "translation": "consideration (e.g., Bitte nehmen Sie Rücksicht auf andere.)",
+    "article": "die"
   },
   {
     "word": "rückwärts",
@@ -2749,15 +3167,18 @@
   },
   {
     "word": "Ruhezeit",
-    "translation": "quiet time (e.g., Die Ruhezeit ist von 22 bis 6 Uhr.)"
+    "translation": "quiet time (e.g., Die Ruhezeit ist von 22 bis 6 Uhr.)",
+    "article": "die"
   },
   {
     "word": "Runde",
-    "translation": "round (e.g., Das ist die letzte Runde.)"
+    "translation": "round (e.g., Das ist die letzte Runde.)",
+    "article": "die"
   },
   {
     "word": "Russlanddeutsche",
-    "translation": "ethnic Germans from Russia (e.g., Viele Russlanddeutsche leben hier.)"
+    "translation": "ethnic Germans from Russia (e.g., Viele Russlanddeutsche leben hier.)",
+    "article": "die"
   },
   {
     "word": "rutschen",
@@ -2765,19 +3186,23 @@
   },
   {
     "word": "Sachbearbeiter/in",
-    "translation": "clerk, case officer (e.g., Der Sachbearbeiter hilft mir.)"
+    "translation": "clerk, case officer (e.g., Der Sachbearbeiter hilft mir.)",
+    "article": "der"
   },
   {
     "word": "Sachschaden",
-    "translation": "property damage (e.g., Es entstand nur Sachschaden.)"
+    "translation": "property damage (e.g., Es entstand nur Sachschaden.)",
+    "article": "der"
   },
   {
     "word": "Sack",
-    "translation": "sack, bag (e.g., Der Sack ist schwer.)"
+    "translation": "sack, bag (e.g., Der Sack ist schwer.)",
+    "article": "der"
   },
   {
     "word": "Sales Manager/in",
-    "translation": "sales manager (e.g., Der Sales Manager verkauft viel.)"
+    "translation": "sales manager (e.g., Der Sales Manager verkauft viel.)",
+    "article": "der"
   },
   {
     "word": "sammeln",
@@ -2785,7 +3210,8 @@
   },
   {
     "word": "Sammelstelle",
-    "translation": "collection point (e.g., Die Sammelstelle ist um die Ecke.)"
+    "translation": "collection point (e.g., Die Sammelstelle ist um die Ecke.)",
+    "article": "die"
   },
   {
     "word": "sauber",
@@ -2793,7 +3219,8 @@
   },
   {
     "word": "Sauberkeit",
-    "translation": "cleanliness (e.g., Sauberkeit ist wichtig.)"
+    "translation": "cleanliness (e.g., Sauberkeit ist wichtig.)",
+    "article": "die"
   },
   {
     "word": "sauer",
@@ -2801,11 +3228,13 @@
   },
   {
     "word": "Schaden",
-    "translation": "damage (e.g., Der Schaden ist groß.)"
+    "translation": "damage (e.g., Der Schaden ist groß.)",
+    "article": "der"
   },
   {
     "word": "Schadensfall",
-    "translation": "insurance claim (e.g., Melden Sie den Schadensfall.)"
+    "translation": "insurance claim (e.g., Melden Sie den Schadensfall.)",
+    "article": "der"
   },
   {
     "word": "schädigen",
@@ -2817,7 +3246,8 @@
   },
   {
     "word": "Schadstoff",
-    "translation": "pollutant (e.g., Schadstoffe belasten die Umwelt.)"
+    "translation": "pollutant (e.g., Schadstoffe belasten die Umwelt.)",
+    "article": "der"
   },
   {
     "word": "schalten",
@@ -2825,19 +3255,23 @@
   },
   {
     "word": "Schalter",
-    "translation": "counter, switch (e.g., Der Schalter ist defekt.)"
+    "translation": "counter, switch (e.g., Der Schalter ist defekt.)",
+    "article": "der"
   },
   {
     "word": "Scheibe",
-    "translation": "pane, disc (e.g., Die Scheibe ist zerbrochen.)"
+    "translation": "pane, disc (e.g., Die Scheibe ist zerbrochen.)",
+    "article": "die"
   },
   {
     "word": "Scheinwerfer",
-    "translation": "headlight (e.g., Der Scheinwerfer leuchtet hell.)"
+    "translation": "headlight (e.g., Der Scheinwerfer leuchtet hell.)",
+    "article": "der"
   },
   {
     "word": "Schiedsrichter",
-    "translation": "referee (e.g., Der Schiedsrichter pfeift.)"
+    "translation": "referee (e.g., Der Schiedsrichter pfeift.)",
+    "article": "der"
   },
   {
     "word": "schießen",
@@ -2845,11 +3279,13 @@
   },
   {
     "word": "Schläger",
-    "translation": "bat, racket (e.g., Ich brauche einen neuen Schläger.)"
+    "translation": "bat, racket (e.g., Ich brauche einen neuen Schläger.)",
+    "article": "der"
   },
   {
     "word": "Schlange",
-    "translation": "snake, queue (e.g., Die Schlange ist lang.)"
+    "translation": "snake, queue (e.g., Die Schlange ist lang.)",
+    "article": "die"
   },
   {
     "word": "schmutzig",
@@ -2861,7 +3297,8 @@
   },
   {
     "word": "Schreiben",
-    "translation": "letter, writing (e.g., Ich bekomme ein Schreiben.)"
+    "translation": "letter, writing (e.g., Ich bekomme ein Schreiben.)",
+    "article": "das"
   },
   {
     "word": "schützen",
@@ -2873,7 +3310,8 @@
   },
   {
     "word": "Seifenoper",
-    "translation": "soap opera (e.g., Meine Mutter guckt Seifenopern.)"
+    "translation": "soap opera (e.g., Meine Mutter guckt Seifenopern.)",
+    "article": "die"
   },
   {
     "word": "seitdem",
@@ -2881,7 +3319,8 @@
   },
   {
     "word": "Selbstständige",
-    "translation": "self-employed person (e.g., Er ist Selbstständiger.)"
+    "translation": "self-employed person (e.g., Er ist Selbstständiger.)",
+    "article": "die"
   },
   {
     "word": "selbstverständlich",
@@ -2893,11 +3332,13 @@
   },
   {
     "word": "Sendung",
-    "translation": "broadcast, shipment (e.g., Die Sendung ist interessant.)"
+    "translation": "broadcast, shipment (e.g., Die Sendung ist interessant.)",
+    "article": "die"
   },
   {
     "word": "Seniorenheim",
-    "translation": "retirement home (e.g., Oma wohnt im Seniorenheim.)"
+    "translation": "retirement home (e.g., Oma wohnt im Seniorenheim.)",
+    "article": "das"
   },
   {
     "word": "senken",
@@ -2905,11 +3346,13 @@
   },
   {
     "word": "Serie",
-    "translation": "series (e.g., Ich schaue eine neue Serie.)"
+    "translation": "series (e.g., Ich schaue eine neue Serie.)",
+    "article": "die"
   },
   {
     "word": "Shopping",
-    "translation": "shopping (e.g., Ich gehe Shopping.)"
+    "translation": "shopping (e.g., Ich gehe Shopping.)",
+    "article": "das"
   },
   {
     "word": "siegen",
@@ -2917,11 +3360,13 @@
   },
   {
     "word": "Sieger/in",
-    "translation": "winner (e.g., Der Sieger bekommt einen Preis.)"
+    "translation": "winner (e.g., Der Sieger bekommt einen Preis.)",
+    "article": "der"
   },
   {
     "word": "Sinn",
-    "translation": "sense, meaning (e.g., Das macht keinen Sinn.)"
+    "translation": "sense, meaning (e.g., Das macht keinen Sinn.)",
+    "article": "der"
   },
   {
     "word": "sinnlos",
@@ -2933,39 +3378,48 @@
   },
   {
     "word": "Skisport",
-    "translation": "skiing (e.g., Skisport ist gefährlich.)"
+    "translation": "skiing (e.g., Skisport ist gefährlich.)",
+    "article": "der"
   },
   {
     "word": "Soap",
-    "translation": "soap opera (e.g., Sie liebt amerikanische Soaps.)"
+    "translation": "soap opera (e.g., Sie liebt amerikanische Soaps.)",
+    "article": "die"
   },
   {
     "word": "Solarenergie",
-    "translation": "solar energy (e.g., Solarenergie ist umweltfreundlich.)"
+    "translation": "solar energy (e.g., Solarenergie ist umweltfreundlich.)",
+    "article": "die"
   },
   {
     "word": "Sondermüll",
-    "translation": "hazardous waste (e.g., Sondermüll muss getrennt entsorgt werden.)"
+    "translation": "hazardous waste (e.g., Sondermüll muss getrennt entsorgt werden.)",
+    "article": "der"
   },
   {
     "word": "Sonnenschein",
-    "translation": "sunshine (e.g., Der Sonnenschein ist warm.)"
+    "translation": "sunshine (e.g., Der Sonnenschein ist warm.)",
+    "article": "der"
   },
   {
     "word": "Sonnenschirm",
-    "translation": "parasol (e.g., Der Sonnenschirm spendet Schatten.)"
+    "translation": "parasol (e.g., Der Sonnenschirm spendet Schatten.)",
+    "article": "der"
   },
   {
     "word": "Sonnenterrasse",
-    "translation": "sun terrace (e.g., Wir sitzen auf der Sonnenterrasse.)"
+    "translation": "sun terrace (e.g., Wir sitzen auf der Sonnenterrasse.)",
+    "article": "die"
   },
   {
     "word": "Sonnenuntergang",
-    "translation": "sunset (e.g., Der Sonnenuntergang ist schön.)"
+    "translation": "sunset (e.g., Der Sonnenuntergang ist schön.)",
+    "article": "der"
   },
   {
     "word": "Sorge",
-    "translation": "concern, worry (e.g., Ich mache mir Sorgen.)"
+    "translation": "concern, worry (e.g., Ich mache mir Sorgen.)",
+    "article": "die"
   },
   {
     "word": "sortieren",
@@ -2985,11 +3439,13 @@
   },
   {
     "word": "Speise",
-    "translation": "dish, meal (e.g., Die Speise schmeckt gut.)"
+    "translation": "dish, meal (e.g., Die Speise schmeckt gut.)",
+    "article": "die"
   },
   {
     "word": "Sperrmüll",
-    "translation": "bulky waste (e.g., Der Sperrmüll wird abgeholt.)"
+    "translation": "bulky waste (e.g., Der Sperrmüll wird abgeholt.)",
+    "article": "der"
   },
   {
     "word": "spezialisieren",
@@ -2997,39 +3453,48 @@
   },
   {
     "word": "Spieler/in",
-    "translation": "player (e.g., Der Spieler ist verletzt.)"
+    "translation": "player (e.g., Der Spieler ist verletzt.)",
+    "article": "der"
   },
   {
     "word": "Spielfilm",
-    "translation": "feature film (e.g., Der Spielfilm dauert zwei Stunden.)"
+    "translation": "feature film (e.g., Der Spielfilm dauert zwei Stunden.)",
+    "article": "der"
   },
   {
     "word": "Sport Utiliy Vehicle (SUV)",
-    "translation": "sport utility vehicle (SUV) (e.g., Ein SUV ist groß.)"
+    "translation": "sport utility vehicle (SUV) (e.g., Ein SUV ist groß.)",
+    "article": "der"
   },
   {
     "word": "Sportwagen",
-    "translation": "sports car (e.g., Sein Sportwagen ist rot.)"
+    "translation": "sports car (e.g., Sein Sportwagen ist rot.)",
+    "article": "der"
   },
   {
     "word": "Sprachnachweis",
-    "translation": "language certificate (e.g., Ich brauche einen Sprachnachweis.)"
+    "translation": "language certificate (e.g., Ich brauche einen Sprachnachweis.)",
+    "article": "der"
   },
   {
     "word": "Staat",
-    "translation": "state (e.g., Der Staat regelt das Bildungssystem.)"
+    "translation": "state (e.g., Der Staat regelt das Bildungssystem.)",
+    "article": "der"
   },
   {
     "word": "Staatsgründung",
-    "translation": "founding of a state (e.g., Die Staatsgründung war 1949.)"
+    "translation": "founding of a state (e.g., Die Staatsgründung war 1949.)",
+    "article": "die"
   },
   {
     "word": "Stadion",
-    "translation": "stadium (e.g., Das Stadion ist ausverkauft.)"
+    "translation": "stadium (e.g., Das Stadion ist ausverkauft.)",
+    "article": "das"
   },
   {
     "word": "Statistik",
-    "translation": "statistics (e.g., Die Statistik zeigt einen Trend.)"
+    "translation": "statistics (e.g., Die Statistik zeigt einen Trend.)",
+    "article": "die"
   },
   {
     "word": "stattfinden",
@@ -3037,19 +3502,23 @@
   },
   {
     "word": "Stellenanzeige",
-    "translation": "job advertisement (e.g., Ich lese die Stellenanzeige.)"
+    "translation": "job advertisement (e.g., Ich lese die Stellenanzeige.)",
+    "article": "die"
   },
   {
     "word": "Stern",
-    "translation": "star (e.g., Der Stern leuchtet hell.)"
+    "translation": "star (e.g., Der Stern leuchtet hell.)",
+    "article": "der"
   },
   {
     "word": "Steuerberater",
-    "translation": "tax advisor (e.g., Mein Steuerberater hilft mir.)"
+    "translation": "tax advisor (e.g., Mein Steuerberater hilft mir.)",
+    "article": "der"
   },
   {
     "word": "Steuerberatungsbüro",
-    "translation": "tax consulting office (e.g., Das Steuerberatungsbüro ist geöffnet.)"
+    "translation": "tax consulting office (e.g., Das Steuerberatungsbüro ist geöffnet.)",
+    "article": "das"
   },
   {
     "word": "stinken",
@@ -3061,7 +3530,8 @@
   },
   {
     "word": "Stipendium",
-    "translation": "scholarship (e.g., Er bekommt ein Stipendium.)"
+    "translation": "scholarship (e.g., Er bekommt ein Stipendium.)",
+    "article": "das"
   },
   {
     "word": "stören",
@@ -3069,19 +3539,23 @@
   },
   {
     "word": "Stoßstange",
-    "translation": "bumper (e.g., Die Stoßstange ist beschädigt.)"
+    "translation": "bumper (e.g., Die Stoßstange ist beschädigt.)",
+    "article": "die"
   },
   {
     "word": "Straßenrand",
-    "translation": "roadside (e.g., Das Auto steht am Straßenrand.)"
+    "translation": "roadside (e.g., Das Auto steht am Straßenrand.)",
+    "article": "der"
   },
   {
     "word": "Straßenverkehr",
-    "translation": "road traffic (e.g., Der Straßenverkehr ist dicht.)"
+    "translation": "road traffic (e.g., Der Straßenverkehr ist dicht.)",
+    "article": "der"
   },
   {
     "word": "Streichholz",
-    "translation": "matchstick (e.g., Ich zünde ein Streichholz an.)"
+    "translation": "matchstick (e.g., Ich zünde ein Streichholz an.)",
+    "article": "das"
   },
   {
     "word": "streiken",
@@ -3093,39 +3567,48 @@
   },
   {
     "word": "Strom",
-    "translation": "electricity (e.g., Der Strom ist ausgefallen.)"
+    "translation": "electricity (e.g., Der Strom ist ausgefallen.)",
+    "article": "der"
   },
   {
     "word": "Stromanbieter",
-    "translation": "electricity provider (e.g., Ich wechsle den Stromanbieter.)"
+    "translation": "electricity provider (e.g., Ich wechsle den Stromanbieter.)",
+    "article": "der"
   },
   {
     "word": "Stromkosten",
-    "translation": "electricity costs (e.g., Die Stromkosten steigen.)"
+    "translation": "electricity costs (e.g., Die Stromkosten steigen.)",
+    "article": "die"
   },
   {
     "word": "Studie",
-    "translation": "study (e.g., Die Studie ist interessant.)"
+    "translation": "study (e.g., Die Studie ist interessant.)",
+    "article": "die"
   },
   {
     "word": "Sturm",
-    "translation": "storm (e.g., Der Sturm ist gefährlich.)"
+    "translation": "storm (e.g., Der Sturm ist gefährlich.)",
+    "article": "der"
   },
   {
     "word": "Tagesablauf",
-    "translation": "daily routine (e.g., Mein Tagesablauf ist geregelt.)"
+    "translation": "daily routine (e.g., Mein Tagesablauf ist geregelt.)",
+    "article": "der"
   },
   {
     "word": "Talkshow",
-    "translation": "talk show (e.g., Die Talkshow ist langweilig.)"
+    "translation": "talk show (e.g., Die Talkshow ist langweilig.)",
+    "article": "die"
   },
   {
     "word": "Taschenlampe",
-    "translation": "flashlight (e.g., Ich brauche eine Taschenlampe.)"
+    "translation": "flashlight (e.g., Ich brauche eine Taschenlampe.)",
+    "article": "die"
   },
   {
     "word": "Taschenmesser",
-    "translation": "pocket knife (e.g., Das Taschenmesser ist scharf.)"
+    "translation": "pocket knife (e.g., Das Taschenmesser ist scharf.)",
+    "article": "das"
   },
   {
     "word": "tatsächlich",
@@ -3133,27 +3616,33 @@
   },
   {
     "word": "Teamfähigkeit",
-    "translation": "ability to work in a team (e.g., Teamfähigkeit ist wichtig.)"
+    "translation": "ability to work in a team (e.g., Teamfähigkeit ist wichtig.)",
+    "article": "die"
   },
   {
     "word": "Teilkaskoversicherung (Teilkasko)",
-    "translation": "partial comprehensive insurance (e.g., Die Teilkasko reicht mir.)"
+    "translation": "partial comprehensive insurance (e.g., Die Teilkasko reicht mir.)",
+    "article": "die"
   },
   {
     "word": "Teilung",
-    "translation": "division (e.g., Die Teilung Deutschlands endete 1990.)"
+    "translation": "division (e.g., Die Teilung Deutschlands endete 1990.)",
+    "article": "die"
   },
   {
     "word": "Telekommunikation",
-    "translation": "telecommunication (e.g., Telekommunikation ist wichtig.)"
+    "translation": "telecommunication (e.g., Telekommunikation ist wichtig.)",
+    "article": "die"
   },
   {
     "word": "Terminkalender",
-    "translation": "appointment calendar (e.g., Mein Terminkalender ist voll.)"
+    "translation": "appointment calendar (e.g., Mein Terminkalender ist voll.)",
+    "article": "der"
   },
   {
     "word": "Tiefkühlpizza",
-    "translation": "frozen pizza (e.g., Ich esse gerne Tiefkühlpizza.)"
+    "translation": "frozen pizza (e.g., Ich esse gerne Tiefkühlpizza.)",
+    "article": "die"
   },
   {
     "word": "tierisch",
@@ -3161,15 +3650,18 @@
   },
   {
     "word": "Tierschutz",
-    "translation": "animal protection (e.g., Tierschutz ist wichtig.)"
+    "translation": "animal protection (e.g., Tierschutz ist wichtig.)",
+    "article": "der"
   },
   {
     "word": "Tor",
-    "translation": "goal, gate (e.g., Er schießt ein Tor.)"
+    "translation": "goal, gate (e.g., Er schießt ein Tor.)",
+    "article": "das"
   },
   {
     "word": "Torwart/in",
-    "translation": "goalkeeper (e.g., Der Torwart hält den Ball.)"
+    "translation": "goalkeeper (e.g., Der Torwart hält den Ball.)",
+    "article": "der"
   },
   {
     "word": "total",
@@ -3177,7 +3669,8 @@
   },
   {
     "word": "Tote",
-    "translation": "dead person (e.g., Es gab keine Toten.)"
+    "translation": "dead person (e.g., Es gab keine Toten.)",
+    "article": "die"
   },
   {
     "word": "traditionsreich",
@@ -3189,7 +3682,8 @@
   },
   {
     "word": "Trend",
-    "translation": "trend (e.g., Das ist der neue Trend.)"
+    "translation": "trend (e.g., Das ist der neue Trend.)",
+    "article": "der"
   },
   {
     "word": "treu",
@@ -3197,7 +3691,8 @@
   },
   {
     "word": "Trinkwasser",
-    "translation": "drinking water (e.g., Trinkwasser ist kostbar.)"
+    "translation": "drinking water (e.g., Trinkwasser ist kostbar.)",
+    "article": "das"
   },
   {
     "word": "tropfen",
@@ -3209,11 +3704,13 @@
   },
   {
     "word": "Tsunami",
-    "translation": "tsunami (e.g., Der Tsunami war verheerend.)"
+    "translation": "tsunami (e.g., Der Tsunami war verheerend.)",
+    "article": "der"
   },
   {
     "word": "Turm",
-    "translation": "tower (e.g., Der Turm ist hoch.)"
+    "translation": "tower (e.g., Der Turm ist hoch.)",
+    "article": "der"
   },
   {
     "word": "übereinstimmen",
@@ -3237,11 +3734,13 @@
   },
   {
     "word": "Übernachtung",
-    "translation": "overnight stay (e.g., Die Übernachtung kostet 50€.)"
+    "translation": "overnight stay (e.g., Die Übernachtung kostet 50€.)",
+    "article": "die"
   },
   {
     "word": "Übernachtung mit Frühstück (ÜF)",
-    "translation": "bed and breakfast (e.g., ÜF kostet 80€.)"
+    "translation": "bed and breakfast (e.g., ÜF kostet 80€.)",
+    "article": "die"
   },
   {
     "word": "überraschen",
@@ -3249,7 +3748,8 @@
   },
   {
     "word": "Überschwemmung",
-    "translation": "flooding (e.g., Die Überschwemmung war schlimm.)"
+    "translation": "flooding (e.g., Die Überschwemmung war schlimm.)",
+    "article": "die"
   },
   {
     "word": "übersetzen",
@@ -3257,19 +3757,23 @@
   },
   {
     "word": "Übersetzung",
-    "translation": "translation (e.g., Die Übersetzung ist gut.)"
+    "translation": "translation (e.g., Die Übersetzung ist gut.)",
+    "article": "die"
   },
   {
     "word": "Übersetzungsbüro",
-    "translation": "translation office (e.g., Das Übersetzungsbüro ist teuer.)"
+    "translation": "translation office (e.g., Das Übersetzungsbüro ist teuer.)",
+    "article": "das"
   },
   {
     "word": "Überstunde",
-    "translation": "overtime hour (e.g., Ich mache Überstunden.)"
+    "translation": "overtime hour (e.g., Ich mache Überstunden.)",
+    "article": "die"
   },
   {
     "word": "Übertragung",
-    "translation": "broadcast, transmission (e.g., Die Übertragung ist live.)"
+    "translation": "broadcast, transmission (e.g., Die Übertragung ist live.)",
+    "article": "die"
   },
   {
     "word": "überzeugen",
@@ -3289,11 +3793,13 @@
   },
   {
     "word": "Umgang",
-    "translation": "interaction, handling (e.g., Der Umgang mit Kunden ist wichtig.)"
+    "translation": "interaction, handling (e.g., Der Umgang mit Kunden ist wichtig.)",
+    "article": "der"
   },
   {
     "word": "Umgebung",
-    "translation": "surroundings (e.g., Die Umgebung ist schön.)"
+    "translation": "surroundings (e.g., Die Umgebung ist schön.)",
+    "article": "die"
   },
   {
     "word": "umgehen",
@@ -3305,7 +3811,8 @@
   },
   {
     "word": "Umschulung",
-    "translation": "retraining (e.g., Er macht eine Umschulung.)"
+    "translation": "retraining (e.g., Er macht eine Umschulung.)",
+    "article": "die"
   },
   {
     "word": "umso",
@@ -3317,11 +3824,13 @@
   },
   {
     "word": "Umweltschutz",
-    "translation": "environmental protection (e.g., Umweltschutz ist wichtig.)"
+    "translation": "environmental protection (e.g., Umweltschutz ist wichtig.)",
+    "article": "der"
   },
   {
     "word": "Umweltverschmutzung",
-    "translation": "environmental pollution (e.g., Umweltverschmutzung ist ein Problem.)"
+    "translation": "environmental pollution (e.g., Umweltverschmutzung ist ein Problem.)",
+    "article": "die"
   },
   {
     "word": "unbefristet",
@@ -3333,11 +3842,13 @@
   },
   {
     "word": "Unfall",
-    "translation": "accident (e.g., Es gab einen schweren Unfall.)"
+    "translation": "accident (e.g., Es gab einen schweren Unfall.)",
+    "article": "der"
   },
   {
     "word": "Unfallgefahr",
-    "translation": "risk of accident (e.g., Hier besteht Unfallgefahr.)"
+    "translation": "risk of accident (e.g., Hier besteht Unfallgefahr.)",
+    "article": "die"
   },
   {
     "word": "ungeduldig",
@@ -3357,15 +3868,18 @@
   },
   {
     "word": "Unrecht",
-    "translation": "wrong, injustice (e.g., Du hast Unrecht.)"
+    "translation": "wrong, injustice (e.g., Du hast Unrecht.)",
+    "article": "das"
   },
   {
     "word": "Unterhaltung",
-    "translation": "entertainment, conversation (e.g., Die Unterhaltung war interessant.)"
+    "translation": "entertainment, conversation (e.g., Die Unterhaltung war interessant.)",
+    "article": "die"
   },
   {
     "word": "Unternehmen",
-    "translation": "company, enterprise (e.g., Das Unternehmen ist erfolgreich.)"
+    "translation": "company, enterprise (e.g., Das Unternehmen ist erfolgreich.)",
+    "article": "das"
   },
   {
     "word": "unverbindlich",
@@ -3373,15 +3887,18 @@
   },
   {
     "word": "Unwetter",
-    "translation": "storm, severe weather (e.g., Das Unwetter kommt näher.)"
+    "translation": "storm, severe weather (e.g., Das Unwetter kommt näher.)",
+    "article": "das"
   },
   {
     "word": "Urlaubstag",
-    "translation": "day of vacation (e.g., Ich nehme einen Urlaubstag.)"
+    "translation": "day of vacation (e.g., Ich nehme einen Urlaubstag.)",
+    "article": "der"
   },
   {
     "word": "Urteil",
-    "translation": "judgment, verdict (e.g., Das Urteil ist gefallen.)"
+    "translation": "judgment, verdict (e.g., Das Urteil ist gefallen.)",
+    "article": "das"
   },
   {
     "word": "vegan",
@@ -3389,7 +3906,8 @@
   },
   {
     "word": "Veganer/in",
-    "translation": "vegan (person) (e.g., Er ist Veganer.)"
+    "translation": "vegan (person) (e.g., Er ist Veganer.)",
+    "article": "der"
   },
   {
     "word": "verabreden",
@@ -3405,11 +3923,13 @@
   },
   {
     "word": "Verbrauch",
-    "translation": "consumption (e.g., Der Verbrauch von Wasser ist hoch.)"
+    "translation": "consumption (e.g., Der Verbrauch von Wasser ist hoch.)",
+    "article": "der"
   },
   {
     "word": "Verbraucher/in",
-    "translation": "consumer (e.g., Der Verbraucher hat Rechte.)"
+    "translation": "consumer (e.g., Der Verbraucher hat Rechte.)",
+    "article": "der"
   },
   {
     "word": "verdrängen",
@@ -3433,7 +3953,8 @@
   },
   {
     "word": "Vergütung",
-    "translation": "compensation (e.g., Die Vergütung ist fair.)"
+    "translation": "compensation (e.g., Die Vergütung ist fair.)",
+    "article": "die"
   },
   {
     "word": "verhaften",
@@ -3457,7 +3978,8 @@
   },
   {
     "word": "Verlierer/in",
-    "translation": "loser (e.g., Er ist ein schlechter Verlierer.)"
+    "translation": "loser (e.g., Er ist ein schlechter Verlierer.)",
+    "article": "der"
   },
   {
     "word": "vermischen",
@@ -3481,11 +4003,13 @@
   },
   {
     "word": "Versand",
-    "translation": "shipping, dispatch (e.g., Der Versand ist kostenlos.)"
+    "translation": "shipping, dispatch (e.g., Der Versand ist kostenlos.)",
+    "article": "der"
   },
   {
     "word": "Versandkosten",
-    "translation": "shipping costs (e.g., Die Versandkosten sind hoch.)"
+    "translation": "shipping costs (e.g., Die Versandkosten sind hoch.)",
+    "article": "die"
   },
   {
     "word": "versandkostenfrei",
@@ -3493,7 +4017,8 @@
   },
   {
     "word": "Versandkostenpauschale",
-    "translation": "flat shipping fee (e.g., 4,99€ Versandkostenpauschale.)"
+    "translation": "flat shipping fee (e.g., 4,99€ Versandkostenpauschale.)",
+    "article": "die"
   },
   {
     "word": "verschieben",
@@ -3509,7 +4034,8 @@
   },
   {
     "word": "Verschwendung",
-    "translation": "waste (e.g., Das ist pure Verschwendung.)"
+    "translation": "waste (e.g., Das ist pure Verschwendung.)",
+    "article": "die"
   },
   {
     "word": "versehentlich",
@@ -3525,11 +4051,13 @@
   },
   {
     "word": "Versicherungsberater/in",
-    "translation": "insurance consultant (e.g., Der Versicherungsberater hilft mir.)"
+    "translation": "insurance consultant (e.g., Der Versicherungsberater hilft mir.)",
+    "article": "der"
   },
   {
     "word": "Versicherungsschutz",
-    "translation": "insurance coverage (e.g., Guter Versicherungsschutz ist wichtig.)"
+    "translation": "insurance coverage (e.g., Guter Versicherungsschutz ist wichtig.)",
+    "article": "der"
   },
   {
     "word": "versorgen",
@@ -3541,15 +4069,18 @@
   },
   {
     "word": "Verständnis",
-    "translation": "understanding (e.g., Ich habe Verständnis für dich.)"
+    "translation": "understanding (e.g., Ich habe Verständnis für dich.)",
+    "article": "das"
   },
   {
     "word": "Verstärkung",
-    "translation": "reinforcement (e.g., Wir brauchen Verstärkung.)"
+    "translation": "reinforcement (e.g., Wir brauchen Verstärkung.)",
+    "article": "die"
   },
   {
     "word": "Verstoß",
-    "translation": "violation (e.g., Das ist ein Verstoß gegen das Gesetz.)"
+    "translation": "violation (e.g., Das ist ein Verstoß gegen das Gesetz.)",
+    "article": "der"
   },
   {
     "word": "verstoßen",
@@ -3561,11 +4092,13 @@
   },
   {
     "word": "Vertragsende",
-    "translation": "contract end (e.g., Das Vertragsende ist im Dezember.)"
+    "translation": "contract end (e.g., Das Vertragsende ist im Dezember.)",
+    "article": "das"
   },
   {
     "word": "Vertragsnummer",
-    "translation": "contract number (e.g., Die Vertragsnummer ist 12345.)"
+    "translation": "contract number (e.g., Die Vertragsnummer ist 12345.)",
+    "article": "die"
   },
   {
     "word": "verursachen",
@@ -3581,7 +4114,8 @@
   },
   {
     "word": "Verzehr",
-    "translation": "consumption (food/drink) (e.g., Verzehr auf eigene Gefahr.)"
+    "translation": "consumption (food/drink) (e.g., Verzehr auf eigene Gefahr.)",
+    "article": "der"
   },
   {
     "word": "verzichten",
@@ -3589,7 +4123,8 @@
   },
   {
     "word": "Visum",
-    "translation": "visa (e.g., Ich brauche ein Visum für China.)"
+    "translation": "visa (e.g., Ich brauche ein Visum für China.)",
+    "article": "das"
   },
   {
     "word": "völlig",
@@ -3597,7 +4132,8 @@
   },
   {
     "word": "Vollkaskoversicherung (Vollkasko)",
-    "translation": "comprehensive insurance (e.g., Die Vollkasko ist teuer.)"
+    "translation": "comprehensive insurance (e.g., Die Vollkasko ist teuer.)",
+    "article": "die"
   },
   {
     "word": "voraussichtlich",
@@ -3633,27 +4169,33 @@
   },
   {
     "word": "Wanderer",
-    "translation": "hiker (e.g., Der Wanderer ist müde.)"
+    "translation": "hiker (e.g., Der Wanderer ist müde.)",
+    "article": "der"
   },
   {
     "word": "Wandertour",
-    "translation": "hiking tour (e.g., Die Wandertour dauert drei Stunden.)"
+    "translation": "hiking tour (e.g., Die Wandertour dauert drei Stunden.)",
+    "article": "die"
   },
   {
     "word": "Ware",
-    "translation": "goods (e.g., Die Ware ist frisch.)"
+    "translation": "goods (e.g., Die Ware ist frisch.)",
+    "article": "die"
   },
   {
     "word": "Warenkorb",
-    "translation": "shopping cart (e.g., Der Warenkorb ist voll.)"
+    "translation": "shopping cart (e.g., Der Warenkorb ist voll.)",
+    "article": "der"
   },
   {
     "word": "Wärme",
-    "translation": "warmth (e.g., Die Wärme der Sonne ist angenehm.)"
+    "translation": "warmth (e.g., Die Wärme der Sonne ist angenehm.)",
+    "article": "die"
   },
   {
     "word": "Waschraum",
-    "translation": "laundry room (e.g., Die Waschmaschine ist im Waschraum.)"
+    "translation": "laundry room (e.g., Die Waschmaschine ist im Waschraum.)",
+    "article": "der"
   },
   {
     "word": "wasserdicht",
@@ -3661,7 +4203,8 @@
   },
   {
     "word": "Wasserhahn",
-    "translation": "water tap (e.g., Der Wasserhahn tropft.)"
+    "translation": "water tap (e.g., Der Wasserhahn tropft.)",
+    "article": "der"
   },
   {
     "word": "wegfahren",
@@ -3681,7 +4224,8 @@
   },
   {
     "word": "Weise",
-    "translation": "way, manner (e.g., Auf diese Weise geht es.)"
+    "translation": "way, manner (e.g., Auf diese Weise geht es.)",
+    "article": "die"
   },
   {
     "word": "weitergehen",
@@ -3693,31 +4237,38 @@
   },
   {
     "word": "Weiterleitung",
-    "translation": "forwarding (e.g., Die Weiterleitung funktioniert.)"
+    "translation": "forwarding (e.g., Die Weiterleitung funktioniert.)",
+    "article": "die"
   },
   {
     "word": "Weltall",
-    "translation": "outer space (e.g., Astronauten fliegen ins Weltall.)"
+    "translation": "outer space (e.g., Astronauten fliegen ins Weltall.)",
+    "article": "das"
   },
   {
     "word": "Weltmeisterschaft (WM)",
-    "translation": "world championship (e.g., Die WM findet alle vier Jahre statt.)"
+    "translation": "world championship (e.g., Die WM findet alle vier Jahre statt.)",
+    "article": "die"
   },
   {
     "word": "Werktag",
-    "translation": "working day (e.g., Montag ist ein Werktag.)"
+    "translation": "working day (e.g., Montag ist ein Werktag.)",
+    "article": "der"
   },
   {
     "word": "Werkzeug",
-    "translation": "tool (e.g., Ich brauche das richtige Werkzeug.)"
+    "translation": "tool (e.g., Ich brauche das richtige Werkzeug.)",
+    "article": "das"
   },
   {
     "word": "Wert",
-    "translation": "value (e.g., Das Auto hat einen hohen Wert.)"
+    "translation": "value (e.g., Das Auto hat einen hohen Wert.)",
+    "article": "der"
   },
   {
     "word": "Wertstoff",
-    "translation": "recyclable material (e.g., Papier ist ein Wertstoff.)"
+    "translation": "recyclable material (e.g., Papier ist ein Wertstoff.)",
+    "article": "der"
   },
   {
     "word": "weshalb",
@@ -3733,11 +4284,13 @@
   },
   {
     "word": "Widerrufsrecht",
-    "translation": "right of withdrawal (e.g., Sie haben ein Widerrufsrecht.)"
+    "translation": "right of withdrawal (e.g., Sie haben ein Widerrufsrecht.)",
+    "article": "das"
   },
   {
     "word": "Widerspruch",
-    "translation": "objection (e.g., Ich erhebe Widerspruch.)"
+    "translation": "objection (e.g., Ich erhebe Widerspruch.)",
+    "article": "der"
   },
   {
     "word": "wiedervereinigen",
@@ -3745,23 +4298,28 @@
   },
   {
     "word": "Wiedervereinigung",
-    "translation": "reunification (e.g., Die Wiedervereinigung war 1990.)"
+    "translation": "reunification (e.g., Die Wiedervereinigung war 1990.)",
+    "article": "die"
   },
   {
     "word": "Wind",
-    "translation": "wind (e.g., Der Wind ist heute stark.)"
+    "translation": "wind (e.g., Der Wind ist heute stark.)",
+    "article": "der"
   },
   {
     "word": "Windel",
-    "translation": "diaper (e.g., Das Baby braucht eine neue Windel.)"
+    "translation": "diaper (e.g., Das Baby braucht eine neue Windel.)",
+    "article": "die"
   },
   {
     "word": "Windschutzscheibe",
-    "translation": "windshield (e.g., Die Windschutzscheibe ist schmutzig.)"
+    "translation": "windshield (e.g., Die Windschutzscheibe ist schmutzig.)",
+    "article": "die"
   },
   {
     "word": "Wirbelsturm",
-    "translation": "tornado, cyclone (e.g., Der Wirbelsturm ist gefährlich.)"
+    "translation": "tornado, cyclone (e.g., Der Wirbelsturm ist gefährlich.)",
+    "article": "der"
   },
   {
     "word": "wohlfühlen",
@@ -3769,15 +4327,18 @@
   },
   {
     "word": "Wohnwagen",
-    "translation": "caravan (e.g., Wir fahren mit dem Wohnwagen.)"
+    "translation": "caravan (e.g., Wir fahren mit dem Wohnwagen.)",
+    "article": "der"
   },
   {
     "word": "Wolke",
-    "translation": "cloud (e.g., Die Wolke ist grau.)"
+    "translation": "cloud (e.g., Die Wolke ist grau.)",
+    "article": "die"
   },
   {
     "word": "Wurst",
-    "translation": "sausage (e.g., Die Wurst schmeckt gut.)"
+    "translation": "sausage (e.g., Die Wurst schmeckt gut.)",
+    "article": "die"
   },
   {
     "word": "wütend",
@@ -3785,7 +4346,8 @@
   },
   {
     "word": "Zahlung",
-    "translation": "payment (e.g., Die Zahlung erfolgt per Karte.)"
+    "translation": "payment (e.g., Die Zahlung erfolgt per Karte.)",
+    "article": "die"
   },
   {
     "word": "zappen",
@@ -3797,7 +4359,8 @@
   },
   {
     "word": "Zeichentrickfilm",
-    "translation": "cartoon movie (e.g., Kinder lieben Zeichentrickfilme.)"
+    "translation": "cartoon movie (e.g., Kinder lieben Zeichentrickfilme.)",
+    "article": "der"
   },
   {
     "word": "zeitlich",
@@ -3805,27 +4368,33 @@
   },
   {
     "word": "Zeitmangel",
-    "translation": "lack of time (e.g., Ich habe Zeitmangel.)"
+    "translation": "lack of time (e.g., Ich habe Zeitmangel.)",
+    "article": "der"
   },
   {
     "word": "Zeitpunkt",
-    "translation": "point in time (e.g., Das ist der richtige Zeitpunkt.)"
+    "translation": "point in time (e.g., Das ist der richtige Zeitpunkt.)",
+    "article": "der"
   },
   {
     "word": "Zeitraum",
-    "translation": "period of time (e.g., In diesem Zeitraum bin ich weg.)"
+    "translation": "period of time (e.g., In diesem Zeitraum bin ich weg.)",
+    "article": "der"
   },
   {
     "word": "Zeitungsbericht",
-    "translation": "newspaper report (e.g., Der Zeitungsbericht ist interessant.)"
+    "translation": "newspaper report (e.g., Der Zeitungsbericht ist interessant.)",
+    "article": "der"
   },
   {
     "word": "Zeitverschwendung",
-    "translation": "waste of time (e.g., Das ist reine Zeitverschwendung.)"
+    "translation": "waste of time (e.g., Das ist reine Zeitverschwendung.)",
+    "article": "die"
   },
   {
     "word": "Zelt",
-    "translation": "tent (e.g., Wir schlafen im Zelt.)"
+    "translation": "tent (e.g., Wir schlafen im Zelt.)",
+    "article": "das"
   },
   {
     "word": "zerschlagen",
@@ -3837,11 +4406,13 @@
   },
   {
     "word": "Zerstörung",
-    "translation": "destruction (e.g., Die Zerstörung ist total.)"
+    "translation": "destruction (e.g., Die Zerstörung ist total.)",
+    "article": "die"
   },
   {
     "word": "Ziel",
-    "translation": "goal, target (e.g., Mein Ziel ist es, Deutsch zu lernen.)"
+    "translation": "goal, target (e.g., Mein Ziel ist es, Deutsch zu lernen.)",
+    "article": "das"
   },
   {
     "word": "ziemlich",
@@ -3849,15 +4420,18 @@
   },
   {
     "word": "Zigarettenkippe",
-    "translation": "cigarette butt (e.g., Wirf die Zigarettenkippe weg!)"
+    "translation": "cigarette butt (e.g., Wirf die Zigarettenkippe weg!)",
+    "article": "die"
   },
   {
     "word": "Zimmerlautstärke",
-    "translation": "room volume (e.g., Bitte auf Zimmerlautstärke stellen.)"
+    "translation": "room volume (e.g., Bitte auf Zimmerlautstärke stellen.)",
+    "article": "die"
   },
   {
     "word": "Zoll",
-    "translation": "customs (e.g., Am Zoll muss ich warten.)"
+    "translation": "customs (e.g., Am Zoll muss ich warten.)",
+    "article": "der"
   },
   {
     "word": "zudrehen",
@@ -3913,7 +4487,8 @@
   },
   {
     "word": "Zusammenarbeit",
-    "translation": "cooperation (e.g., Die Zusammenarbeit läuft gut.)"
+    "translation": "cooperation (e.g., Die Zusammenarbeit läuft gut.)",
+    "article": "die"
   },
   {
     "word": "zusammenarbeiten",
@@ -3921,7 +4496,8 @@
   },
   {
     "word": "Zusammenleben",
-    "translation": "living together (e.g., Das Zusammenleben ist harmonisch.)"
+    "translation": "living together (e.g., Das Zusammenleben ist harmonisch.)",
+    "article": "das"
   },
   {
     "word": "zusammenstellen",
@@ -3937,23 +4513,28 @@
   },
   {
     "word": "Zusatzqualifikation",
-    "translation": "additional qualification (e.g., Eine Zusatzqualifikation hilft.)"
+    "translation": "additional qualification (e.g., Eine Zusatzqualifikation hilft.)",
+    "article": "die"
   },
   {
     "word": "Zusatzstoff",
-    "translation": "additive (e.g., Ohne künstliche Zusatzstoffe.)"
+    "translation": "additive (e.g., Ohne künstliche Zusatzstoffe.)",
+    "article": "der"
   },
   {
     "word": "Zusatzversicherung",
-    "translation": "supplementary insurance (e.g., Die Zusatzversicherung ist optional.)"
+    "translation": "supplementary insurance (e.g., Die Zusatzversicherung ist optional.)",
+    "article": "die"
   },
   {
     "word": "Zuschauer/in",
-    "translation": "spectator (e.g., Die Zuschauer applaudieren.)"
+    "translation": "spectator (e.g., Die Zuschauer applaudieren.)",
+    "article": "der"
   },
   {
     "word": "Zuschlag",
-    "translation": "surcharge (e.g., Es gibt einen Zuschlag.)"
+    "translation": "surcharge (e.g., Es gibt einen Zuschlag.)",
+    "article": "der"
   },
   {
     "word": "zustellen",
@@ -3965,135 +4546,168 @@
   },
   {
     "word": "Zutritt",
-    "translation": "access, entry (e.g., Kein Zutritt für Unbefugte.)"
+    "translation": "access, entry (e.g., Kein Zutritt für Unbefugte.)",
+    "article": "der"
   },
   {
     "word": "Zuverlässigkeit",
-    "translation": "reliability (e.g., Seine Zuverlässigkeit ist bekannt.)"
+    "translation": "reliability (e.g., Seine Zuverlässigkeit ist bekannt.)",
+    "article": "die"
   },
   {
     "word": "Altbau",
-    "translation": "old building (e.g., Wir wohnen in einem Altbau.)"
+    "translation": "old building (e.g., Wir wohnen in einem Altbau.)",
+    "article": "der"
   },
   {
     "word": "Bad",
-    "translation": "bath(room) (e.g., Das Bad ist klein aber modern.)"
+    "translation": "bath(room) (e.g., Das Bad ist klein aber modern.)",
+    "article": "das"
   },
   {
     "word": "Dachgeschoss",
-    "translation": "attic (e.g., Das Dachgeschoss ist renoviert.)"
+    "translation": "attic (e.g., Das Dachgeschoss ist renoviert.)",
+    "article": "das"
   },
   {
     "word": "Erdgeschoss",
-    "translation": "ground floor (Br.)/ first floor (Am.) (e.g., Wir wohnen im Erdgeschoss.)"
+    "translation": "ground floor (Br.)/ first floor (Am.) (e.g., Wir wohnen im Erdgeschoss.)",
+    "article": "das"
   },
   {
     "word": "Fahrradraum",
-    "translation": "bicycle room (e.g., Der Fahrradraum ist im Keller.)"
+    "translation": "bicycle room (e.g., Der Fahrradraum ist im Keller.)",
+    "article": "der"
   },
   {
     "word": "Gegend",
-    "translation": "area (e.g., Die Gegend ist sehr ruhig.)"
+    "translation": "area (e.g., Die Gegend ist sehr ruhig.)",
+    "article": "die"
   },
   {
     "word": "Grundstück",
-    "translation": "plot of land (e.g., Das Grundstück ist groß.)"
+    "translation": "plot of land (e.g., Das Grundstück ist groß.)",
+    "article": "das"
   },
   {
     "word": "Haus",
-    "translation": "house (e.g., Das Haus hat einen Garten.)"
+    "translation": "house (e.g., Das Haus hat einen Garten.)",
+    "article": "das"
   },
   {
     "word": "Hausmeister",
-    "translation": "caretaker, superintendant (e.g., Der Hausmeister repariert alles.)"
+    "translation": "caretaker, superintendant (e.g., Der Hausmeister repariert alles.)",
+    "article": "der"
   },
   {
     "word": "Hausverwaltung",
-    "translation": "property management (e.g., Die Hausverwaltung ist zuständig.)"
+    "translation": "property management (e.g., Die Hausverwaltung ist zuständig.)",
+    "article": "die"
   },
   {
     "word": "Kaltmiete",
-    "translation": "rent excl. utilities (e.g., Die Kaltmiete beträgt 800 Euro.)"
+    "translation": "rent excl. utilities (e.g., Die Kaltmiete beträgt 800 Euro.)",
+    "article": "die"
   },
   {
     "word": "Warmmiete",
-    "translation": "rent incl. utilities (e.g., Die Warmmiete ist 1000 Euro.)"
+    "translation": "rent incl. utilities (e.g., Die Warmmiete ist 1000 Euro.)",
+    "article": "die"
   },
   {
     "word": "Kaution",
-    "translation": "deposit (e.g., Die Kaution sind drei Monatsmieten.)"
+    "translation": "deposit (e.g., Die Kaution sind drei Monatsmieten.)",
+    "article": "die"
   },
   {
     "word": "Küche",
-    "translation": "kitchen (e.g., Die Küche ist gut ausgestattet.)"
+    "translation": "kitchen (e.g., Die Küche ist gut ausgestattet.)",
+    "article": "die"
   },
   {
     "word": "Makler",
-    "translation": "estate agent (e.g., Der Makler zeigt uns die Wohnung.)"
+    "translation": "estate agent (e.g., Der Makler zeigt uns die Wohnung.)",
+    "article": "der"
   },
   {
     "word": "Mieter",
-    "translation": "tenant (e.g., Der Mieter zahlt pünktlich.)"
+    "translation": "tenant (e.g., Der Mieter zahlt pünktlich.)",
+    "article": "der"
   },
   {
     "word": "Nachbar",
-    "translation": "neighbour (e.g., Mein Nachbar ist sehr nett.)"
+    "translation": "neighbour (e.g., Mein Nachbar ist sehr nett.)",
+    "article": "der"
   },
   {
     "word": "Nebenkosten",
-    "translation": "additional costs (e.g., Die Nebenkosten sind hoch.)"
+    "translation": "additional costs (e.g., Die Nebenkosten sind hoch.)",
+    "article": "die"
   },
   {
     "word": "Obergeschoss",
-    "translation": "upper storey (e.g., Das Obergeschoss hat zwei Zimmer.)"
+    "translation": "upper storey (e.g., Das Obergeschoss hat zwei Zimmer.)",
+    "article": "das"
   },
   {
     "word": "Provision",
-    "translation": "commission (e.g., Der Makler verlangt eine Provision.)"
+    "translation": "commission (e.g., Der Makler verlangt eine Provision.)",
+    "article": "die"
   },
   {
     "word": "Quadratmeter",
-    "translation": "square metre (e.g., Die Wohnung hat 80 Quadratmeter.)"
+    "translation": "square metre (e.g., Die Wohnung hat 80 Quadratmeter.)",
+    "article": "der"
   },
   {
     "word": "Schlafzimmer",
-    "translation": "bedroom (e.g., Das Schlafzimmer ist gemütlich.)"
+    "translation": "bedroom (e.g., Das Schlafzimmer ist gemütlich.)",
+    "article": "das"
   },
   {
     "word": "Umzug",
-    "translation": "move (e.g., Der Umzug ist nächste Woche.)"
+    "translation": "move (e.g., Der Umzug ist nächste Woche.)",
+    "article": "der"
   },
   {
     "word": "Vermieter",
-    "translation": "landlord (e.g., Der Vermieter ist hilfsbereit.)"
+    "translation": "landlord (e.g., Der Vermieter ist hilfsbereit.)",
+    "article": "der"
   },
   {
     "word": "Vertrag",
-    "translation": "contract (e.g., Der Vertrag ist unterschrieben.)"
+    "translation": "contract (e.g., Der Vertrag ist unterschrieben.)",
+    "article": "der"
   },
   {
     "word": "Vorort",
-    "translation": "suburb (e.g., Wir wohnen in einem Vorort.)"
+    "translation": "suburb (e.g., Wir wohnen in einem Vorort.)",
+    "article": "der"
   },
   {
     "word": "Wäschekeller",
-    "translation": "laundry cellar (e.g., Der Wäschekeller ist im Untergeschoss.)"
+    "translation": "laundry cellar (e.g., Der Wäschekeller ist im Untergeschoss.)",
+    "article": "der"
   },
   {
     "word": "Wohnungsamt",
-    "translation": "housing office (e.g., Das Wohnungsamt hilft bei der Suche.)"
+    "translation": "housing office (e.g., Das Wohnungsamt hilft bei der Suche.)",
+    "article": "das"
   },
   {
     "word": "Wohngeld",
-    "translation": "housing allowance (e.g., Sie bekommt Wohngeld.)"
+    "translation": "housing allowance (e.g., Sie bekommt Wohngeld.)",
+    "article": "das"
   },
   {
     "word": "Wohnung",
-    "translation": "apartment (e.g., Die Wohnung ist hell und modern.)"
+    "translation": "apartment (e.g., Die Wohnung ist hell und modern.)",
+    "article": "die"
   },
   {
     "word": "Wohnzimmer",
-    "translation": "living room (e.g., Das Wohnzimmer ist groß.)"
+    "translation": "living room (e.g., Das Wohnzimmer ist groß.)",
+    "article": "das"
   },
   {
     "word": "kündigen",
@@ -4125,79 +4739,98 @@
   },
   {
     "word": "Abteilung",
-    "translation": "department (e.g., Die Abteilung für Elektronik befindet sich im dritten Stock.)"
+    "translation": "department (e.g., Die Abteilung für Elektronik befindet sich im dritten Stock.)",
+    "article": "die"
   },
   {
     "word": "Angebot",
-    "translation": "offer (e.g., Dieses Angebot gilt nur bis Ende der Woche.)"
+    "translation": "offer (e.g., Dieses Angebot gilt nur bis Ende der Woche.)",
+    "article": "das"
   },
   {
     "word": "Fußgängerzone",
-    "translation": "pedestrian precinct (e.g., In der Fußgängerzone gibt es viele kleine Cafés.)"
+    "translation": "pedestrian precinct (e.g., In der Fußgängerzone gibt es viele kleine Cafés.)",
+    "article": "die"
   },
   {
     "word": "Haushaltsware",
-    "translation": "household products (e.g., Haushaltswaren finden Sie im Erdgeschoss.)"
+    "translation": "household products (e.g., Haushaltswaren finden Sie im Erdgeschoss.)",
+    "article": "die"
   },
   {
     "word": "Geschäft",
-    "translation": "shop, store (e.g., Das Geschäft an der Ecke hat bis 20 Uhr geöffnet.)"
+    "translation": "shop, store (e.g., Das Geschäft an der Ecke hat bis 20 Uhr geöffnet.)",
+    "article": "das"
   },
   {
     "word": "Kassenbeleg",
-    "translation": "sales slip (e.g., Bitte bewahren Sie den Kassenbeleg für eventuelle Rückgaben auf.)"
+    "translation": "sales slip (e.g., Bitte bewahren Sie den Kassenbeleg für eventuelle Rückgaben auf.)",
+    "article": "der"
   },
   {
     "word": "Kaufhaus",
-    "translation": "department store (e.g., Das Kaufhaus bietet eine große Auswahl an Marken.)"
+    "translation": "department store (e.g., Das Kaufhaus bietet eine große Auswahl an Marken.)",
+    "article": "das"
   },
   {
     "word": "Kleidung",
-    "translation": "clothing (e.g., Im Urlaub kaufe ich oft neue Kleidung.)"
+    "translation": "clothing (e.g., Im Urlaub kaufe ich oft neue Kleidung.)",
+    "article": "die"
   },
   {
     "word": "Laden",
-    "translation": "shop, store (e.g., Der kleine Laden verkauft frisches Obst und Gemüse.)"
+    "translation": "shop, store (e.g., Der kleine Laden verkauft frisches Obst und Gemüse.)",
+    "article": "der"
   },
   {
     "word": "Marke",
-    "translation": "brand (e.g., Diese Marke ist für ihre hohe Qualität bekannt.)"
+    "translation": "brand (e.g., Diese Marke ist für ihre hohe Qualität bekannt.)",
+    "article": "die"
   },
   {
     "word": "Preis",
-    "translation": "price (e.g., Der Preis für dieses Kleid ist sehr günstig.)"
+    "translation": "price (e.g., Der Preis für dieses Kleid ist sehr günstig.)",
+    "article": "der"
   },
   {
     "word": "Rechnung",
-    "translation": "bill (e.g., Die Rechnung wird Ihnen per E-Mail zugeschickt.)"
+    "translation": "bill (e.g., Die Rechnung wird Ihnen per E-Mail zugeschickt.)",
+    "article": "die"
   },
   {
     "word": "Schaufenster",
-    "translation": "shop window (e.g., Im Schaufenster liegen viele neue Schuhe.)"
+    "translation": "shop window (e.g., Im Schaufenster liegen viele neue Schuhe.)",
+    "article": "das"
   },
   {
     "word": "Schreibwaren",
-    "translation": "stationery (e.g., Schreibwaren gibt es im zweiten Stock.)"
+    "translation": "stationery (e.g., Schreibwaren gibt es im zweiten Stock.)",
+    "article": "die"
   },
   {
     "word": "Sonderangebot",
-    "translation": "special offer (e.g., Im Supermarkt gibt es heute ein Sonderangebot für Äpfel.)"
+    "translation": "special offer (e.g., Im Supermarkt gibt es heute ein Sonderangebot für Äpfel.)",
+    "article": "das"
   },
   {
     "word": "Supermarkt",
-    "translation": "supermarket (e.g., Der Supermarkt schließt um 22 Uhr.)"
+    "translation": "supermarket (e.g., Der Supermarkt schließt um 22 Uhr.)",
+    "article": "der"
   },
   {
     "word": "Werbung",
-    "translation": "advertisement (e.g., Die Werbung im Fernsehen war sehr überzeugend.)"
+    "translation": "advertisement (e.g., Die Werbung im Fernsehen war sehr überzeugend.)",
+    "article": "die"
   },
   {
     "word": "Wochenmarkt",
-    "translation": "weekly market (e.g., Auf dem Wochenmarkt kaufe ich immer frisches Brot.)"
+    "translation": "weekly market (e.g., Auf dem Wochenmarkt kaufe ich immer frisches Brot.)",
+    "article": "der"
   },
   {
     "word": "Quittung",
-    "translation": "receipt (e.g., Sie brauchen die Quittung, um den Artikel umzutauschen.)"
+    "translation": "receipt (e.g., Sie brauchen die Quittung, um den Artikel umzutauschen.)",
+    "article": "die"
   },
   {
     "word": "bestellen",
@@ -4233,63 +4866,78 @@
   },
   {
     "word": "Aufzug",
-    "translation": "lift (e.g., Der Aufzug ist leider außer Betrieb.)"
+    "translation": "lift (e.g., Der Aufzug ist leider außer Betrieb.)",
+    "article": "der"
   },
   {
     "word": "Ausflug",
-    "translation": "trip (e.g., Am Wochenende machen wir einen Ausflug in die Berge.)"
+    "translation": "trip (e.g., Am Wochenende machen wir einen Ausflug in die Berge.)",
+    "article": "der"
   },
   {
     "word": "Autobahn",
-    "translation": "motorway (e.g., Auf der Autobahn gibt es heute Stau.)"
+    "translation": "motorway (e.g., Auf der Autobahn gibt es heute Stau.)",
+    "article": "die"
   },
   {
     "word": "Bahn",
-    "translation": "train, railway (e.g., Die Bahn fährt um 10 Uhr ab.)"
+    "translation": "train, railway (e.g., Die Bahn fährt um 10 Uhr ab.)",
+    "article": "die"
   },
   {
     "word": "S-Bahn",
-    "translation": "(sub)urban train, railway (e.g., Die S-Bahn fährt alle zehn Minuten.)"
+    "translation": "(sub)urban train, railway (e.g., Die S-Bahn fährt alle zehn Minuten.)",
+    "article": "die"
   },
   {
     "word": "Bahnhof",
-    "translation": "train station (e.g., Wir treffen uns am Hauptbahnhof.)"
+    "translation": "train station (e.g., Wir treffen uns am Hauptbahnhof.)",
+    "article": "der"
   },
   {
     "word": "Bahnsteig",
-    "translation": "platform (e.g., Der Zug steht am Bahnsteig drei.)"
+    "translation": "platform (e.g., Der Zug steht am Bahnsteig drei.)",
+    "article": "der"
   },
   {
     "word": "Fähre",
-    "translation": "ferry (e.g., Die Fähre legt in einer Stunde ab.)"
+    "translation": "ferry (e.g., Die Fähre legt in einer Stunde ab.)",
+    "article": "die"
   },
   {
     "word": "Fahrkarte",
-    "translation": "ticket (e.g., Die Fahrkarte kann man am Automaten kaufen.)"
+    "translation": "ticket (e.g., Die Fahrkarte kann man am Automaten kaufen.)",
+    "article": "die"
   },
   {
     "word": "Fahrrad",
-    "translation": "bicycle (e.g., Mein Fahrrad steht vor dem Haus.)"
+    "translation": "bicycle (e.g., Mein Fahrrad steht vor dem Haus.)",
+    "article": "das"
   },
   {
     "word": "Fahrzeug",
-    "translation": "vehicle, car (e.g., Auf dem Parkplatz stehen viele Fahrzeuge.)"
+    "translation": "vehicle, car (e.g., Auf dem Parkplatz stehen viele Fahrzeuge.)",
+    "article": "das"
   },
   {
     "word": "Flugzeug",
-    "translation": "airplane (e.g., Das Flugzeug landet pünktlich um 18 Uhr.)"
+    "translation": "airplane (e.g., Das Flugzeug landet pünktlich um 18 Uhr.)",
+    "article": "das"
   },
   {
     "word": "Führerschein",
-    "translation": "driver's license (e.g., Er hat seinen Führerschein mit 18 Jahren gemacht.)"
+    "translation": "driver's license (e.g., Er hat seinen Führerschein mit 18 Jahren gemacht.)",
+    "article": "der"
   },
   {
     "word": "Geschwindigkeit",
-    "translation": "speed (e.g., Die Geschwindigkeit ist hier auf 50 km/h begrenzt.)"
+    "translation": "speed (e.g., Die Geschwindigkeit ist hier auf 50 km/h begrenzt.)",
+    "article": "die"
   },
   {
     "word": "Haltestelle",
-    "translation": "(bus, tram) stop (e.g., Die nächste Haltestelle ist gleich um die Ecke.)"
+    "translation": "(bus, tram) stop (e.g., Die nächste Haltestelle ist gleich um die Ecke.)",
+    "article": "die"
   },
   {
     "word": "ICE",
@@ -4297,11 +4945,13 @@
   },
   {
     "word": "Kraftfahrzeug",
-    "translation": "vehicle, car (e.g., Lastwagen sind auch Kraftfahrzeuge.)"
+    "translation": "vehicle, car (e.g., Lastwagen sind auch Kraftfahrzeuge.)",
+    "article": "das"
   },
   {
     "word": "Laster",
-    "translation": "truck (e.g., Der Laster bringt frische Waren in die Stadt.)"
+    "translation": "truck (e.g., Der Laster bringt frische Waren in die Stadt.)",
+    "article": "der"
   },
   {
     "word": "LKW",
@@ -4309,11 +4959,13 @@
   },
   {
     "word": "Motorrad",
-    "translation": "motor bike (e.g., Mein Bruder fährt gern Motorrad im Sommer.)"
+    "translation": "motor bike (e.g., Mein Bruder fährt gern Motorrad im Sommer.)",
+    "article": "das"
   },
   {
     "word": "Parkhaus",
-    "translation": "car park (e.g., Das Parkhaus ist rund um die Uhr geöffnet.)"
+    "translation": "car park (e.g., Das Parkhaus ist rund um die Uhr geöffnet.)",
+    "article": "das"
   },
   {
     "word": "PKW",
@@ -4321,99 +4973,123 @@
   },
   {
     "word": "Rückfahrt",
-    "translation": "return journey (e.g., Die Rückfahrt war schneller als die Hinfahrt.)"
+    "translation": "return journey (e.g., Die Rückfahrt war schneller als die Hinfahrt.)",
+    "article": "die"
   },
   {
     "word": "Stau",
-    "translation": "traffic jam (e.g., Wir stehen seit einer Stunde im Stau.)"
+    "translation": "traffic jam (e.g., Wir stehen seit einer Stunde im Stau.)",
+    "article": "der"
   },
   {
     "word": "Verkehrsmittel",
-    "translation": "(means of) transport (e.g., Busse und Bahnen sind umweltfreundliche Verkehrsmittel.)"
+    "translation": "(means of) transport (e.g., Busse und Bahnen sind umweltfreundliche Verkehrsmittel.)",
+    "article": "das"
   },
   {
     "word": "Verkehrszeichen",
-    "translation": "traffic sign (e.g., Dieses Verkehrszeichen bedeutet, dass man hier nicht parken darf.)"
+    "translation": "traffic sign (e.g., Dieses Verkehrszeichen bedeutet, dass man hier nicht parken darf.)",
+    "article": "das"
   },
   {
     "word": "Angestellte",
-    "translation": "employee (e.g., Die Angestellte hilft dem Kunden an der Rezeption.)"
+    "translation": "employee (e.g., Die Angestellte hilft dem Kunden an der Rezeption.)",
+    "article": "die"
   },
   {
     "word": "Arbeitsplatz",
-    "translation": "work place (e.g., Mein Arbeitsplatz ist direkt am Fenster.)"
+    "translation": "work place (e.g., Mein Arbeitsplatz ist direkt am Fenster.)",
+    "article": "der"
   },
   {
     "word": "Aufgabe",
-    "translation": "task (e.g., Meine wichtigste Aufgabe ist die Betreuung der Kunden.)"
+    "translation": "task (e.g., Meine wichtigste Aufgabe ist die Betreuung der Kunden.)",
+    "article": "die"
   },
   {
     "word": "Aushilfe",
-    "translation": "(temporary) assistant (e.g., Die Aushilfe arbeitet nur am Wochenende.)"
+    "translation": "(temporary) assistant (e.g., Die Aushilfe arbeitet nur am Wochenende.)",
+    "article": "die"
   },
   {
     "word": "Ausbildung",
-    "translation": "vocational training (e.g., Er macht eine Ausbildung zum Elektriker.)"
+    "translation": "vocational training (e.g., Er macht eine Ausbildung zum Elektriker.)",
+    "article": "die"
   },
   {
     "word": "Besprechung",
-    "translation": "meeting (e.g., Die Besprechung findet morgen um 10 Uhr statt.)"
+    "translation": "meeting (e.g., Die Besprechung findet morgen um 10 Uhr statt.)",
+    "article": "die"
   },
   {
     "word": "Betrieb",
-    "translation": "business, company (e.g., Unser Betrieb hat über 200 Mitarbeiter.)"
+    "translation": "business, company (e.g., Unser Betrieb hat über 200 Mitarbeiter.)",
+    "article": "der"
   },
   {
     "word": "Betriebsrat",
-    "translation": "works committee (e.g., Der Betriebsrat setzt sich für die Rechte der Angestellten ein.)"
+    "translation": "works committee (e.g., Der Betriebsrat setzt sich für die Rechte der Angestellten ein.)",
+    "article": "der"
   },
   {
     "word": "Bewerbung",
-    "translation": "application (e.g., Sie hat ihre Bewerbung gestern abgeschickt.)"
+    "translation": "application (e.g., Sie hat ihre Bewerbung gestern abgeschickt.)",
+    "article": "die"
   },
   {
     "word": "Bezahlung",
-    "translation": "payment (e.g., Die Bezahlung erfolgt am Monatsende.)"
+    "translation": "payment (e.g., Die Bezahlung erfolgt am Monatsende.)",
+    "article": "die"
   },
   {
     "word": "Feierabend",
-    "translation": "closing time (e.g., Um 17 Uhr ist Feierabend und alle gehen nach Hause.)"
+    "translation": "closing time (e.g., Um 17 Uhr ist Feierabend und alle gehen nach Hause.)",
+    "article": "der"
   },
   {
     "word": "Firma",
-    "translation": "company (e.g., Die Firma produziert Maschinen für die Automobilindustrie.)"
+    "translation": "company (e.g., Die Firma produziert Maschinen für die Automobilindustrie.)",
+    "article": "die"
   },
   {
     "word": "Gewerkschaft",
-    "translation": "trade union (e.g., Die Gewerkschaft fordert höhere Löhne.)"
+    "translation": "trade union (e.g., Die Gewerkschaft fordert höhere Löhne.)",
+    "article": "die"
   },
   {
     "word": "Ingenieur",
-    "translation": "engineer (e.g., Der Ingenieur plant eine neue Brücke.)"
+    "translation": "engineer (e.g., Der Ingenieur plant eine neue Brücke.)",
+    "article": "der"
   },
   {
     "word": "Kollege",
-    "translation": "colleague (e.g., Mein Kollege hilft mir oft bei schwierigen Projekten.)"
+    "translation": "colleague (e.g., Mein Kollege hilft mir oft bei schwierigen Projekten.)",
+    "article": "der"
   },
   {
     "word": "Leistung",
-    "translation": "performance (e.g., Die Leistung des Teams war dieses Jahr besonders gut.)"
+    "translation": "performance (e.g., Die Leistung des Teams war dieses Jahr besonders gut.)",
+    "article": "die"
   },
   {
     "word": "Personalabteilung",
-    "translation": "personnel department (e.g., Die Personalabteilung sucht neue Mitarbeiter.)"
+    "translation": "personnel department (e.g., Die Personalabteilung sucht neue Mitarbeiter.)",
+    "article": "die"
   },
   {
     "word": "Rente",
-    "translation": "pension, retirement (e.g., Er geht nächstes Jahr in Rente.)"
+    "translation": "pension, retirement (e.g., Er geht nächstes Jahr in Rente.)",
+    "article": "die"
   },
   {
     "word": "Schicht",
-    "translation": "shift (e.g., Sie arbeitet in der Nachtschicht.)"
+    "translation": "shift (e.g., Sie arbeitet in der Nachtschicht.)",
+    "article": "die"
   },
   {
     "word": "Vorgesetzte",
-    "translation": "boss, superior (e.g., Der Vorgesetzte lobt die gute Arbeit des Teams.)"
+    "translation": "boss, superior (e.g., Der Vorgesetzte lobt die gute Arbeit des Teams.)",
+    "article": "die"
   },
   {
     "word": "bearbeiten",
@@ -4509,259 +5185,323 @@
   },
   {
     "word": "Vollzeit arbeiten",
-    "translation": "to work full time (e.g., Sie arbeitet seit letztem Jahr Vollzeit.)"
+    "translation": "to work full time (e.g., Sie arbeitet seit letztem Jahr Vollzeit.)",
+    "article": "das"
   },
   {
     "word": "Teilzeit arbeiten",
-    "translation": "to work part time (e.g., Nach der Geburt ihres Kindes arbeitet sie Teilzeit.)"
+    "translation": "to work part time (e.g., Nach der Geburt ihres Kindes arbeitet sie Teilzeit.)",
+    "article": "die"
   },
   {
     "word": "Abitur",
-    "translation": "≈ A Levels (e.g., Sie hat das Abitur mit sehr guten Noten bestanden.)"
+    "translation": "≈ A Levels (e.g., Sie hat das Abitur mit sehr guten Noten bestanden.)",
+    "article": "das"
   },
   {
     "word": "Abschluss",
-    "translation": "degree, certificate (e.g., Er hat seinen Abschluss an der Universität München gemacht.)"
+    "translation": "degree, certificate (e.g., Er hat seinen Abschluss an der Universität München gemacht.)",
+    "article": "der"
   },
   {
     "word": "Berufsschule",
-    "translation": "vocational college (e.g., Die Berufsschule bietet Kurse für verschiedene Berufe an.)"
+    "translation": "vocational college (e.g., Die Berufsschule bietet Kurse für verschiedene Berufe an.)",
+    "article": "die"
   },
   {
     "word": "Betreuung",
-    "translation": "mentoring (e.g., Die Betreuung der Schüler erfolgt durch erfahrene Lehrer.)"
+    "translation": "mentoring (e.g., Die Betreuung der Schüler erfolgt durch erfahrene Lehrer.)",
+    "article": "die"
   },
   {
     "word": "Einladung",
-    "translation": "invitation (e.g., Ich habe eine Einladung zur Schulfeier bekommen.)"
+    "translation": "invitation (e.g., Ich habe eine Einladung zur Schulfeier bekommen.)",
+    "article": "die"
   },
   {
     "word": "Elternabend",
-    "translation": "parent-teacher conference (e.g., Der Elternabend findet nächste Woche statt.)"
+    "translation": "parent-teacher conference (e.g., Der Elternabend findet nächste Woche statt.)",
+    "article": "der"
   },
   {
     "word": "Elternbrief",
-    "translation": "information letter for parents (e.g., Im Elternbrief steht alles über den Ausflug.)"
+    "translation": "information letter for parents (e.g., Im Elternbrief steht alles über den Ausflug.)",
+    "article": "der"
   },
   {
     "word": "Erzieherin",
-    "translation": "kindergarten teacher (e.g., Die Erzieherin spielt mit den Kindern im Garten.)"
+    "translation": "kindergarten teacher (e.g., Die Erzieherin spielt mit den Kindern im Garten.)",
+    "article": "die"
   },
   {
     "word": "Ferien",
-    "translation": "holidays (e.g., In den Sommerferien fahren wir ans Meer.)"
+    "translation": "holidays (e.g., In den Sommerferien fahren wir ans Meer.)",
+    "article": "die"
   },
   {
     "word": "Fest",
-    "translation": "celebration (e.g., Das Schulfest findet im Juni statt.)"
+    "translation": "celebration (e.g., Das Schulfest findet im Juni statt.)",
+    "article": "das"
   },
   {
     "word": "Hort",
-    "translation": "day-home for schoolchildren (e.g., Die Kinder gehen nach der Schule in den Hort.)"
+    "translation": "day-home for schoolchildren (e.g., Die Kinder gehen nach der Schule in den Hort.)",
+    "article": "der"
   },
   {
     "word": "Grundschule",
-    "translation": "primary school (e.g., Meine Tochter besucht die Grundschule im Dorf.)"
+    "translation": "primary school (e.g., Meine Tochter besucht die Grundschule im Dorf.)",
+    "article": "die"
   },
   {
     "word": "Gymnasium",
-    "translation": "≈ grammar school (e.g., Das Gymnasium bereitet die Schüler auf die Universität vor.)"
+    "translation": "≈ grammar school (e.g., Das Gymnasium bereitet die Schüler auf die Universität vor.)",
+    "article": "das"
   },
   {
     "word": "Kindergarten",
-    "translation": "kindergarten (e.g., Der Kindergarten hat einen großen Spielplatz.)"
+    "translation": "kindergarten (e.g., Der Kindergarten hat einen großen Spielplatz.)",
+    "article": "der"
   },
   {
     "word": "Kita",
-    "translation": "kindergarten (e.g., In der Kita lernen die Kinder spielerisch neue Dinge.)"
+    "translation": "kindergarten (e.g., In der Kita lernen die Kinder spielerisch neue Dinge.)",
+    "article": "die"
   },
   {
     "word": "Krippenplatz",
-    "translation": "day nursery admission (e.g., Wir haben endlich einen Krippenplatz für unser Kind bekommen.)"
+    "translation": "day nursery admission (e.g., Wir haben endlich einen Krippenplatz für unser Kind bekommen.)",
+    "article": "der"
   },
   {
     "word": "Lehre/Lehrstelle",
-    "translation": "apprenticeship (e.g., Er hat eine Lehrstelle als Bäcker gefunden.)"
+    "translation": "apprenticeship (e.g., Er hat eine Lehrstelle als Bäcker gefunden.)",
+    "article": "die"
   },
   {
     "word": "Lehrer",
-    "translation": "(form) teacher (e.g., Der Lehrer erklärt die Grammatik sehr gut.)"
+    "translation": "(form) teacher (e.g., Der Lehrer erklärt die Grammatik sehr gut.)",
+    "article": "der"
   },
   {
     "word": "Lösung",
-    "translation": "solution (e.g., Die Lösung zur Aufgabe steht auf der letzten Seite.)"
+    "translation": "solution (e.g., Die Lösung zur Aufgabe steht auf der letzten Seite.)",
+    "article": "die"
   },
   {
     "word": "Mitschüler",
-    "translation": "schoolfellow (e.g., Mein Mitschüler hilft mir bei den Hausaufgaben.)"
+    "translation": "schoolfellow (e.g., Mein Mitschüler hilft mir bei den Hausaufgaben.)",
+    "article": "der"
   },
   {
     "word": "Note",
-    "translation": "grade, mark (e.g., Sie hat eine gute Note in Mathe bekommen.)"
+    "translation": "grade, mark (e.g., Sie hat eine gute Note in Mathe bekommen.)",
+    "article": "die"
   },
   {
     "word": "Pause",
-    "translation": "break (e.g., In der Pause spielen die Kinder Fußball.)"
+    "translation": "break (e.g., In der Pause spielen die Kinder Fußball.)",
+    "article": "die"
   },
   {
     "word": "Realschule",
-    "translation": "secondary school for pupils up to 16 (e.g., Die Realschule bietet viele praktische Fächer an.)"
+    "translation": "secondary school for pupils up to 16 (e.g., Die Realschule bietet viele praktische Fächer an.)",
+    "article": "die"
   },
   {
     "word": "Schule",
-    "translation": "school (e.g., Die Schule beginnt um acht Uhr.)"
+    "translation": "school (e.g., Die Schule beginnt um acht Uhr.)",
+    "article": "die"
   },
   {
     "word": "Stundenplan",
-    "translation": "timetable (e.g., Der Stundenplan hängt im Klassenzimmer.)"
+    "translation": "timetable (e.g., Der Stundenplan hängt im Klassenzimmer.)",
+    "article": "der"
   },
   {
     "word": "Tagesmutter",
-    "translation": "childminder (e.g., Die Tagesmutter betreut drei Kleinkinder.)"
+    "translation": "childminder (e.g., Die Tagesmutter betreut drei Kleinkinder.)",
+    "article": "die"
   },
   {
     "word": "Tagesstätte",
-    "translation": "day-care centre (e.g., Die Tagesstätte hat helle, freundliche Räume.)"
+    "translation": "day-care centre (e.g., Die Tagesstätte hat helle, freundliche Räume.)",
+    "article": "die"
   },
   {
     "word": "Unterricht",
-    "translation": "lessons (e.g., Der Unterricht endet heute früher.)"
+    "translation": "lessons (e.g., Der Unterricht endet heute früher.)",
+    "article": "der"
   },
   {
     "word": "Unterrichtsstunde",
-    "translation": "lesson (e.g., Die erste Unterrichtsstunde ist Mathematik.)"
+    "translation": "lesson (e.g., Die erste Unterrichtsstunde ist Mathematik.)",
+    "article": "die"
   },
   {
     "word": "Apotheke",
-    "translation": "chemist’s (e.g., Die Apotheke hat auch am Wochenende geöffnet.)"
+    "translation": "chemist’s (e.g., Die Apotheke hat auch am Wochenende geöffnet.)",
+    "article": "die"
   },
   {
     "word": "Arzt",
-    "translation": "doctor (e.g., Der Arzt untersucht den Patienten gründlich.)"
+    "translation": "doctor (e.g., Der Arzt untersucht den Patienten gründlich.)",
+    "article": "der"
   },
   {
     "word": "Facharzt",
-    "translation": "specialist (e.g., Der Facharzt für Augenheilkunde ist sehr erfahren.)"
+    "translation": "specialist (e.g., Der Facharzt für Augenheilkunde ist sehr erfahren.)",
+    "article": "der"
   },
   {
     "word": "Bauchschmerzen",
-    "translation": "stomach ache (e.g., Er fehlt heute in der Schule wegen starker Bauchschmerzen.)"
+    "translation": "stomach ache (e.g., Er fehlt heute in der Schule wegen starker Bauchschmerzen.)",
+    "article": "die"
   },
   {
     "word": "Erkältung",
-    "translation": "(head) cold (e.g., Wegen einer Erkältung bleibe ich heute zu Hause.)"
+    "translation": "(head) cold (e.g., Wegen einer Erkältung bleibe ich heute zu Hause.)",
+    "article": "die"
   },
   {
     "word": "Gesicht",
-    "translation": "face (e.g., Er hat ein freundliches Gesicht.)"
+    "translation": "face (e.g., Er hat ein freundliches Gesicht.)",
+    "article": "das"
   },
   {
     "word": "Grippe",
-    "translation": "flu (e.g., Die Grippewelle hat viele Menschen krank gemacht.)"
+    "translation": "flu (e.g., Die Grippewelle hat viele Menschen krank gemacht.)",
+    "article": "die"
   },
   {
     "word": "Halsschmerzen",
-    "translation": "sore throat (e.g., Bei Halsschmerzen trinke ich gern warmen Tee.)"
+    "translation": "sore throat (e.g., Bei Halsschmerzen trinke ich gern warmen Tee.)",
+    "article": "die"
   },
   {
     "word": "Husten",
-    "translation": "cough (e.g., Sein Husten klingt schon viel besser.)"
+    "translation": "cough (e.g., Sein Husten klingt schon viel besser.)",
+    "article": "der"
   },
   {
     "word": "Körper",
-    "translation": "body (e.g., Bewegung ist wichtig für den ganzen Körper.)"
+    "translation": "body (e.g., Bewegung ist wichtig für den ganzen Körper.)",
+    "article": "der"
   },
   {
     "word": "Krankenhaus",
-    "translation": "hospital (e.g., Er musste nach dem Unfall ins Krankenhaus.)"
+    "translation": "hospital (e.g., Er musste nach dem Unfall ins Krankenhaus.)",
+    "article": "das"
   },
   {
     "word": "Krankenschein",
-    "translation": "certificate of illness (e.g., Der Krankenschein muss bei der Krankenkasse eingereicht werden.)"
+    "translation": "certificate of illness (e.g., Der Krankenschein muss bei der Krankenkasse eingereicht werden.)",
+    "article": "der"
   },
   {
     "word": "Krankenschwester",
-    "translation": "nurse (e.g., Die Krankenschwester bringt dem Patienten das Frühstück.)"
+    "translation": "nurse (e.g., Die Krankenschwester bringt dem Patienten das Frühstück.)",
+    "article": "die"
   },
   {
     "word": "Magenschmerzen",
-    "translation": "stomach ache (e.g., Magenschmerzen können von zu schnellem Essen kommen.)"
+    "translation": "stomach ache (e.g., Magenschmerzen können von zu schnellem Essen kommen.)",
+    "article": "die"
   },
   {
     "word": "Medikament",
-    "translation": "medication (e.g., Der Arzt hat ein neues Medikament verschrieben.)"
+    "translation": "medication (e.g., Der Arzt hat ein neues Medikament verschrieben.)",
+    "article": "das"
   },
   {
     "word": "Notfall",
-    "translation": "emergency (e.g., Im Notfall rufen Sie bitte die 112 an.)"
+    "translation": "emergency (e.g., Im Notfall rufen Sie bitte die 112 an.)",
+    "article": "der"
   },
   {
     "word": "Notruf",
-    "translation": "emergency call (e.g., Der Notruf wurde sofort entgegengenommen.)"
+    "translation": "emergency call (e.g., Der Notruf wurde sofort entgegengenommen.)",
+    "article": "der"
   },
   {
     "word": "Packungsbeilage",
-    "translation": "patient information leaflet (e.g., Lesen Sie die Packungsbeilage vor der Einnahme.)"
+    "translation": "patient information leaflet (e.g., Lesen Sie die Packungsbeilage vor der Einnahme.)",
+    "article": "die"
   },
   {
     "word": "Patient",
-    "translation": "patient (e.g., Der Patient wartet im Wartezimmer.)"
+    "translation": "patient (e.g., Der Patient wartet im Wartezimmer.)",
+    "article": "der"
   },
   {
     "word": "Pflaster",
-    "translation": "(sticking) plaster (e.g., Sie klebt ein Pflaster auf die kleine Wunde.)"
+    "translation": "(sticking) plaster (e.g., Sie klebt ein Pflaster auf die kleine Wunde.)",
+    "article": "das"
   },
   {
     "word": "Praxis",
-    "translation": "practice (e.g., Die Praxis ist montags und donnerstags geöffnet.)"
+    "translation": "practice (e.g., Die Praxis ist montags und donnerstags geöffnet.)",
+    "article": "die"
   },
   {
     "word": "Quartal",
-    "translation": "quarter (of the year) (e.g., Die Rechnung wird pro Quartal gestellt.)"
+    "translation": "quarter (of the year) (e.g., Die Rechnung wird pro Quartal gestellt.)",
+    "article": "das"
   },
   {
     "word": "Rezept",
-    "translation": "prescription (e.g., Das Rezept kann in jeder Apotheke eingelöst werden.)"
+    "translation": "prescription (e.g., Das Rezept kann in jeder Apotheke eingelöst werden.)",
+    "article": "das"
   },
   {
     "word": "Rücken",
-    "translation": "back (e.g., Nach langem Sitzen tut mir der Rücken weh.)"
+    "translation": "back (e.g., Nach langem Sitzen tut mir der Rücken weh.)",
+    "article": "der"
   },
   {
     "word": "Ruhe",
-    "translation": "rest (e.g., Nach der Operation braucht der Patient viel Ruhe.)"
+    "translation": "rest (e.g., Nach der Operation braucht der Patient viel Ruhe.)",
+    "article": "die"
   },
   {
     "word": "Salbe",
-    "translation": "ointment (e.g., Die Salbe hilft gegen Hautausschlag.)"
+    "translation": "ointment (e.g., Die Salbe hilft gegen Hautausschlag.)",
+    "article": "die"
   },
   {
     "word": "Schmerz",
-    "translation": "pain (e.g., Der Schmerz im Knie ist nach dem Training stärker geworden.)"
+    "translation": "pain (e.g., Der Schmerz im Knie ist nach dem Training stärker geworden.)",
+    "article": "der"
   },
   {
     "word": "Schnupfen",
-    "translation": "cold; runny nose (e.g., Bei Schnupfen trinke ich gern heißen Tee mit Honig.)"
+    "translation": "cold; runny nose (e.g., Bei Schnupfen trinke ich gern heißen Tee mit Honig.)",
+    "article": "der"
   },
   {
     "word": "Sprechstunde",
-    "translation": "consulting hours (e.g., Die Sprechstunde ist heute von 9 bis 12 Uhr.)"
+    "translation": "consulting hours (e.g., Die Sprechstunde ist heute von 9 bis 12 Uhr.)",
+    "article": "die"
   },
   {
     "word": "Untersuchung",
-    "translation": "examination (e.g., Die Untersuchung dauert etwa 20 Minuten.)"
+    "translation": "examination (e.g., Die Untersuchung dauert etwa 20 Minuten.)",
+    "article": "die"
   },
   {
     "word": "Verband",
-    "translation": "bandage (e.g., Der Verband muss täglich gewechselt werden.)"
+    "translation": "bandage (e.g., Der Verband muss täglich gewechselt werden.)",
+    "article": "der"
   },
   {
     "word": "Verletzung",
-    "translation": "injury (e.g., Die Verletzung am Arm ist nicht schlimm.)"
+    "translation": "injury (e.g., Die Verletzung am Arm ist nicht schlimm.)",
+    "article": "die"
   },
   {
     "word": "Wunde",
-    "translation": "wound (e.g., Die Wunde wird sorgfältig gereinigt.)"
+    "translation": "wound (e.g., Die Wunde wird sorgfältig gereinigt.)",
+    "article": "die"
   },
   {
     "word": "atmen",
@@ -4949,95 +5689,118 @@
   },
   {
     "word": "Abschnitt",
-    "translation": "section (e.g., Bitte lesen Sie den dritten Abschnitt des Textes.)"
+    "translation": "section (e.g., Bitte lesen Sie den dritten Abschnitt des Textes.)",
+    "article": "der"
   },
   {
     "word": "Anweisung",
-    "translation": "instruction (e.g., Folgen Sie bitte genau den Anweisungen auf der Verpackung.)"
+    "translation": "instruction (e.g., Folgen Sie bitte genau den Anweisungen auf der Verpackung.)",
+    "article": "die"
   },
   {
     "word": "Anzeige",
-    "translation": "ad (e.g., Die Anzeige in der Zeitung bewirbt ein neues Auto.)"
+    "translation": "ad (e.g., Die Anzeige in der Zeitung bewirbt ein neues Auto.)",
+    "article": "die"
   },
   {
     "word": "Artikel",
-    "translation": "article (e.g., Ich habe einen interessanten Artikel über Umwelt gelesen.)"
+    "translation": "article (e.g., Ich habe einen interessanten Artikel über Umwelt gelesen.)",
+    "article": "der"
   },
   {
     "word": "Beitrag",
-    "translation": "article, contribution (e.g., Sein Beitrag im Forum war sehr hilfreich.)"
+    "translation": "article, contribution (e.g., Sein Beitrag im Forum war sehr hilfreich.)",
+    "article": "der"
   },
   {
     "word": "Broschüre",
-    "translation": "brochure (e.g., In der Broschüre finden Sie Informationen über die Stadt.)"
+    "translation": "brochure (e.g., In der Broschüre finden Sie Informationen über die Stadt.)",
+    "article": "die"
   },
   {
     "word": "Prospekt",
-    "translation": "leaflet (e.g., Der Prospekt enthält aktuelle Angebote.)"
+    "translation": "leaflet (e.g., Der Prospekt enthält aktuelle Angebote.)",
+    "article": "der"
   },
   {
     "word": "Durchsage",
-    "translation": "announcement (e.g., Die Durchsage am Bahnhof informierte über Verspätungen.)"
+    "translation": "announcement (e.g., Die Durchsage am Bahnhof informierte über Verspätungen.)",
+    "article": "die"
   },
   {
     "word": "Einzelheit",
-    "translation": "detail (e.g., Die Einzelheiten des Vertrags werden noch besprochen.)"
+    "translation": "detail (e.g., Die Einzelheiten des Vertrags werden noch besprochen.)",
+    "article": "die"
   },
   {
     "word": "E-Mail",
-    "translation": "email (e.g., Ich habe dir gestern eine E-Mail geschickt.)"
+    "translation": "email (e.g., Ich habe dir gestern eine E-Mail geschickt.)",
+    "article": "die"
   },
   {
     "word": "Gebrauchsanweisung",
-    "translation": "instruction manual (e.g., Lesen Sie die Gebrauchsanweisung vor der Benutzung.)"
+    "translation": "instruction manual (e.g., Lesen Sie die Gebrauchsanweisung vor der Benutzung.)",
+    "article": "die"
   },
   {
     "word": "Hinweis",
-    "translation": "hint, reference (e.g., Der Lehrer gab uns einen Hinweis zur Lösung.)"
+    "translation": "hint, reference (e.g., Der Lehrer gab uns einen Hinweis zur Lösung.)",
+    "article": "der"
   },
   {
     "word": "Interview",
-    "translation": "interview (e.g., Das Interview mit der Schauspielerin war spannend.)"
+    "translation": "interview (e.g., Das Interview mit der Schauspielerin war spannend.)",
+    "article": "das"
   },
   {
     "word": "Kritik",
-    "translation": "critique, criticism (e.g., Seine Kritik am Film war sehr ausführlich.)"
+    "translation": "critique, criticism (e.g., Seine Kritik am Film war sehr ausführlich.)",
+    "article": "die"
   },
   {
     "word": "Moderator",
-    "translation": "moderator, host (e.g., Der Moderator führte souverän durch die Sendung.)"
+    "translation": "moderator, host (e.g., Der Moderator führte souverän durch die Sendung.)",
+    "article": "der"
   },
   {
     "word": "Monitor",
-    "translation": "monitor (e.g., Der neue Monitor hat eine hohe Auflösung.)"
+    "translation": "monitor (e.g., Der neue Monitor hat eine hohe Auflösung.)",
+    "article": "der"
   },
   {
     "word": "Nachricht",
-    "translation": "news (e.g., Ich habe eine gute Nachricht für dich.)"
+    "translation": "news (e.g., Ich habe eine gute Nachricht für dich.)",
+    "article": "die"
   },
   {
     "word": "Presse",
-    "translation": "press (e.g., Die Presse berichtet über das Ereignis.)"
+    "translation": "press (e.g., Die Presse berichtet über das Ereignis.)",
+    "article": "die"
   },
   {
     "word": "Rundfunk",
-    "translation": "radio (e.g., Der Rundfunk sendet heute eine Live-Reportage.)"
+    "translation": "radio (e.g., Der Rundfunk sendet heute eine Live-Reportage.)",
+    "article": "der"
   },
   {
     "word": "Überschrift",
-    "translation": "headline (e.g., Die Überschrift des Artikels macht neugierig.)"
+    "translation": "headline (e.g., Die Überschrift des Artikels macht neugierig.)",
+    "article": "die"
   },
   {
     "word": "Vortrag",
-    "translation": "lecture (e.g., Der Vortrag über Klimawandel war sehr informativ.)"
+    "translation": "lecture (e.g., Der Vortrag über Klimawandel war sehr informativ.)",
+    "article": "der"
   },
   {
     "word": "Zeitung",
-    "translation": "newspaper (e.g., Die Zeitung erscheint täglich.)"
+    "translation": "newspaper (e.g., Die Zeitung erscheint täglich.)",
+    "article": "die"
   },
   {
     "word": "Zeitschrift",
-    "translation": "magazine (e.g., Sie liest gern Modezeitschriften.)"
+    "translation": "magazine (e.g., Sie liest gern Modezeitschriften.)",
+    "article": "die"
   },
   {
     "word": "anfangen mit",
@@ -5093,99 +5856,123 @@
   },
   {
     "word": "Erfahrung",
-    "translation": "experience (e.g., Er hat viel Erfahrung im Unterrichten.)"
+    "translation": "experience (e.g., Er hat viel Erfahrung im Unterrichten.)",
+    "article": "die"
   },
   {
     "word": "Erfolg",
-    "translation": "success (e.g., Der Vortrag war ein großer Erfolg.)"
+    "translation": "success (e.g., Der Vortrag war ein großer Erfolg.)",
+    "article": "der"
   },
   {
     "word": "Fachmann",
-    "translation": "specialist (e.g., Der Fachmann repariert die defekte Maschine.)"
+    "translation": "specialist (e.g., Der Fachmann repariert die defekte Maschine.)",
+    "article": "der"
   },
   {
     "word": "Fachfrau",
-    "translation": "specialist (e.g., Die Fachfrau berät Kunden im Geschäft.)"
+    "translation": "specialist (e.g., Die Fachfrau berät Kunden im Geschäft.)",
+    "article": "die"
   },
   {
     "word": "Fehler",
-    "translation": "mistake (e.g., Jeder macht mal einen Fehler.)"
+    "translation": "mistake (e.g., Jeder macht mal einen Fehler.)",
+    "article": "der"
   },
   {
     "word": "Fortschritt",
-    "translation": "progress (e.g., Du hast große Fortschritte im Deutschlernen gemacht.)"
+    "translation": "progress (e.g., Du hast große Fortschritte im Deutschlernen gemacht.)",
+    "article": "der"
   },
   {
     "word": "Gebühr",
-    "translation": "fee (e.g., Für den Kurs fällt eine Gebühr von 50 Euro an.)"
+    "translation": "fee (e.g., Für den Kurs fällt eine Gebühr von 50 Euro an.)",
+    "article": "die"
   },
   {
     "word": "Kursgebühr",
-    "translation": "course fee (e.g., Die Kursgebühr muss vor Beginn bezahlt werden.)"
+    "translation": "course fee (e.g., Die Kursgebühr muss vor Beginn bezahlt werden.)",
+    "article": "die"
   },
   {
     "word": "Hörverstehen",
-    "translation": "auditory comprehension (e.g., Das Hörverstehen wird in der Prüfung getestet.)"
+    "translation": "auditory comprehension (e.g., Das Hörverstehen wird in der Prüfung getestet.)",
+    "article": "das"
   },
   {
     "word": "Kurs",
-    "translation": "course (e.g., Der Kurs findet zweimal pro Woche statt.)"
+    "translation": "course (e.g., Der Kurs findet zweimal pro Woche statt.)",
+    "article": "der"
   },
   {
     "word": "Integrationskurs",
-    "translation": "integrative course (e.g., Der Integrationskurs hilft beim Deutschlernen.)"
+    "translation": "integrative course (e.g., Der Integrationskurs hilft beim Deutschlernen.)",
+    "article": "der"
   },
   {
     "word": "Intensivkurs",
-    "translation": "intensive course (e.g., Der Intensivkurs dauert vier Wochen.)"
+    "translation": "intensive course (e.g., Der Intensivkurs dauert vier Wochen.)",
+    "article": "der"
   },
   {
     "word": "Kursleiter",
-    "translation": "instructor (e.g., Der Kursleiter erklärt die Grammatikregeln.)"
+    "translation": "instructor (e.g., Der Kursleiter erklärt die Grammatikregeln.)",
+    "article": "der"
   },
   {
     "word": "Kursleiterin",
-    "translation": "instructor (e.g., Die Kursleiterin gibt den Teilnehmern Hausaufgaben.)"
+    "translation": "instructor (e.g., Die Kursleiterin gibt den Teilnehmern Hausaufgaben.)",
+    "article": "die"
   },
   {
     "word": "Lehrerin",
-    "translation": "teacher (e.g., Die Lehrerin bereitet den Unterricht sorgfältig vor.)"
+    "translation": "teacher (e.g., Die Lehrerin bereitet den Unterricht sorgfältig vor.)",
+    "article": "die"
   },
   {
     "word": "Leute",
-    "translation": "people (e.g., Viele Leute lernen Deutsch als Fremdsprache.)"
+    "translation": "people (e.g., Viele Leute lernen Deutsch als Fremdsprache.)",
+    "article": "die"
   },
   {
     "word": "Platz",
-    "translation": "place, space, spot (e.g., Für dich ist hier noch ein Platz frei.)"
+    "translation": "place, space, spot (e.g., Für dich ist hier noch ein Platz frei.)",
+    "article": "der"
   },
   {
     "word": "Prüfung",
-    "translation": "exam (e.g., Die Prüfung beginnt um neun Uhr.)"
+    "translation": "exam (e.g., Die Prüfung beginnt um neun Uhr.)",
+    "article": "die"
   },
   {
     "word": "Teilnehmer",
-    "translation": "participant (e.g., Jeder Teilnehmer bekommt ein Zertifikat.)"
+    "translation": "participant (e.g., Jeder Teilnehmer bekommt ein Zertifikat.)",
+    "article": "der"
   },
   {
     "word": "Test",
-    "translation": "test (e.g., Der Test dauert 30 Minuten.)"
+    "translation": "test (e.g., Der Test dauert 30 Minuten.)",
+    "article": "der"
   },
   {
     "word": "Thema",
-    "translation": "topic (e.g., Das Thema der Stunde ist Umweltschutz.)"
+    "translation": "topic (e.g., Das Thema der Stunde ist Umweltschutz.)",
+    "article": "das"
   },
   {
     "word": "Übung",
-    "translation": "exercise (e.g., Die Übung hilft beim Festigen des Wissens.)"
+    "translation": "exercise (e.g., Die Übung hilft beim Festigen des Wissens.)",
+    "article": "die"
   },
   {
     "word": "Zertifikat",
-    "translation": "certificate (e.g., Das Zertifikat bestätigt den erfolgreichen Kursabschluss.)"
+    "translation": "certificate (e.g., Das Zertifikat bestätigt den erfolgreichen Kursabschluss.)",
+    "article": "das"
   },
   {
     "word": "Zeugnis",
-    "translation": "report (e.g., Im Zeugnis stehen alle Noten des Schuljahres.)"
+    "translation": "report (e.g., Im Zeugnis stehen alle Noten des Schuljahres.)",
+    "article": "das"
   },
   {
     "word": "ausfüllen",
@@ -5269,39 +6056,48 @@
   },
   {
     "word": "Karriere",
-    "translation": "career (e.g., Sie plant eine Karriere im Gesundheitswesen.)"
+    "translation": "career (e.g., Sie plant eine Karriere im Gesundheitswesen.)",
+    "article": "die"
   },
   {
     "word": "Organisation",
-    "translation": "organisation (e.g., Die Organisation hilft Menschen in Not.)"
+    "translation": "organisation (e.g., Die Organisation hilft Menschen in Not.)",
+    "article": "die"
   },
   {
     "word": "Praktikum",
-    "translation": "internship (e.g., Das Praktikum dauert drei Monate.)"
+    "translation": "internship (e.g., Das Praktikum dauert drei Monate.)",
+    "article": "das"
   },
   {
     "word": "Projekt",
-    "translation": "project (e.g., Das Projekt wird von internationalen Partnern unterstützt.)"
+    "translation": "project (e.g., Das Projekt wird von internationalen Partnern unterstützt.)",
+    "article": "das"
   },
   {
     "word": "Programm",
-    "translation": "programme (e.g., Das Programm bietet viele interessante Vorträge.)"
+    "translation": "programme (e.g., Das Programm bietet viele interessante Vorträge.)",
+    "article": "das"
   },
   {
     "word": "Semester",
-    "translation": "semester (e.g., Das Wintersemester beginnt im Oktober.)"
+    "translation": "semester (e.g., Das Wintersemester beginnt im Oktober.)",
+    "article": "das"
   },
   {
     "word": "Studium",
-    "translation": "(course of) study (e.g., Er hat sein Studium der Medizin abgeschlossen.)"
+    "translation": "(course of) study (e.g., Er hat sein Studium der Medizin abgeschlossen.)",
+    "article": "das"
   },
   {
     "word": "Studierende",
-    "translation": "student (e.g., Die Studierenden nehmen an der Vorlesung teil.)"
+    "translation": "student (e.g., Die Studierenden nehmen an der Vorlesung teil.)",
+    "article": "die"
   },
   {
     "word": "Weiterbildung",
-    "translation": "skills enhancement, further training (e.g., Die Weiterbildung wird vom Arbeitgeber finanziert.)"
+    "translation": "skills enhancement, further training (e.g., Die Weiterbildung wird vom Arbeitgeber finanziert.)",
+    "article": "die"
   },
   {
     "word": "ausbilden",
@@ -5329,55 +6125,68 @@
   },
   {
     "word": "Buchung",
-    "translation": "booking (e.g., Die Buchung der Reise wurde per Kreditkarte bezahlt.)"
+    "translation": "booking (e.g., Die Buchung der Reise wurde per Kreditkarte bezahlt.)",
+    "article": "die"
   },
   {
     "word": "Bankangestellte",
-    "translation": "bank employee (e.g., Der Bankangestellte hilft dem Kunden bei der Kontoeröffnung.)"
+    "translation": "bank employee (e.g., Der Bankangestellte hilft dem Kunden bei der Kontoeröffnung.)",
+    "article": "die"
   },
   {
     "word": "Dauerauftrag",
-    "translation": "standing order (e.g., Ich habe einen Dauerauftrag für meine Miete eingerichtet.)"
+    "translation": "standing order (e.g., Ich habe einen Dauerauftrag für meine Miete eingerichtet.)",
+    "article": "der"
   },
   {
     "word": "Geldautomat",
-    "translation": "cash machine (e.g., Ich hebe Geld am Geldautomaten ab.)"
+    "translation": "cash machine (e.g., Ich hebe Geld am Geldautomaten ab.)",
+    "article": "der"
   },
   {
     "word": "Girokonto",
-    "translation": "current account (e.g., Mein Gehalt wird auf mein Girokonto überwiesen.)"
+    "translation": "current account (e.g., Mein Gehalt wird auf mein Girokonto überwiesen.)",
+    "article": "das"
   },
   {
     "word": "Kontoauszug",
-    "translation": "bank statement (e.g., Der Kontoauszug zeigt alle Transaktionen des Monats.)"
+    "translation": "bank statement (e.g., Der Kontoauszug zeigt alle Transaktionen des Monats.)",
+    "article": "der"
   },
   {
     "word": "Kontoauszugsdrucker",
-    "translation": "statement printer (e.g., Der Kontoauszugsdrucker ist momentan außer Betrieb.)"
+    "translation": "statement printer (e.g., Der Kontoauszugsdrucker ist momentan außer Betrieb.)",
+    "article": "der"
   },
   {
     "word": "Kredit",
-    "translation": "credit (e.g., Er hat einen Kredit für den Hauskauf aufgenommen.)"
+    "translation": "credit (e.g., Er hat einen Kredit für den Hauskauf aufgenommen.)",
+    "article": "der"
   },
   {
     "word": "Überziehungskredit",
-    "translation": "overdraft facility (e.g., Das Girokonto hat einen Überziehungskredit von 1000 Euro.)"
+    "translation": "overdraft facility (e.g., Das Girokonto hat einen Überziehungskredit von 1000 Euro.)",
+    "article": "der"
   },
   {
     "word": "PIN/TAN-Nummer",
-    "translation": "PIN/TAN number (e.g., Die PIN-Nummer darf nicht weitergegeben werden.)"
+    "translation": "PIN/TAN number (e.g., Die PIN-Nummer darf nicht weitergegeben werden.)",
+    "article": "die"
   },
   {
     "word": "Scheck",
-    "translation": "cheque (e.g., Der Kunde bezahlt die Rechnung mit einem Scheck.)"
+    "translation": "cheque (e.g., Der Kunde bezahlt die Rechnung mit einem Scheck.)",
+    "article": "der"
   },
   {
     "word": "Überweisung",
-    "translation": "bank transfer (e.g., Die Überweisung des Geldes erfolgt sofort.)"
+    "translation": "bank transfer (e.g., Die Überweisung des Geldes erfolgt sofort.)",
+    "article": "die"
   },
   {
     "word": "Zins",
-    "translation": "interest rate (e.g., Der Zins für den Kredit ist sehr niedrig.)"
+    "translation": "interest rate (e.g., Der Zins für den Kredit ist sehr niedrig.)",
+    "article": "der"
   },
   {
     "word": "abheben",
@@ -5393,31 +6202,38 @@
   },
   {
     "word": "Arbeitslosenversicherung",
-    "translation": "unemployment insurance (e.g., Die Arbeitslosenversicherung unterstützt Menschen, die ihre Arbeit verloren haben.)"
+    "translation": "unemployment insurance (e.g., Die Arbeitslosenversicherung unterstützt Menschen, die ihre Arbeit verloren haben.)",
+    "article": "die"
   },
   {
     "word": "Krankenkasse",
-    "translation": "health insurance company (e.g., Die Krankenkasse übernimmt die Kosten für den Arztbesuch.)"
+    "translation": "health insurance company (e.g., Die Krankenkasse übernimmt die Kosten für den Arztbesuch.)",
+    "article": "die"
   },
   {
     "word": "Krankenversicherung",
-    "translation": "health insurance (e.g., In Deutschland muss jeder eine Krankenversicherung haben.)"
+    "translation": "health insurance (e.g., In Deutschland muss jeder eine Krankenversicherung haben.)",
+    "article": "die"
   },
   {
     "word": "Laufzeit",
-    "translation": "term time (e.g., Die Laufzeit des Vertrags beträgt zwei Jahre.)"
+    "translation": "term time (e.g., Die Laufzeit des Vertrags beträgt zwei Jahre.)",
+    "article": "die"
   },
   {
     "word": "Lebensversicherung",
-    "translation": "life insurance (e.g., Die Lebensversicherung sichert die Familie finanziell ab.)"
+    "translation": "life insurance (e.g., Die Lebensversicherung sichert die Familie finanziell ab.)",
+    "article": "die"
   },
   {
     "word": "Versicherungsmakler",
-    "translation": "insurance agent (e.g., Der Versicherungsmakler berät Kunden zu verschiedenen Angeboten.)"
+    "translation": "insurance agent (e.g., Der Versicherungsmakler berät Kunden zu verschiedenen Angeboten.)",
+    "article": "der"
   },
   {
     "word": "Versicherungsagentur",
-    "translation": "insurance agency (e.g., Die Versicherungsagentur bietet verschiedene Policen an.)"
+    "translation": "insurance agency (e.g., Die Versicherungsagentur bietet verschiedene Policen an.)",
+    "article": "die"
   },
   {
     "word": "eine Versicherung / einen Vertrag abschließen",
@@ -5433,67 +6249,83 @@
   },
   {
     "word": "Amt",
-    "translation": "department, office (e.g., Das Amt ist für die Ausstellung von Pässen zuständig.)"
+    "translation": "department, office (e.g., Das Amt ist für die Ausstellung von Pässen zuständig.)",
+    "article": "das"
   },
   {
     "word": "Antrag",
-    "translation": "application (e.g., Der Antrag auf Unterstützung wurde genehmigt.)"
+    "translation": "application (e.g., Der Antrag auf Unterstützung wurde genehmigt.)",
+    "article": "der"
   },
   {
     "word": "Antragsteller",
-    "translation": "applicant (e.g., Der Antragsteller muss alle erforderlichen Unterlagen einreichen.)"
+    "translation": "applicant (e.g., Der Antragsteller muss alle erforderlichen Unterlagen einreichen.)",
+    "article": "der"
   },
   {
     "word": "Ausländeramt",
-    "translation": "Foreigners' (Registration) Office (e.g., Das Ausländeramt bearbeitet Visa-Anträge.)"
+    "translation": "Foreigners' (Registration) Office (e.g., Das Ausländeramt bearbeitet Visa-Anträge.)",
+    "article": "das"
   },
   {
     "word": "Arbeitserlaubnis",
-    "translation": "work permit (e.g., Für den Job braucht man eine Arbeitserlaubnis.)"
+    "translation": "work permit (e.g., Für den Job braucht man eine Arbeitserlaubnis.)",
+    "article": "die"
   },
   {
     "word": "Aufenthalt",
-    "translation": "stay, residence (e.g., Sein Aufenthalt in Berlin dauerte drei Monate.)"
+    "translation": "stay, residence (e.g., Sein Aufenthalt in Berlin dauerte drei Monate.)",
+    "article": "der"
   },
   {
     "word": "Ausländer",
-    "translation": "foreigner (e.g., Viele Ausländer besuchen Deutschland als Touristen.)"
+    "translation": "foreigner (e.g., Viele Ausländer besuchen Deutschland als Touristen.)",
+    "article": "der"
   },
   {
     "word": "Ausweis",
-    "translation": "ID card (e.g., Bitte zeigen Sie Ihren Ausweis vor.)"
+    "translation": "ID card (e.g., Bitte zeigen Sie Ihren Ausweis vor.)",
+    "article": "der"
   },
   {
     "word": "Beamte",
-    "translation": "official (e.g., Der Beamte prüft die Dokumente.)"
+    "translation": "official (e.g., Der Beamte prüft die Dokumente.)",
+    "article": "der"
   },
   {
     "word": "Behörde",
-    "translation": "department (e.g., Die Behörde ist für diesen Fall zuständig.)"
+    "translation": "department (e.g., Die Behörde ist für diesen Fall zuständig.)",
+    "article": "die"
   },
   {
     "word": "Büro",
-    "translation": "office (e.g., Mein Büro befindet sich im dritten Stock.)"
+    "translation": "office (e.g., Mein Büro befindet sich im dritten Stock.)",
+    "article": "das"
   },
   {
     "word": "Bürokratie",
-    "translation": "bureaucracy (e.g., Die Bürokratie macht vieles komplizierter.)"
+    "translation": "bureaucracy (e.g., Die Bürokratie macht vieles komplizierter.)",
+    "article": "die"
   },
   {
     "word": "Einbürgerung",
-    "translation": "naturalisation (e.g., Nach zehn Jahren erhielt er die Einbürgerung.)"
+    "translation": "naturalisation (e.g., Nach zehn Jahren erhielt er die Einbürgerung.)",
+    "article": "die"
   },
   {
     "word": "Einwohnermeldeamt",
-    "translation": "Residents’ Registration Office (e.g., Die Adresse muss beim Einwohnermeldeamt gemeldet werden.)"
+    "translation": "Residents’ Registration Office (e.g., Die Adresse muss beim Einwohnermeldeamt gemeldet werden.)",
+    "article": "das"
   },
   {
     "word": "Formular",
-    "translation": "form (e.g., Bitte füllen Sie das Formular sorgfältig aus.)"
+    "translation": "form (e.g., Bitte füllen Sie das Formular sorgfältig aus.)",
+    "article": "das"
   },
   {
     "word": "Genehmigung",
-    "translation": "permission (e.g., Für den Bau braucht man eine Genehmigung.)"
+    "translation": "permission (e.g., Für den Bau braucht man eine Genehmigung.)",
+    "article": "die"
   },
   {
     "word": "GEZ",
@@ -5501,31 +6333,38 @@
   },
   {
     "word": "Kindergeldstelle",
-    "translation": "Child Benefit Office (e.g., Die Kindergeldstelle bearbeitet Anträge auf Kindergeld.)"
+    "translation": "Child Benefit Office (e.g., Die Kindergeldstelle bearbeitet Anträge auf Kindergeld.)",
+    "article": "die"
   },
   {
     "word": "Mitarbeiter",
-    "translation": "staff, employee (e.g., Der Mitarbeiter hilft bei der Antragstellung.)"
+    "translation": "staff, employee (e.g., Der Mitarbeiter hilft bei der Antragstellung.)",
+    "article": "der"
   },
   {
     "word": "Papier",
-    "translation": "paper (e.g., Ich habe alle wichtigen Papiere zu Hause.)"
+    "translation": "paper (e.g., Ich habe alle wichtigen Papiere zu Hause.)",
+    "article": "das"
   },
   {
     "word": "Sachbearbeiter",
-    "translation": "person responsible (e.g., Der Sachbearbeiter kümmert sich um Ihren Fall.)"
+    "translation": "person responsible (e.g., Der Sachbearbeiter kümmert sich um Ihren Fall.)",
+    "article": "der"
   },
   {
     "word": "Termin",
-    "translation": "appointment (e.g., Für den Passantrag braucht man einen Termin.)"
+    "translation": "appointment (e.g., Für den Passantrag braucht man einen Termin.)",
+    "article": "der"
   },
   {
     "word": "Vordruck",
-    "translation": "form (e.g., Der Vordruck kann online heruntergeladen werden.)"
+    "translation": "form (e.g., Der Vordruck kann online heruntergeladen werden.)",
+    "article": "der"
   },
   {
     "word": "Zuständigkeit",
-    "translation": "(area of) responsibility (e.g., Die Zuständigkeit für dieses Projekt liegt bei der Abteilung Marketing.)"
+    "translation": "(area of) responsibility (e.g., Die Zuständigkeit für dieses Projekt liegt bei der Abteilung Marketing.)",
+    "article": "die"
   },
   {
     "word": "ablehnen",

@@ -337,6 +337,14 @@
   flex: 1;
 }
 
+.article {
+  color: #6366f1;
+  font-weight: 600;
+  margin-right: 0.3em;
+  font-size: 0.85em;
+  /* Make article slightly smaller and more prominent */
+}
+
 .pronunciation-icon {
   font-size: 1.5rem;
   cursor: pointer;

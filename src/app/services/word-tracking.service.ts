@@ -29,6 +29,7 @@ export class WordTrackingService {
       progress = {
         word: word.word,
         translation: word.translation,
+        article: word.article, // Include article if present
         source,
         status: 'new',
         practiceCount: 0,

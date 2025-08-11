@@ -75,7 +75,10 @@
     <!-- German word display with pronunciation icon -->
     <div class="word-container">
       <div class="word-header">
-        <div class="german-word">{{ currentWord.word }}</div>
+        <div class="german-word">
+          <span *ngIf="currentWord.article" class="article">{{ currentWord.article }}</span>
+          {{ currentWord.word }}
+        </div>
         <!-- Pronunciation icon only -->
         <span 
           *ngIf="isSpeechSupported"
