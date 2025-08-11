@@ -18,6 +18,16 @@ export interface SessionProgress {
   sessionCards: Word[];
   sessionStartTime: Date;
   isComplete: boolean;
+  visitedCards: {
+    [cardIndex: number]:
+      | 'correct'
+      | 'incorrect'
+      | 'practice-again'
+      | 'unvisited';
+  }; // Track card status
+  cardAnswers: {
+    [cardIndex: number]: 'correct' | 'incorrect' | 'practice-again';
+  }; // Track the actual answer for each card to handle changes
 }
 
 export interface CompletedSession {
@@ -34,7 +44,7 @@ export interface CompletedSession {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SessionService {
   private readonly SESSION_CONFIG_KEY = 'session_config';
@@ -44,13 +54,17 @@ export class SessionService {
   // Default session configuration
   private defaultConfig: SessionConfig = {
     cardsPerSession: 20,
-    sessionType: 'mixed'
+    sessionType: 'mixed',
   };
 
-  private sessionConfigSubject = new BehaviorSubject<SessionConfig>(this.defaultConfig);
+  private sessionConfigSubject = new BehaviorSubject<SessionConfig>(
+    this.defaultConfig
+  );
   public sessionConfig$ = this.sessionConfigSubject.asObservable();
 
-  private sessionProgressSubject = new BehaviorSubject<SessionProgress | null>(null);
+  private sessionProgressSubject = new BehaviorSubject<SessionProgress | null>(
+    null
+  );
   public sessionProgress$ = this.sessionProgressSubject.asObservable();
 
   private sessionActiveSubject = new BehaviorSubject<boolean>(false);
@@ -82,7 +96,7 @@ export class SessionService {
     try {
       await Preferences.set({
         key: this.SESSION_CONFIG_KEY,
-        value: JSON.stringify(this.sessionConfigSubject.value)
+        value: JSON.stringify(this.sessionConfigSubject.value),
       });
     } catch (error) {
       console.error('Error saving session config:', error);
@@ -111,9 +125,12 @@ export class SessionService {
    */
   async startSession(): Promise<SessionProgress> {
     const config = this.sessionConfigSubject.value;
-    
+
     // Select words for this session based on configuration
-    const sessionCards = this.selectWordsForSession(this.wordService.allWords, config);
+    const sessionCards = this.selectWordsForSession(
+      this.wordService.allWords,
+      config
+    );
 
     const sessionProgress: SessionProgress = {
       currentCard: 0,
@@ -123,14 +140,16 @@ export class SessionService {
       practiceAgainCount: 0,
       sessionCards,
       sessionStartTime: new Date(),
-      isComplete: false
+      isComplete: false,
+      visitedCards: {}, // Initialize empty visited cards object
+      cardAnswers: {}, // Initialize empty card answers object
     };
 
     this.sessionProgressSubject.next(sessionProgress);
     this.sessionActiveSubject.next(true);
-    
+
     await this.saveCurrentSession(sessionProgress);
-    
+
     console.log(`Started new session with ${sessionCards.length} cards`);
     return sessionProgress;
   }
@@ -141,19 +160,21 @@ export class SessionService {
   private selectWordsForSession(words: Word[], config: SessionConfig): Word[] {
     const sessionCards: Word[] = [];
     const targetCount = Math.min(config.cardsPerSession, words.length);
-    
+
     // Use weighted selection for better learning experience
     const usedWords = new Set<string>();
-    
+
     for (let i = 0; i < targetCount; i++) {
       const nextWord = this.wordService.getNextWord();
-      
+
       if (nextWord && !usedWords.has(nextWord.word)) {
         sessionCards.push(nextWord);
         usedWords.add(nextWord.word);
       } else {
         // Fallback: find unused word with lowest score
-        const availableWords = words.filter(word => !usedWords.has(word.word));
+        const availableWords = words.filter(
+          (word) => !usedWords.has(word.word)
+        );
         if (availableWords.length > 0) {
           // Sort by cached score (prioritize lower scores) then randomly
           const sortedWords = availableWords.sort((a, b) => {
@@ -162,42 +183,74 @@ export class SessionService {
             if (scoreA !== scoreB) return scoreA - scoreB;
             return Math.random() - 0.5;
           });
-          
+
           const fallbackWord = sortedWords[0];
           sessionCards.push(fallbackWord);
           usedWords.add(fallbackWord.word);
         }
       }
     }
-    
-    console.log(`Selected ${sessionCards.length} words for session using weighted selection`);
-    console.log(`Score distribution:`, sessionCards.map(w => ({
-      word: w.word,
-      score: w.score ?? 0
-    })));
-    
+
+    console.log(
+      `Selected ${sessionCards.length} words for session using weighted selection`
+    );
+    console.log(
+      `Score distribution:`,
+      sessionCards.map((w) => ({
+        word: w.word,
+        score: w.score ?? 0,
+      }))
+    );
+
     return sessionCards;
   }
 
   /**
    * Update session progress after answering a card
    */
-  async updateSessionProgress(isCorrect: boolean, isPracticeAgain: boolean = false): Promise<void> {
+  async updateSessionProgress(
+    isCorrect: boolean,
+    isPracticeAgain: boolean = false
+  ): Promise<void> {
     const currentProgress = this.sessionProgressSubject.value;
     if (!currentProgress) return;
 
     const updatedProgress = { ...currentProgress };
-    
-    if (isPracticeAgain) {
-      updatedProgress.practiceAgainCount++;
-    } else if (isCorrect) {
-      updatedProgress.correctCount++;
-    } else {
-      updatedProgress.incorrectCount++;
+    const currentCardIndex = currentProgress.currentCard;
+
+    // Get the previous answer for this card (if any)
+    const previousAnswer = currentProgress.cardAnswers[currentCardIndex];
+
+    // Determine the new answer
+    const newAnswer: 'correct' | 'incorrect' | 'practice-again' =
+      isPracticeAgain ? 'practice-again' : isCorrect ? 'correct' : 'incorrect';
+
+    // If there was a previous answer, decrease its count
+    if (previousAnswer) {
+      if (previousAnswer === 'correct') {
+        updatedProgress.correctCount--;
+      } else if (previousAnswer === 'incorrect') {
+        updatedProgress.incorrectCount--;
+      } else if (previousAnswer === 'practice-again') {
+        updatedProgress.practiceAgainCount--;
+      }
     }
 
+    // Increase the count for the new answer
+    if (newAnswer === 'correct') {
+      updatedProgress.correctCount++;
+    } else if (newAnswer === 'incorrect') {
+      updatedProgress.incorrectCount++;
+    } else if (newAnswer === 'practice-again') {
+      updatedProgress.practiceAgainCount++;
+    }
+
+    // Update the tracking objects
+    updatedProgress.visitedCards[currentCardIndex] = newAnswer;
+    updatedProgress.cardAnswers[currentCardIndex] = newAnswer;
+
     updatedProgress.currentCard++;
-    
+
     // Check if session is complete
     if (updatedProgress.currentCard >= updatedProgress.totalCards) {
       updatedProgress.isComplete = true;
@@ -209,9 +262,85 @@ export class SessionService {
   }
 
   /**
+   * Navigate to next card without scoring (for swipe forward)
+   */
+  async navigateToNextCard(): Promise<boolean> {
+    const currentProgress = this.sessionProgressSubject.value;
+    if (!currentProgress) return false;
+
+    if (currentProgress.currentCard >= currentProgress.totalCards - 1) {
+      return false; // Can't go beyond last card
+    }
+
+    const updatedProgress = { ...currentProgress };
+    updatedProgress.currentCard++;
+
+    this.sessionProgressSubject.next(updatedProgress);
+    await this.saveCurrentSession(updatedProgress);
+    return true;
+  }
+
+  /**
+   * Navigate to previous card (for swipe backward)
+   */
+  async navigateToPreviousCard(): Promise<boolean> {
+    const currentProgress = this.sessionProgressSubject.value;
+    if (!currentProgress) return false;
+
+    if (currentProgress.currentCard <= 0) {
+      return false; // Can't go before first card
+    }
+
+    const updatedProgress = { ...currentProgress };
+    updatedProgress.currentCard--;
+
+    this.sessionProgressSubject.next(updatedProgress);
+    await this.saveCurrentSession(updatedProgress);
+    return true;
+  }
+
+  /**
+   * Check if can navigate forward
+   */
+  canNavigateForward(): boolean {
+    const progress = this.sessionProgressSubject.value;
+    return progress ? progress.currentCard < progress.totalCards - 1 : false;
+  }
+
+  /**
+   * Check if can navigate backward
+   */
+  canNavigateBackward(): boolean {
+    const progress = this.sessionProgressSubject.value;
+    return progress ? progress.currentCard > 0 : false;
+  }
+
+  /**
+   * Get the status of a card (visited or not)
+   */
+  getCardStatus(
+    cardIndex: number
+  ): 'correct' | 'incorrect' | 'practice-again' | 'unvisited' {
+    const progress = this.sessionProgressSubject.value;
+    if (!progress) return 'unvisited';
+    return progress.visitedCards[cardIndex] || 'unvisited';
+  }
+
+  /**
+   * Check if current card has been visited before
+   */
+  isCurrentCardVisited(): boolean {
+    const progress = this.sessionProgressSubject.value;
+    if (!progress) return false;
+    return progress.visitedCards[progress.currentCard] !== undefined;
+  }
+
+  /**
    * Complete the current session
    */
-  private async completeSession(sessionProgress: SessionProgress): Promise<void> {
+  private async completeSession(
+    sessionProgress: SessionProgress
+  ): Promise<void> {
     const completedSession: CompletedSession = {
       id: `session_${Date.now()}`,
       startTime: sessionProgress.sessionStartTime,
@@ -222,7 +351,7 @@ export class SessionService {
       practiceAgainCount: sessionProgress.practiceAgainCount,
       sessionType: this.sessionConfigSubject.value.sessionType,
       cardsPerSession: this.sessionConfigSubject.value.cardsPerSession,
-      successRate: this.calculateSuccessRate(sessionProgress)
+      successRate: this.calculateSuccessRate(sessionProgress),
     };
 
     // Save to session history
@@ -242,7 +371,8 @@ export class SessionService {
    * Calculate success rate for session
    */
   private calculateSuccessRate(sessionProgress: SessionProgress): number {
-    const totalAnswered = sessionProgress.correctCount + sessionProgress.incorrectCount;
+    const totalAnswered =
+      sessionProgress.correctCount + sessionProgress.incorrectCount;
     if (totalAnswered === 0) return 0;
     return Math.round((sessionProgress.correctCount / totalAnswered) * 100);
   }
@@ -250,11 +380,13 @@ export class SessionService {
   /**
    * Save current session progress to storage
    */
-  private async saveCurrentSession(sessionProgress: SessionProgress): Promise<void> {
+  private async saveCurrentSession(
+    sessionProgress: SessionProgress
+  ): Promise<void> {
     try {
       await Preferences.set({
         key: this.CURRENT_SESSION_KEY,
-        value: JSON.stringify(sessionProgress)
+        value: JSON.stringify(sessionProgress),
       });
     } catch (error) {
       console.error('Error saving current session:', error);
@@ -269,11 +401,26 @@ export class SessionService {
       const result = await Preferences.get({ key: this.CURRENT_SESSION_KEY });
       if (result.value) {
         const sessionProgress = JSON.parse(result.value);
-        sessionProgress.sessionStartTime = new Date(sessionProgress.sessionStartTime);
-        
+        sessionProgress.sessionStartTime = new Date(
+          sessionProgress.sessionStartTime
+        );
+
+        // Initialize cardAnswers if it doesn't exist (backward compatibility)
+        if (!sessionProgress.cardAnswers) {
+          sessionProgress.cardAnswers = {};
+          // Populate cardAnswers from visitedCards for existing sessions
+          Object.entries(sessionProgress.visitedCards || {}).forEach(
+            ([cardIndex, status]) => {
+              if (status !== 'unvisited') {
+                sessionProgress.cardAnswers[cardIndex] = status;
+              }
+            }
+          );
+        }
+
         this.sessionProgressSubject.next(sessionProgress);
         this.sessionActiveSubject.next(!sessionProgress.isComplete);
-        
+
         return sessionProgress;
       }
     } catch (error) {
@@ -296,21 +443,23 @@ export class SessionService {
   /**
    * Save completed session to history
    */
-  private async saveSessionToHistory(completedSession: CompletedSession): Promise<void> {
+  private async saveSessionToHistory(
+    completedSession: CompletedSession
+  ): Promise<void> {
     try {
       const result = await Preferences.get({ key: this.SESSION_HISTORY_KEY });
       let sessions: CompletedSession[] = [];
-      
+
       if (result.value) {
         sessions = JSON.parse(result.value).map((session: any) => ({
           ...session,
           startTime: new Date(session.startTime),
-          endTime: new Date(session.endTime)
+          endTime: new Date(session.endTime),
         }));
       }
 
       sessions.push(completedSession);
-      
+
       // Keep only last 50 sessions
       if (sessions.length > 50) {
         sessions = sessions.slice(-50);
@@ -318,7 +467,7 @@ export class SessionService {
 
       await Preferences.set({
         key: this.SESSION_HISTORY_KEY,
-        value: JSON.stringify(sessions)
+        value: JSON.stringify(sessions),
       });
     } catch (error) {
       console.error('Error saving session to history:', error);
@@ -335,7 +484,7 @@ export class SessionService {
         return JSON.parse(result.value).map((session: any) => ({
           ...session,
           startTime: new Date(session.startTime),
-          endTime: new Date(session.endTime)
+          endTime: new Date(session.endTime),
         }));
       }
     } catch (error) {
@@ -376,13 +525,15 @@ export class SessionService {
     if (!progress || progress.currentCard >= progress.sessionCards.length) {
       return null;
     }
-    
+
     // Get the stored word from session
     const sessionWord = progress.sessionCards[progress.currentCard];
-    
+
     // Find the current version of this word from WordService to get updated translations
-    const currentWord = this.wordService.allWords.find(w => w.word === sessionWord.word);
-    
+    const currentWord = this.wordService.allWords.find(
+      (w) => w.word === sessionWord.word
+    );
+
     // Return the updated word if found, otherwise return the session word
     return currentWord || sessionWord;
   }
@@ -394,7 +545,7 @@ export class SessionService {
     await Promise.all([
       this.clearCurrentSession(),
       Preferences.remove({ key: this.SESSION_HISTORY_KEY }),
-      Preferences.remove({ key: this.SESSION_CONFIG_KEY })
+      Preferences.remove({ key: this.SESSION_CONFIG_KEY }),
     ]);
 
     this.sessionProgressSubject.next(null);

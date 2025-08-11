@@ -16,7 +16,10 @@
   <div *ngIf="!loading && bookmarkedWords.length === 0" class="empty-state">
     <div class="empty-icon">⭐</div>
     <h2>No bookmarked words yet</h2>
-    <p>Start studying and bookmark words you want to revisit later using the ⭐ button during practice sessions.</p>
+    <p>
+      Start studying and bookmark words you want to revisit later using the ⭐
+      button during practice sessions.
+    </p>
     <button class="primary-btn" routerLink="/">
       <span class="btn-icon">🎯</span>
       <span class="btn-text">Start Learning</span>
@@ -39,7 +42,10 @@
 
     <!-- Words list -->
     <div class="words-list">
-      <div *ngFor="let word of bookmarkedWords; trackBy: trackByWord" class="word-card">
+      <div
+        *ngFor="let word of bookmarkedWords; trackBy: trackByWord"
+        class="word-card"
+      >
         <div class="word-info">
           <div class="german-word">
             <span *ngIf="word.article" class="article">{{ word.article }}</span>
@@ -48,7 +54,11 @@
           <div class="translation">{{ word.translation }}</div>
         </div>
         <div class="word-actions">
-          <button class="remove-btn" (click)="onRemoveBookmark(word)" title="Remove bookmark">
+          <button
+            class="remove-btn"
+            (click)="onRemoveBookmark(word)"
+            title="Remove bookmark"
+          >
             <span class="btn-icon">⭐</span>
           </button>
         </div>

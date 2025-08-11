@@ -3,14 +3,16 @@
   <div class="session-header" *ngIf="sessionProgress && !sessionComplete">
     <div class="session-progress">
       <div class="progress-info">
-        <span class="card-counter">{{ currentCardNumber }} / {{ totalCards }}</span>
+        <span class="card-counter"
+          >{{ currentCardNumber }} / {{ totalCards }}</span
+        >
         <div class="progress-bar">
           <div class="progress-fill" [style.width.%]="progressPercentage"></div>
         </div>
       </div>
       <button class="end-session-btn" (click)="onEndSession()">❌</button>
     </div>
-    
+
     <!-- Session Statistics -->
     <div class="session-stats">
       <div class="stat-item correct">
@@ -21,7 +23,10 @@
         <span class="stat-icon">❌</span>
         <span class="stat-count">{{ sessionIncorrectCount }}</span>
       </div>
-      <div class="stat-item success" *ngIf="sessionCorrectCount + sessionIncorrectCount > 0">
+      <div
+        class="stat-item success"
+        *ngIf="sessionCorrectCount + sessionIncorrectCount > 0"
+      >
         <span class="stat-label">{{ sessionSuccessRate }}%</span>
       </div>
     </div>
@@ -31,7 +36,7 @@
   <div class="session-complete" *ngIf="sessionComplete && sessionProgress">
     <div class="completion-icon">🎉</div>
     <h2>Session Complete!</h2>
-    
+
     <div class="session-summary">
       <h3>Session Summary</h3>
       <div class="summary-stats">
@@ -41,15 +46,21 @@
         </div>
         <div class="summary-row">
           <span class="summary-label">Correct:</span>
-          <span class="summary-value correct">{{ sessionProgress.correctCount }}</span>
+          <span class="summary-value correct">{{
+            sessionProgress.correctCount
+          }}</span>
         </div>
         <div class="summary-row">
           <span class="summary-label">Incorrect:</span>
-          <span class="summary-value incorrect">{{ sessionProgress.incorrectCount }}</span>
+          <span class="summary-value incorrect">{{
+            sessionProgress.incorrectCount
+          }}</span>
         </div>
         <div class="summary-row">
           <span class="summary-label">Practice Again:</span>
-          <span class="summary-value practice">{{ sessionProgress.practiceAgainCount }}</span>
+          <span class="summary-value practice">{{
+            sessionProgress.practiceAgainCount
+          }}</span>
         </div>
         <div class="summary-row">
           <span class="summary-label">Success Rate:</span>
@@ -71,112 +82,230 @@
   </div>
 
   <!-- Main flashcard area -->
-  <div class="flashcard" *ngIf="currentWord && !sessionComplete">
-    <!-- German word display with pronunciation icon -->
-    <div class="word-container">
-      <div class="word-header">
-        <div class="german-word">
-          <span *ngIf="currentWord.article" class="article">{{ currentWord.article }}</span>
-          {{ currentWord.word }}
+  <div class="flashcard-wrapper" *ngIf="currentWord && !sessionComplete">
+    <!-- Current card -->
+    <div
+      class="flashcard"
+      [class.swiping]="isDragging"
+      [class.swipe-right]="swipeDirection === 'right'"
+      [class.swipe-left]="swipeDirection === 'left'"
+      [class.exiting]="isCardExiting"
+      [class.exit-right]="isCardExiting && nextCardDirection === 'right'"
+      [class.exit-left]="isCardExiting && nextCardDirection === 'left'"
+      [class.entering]="showNextCard"
+      [class.enter-right]="showNextCard && nextCardDirection === 'right'"
+      [class.enter-left]="showNextCard && nextCardDirection === 'left'"
+      [style.transform]="
+        isDragging
+          ? 'translateX(' +
+            swipeOffset +
+            'px) rotate(' +
+            swipeOffset * 0.1 +
+            'deg)'
+          : 'translateX(0) rotate(0deg)'
+      "
+      (touchstart)="onTouchStart($event)"
+      (touchmove)="onTouchMove($event)"
+      (touchend)="onTouchEnd($event)"
+    >
+      <!-- Swipe hint overlay -->
+      <div
+        class="swipe-hint"
+        *ngIf="
+          showSwipeHint || (isDragging && getAbsoluteValue(swipeOffset) > 30)
+        "
+      >
+        <div
+          class="swipe-indicator left"
+          [class.active]="swipeDirection === 'left'"
+          [class.disabled]="!canSwipeForward"
+        >
+          <span class="swipe-icon">👈</span>
+          <span class="swipe-text">{{
+            canSwipeForward
+              ? isCurrentCardVisited
+                ? "Next"
+                : "Skip"
+              : "Last Card"
+          }}</span>
         </div>
-        <!-- Pronunciation icon only -->
-        <span 
-          *ngIf="isSpeechSupported"
-          class="pronunciation-icon" 
-          (click)="onPronounceWord()"
-          [class.pronouncing]="isPronouncing"
-          title="{{ isPronouncing ? 'Playing pronunciation...' : 'Listen to German pronunciation' }}">
-          {{ isPronouncing ? '🔊' : '🔉' }}
-        </span>
+        <div
+          class="swipe-indicator right"
+          [class.active]="swipeDirection === 'right'"
+          [class.disabled]="!canSwipeBackward"
+        >
+          <span class="swipe-icon">👉</span>
+          <span class="swipe-text">{{
+            canSwipeBackward ? "Previous" : "First Card"
+          }}</span>
+        </div>
       </div>
-      
-      <!-- Progress indicators -->
-      <div class="word-progress" >
-        <div class="progress-indicator score" >
-          <span class="score-text">🎯 Score:</span>
-          <div class="score-indicator">
-            <!-- Display actual results -->
-            <div
-              *ngFor="let result of currentWord.lastResults; let i = index"
-              [ngStyle]="{
-                'background-color': result === 'correct' ? '#4CAF50' : 
-                                    result === 'wrong' ? '#f44336' : '#ccc',
-                'width': '12px',
-                'height': '12px',
-                'margin': '2px',
-                'border-radius': '3px',
-                'display': 'inline-block',
-                'border': '1px solid rgba(0, 0, 0, 0.2)'
-              }"
-            ></div>
-            <!-- Fill remaining with gray if less than 3 entries -->
-            <div
-              *ngFor="let i of getRemainingSlots(currentWord.lastResults || [])"
-              style="background-color: #ccc; width: 12px; height: 12px; margin: 2px; border-radius: 3px; display: inline-block; border: 1px solid rgba(0, 0, 0, 0.2);"
-            ></div>
+
+      <!-- Swipe instruction (only show initially for first few cards) -->
+      <div
+        class="swipe-instruction"
+        *ngIf="!showMeaning && currentCardNumber <= 3 && !isCurrentCardVisited"
+      >
+        <span class="instruction-text"
+          >💡 Swipe ← to skip if you know it, → to go back</span
+        >
+      </div>
+      <!-- German word display with pronunciation icon -->
+      <div class="word-container">
+        <div class="word-header">
+          <div class="german-word">
+            <span *ngIf="currentWord.article" class="article">{{
+              currentWord.article
+            }}</span>
+            {{ currentWord.word }}
           </div>
-          <span class="score-fraction">({{ currentWordScore }}/3)</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Show meaning button (only visible when meaning is hidden) -->
-    <div class="meaning-section">
-      <button 
-        *ngIf="!showMeaning" 
-        class="show-meaning-btn"
-        (click)="onShowMeaning()">
-        Show Meaning
-      </button>
-
-      <!-- Translation display (only visible when meaning is shown) -->
-      <div *ngIf="showMeaning" class="translation">
-        <div class="translation-header">
-          <!-- Bookmark icon (top left) -->
-          <span 
-            class="bookmark-icon" 
-            [class.bookmarked]="currentWord.bookmarked"
-            (click)="onToggleBookmark()"
-            title="{{ currentWord.bookmarked ? 'Remove bookmark' : 'Add bookmark' }}">
-            {{ currentWord.bookmarked ? '⭐' : '☆' }}
-          </span>
-          
-          <!-- Improve Translation icon (top right) -->
-          <span 
-            class="improve-translation-icon" 
-            (click)="onImproveTranslation()"
-            [class.improving]="isImprovingTranslation"
-            title="{{ isImprovingTranslation ? 'Improving translation...' : 'Get a better translation with example' }}">
-            {{ isImprovingTranslation ? '⏳' : '🚀' }}
+          <!-- Pronunciation icon only -->
+          <span
+            *ngIf="isSpeechSupported"
+            class="pronunciation-icon"
+            (click)="onPronounceWord()"
+            [class.pronouncing]="isPronouncing"
+            title="{{
+              isPronouncing
+                ? 'Playing pronunciation...'
+                : 'Listen to German pronunciation'
+            }}"
+          >
+            {{ isPronouncing ? "🔊" : "🔉" }}
           </span>
         </div>
-        
-        <div class="translation-label">English:</div>
-        <div class="translation-text">
-          {{ currentWord.translation }}
-        </div>
-        
-        <!-- Show if this is a custom/improved translation -->
-        <div *ngIf="currentWord.isCustomTranslation" class="custom-translation-indicator">
-          <span class="indicator-icon">✨</span>
-          <span class="indicator-text">Improved translation</span>
+
+        <!-- Progress indicators -->
+        <div class="word-progress">
+          <!-- Card status indicator -->
+          <div class="card-status-indicator" *ngIf="isCurrentCardVisited">
+            <span
+              class="status-badge"
+              [class.status-correct]="currentCardStatus === 'correct'"
+              [class.status-incorrect]="currentCardStatus === 'incorrect'"
+              [class.status-practice]="currentCardStatus === 'practice-again'"
+            >
+              <span *ngIf="currentCardStatus === 'correct'">✅ Known</span>
+              <span *ngIf="currentCardStatus === 'incorrect'">❌ Unknown</span>
+              <span *ngIf="currentCardStatus === 'practice-again'"
+                >🔄 Practice</span
+              >
+            </span>
+          </div>
+
+          <div class="progress-indicator score">
+            <span class="score-text">🎯 Score:</span>
+            <div class="score-indicator">
+              <!-- Display actual results -->
+              <div
+                *ngFor="let result of currentWord.lastResults; let i = index"
+                [ngStyle]="{
+                  'background-color':
+                    result === 'correct'
+                      ? '#4CAF50'
+                      : result === 'wrong'
+                      ? '#f44336'
+                      : '#ccc',
+                  width: '12px',
+                  height: '12px',
+                  margin: '2px',
+                  'border-radius': '3px',
+                  display: 'inline-block',
+                  border: '1px solid rgba(0, 0, 0, 0.2)'
+                }"
+              ></div>
+              <!-- Fill remaining with gray if less than 3 entries -->
+              <div
+                *ngFor="
+                  let i of getRemainingSlots(currentWord.lastResults || [])
+                "
+                style="
+                  background-color: #ccc;
+                  width: 12px;
+                  height: 12px;
+                  margin: 2px;
+                  border-radius: 3px;
+                  display: inline-block;
+                  border: 1px solid rgba(0, 0, 0, 0.2);
+                "
+              ></div>
+            </div>
+            <span class="score-fraction">({{ currentWordScore }}/3)</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Action buttons (only visible when meaning is shown) -->
-    <div *ngIf="showMeaning" class="action-buttons">
-      <button class="action-btn know-btn" (click)="onKnowIt()">
-        <span class="btn-icon">✅</span>
-        <span class="btn-text">I know it</span>
-      </button>
-      
-      <button class="action-btn dont-know-btn" (click)="onDontKnowIt()">
-        <span class="btn-icon">❌</span>
-        <span class="btn-text">I don't know it</span>
-      </button>
+      <!-- Show meaning button (only visible when meaning is hidden) -->
+      <div class="meaning-section">
+        <button
+          *ngIf="!showMeaning"
+          class="show-meaning-btn"
+          (click)="onShowMeaning()"
+        >
+          Show Meaning
+        </button>
+
+        <!-- Translation display (only visible when meaning is shown) -->
+        <div *ngIf="showMeaning" class="translation">
+          <div class="translation-header">
+            <!-- Bookmark icon (top left) -->
+            <span
+              class="bookmark-icon"
+              [class.bookmarked]="currentWord.bookmarked"
+              (click)="onToggleBookmark()"
+              title="{{
+                currentWord.bookmarked ? 'Remove bookmark' : 'Add bookmark'
+              }}"
+            >
+              {{ currentWord.bookmarked ? "⭐" : "☆" }}
+            </span>
+
+            <!-- Improve Translation icon (top right) -->
+            <span
+              class="improve-translation-icon"
+              (click)="onImproveTranslation()"
+              [class.improving]="isImprovingTranslation"
+              title="{{
+                isImprovingTranslation
+                  ? 'Improving translation...'
+                  : 'Get a better translation with example'
+              }}"
+            >
+              {{ isImprovingTranslation ? "⏳" : "🚀" }}
+            </span>
+          </div>
+
+          <div class="translation-label">English:</div>
+          <div class="translation-text">
+            {{ currentWord.translation }}
+          </div>
+
+          <!-- Show if this is a custom/improved translation -->
+          <div
+            *ngIf="currentWord.isCustomTranslation"
+            class="custom-translation-indicator"
+          >
+            <span class="indicator-icon">✨</span>
+            <span class="indicator-text">Improved translation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action buttons (only visible when meaning is shown) -->
+      <div *ngIf="showMeaning" class="action-buttons">
+        <button class="action-btn know-btn" (click)="onKnowIt()">
+          <span class="btn-icon">✅</span>
+          <span class="btn-text">I know it</span>
+        </button>
+
+        <button class="action-btn dont-know-btn" (click)="onDontKnowIt()">
+          <span class="btn-icon">❌</span>
+          <span class="btn-text">I don't know it</span>
+        </button>
+      </div>
     </div>
   </div>
+  <!-- Close flashcard-wrapper -->
 
   <!-- Loading state -->
   <div *ngIf="!currentWord && !sessionComplete" class="loading">

@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
 import { BehaviorSubject } from 'rxjs';
-import { WordProgress, WordStatistics, WordFilters } from '../models/word-progress.model';
+import {
+  WordProgress,
+  WordStatistics,
+  WordFilters,
+} from '../models/word-progress.model';
 import { Word } from '../models/word.model';
 import { WordService } from './word.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WordTrackingService {
   // private readonly WORD_PROGRESS_KEY = 'word_progress_v2';
@@ -16,13 +20,15 @@ export class WordTrackingService {
   private wordProgressSubject = new BehaviorSubject<WordProgress[]>([]);
   public wordProgress$ = this.wordProgressSubject.asObservable();
 
-  constructor(private wordService: WordService) {
-  }
+  constructor(private wordService: WordService) {}
 
   /**
    * Initialize or get word progress
    */
-  private getOrCreateWordProgress(word: Word, source: 'dictionary' | 'custom'): WordProgress {
+  private getOrCreateWordProgress(
+    word: Word,
+    source: 'dictionary' | 'custom'
+  ): WordProgress {
     let progress = this.wordProgressMap.get(word.word);
 
     if (!progress) {
@@ -35,7 +41,7 @@ export class WordTrackingService {
         practiceCount: 0,
         correctCount: 0,
         wrongCount: 0,
-        firstStudied: new Date()
+        firstStudied: new Date(),
       };
       this.wordProgressMap.set(word.word, progress);
     }
@@ -46,7 +52,11 @@ export class WordTrackingService {
   /**
    * Record a practice session for a word
    */
-  async recordPractice(word: Word, isCorrect: boolean, source: 'dictionary' | 'custom'): Promise<void> {
+  async recordPractice(
+    word: Word,
+    isCorrect: boolean,
+    source: 'dictionary' | 'custom'
+  ): Promise<void> {
     const progress = this.getOrCreateWordProgress(word, source);
 
     progress.practiceCount++;
@@ -65,14 +75,21 @@ export class WordTrackingService {
    * Update word status based on performance
    */
   private updateWordStatus(progress: WordProgress): void {
-    const accuracy = progress.practiceCount > 0 ? progress.correctCount / progress.practiceCount : 0;
+    const accuracy =
+      progress.practiceCount > 0
+        ? progress.correctCount / progress.practiceCount
+        : 0;
 
     if (progress.status === 'new' && progress.practiceCount > 0) {
       progress.status = 'learning';
     }
 
     // Consider word mastered if practiced at least 5 times with 80% accuracy
-    if (progress.practiceCount >= 5 && accuracy >= 0.8 && progress.status !== 'mastered') {
+    if (
+      progress.practiceCount >= 5 &&
+      accuracy >= 0.8 &&
+      progress.status !== 'mastered'
+    ) {
       progress.status = 'mastered';
       progress.masteredDate = new Date();
     }
@@ -106,20 +123,21 @@ export class WordTrackingService {
 
     // Apply status filter
     if (filters.status !== 'all') {
-      words = words.filter(word => word.status === filters.status);
+      words = words.filter((word) => word.status === filters.status);
     }
 
     // Apply source filter
     if (filters.source !== 'all') {
-      words = words.filter(word => word.source === filters.source);
+      words = words.filter((word) => word.source === filters.source);
     }
 
     // Apply search filter
     if (filters.searchTerm) {
       const searchLower = filters.searchTerm.toLowerCase();
-      words = words.filter(word =>
-        word.word.toLowerCase().includes(searchLower) ||
-        word.translation.toLowerCase().includes(searchLower)
+      words = words.filter(
+        (word) =>
+          word.word.toLowerCase().includes(searchLower) ||
+          word.translation.toLowerCase().includes(searchLower)
       );
     }
 
@@ -132,7 +150,11 @@ export class WordTrackingService {
   /**
    * Sort words based on criteria
    */
-  private sortWords(words: WordProgress[], sortBy: string, direction: 'asc' | 'desc'): WordProgress[] {
+  private sortWords(
+    words: WordProgress[],
+    sortBy: string,
+    direction: 'asc' | 'desc'
+  ): WordProgress[] {
     return words.sort((a, b) => {
       let comparison = 0;
 
@@ -141,7 +163,9 @@ export class WordTrackingService {
           comparison = a.word.localeCompare(b.word);
           break;
         case 'practiceCount':
-          comparison = this.getWordLastResults(a).length - this.getWordLastResults(b).length;
+          comparison =
+            this.getWordLastResults(a).length -
+            this.getWordLastResults(b).length;
           break;
         default:
           comparison = a.word.localeCompare(b.word);
@@ -154,22 +178,24 @@ export class WordTrackingService {
   /**
    * Get last quiz results for a word
    */
-  getWordLastResults(word: WordProgress): ("correct" | "wrong")[] {    
+  getWordLastResults(word: WordProgress): ('correct' | 'wrong')[] {
     // Get results from word service - this will check both storage and word object
-    return this.wordService.allWords
-      .find(w => w.word === word.word)?.lastResults || [];
+    return (
+      this.wordService.allWords.find((w) => w.word === word.word)
+        ?.lastResults || []
+    );
   }
-  
+
   /**
    * Get last quiz results for a word
    */
-  getWordCorrectCount(word: WordProgress): number {    
+  getWordCorrectCount(word: WordProgress): number {
     // Get results from word service - this will check both storage and word object
-    const results = this.wordService.allWords
-      .find(w => w.word === word.word)?.lastResults || [];
-    return results.filter(r => r === "correct").length;
+    const results =
+      this.wordService.allWords.find((w) => w.word === word.word)
+        ?.lastResults || [];
+    return results.filter((r) => r === 'correct').length;
   }
-
 
   /**
    * Get word statistics
@@ -179,18 +205,19 @@ export class WordTrackingService {
 
     const stats: WordStatistics = {
       totalWords: allWords.length,
-      newWords: allWords.filter(w => w.status === 'new').length,
-      learningWords: allWords.filter(w => w.status === 'learning').length,
-      masteredWords: allWords.filter(w => w.status === 'mastered').length,
+      newWords: allWords.filter((w) => w.status === 'new').length,
+      learningWords: allWords.filter((w) => w.status === 'learning').length,
+      masteredWords: allWords.filter((w) => w.status === 'mastered').length,
       totalPractices: allWords.reduce((sum, w) => sum + w.practiceCount, 0),
       overallAccuracy: 0,
-      dictionaryWords: allWords.filter(w => w.source === 'dictionary').length,
-      customWords: allWords.filter(w => w.source === 'custom').length
+      dictionaryWords: allWords.filter((w) => w.source === 'dictionary').length,
+      customWords: allWords.filter((w) => w.source === 'custom').length,
     };
 
     const totalCorrect = allWords.reduce((sum, w) => sum + w.correctCount, 0);
     const totalAnswers = allWords.reduce((sum, w) => sum + w.practiceCount, 0);
-    stats.overallAccuracy = totalAnswers > 0 ? Math.round((totalCorrect / totalAnswers) * 100) : 0;
+    stats.overallAccuracy =
+      totalAnswers > 0 ? Math.round((totalCorrect / totalAnswers) * 100) : 0;
 
     return stats;
   }
@@ -208,7 +235,6 @@ export class WordTrackingService {
       progress.wrongCount = 0;
       progress.masteredDate = undefined;
       // Keep firstStudied and source unchanged
-
     }
   }
 }

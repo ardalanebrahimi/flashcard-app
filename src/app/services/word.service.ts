@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, firstValueFrom, combineLatest } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  firstValueFrom,
+  combineLatest,
+} from 'rxjs';
 import { skip } from 'rxjs/operators';
 import { Preferences } from '@capacitor/preferences';
 import { Word } from '../models/word.model';
@@ -9,13 +14,13 @@ import { PronunciationService } from './pronunciation.service';
 import { LevelService, LanguageLevel } from './level.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WordService {
   private words: Word[] = [];
   public allWords: Word[] = [];
   private bookmarkedWords: Set<string> = new Set();
-  private wordResults: Map<string, ("correct" | "wrong")[]> = new Map();
+  private wordResults: Map<string, ('correct' | 'wrong')[]> = new Map();
 
   // BehaviorSubject to notify components of the current word
   private currentWordSubject = new BehaviorSubject<Word | null>(null);
@@ -48,14 +53,14 @@ export class WordService {
   private async initializeService(): Promise<void> {
     // Wait for dictionary service to be ready
     await firstValueFrom(this.dictionaryService.customWords$);
-    
+
     // Wait for level service to initialize (including migration)
     await firstValueFrom(this.levelService.currentLevel$);
-    
+
     await Promise.all([
       this.loadWords(),
       this.loadBookmarkedWords(),
-      this.loadWordResults()
+      this.loadWordResults(),
     ]);
     this.setupCustomWordsListener();
     this.setupLevelChangeListener();
@@ -68,7 +73,7 @@ export class WordService {
     try {
       const currentLevel = this.levelService.getCurrentLevel();
       const storageKeys = this.levelService.getLevelStorageKeys(currentLevel);
-      
+
       const { value } = await Preferences.get({ key: storageKeys.bookmarks });
       if (value) {
         const bookmarkedArray = JSON.parse(value) as string[];
@@ -91,10 +96,13 @@ export class WordService {
     try {
       const currentLevel = this.levelService.getCurrentLevel();
       const storageKeys = this.levelService.getLevelStorageKeys(currentLevel);
-      
+
       const { value } = await Preferences.get({ key: storageKeys.results });
       if (value) {
-        const resultsData = JSON.parse(value) as Record<string, ("correct" | "wrong")[]>;
+        const resultsData = JSON.parse(value) as Record<
+          string,
+          ('correct' | 'wrong')[]
+        >;
         this.wordResults = new Map(Object.entries(resultsData));
       } else {
         this.wordResults = new Map();
@@ -112,11 +120,11 @@ export class WordService {
     try {
       const currentLevel = this.levelService.getCurrentLevel();
       const storageKeys = this.levelService.getLevelStorageKeys(currentLevel);
-      
+
       const bookmarkedArray = Array.from(this.bookmarkedWords);
       await Preferences.set({
         key: storageKeys.bookmarks,
-        value: JSON.stringify(bookmarkedArray)
+        value: JSON.stringify(bookmarkedArray),
       });
     } catch (error) {
       console.error('Error saving bookmarked words:', error);
@@ -130,11 +138,11 @@ export class WordService {
     try {
       const currentLevel = this.levelService.getCurrentLevel();
       const storageKeys = this.levelService.getLevelStorageKeys(currentLevel);
-      
+
       const resultsObject = Object.fromEntries(this.wordResults);
       await Preferences.set({
         key: storageKeys.results,
-        value: JSON.stringify(resultsObject)
+        value: JSON.stringify(resultsObject),
       });
     } catch (error) {
       console.error('Error saving word results:', error);
@@ -146,7 +154,7 @@ export class WordService {
    */
   async toggleBookmark(word: Word): Promise<void> {
     const wordKey = word.word;
-    
+
     if (this.bookmarkedWords.has(wordKey)) {
       this.bookmarkedWords.delete(wordKey);
       word.bookmarked = false;
@@ -154,7 +162,7 @@ export class WordService {
       this.bookmarkedWords.add(wordKey);
       word.bookmarked = true;
     }
-    
+
     this.bookmarkedWordsSubject.next(this.bookmarkedWords);
     await this.saveBookmarkedWords();
   }
@@ -163,7 +171,7 @@ export class WordService {
    * Get all bookmarked words
    */
   getBookmarkedWords(): Word[] {
-    return this.allWords.filter(word => this.bookmarkedWords.has(word.word));
+    return this.allWords.filter((word) => this.bookmarkedWords.has(word.word));
   }
 
   /**
@@ -189,15 +197,13 @@ export class WordService {
     try {
       const currentLevel = this.levelService.getCurrentLevel();
       const assetPath = this.levelService.getAssetPath(currentLevel);
-      
-      const words = await firstValueFrom(
-        this.http.get<Word[]>(assetPath)
-      );
-      
+
+      const words = await firstValueFrom(this.http.get<Word[]>(assetPath));
+
       this.words = words;
       this.refreshAllWords();
       this.wordsLoadedSubject.next(true);
-      
+
       console.log(`Loaded ${this.words.length} words from ${assetPath}`);
     } catch (error) {
       console.error('Error loading words:', error);
@@ -219,15 +225,13 @@ export class WordService {
    */
   private setupLevelChangeListener(): void {
     // Skip the first emission to avoid double loading
-    this.levelService.currentLevel$.pipe(
-      skip(1)
-    ).subscribe(async (level) => {
+    this.levelService.currentLevel$.pipe(skip(1)).subscribe(async (level) => {
       console.log(`Level changed to: ${level}, reloading data...`);
       // Reload all data for the new level
       await Promise.all([
         this.loadWords(),
         this.loadBookmarkedWords(),
-        this.loadWordResults()
+        this.loadWordResults(),
       ]);
       this.refreshAllWords();
       console.log(`Data reloaded for level: ${level}`);
@@ -241,32 +245,32 @@ export class WordService {
     // Create a map of custom words for quick lookup
     const customWordsMap = new Map<string, Word>();
     const customWords = this.dictionaryService.getCustomWords();
-    
-    customWords.forEach(word => {
+
+    customWords.forEach((word) => {
       customWordsMap.set(word.word, word);
     });
 
     // Start with dictionary words, but override with custom words if they exist
     const mergedWords = new Map<string, Word>();
-    
+
     // Add all dictionary words first
-    this.words.forEach(word => {
+    this.words.forEach((word) => {
       mergedWords.set(word.word, { ...word });
     });
-    
+
     // Override with custom words (including improved translations)
     customWordsMap.forEach((customWord, wordKey) => {
       mergedWords.set(wordKey, { ...customWord });
     });
-    
+
     // Convert back to array
     this.allWords = Array.from(mergedWords.values());
-    
+
     // Apply bookmark status, results, and scores
-    this.allWords.forEach(word => {
+    this.allWords.forEach((word) => {
       word.bookmarked = this.bookmarkedWords.has(word.word);
       word.lastResults = this.wordResults.get(word.word) || [];
-      
+
       // Initialize cached score if not present
       if (word.score === undefined) {
         word.score = this.calculateScoreFromResults(word.lastResults);
@@ -277,38 +281,53 @@ export class WordService {
   /**
    * Update results for a word and save progress
    */
-  async updateResults(word: Word, result: "correct" | "wrong"): Promise<void> {
+  async updateResults(
+    word: Word,
+    result: 'correct' | 'wrong',
+    isCardAlreadyVisited: boolean = false
+  ): Promise<void> {
     // Get current results from storage or initialize
     let currentResults = this.wordResults.get(word.word) || [];
-    
-    // Push the new result
-    currentResults.push(result);
-    
+
+    if (isCardAlreadyVisited && currentResults.length > 0) {
+      // Replace the last result (from this session) instead of adding new one
+      currentResults[currentResults.length - 1] = result;
+    } else {
+      // Push the new result for first-time visit
+      currentResults.push(result);
+    }
+
     // Keep only the last 3 entries
     if (currentResults.length > 3) {
       currentResults = currentResults.slice(-3);
     }
-    
+
     // Update in memory storage
     this.wordResults.set(word.word, currentResults);
-    
+
     // Save to persistent storage
     await this.saveWordResults();
-    
+
     this.refreshAllWords();
-    console.log(`Updated results for "${word.word}": ${currentResults.join(', ')}, score: ${word.score}`);
+    console.log(
+      `Updated results for "${word.word}": ${currentResults.join(
+        ', '
+      )}, score: ${word.score}`
+    );
   }
 
   /**
    * Calculate score from results array (internal method)
    */
-  private calculateScoreFromResults(results: ("correct" | "wrong")[]): number {
+  private calculateScoreFromResults(results: ('correct' | 'wrong')[]): number {
     if (results.length === 0) {
       return 0;
     }
-    
+
     // Count how many of the last 3 entries are "correct"
-    const correctCount = results.filter(result => result === "correct").length;
+    const correctCount = results.filter(
+      (result) => result === 'correct'
+    ).length;
     return correctCount;
   }
 
@@ -320,14 +339,14 @@ export class WordService {
     if (word.score !== undefined) {
       return word.score;
     }
-    
+
     // Fallback to calculation from results for backwards compatibility
     const results = this.wordResults.get(word.word) || word.lastResults || [];
     const calculatedScore = this.calculateScoreFromResults(results);
-    
+
     // Cache the calculated score
     word.score = calculatedScore;
-    
+
     return calculatedScore;
   }
 
@@ -337,50 +356,59 @@ export class WordService {
    * - Uses weighted pool: Score 0 → 5x weight, Score 1 → 3x, Score 2 → 1x
    * - Randomly selects from weighted pool
    */
-  getNextWord(): Word | null {    
+  getNextWord(): Word | null {
     // Filter out words with score of 3 (fully learned)
-    const eligibleWords = this.allWords.filter(word => (word.score || 0) < 3);
+    const eligibleWords = this.allWords.filter((word) => (word.score || 0) < 3);
 
     if (eligibleWords.length === 0) {
       console.log('No eligible words found (all words have score 3)');
       return null;
     }
-    
+
     // Build weighted pool based on score
     const weightedPool: Word[] = [];
-    
-    eligibleWords.forEach(word => {
+
+    eligibleWords.forEach((word) => {
       const score = word.score || 0;
       const practiceCount = word.lastResults?.length || 0;
       let weight = 0;
-      
-      if (score === 0 && practiceCount === 0) weight = 9;           // New/struggling words get highest priority
-      else if (score === 0 && practiceCount === 1) weight = 8;      // New/struggling words get highest priority
-      else if (score === 0 && practiceCount === 2) weight = 7;      // New/struggling words get highest priority
-      else if (score === 0 && practiceCount === 3) weight = 6;      // New/struggling words get highest priority
-      
-      else if (score === 1 && practiceCount === 1) weight = 5;      // Partially learned words get medium priority
-      else if (score === 1 && practiceCount === 2) weight = 4;      // Partially learned words get medium priority
-      else if (score === 1 && practiceCount === 3) weight = 3;      // Partially learned words get medium priority
-      
-      else if (score === 2 && practiceCount === 2) weight = 2;      // Nearly learned words get lowest priority
-      else if (score === 2 && practiceCount === 3) weight = 1;      // Nearly learned words get lowest priority
-      
+
+      if (score === 0 && practiceCount === 0)
+        weight = 9; // New/struggling words get highest priority
+      else if (score === 0 && practiceCount === 1)
+        weight = 8; // New/struggling words get highest priority
+      else if (score === 0 && practiceCount === 2)
+        weight = 7; // New/struggling words get highest priority
+      else if (score === 0 && practiceCount === 3)
+        weight = 6; // New/struggling words get highest priority
+      else if (score === 1 && practiceCount === 1)
+        weight = 5; // Partially learned words get medium priority
+      else if (score === 1 && practiceCount === 2)
+        weight = 4; // Partially learned words get medium priority
+      else if (score === 1 && practiceCount === 3)
+        weight = 3; // Partially learned words get medium priority
+      else if (score === 2 && practiceCount === 2)
+        weight = 2; // Nearly learned words get lowest priority
+      else if (score === 2 && practiceCount === 3) weight = 1; // Nearly learned words get lowest priority
+
       // Add word to pool multiple times based on weight
       for (let i = 0; i < weight; i++) {
         weightedPool.push(word);
       }
     });
-    
+
     if (weightedPool.length === 0) {
       console.log('No words in weighted pool');
       return eligibleWords[0]; // Fallback to first eligible word
     }
-    
+
     // Randomly select from weighted pool
-    const selectedWord = weightedPool[Math.floor(Math.random() * weightedPool.length)];
-    
-    console.log(`Selected word: "${selectedWord.word}" (score: ${selectedWord.score})`);
+    const selectedWord =
+      weightedPool[Math.floor(Math.random() * weightedPool.length)];
+
+    console.log(
+      `Selected word: "${selectedWord.word}" (score: ${selectedWord.score})`
+    );
     return selectedWord;
   }
 
@@ -388,7 +416,7 @@ export class WordService {
    * Get count of learned words (score = 3)
    */
   getLearnedWordsCount(): number {
-    return this.allWords.filter(word => (word.score || 0) === 3).length;
+    return this.allWords.filter((word) => (word.score || 0) === 3).length;
   }
 
   /**
@@ -402,10 +430,13 @@ export class WordService {
    * Get count of studied words (score > 0)
    */
   getOverallProgress(): number {
-      const maxScore = this.allWords.length * 3;
-      const currentScore = Array.from(this.allWords).reduce((sum, word) => sum + (word.score || 0), 0);
-      // add 1 decimal place for better readability
-      return maxScore > 0 ? Math.round(((currentScore / maxScore) * 1000)) / 10 : 0;
+    const maxScore = this.allWords.length * 3;
+    const currentScore = Array.from(this.allWords).reduce(
+      (sum, word) => sum + (word.score || 0),
+      0
+    );
+    // add 1 decimal place for better readability
+    return maxScore > 0 ? Math.round((currentScore / maxScore) * 1000) / 10 : 0;
   }
 
   /**
@@ -413,7 +444,9 @@ export class WordService {
    */
   getLearnedPercentage(): number {
     if (this.allWords.length === 0) return 0;
-    return Math.round((this.getLearnedWordsCount() / this.allWords.length) * 100);
+    return Math.round(
+      (this.getLearnedWordsCount() / this.allWords.length) * 100
+    );
   }
 
   /**
@@ -421,37 +454,41 @@ export class WordService {
    */
   getStudiedPercentage(): number {
     if (this.allWords.length === 0) return 0;
-    return Math.round((this.getStudiedWordsCount() / this.allWords.length) * 100);
+    return Math.round(
+      (this.getStudiedWordsCount() / this.allWords.length) * 100
+    );
   }
 
   /**
    * Get learned words (score = 3)
    */
   getLearnedWords(): Word[] {
-    return this.allWords.filter(word => (word.score || 0) === 3);
+    return this.allWords.filter((word) => (word.score || 0) === 3);
   }
 
   /**
    * Get studied words (score > 0)
    */
   getStudiedWords(): Word[] {
-    return this.allWords.filter(word => (word.score || 0) > 0);
+    return this.allWords.filter((word) => (word.score || 0) > 0);
   }
 
   /**
    * Improve translation for a word
    */
-  async improveTranslation(word: Word): Promise<{ success: boolean; improvedWord?: Word; error?: string }> {
+  async improveTranslation(
+    word: Word
+  ): Promise<{ success: boolean; improvedWord?: Word; error?: string }> {
     const result = await this.dictionaryService.improveTranslation(word);
-    
+
     if (result.success) {
       // Refresh all words to include the improved translation
       this.refreshAllWords();
-      
+
       // Emit change to notify subscribers
       this.wordsLoadedSubject.next(true);
     }
-    
+
     return result;
   }
 
@@ -461,17 +498,16 @@ export class WordService {
    */
   async calculateScoresForAllWords(): Promise<void> {
     console.log('Starting score calculation for all words...');
-    
+
     let updatedCount = 0;
-    
+
     // Process each word
-    this.allWords.forEach(word => {
-      word.score = this.calculateScoreFromResults(word.lastResults??[])
+    this.allWords.forEach((word) => {
+      word.score = this.calculateScoreFromResults(word.lastResults ?? []);
     });
-  
-    
+
     console.log(`Score calculation complete. Updated ${updatedCount} words.`);
-    
+
     // Force save to ensure scores are persisted
     await this.saveWordResults();
   }
@@ -479,49 +515,69 @@ export class WordService {
   /**
    * Preload pronunciations for commonly used words
    */
-  async preloadCommonPronunciations(count: number = 20): Promise<{ loaded: number; failed: number }> {
+  async preloadCommonPronunciations(
+    count: number = 20
+  ): Promise<{ loaded: number; failed: number }> {
     if (this.allWords.length === 0) {
       console.warn('No words loaded, cannot preload pronunciations');
       return { loaded: 0, failed: 0 };
     }
 
     // Get the first N words (assumed to be ordered by frequency/importance)
-    const result = await this.pronunciationService.preloadCommonWords(this.allWords, count);
-    console.log(`Pronunciation preloading result: ${result.loaded} loaded, ${result.failed} failed`);
+    const result = await this.pronunciationService.preloadCommonWords(
+      this.allWords,
+      count
+    );
+    console.log(
+      `Pronunciation preloading result: ${result.loaded} loaded, ${result.failed} failed`
+    );
     return result;
   }
 
   /**
    * Preload pronunciations for bookmarked words
    */
-  async preloadBookmarkedPronunciations(): Promise<{ loaded: number; failed: number }> {
+  async preloadBookmarkedPronunciations(): Promise<{
+    loaded: number;
+    failed: number;
+  }> {
     const bookmarkedWords = this.getBookmarkedWords();
     if (bookmarkedWords.length === 0) {
       return { loaded: 0, failed: 0 };
     }
 
-    const wordStrings = bookmarkedWords.map(w => w.word);
-    const result = await this.pronunciationService.preloadPronunciations(wordStrings);
-    console.log(`Bookmarked pronunciations preloading result: ${result.loaded} loaded, ${result.failed} failed`);
+    const wordStrings = bookmarkedWords.map((w) => w.word);
+    const result = await this.pronunciationService.preloadPronunciations(
+      wordStrings
+    );
+    console.log(
+      `Bookmarked pronunciations preloading result: ${result.loaded} loaded, ${result.failed} failed`
+    );
     return result;
   }
 
   /**
    * Preload pronunciations for low-scoring words (need more practice)
    */
-  async preloadPracticePronunciations(count: number = 15): Promise<{ loaded: number; failed: number }> {
+  async preloadPracticePronunciations(
+    count: number = 15
+  ): Promise<{ loaded: number; failed: number }> {
     // Get words with low scores (0-1) as they need more practice
     const practiceWords = this.allWords
-      .filter(word => (word.score || 0) <= 1)
+      .filter((word) => (word.score || 0) <= 1)
       .slice(0, count)
-      .map(w => w.word);
+      .map((w) => w.word);
 
     if (practiceWords.length === 0) {
       return { loaded: 0, failed: 0 };
     }
 
-    const result = await this.pronunciationService.preloadPronunciations(practiceWords);
-    console.log(`Practice pronunciations preloading result: ${result.loaded} loaded, ${result.failed} failed`);
+    const result = await this.pronunciationService.preloadPronunciations(
+      practiceWords
+    );
+    console.log(
+      `Practice pronunciations preloading result: ${result.loaded} loaded, ${result.failed} failed`
+    );
     return result;
   }
 
@@ -535,14 +591,13 @@ export class WordService {
   /**
    * Get pronunciation cache statistics
    */
-  getPronunciationCacheStats(): { 
-    size: number; 
-    totalSizeKB: number; 
+  getPronunciationCacheStats(): {
+    size: number;
+    totalSizeKB: number;
     totalAccesses: number;
     mostUsedWord?: string;
     maxCacheSize: number;
   } {
     return this.pronunciationService.getCacheStats();
   }
-
 }

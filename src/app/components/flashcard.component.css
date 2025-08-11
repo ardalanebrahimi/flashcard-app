@@ -2,7 +2,7 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 16px 20px 20px 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   /* Use viewport height minus safe areas */
   height: 100vh;
   height: 100dvh; /* Dynamic viewport height for mobile browsers */
@@ -114,7 +114,8 @@
   font-size: 1rem;
 }
 
-.stat-count, .stat-label {
+.stat-count,
+.stat-label {
   font-weight: 600;
 }
 
@@ -198,7 +199,8 @@
   gap: 12px;
 }
 
-.primary-btn, .secondary-btn {
+.primary-btn,
+.secondary-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -371,8 +373,13 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .lesson-info {
@@ -530,8 +537,12 @@
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .translation-label {
@@ -673,7 +684,9 @@
     /* Ensure proper top spacing to avoid status bar overlap */
     padding-top: max(12px, calc(12px + env(safe-area-inset-top, 24px)));
     /* For Android devices without safe-area support */
-    min-height: calc(100vh - 48px); /* Subtract typical Android nav bar height */
+    min-height: calc(
+      100vh - 48px
+    ); /* Subtract typical Android nav bar height */
     height: calc(100vh - env(safe-area-inset-bottom, 48px));
   }
 
@@ -704,7 +717,8 @@
     height: 28px;
   }
 
-  .bookmark-icon, .improve-translation-icon {
+  .bookmark-icon,
+  .improve-translation-icon {
     font-size: 1.2rem;
   }
 
@@ -760,7 +774,7 @@
   .action-btn:hover {
     transform: none;
   }
-  
+
   .show-meaning-btn:active,
   .action-btn:active {
     opacity: 0.8;
@@ -773,13 +787,13 @@
     /* Additional bottom padding for Android navigation bars */
     padding-bottom: max(24px, calc(24px + env(safe-area-inset-bottom, 48px)));
   }
-  
+
   .flashcard {
     /* Remove fixed heights to allow content to flow naturally */
     padding: 14px 10px;
     max-height: calc(100vh - 120px);
   }
-  
+
   .action-buttons {
     /* Ensure buttons are always visible above navigation bar */
     margin-bottom: 16px;
@@ -793,33 +807,329 @@
     padding-bottom: max(16px, calc(16px + env(safe-area-inset-bottom, 32px)));
     padding-top: max(12px, calc(12px + env(safe-area-inset-top, 12px)));
   }
-  
+
   .stats-header {
     margin-bottom: 16px;
     padding-top: max(8px, env(safe-area-inset-top, 8px));
   }
-  
+
   .flashcard {
     padding: 10px 8px;
   }
-  
+
   .action-buttons {
     gap: 6px;
     margin-top: 12px;
   }
-  
+
   .action-btn {
     min-height: 50px;
     padding: 8px 6px;
   }
-  
+
   .german-word {
     font-size: clamp(1.6rem, 4vw, 2.2rem);
   }
-  
+
   .pronunciation-icon {
     font-size: 1.1rem;
     width: 24px;
     height: 24px;
+  }
+}
+
+/* Swipe functionality styles */
+.flashcard-wrapper {
+  position: relative;
+  perspective: 1000px;
+}
+
+.flashcard {
+  transition: transform 0.2s ease-out;
+  position: relative;
+  overflow: visible;
+  touch-action: pan-y; /* Allow vertical scrolling but enable horizontal gestures */
+  transform-origin: center;
+}
+
+.flashcard.swiping {
+  transition: none; /* Remove transition during active swipe */
+  z-index: 10;
+}
+
+.flashcard.swipe-right {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, white 50%);
+  border-left: 3px solid #4caf50;
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+}
+
+.flashcard.swipe-left {
+  background: linear-gradient(45deg, rgba(33, 150, 243, 0.1) 0%, white 50%);
+  border-right: 3px solid #2196f3;
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);
+}
+
+/* Exit animations */
+.flashcard.exiting {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.3s ease;
+  z-index: 5;
+}
+
+.flashcard.exit-right {
+  transform: translateX(120%) rotate(15deg) !important;
+  opacity: 0;
+}
+
+.flashcard.exit-left {
+  transform: translateX(-120%) rotate(-15deg) !important;
+  opacity: 0;
+}
+
+/* Enter animations */
+.flashcard.entering {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.3s ease;
+  z-index: 10;
+}
+
+.flashcard.enter-right {
+  animation: slideInFromLeft 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.flashcard.enter-left {
+  animation: slideInFromRight 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-120%) rotate(-15deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(120%) rotate(15deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Card status indicator */
+.word-progress .card-status-indicator {
+  margin-bottom: 8px;
+}
+
+.word-progress .card-status-indicator .status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.word-progress .status-badge.status-correct {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+}
+
+.word-progress .status-badge.status-incorrect {
+  background: linear-gradient(135deg, #f44336, #ef5350);
+}
+
+.word-progress .status-badge.status-practice {
+  background: linear-gradient(135deg, #ff9800, #ffb74d);
+}
+
+/* Remove the old absolute positioned card status indicator styles */
+.card-status-indicator {
+  position: relative; /* Changed from absolute */
+  top: auto; /* Reset */
+  right: auto; /* Reset */
+  z-index: auto; /* Reset */
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.status-badge.status-correct {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+}
+
+.status-badge.status-incorrect {
+  background: linear-gradient(135deg, #f44336, #ef5350);
+}
+
+.status-badge.status-practice {
+  background: linear-gradient(135deg, #ff9800, #ffb74d);
+}
+
+.swipe-hint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.swipe-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  transform: scale(0.9);
+}
+
+.swipe-indicator.active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.swipe-indicator.disabled {
+  opacity: 0.3;
+}
+
+.swipe-indicator.disabled .swipe-text {
+  color: #999;
+  border-color: #999;
+}
+
+.swipe-indicator .swipe-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.2s ease;
+}
+
+.swipe-indicator.active .swipe-icon {
+  transform: scale(1.1);
+}
+
+.swipe-indicator .swipe-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4caf50;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 10px;
+  border-radius: 14px;
+  border: 1px solid #4caf50;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.swipe-indicator.left .swipe-text {
+  color: #2196f3;
+  border-color: #2196f3;
+}
+
+.swipe-indicator .swipe-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.swipe-indicator .swipe-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4caf50;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1px solid #4caf50;
+}
+
+.swipe-instruction {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 22px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+  animation: swipeInstructionPulse 3s ease-in-out infinite;
+  z-index: 15;
+  white-space: nowrap;
+}
+
+@keyframes swipeInstructionPulse {
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+  }
+}
+
+/* Mobile specific swipe styles */
+@media (max-width: 480px) {
+  .swipe-instruction {
+    font-size: 0.75rem;
+    padding: 8px 14px;
+    top: -45px;
+  }
+
+  .swipe-indicator .swipe-icon {
+    font-size: 1.6rem;
+  }
+
+  .swipe-indicator .swipe-text {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+
+  .swipe-hint {
+    padding: 0 15px;
+  }
+
+  .word-progress .card-status-indicator .status-badge {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+}
+
+/* Tablet specific adjustments */
+@media (min-width: 481px) and (max-width: 768px) {
+  .swipe-instruction {
+    top: -55px;
+    font-size: 0.85rem;
+    padding: 12px 20px;
   }
 }
