@@ -3954,5 +3954,1670 @@
   {
     "word": "wohnen",
     "translation": "to live at/in (e.g., Ich wohne in Berlin.)"
+  },
+  {
+    "word": "Abteilung",
+    "translation": "department (e.g., Die Abteilung für Elektronik befindet sich im dritten Stock.)"
+  },
+  {
+    "word": "Angebot",
+    "translation": "offer (e.g., Dieses Angebot gilt nur bis Ende der Woche.)"
+  },
+  {
+    "word": "Fußgängerzone",
+    "translation": "pedestrian precinct (e.g., In der Fußgängerzone gibt es viele kleine Cafés.)"
+  },
+  {
+    "word": "Haushaltsware",
+    "translation": "household products (e.g., Haushaltswaren finden Sie im Erdgeschoss.)"
+  },
+  {
+    "word": "Geschäft",
+    "translation": "shop, store (e.g., Das Geschäft an der Ecke hat bis 20 Uhr geöffnet.)"
+  },
+  {
+    "word": "Kassenbeleg",
+    "translation": "sales slip (e.g., Bitte bewahren Sie den Kassenbeleg für eventuelle Rückgaben auf.)"
+  },
+  {
+    "word": "Kaufhaus",
+    "translation": "department store (e.g., Das Kaufhaus bietet eine große Auswahl an Marken.)"
+  },
+  {
+    "word": "Kleidung",
+    "translation": "clothing (e.g., Im Urlaub kaufe ich oft neue Kleidung.)"
+  },
+  {
+    "word": "Laden",
+    "translation": "shop, store (e.g., Der kleine Laden verkauft frisches Obst und Gemüse.)"
+  },
+  {
+    "word": "Marke",
+    "translation": "brand (e.g., Diese Marke ist für ihre hohe Qualität bekannt.)"
+  },
+  {
+    "word": "Preis",
+    "translation": "price (e.g., Der Preis für dieses Kleid ist sehr günstig.)"
+  },
+  {
+    "word": "Rechnung",
+    "translation": "bill (e.g., Die Rechnung wird Ihnen per E-Mail zugeschickt.)"
+  },
+  {
+    "word": "Schaufenster",
+    "translation": "shop window (e.g., Im Schaufenster liegen viele neue Schuhe.)"
+  },
+  {
+    "word": "Schreibwaren",
+    "translation": "stationery (e.g., Schreibwaren gibt es im zweiten Stock.)"
+  },
+  {
+    "word": "Sonderangebot",
+    "translation": "special offer (e.g., Im Supermarkt gibt es heute ein Sonderangebot für Äpfel.)"
+  },
+  {
+    "word": "Supermarkt",
+    "translation": "supermarket (e.g., Der Supermarkt schließt um 22 Uhr.)"
+  },
+  {
+    "word": "Werbung",
+    "translation": "advertisement (e.g., Die Werbung im Fernsehen war sehr überzeugend.)"
+  },
+  {
+    "word": "Wochenmarkt",
+    "translation": "weekly market (e.g., Auf dem Wochenmarkt kaufe ich immer frisches Brot.)"
+  },
+  {
+    "word": "Qualität",
+    "translation": "quality (e.g., Die Qualität dieser Jacke ist hervorragend.)"
+  },
+  {
+    "word": "Quittung",
+    "translation": "receipt (e.g., Sie brauchen die Quittung, um den Artikel umzutauschen.)"
+  },
+  {
+    "word": "bestellen",
+    "translation": "to order (e.g., Ich möchte eine Pizza online bestellen.)"
+  },
+  {
+    "word": "beschweren",
+    "translation": "to complain (e.g., Der Kunde möchte sich über den Service beschweren.)"
+  },
+  {
+    "word": "besorgen",
+    "translation": "to get (e.g., Ich muss noch Brot und Milch besorgen.)"
+  },
+  {
+    "word": "gefallen",
+    "translation": "to be liked (e.g., Das Kleid gefällt mir sehr gut.)"
+  },
+  {
+    "word": "kaufen",
+    "translation": "to buy (e.g., Ich kaufe morgen einen neuen Laptop.)"
+  },
+  {
+    "word": "passen",
+    "translation": "to fit (e.g., Die Schuhe passen mir leider nicht.)"
+  },
+  {
+    "word": "umtauschen",
+    "translation": "to (ex)change (e.g., Ich möchte die Hose umtauschen, weil sie zu klein ist.)"
+  },
+  {
+    "word": "verkaufen",
+    "translation": "to sell (e.g., Der Händler verkauft frisches Obst auf dem Markt.)"
+  },
+  {
+    "word": "zurückgeben",
+    "translation": "to return (e.g., Sie können den Artikel innerhalb von 14 Tagen zurückgeben.)"
+  },
+  {
+    "word": "Aufzug",
+    "translation": "lift (e.g., Der Aufzug ist leider außer Betrieb.)"
+  },
+  {
+    "word": "Ausflug",
+    "translation": "trip (e.g., Am Wochenende machen wir einen Ausflug in die Berge.)"
+  },
+  {
+    "word": "Autobahn",
+    "translation": "motorway (e.g., Auf der Autobahn gibt es heute Stau.)"
+  },
+  {
+    "word": "Bahn",
+    "translation": "train, railway (e.g., Die Bahn fährt um 10 Uhr ab.)"
+  },
+  {
+    "word": "S-Bahn",
+    "translation": "(sub)urban train, railway (e.g., Die S-Bahn fährt alle zehn Minuten.)"
+  },
+  {
+    "word": "Bahnhof",
+    "translation": "train station (e.g., Wir treffen uns am Hauptbahnhof.)"
+  },
+  {
+    "word": "Bahnsteig",
+    "translation": "platform (e.g., Der Zug steht am Bahnsteig drei.)"
+  },
+  {
+    "word": "Fähre",
+    "translation": "ferry (e.g., Die Fähre legt in einer Stunde ab.)"
+  },
+  {
+    "word": "Fahrkarte",
+    "translation": "ticket (e.g., Die Fahrkarte kann man am Automaten kaufen.)"
+  },
+  {
+    "word": "Fahrrad",
+    "translation": "bicycle (e.g., Mein Fahrrad steht vor dem Haus.)"
+  },
+  {
+    "word": "Fahrzeug",
+    "translation": "vehicle, car (e.g., Auf dem Parkplatz stehen viele Fahrzeuge.)"
+  },
+  {
+    "word": "Flugzeug",
+    "translation": "airplane (e.g., Das Flugzeug landet pünktlich um 18 Uhr.)"
+  },
+  {
+    "word": "Führerschein",
+    "translation": "driver's license (e.g., Er hat seinen Führerschein mit 18 Jahren gemacht.)"
+  },
+  {
+    "word": "Geschwindigkeit",
+    "translation": "speed (e.g., Die Geschwindigkeit ist hier auf 50 km/h begrenzt.)"
+  },
+  {
+    "word": "Haltestelle",
+    "translation": "(bus, tram) stop (e.g., Die nächste Haltestelle ist gleich um die Ecke.)"
+  },
+  {
+    "word": "ICE",
+    "translation": "Intercity Express train (e.g., Der ICE nach Berlin fährt um 9 Uhr ab.)"
+  },
+  {
+    "word": "Kraftfahrzeug",
+    "translation": "vehicle, car (e.g., Lastwagen sind auch Kraftfahrzeuge.)"
+  },
+  {
+    "word": "Laster",
+    "translation": "truck (e.g., Der Laster bringt frische Waren in die Stadt.)"
+  },
+  {
+    "word": "LKW",
+    "translation": "truck (e.g., Ein LKW blockiert gerade die Straße.)"
+  },
+  {
+    "word": "Motorrad",
+    "translation": "motor bike (e.g., Mein Bruder fährt gern Motorrad im Sommer.)"
+  },
+  {
+    "word": "Parkhaus",
+    "translation": "car park (e.g., Das Parkhaus ist rund um die Uhr geöffnet.)"
+  },
+  {
+    "word": "PKW",
+    "translation": "car (e.g., Auf der Straße fahren mehr PKWs als LKWs.)"
+  },
+  {
+    "word": "Reisebüro",
+    "translation": "travel agency (e.g., Das Reisebüro hat uns eine tolle Reise empfohlen.)"
+  },
+  {
+    "word": "Rückfahrt",
+    "translation": "return journey (e.g., Die Rückfahrt war schneller als die Hinfahrt.)"
+  },
+  {
+    "word": "Stau",
+    "translation": "traffic jam (e.g., Wir stehen seit einer Stunde im Stau.)"
+  },
+  {
+    "word": "Unfall",
+    "translation": "accident (e.g., Auf der Kreuzung gab es einen Unfall.)"
+  },
+  {
+    "word": "Verkehrsmittel",
+    "translation": "(means of) transport (e.g., Busse und Bahnen sind umweltfreundliche Verkehrsmittel.)"
+  },
+  {
+    "word": "Verkehrszeichen",
+    "translation": "traffic sign (e.g., Dieses Verkehrszeichen bedeutet, dass man hier nicht parken darf.)"
+  },
+  {
+    "word": "Gepäck",
+    "translation": "luggage (e.g., Das Gepäck wird im Frachtraum transportiert.)"
+  },
+  {
+    "word": "Abteilung",
+    "translation": "department (e.g., Die Abteilung für Finanzen arbeitet an einem neuen Budget.)"
+  },
+  {
+    "word": "Angestellte",
+    "translation": "employee (e.g., Die Angestellte hilft dem Kunden an der Rezeption.)"
+  },
+  {
+    "word": "Arbeitsplatz",
+    "translation": "work place (e.g., Mein Arbeitsplatz ist direkt am Fenster.)"
+  },
+  {
+    "word": "Aufgabe",
+    "translation": "task (e.g., Meine wichtigste Aufgabe ist die Betreuung der Kunden.)"
+  },
+  {
+    "word": "Aushilfe",
+    "translation": "(temporary) assistant (e.g., Die Aushilfe arbeitet nur am Wochenende.)"
+  },
+  {
+    "word": "Ausbildung",
+    "translation": "vocational training (e.g., Er macht eine Ausbildung zum Elektriker.)"
+  },
+  {
+    "word": "Besprechung",
+    "translation": "meeting (e.g., Die Besprechung findet morgen um 10 Uhr statt.)"
+  },
+  {
+    "word": "Betrieb",
+    "translation": "business, company (e.g., Unser Betrieb hat über 200 Mitarbeiter.)"
+  },
+  {
+    "word": "Betriebsrat",
+    "translation": "works committee (e.g., Der Betriebsrat setzt sich für die Rechte der Angestellten ein.)"
+  },
+  {
+    "word": "Bewerbung",
+    "translation": "application (e.g., Sie hat ihre Bewerbung gestern abgeschickt.)"
+  },
+  {
+    "word": "Bezahlung",
+    "translation": "payment (e.g., Die Bezahlung erfolgt am Monatsende.)"
+  },
+  {
+    "word": "Feierabend",
+    "translation": "closing time (e.g., Um 17 Uhr ist Feierabend und alle gehen nach Hause.)"
+  },
+  {
+    "word": "Firma",
+    "translation": "company (e.g., Die Firma produziert Maschinen für die Automobilindustrie.)"
+  },
+  {
+    "word": "Gewerkschaft",
+    "translation": "trade union (e.g., Die Gewerkschaft fordert höhere Löhne.)"
+  },
+  {
+    "word": "Ingenieur",
+    "translation": "engineer (e.g., Der Ingenieur plant eine neue Brücke.)"
+  },
+  {
+    "word": "Kollege",
+    "translation": "colleague (e.g., Mein Kollege hilft mir oft bei schwierigen Projekten.)"
+  },
+  {
+    "word": "Leistung",
+    "translation": "performance (e.g., Die Leistung des Teams war dieses Jahr besonders gut.)"
+  },
+  {
+    "word": "Personalabteilung",
+    "translation": "personnel department (e.g., Die Personalabteilung sucht neue Mitarbeiter.)"
+  },
+  {
+    "word": "Qualifikation",
+    "translation": "qualification (e.g., Diese Qualifikation ist für den Job notwendig.)"
+  },
+  {
+    "word": "Rente",
+    "translation": "pension, retirement (e.g., Er geht nächstes Jahr in Rente.)"
+  },
+  {
+    "word": "Schicht",
+    "translation": "shift (e.g., Sie arbeitet in der Nachtschicht.)"
+  },
+  {
+    "word": "Überstunde",
+    "translation": "overtime (e.g., Heute müssen wir zwei Überstunden machen.)"
+  },
+  {
+    "word": "Vorgesetzte",
+    "translation": "boss, superior (e.g., Der Vorgesetzte lobt die gute Arbeit des Teams.)"
+  },
+  {
+    "word": "bearbeiten",
+    "translation": "to work (on) (e.g., Ich muss heute noch drei Anträge bearbeiten.)"
+  },
+  {
+    "word": "beantworten",
+    "translation": "to answer (e.g., Der Chef hat die E-Mail sofort beantwortet.)"
+  },
+  {
+    "word": "sich bewerben um",
+    "translation": "to apply for (e.g., Sie bewirbt sich um eine Stelle als Lehrerin.)"
+  },
+  {
+    "word": "bekommen",
+    "translation": "to get, to receive (e.g., Er hat gestern eine Einladung bekommen.)"
+  },
+  {
+    "word": "beraten",
+    "translation": "to advise someone, to discuss (e.g., Der Anwalt berät seinen Mandanten ausführlich.)"
+  },
+  {
+    "word": "benötigen",
+    "translation": "to need (e.g., Für das Projekt benötigen wir mehr Zeit.)"
+  },
+  {
+    "word": "drucken",
+    "translation": "to print (e.g., Bitte drucken Sie den Vertrag in zweifacher Ausfertigung.)"
+  },
+  {
+    "word": "einstellen",
+    "translation": "to hire (e.g., Die Firma möchte drei neue Mitarbeiter einstellen.)"
+  },
+  {
+    "word": "entlassen",
+    "translation": "to fire (e.g., Der Betrieb musste leider fünf Angestellte entlassen.)"
+  },
+  {
+    "word": "entscheiden",
+    "translation": "to decide (e.g., Wir müssen uns bis morgen entscheiden.)"
+  },
+  {
+    "word": "erlauben",
+    "translation": "to permit (e.g., Das Gesetz erlaubt den Verkauf am Sonntag nicht.)"
+  },
+  {
+    "word": "erledigen",
+    "translation": "to get done (e.g., Ich erledige die Aufgabe gleich nach der Pause.)"
+  },
+  {
+    "word": "erklären",
+    "translation": "to explain (e.g., Der Lehrer erklärt den Schülern die Grammatik.)"
+  },
+  {
+    "word": "jobben",
+    "translation": "to have a casual job (e.g., Während des Studiums jobbt sie in einem Café.)"
+  },
+  {
+    "word": "krankschreiben",
+    "translation": "to give a sick note (e.g., Der Arzt hat mich für eine Woche krankgeschrieben.)"
+  },
+  {
+    "word": "sich krankmelden",
+    "translation": "to report sick (e.g., Er hat sich heute früh krankgemeldet.)"
+  },
+  {
+    "word": "kündigen bei",
+    "translation": "to hand in one's notice (e.g., Sie hat bei ihrer Firma gekündigt.)"
+  },
+  {
+    "word": "sprechen mit",
+    "translation": "to talk to (e.g., Ich möchte kurz mit dir sprechen.)"
+  },
+  {
+    "word": "verdienen",
+    "translation": "to earn (e.g., Er verdient gut in seinem neuen Job.)"
+  },
+  {
+    "word": "angestellt sein",
+    "translation": "to be employed (e.g., Er ist seit fünf Jahren bei dieser Firma angestellt.)"
+  },
+  {
+    "word": "arbeitslos sein",
+    "translation": "to be unemployed (e.g., Nach der Schließung der Fabrik war er arbeitslos.)"
+  },
+  {
+    "word": "berufstätig sein",
+    "translation": "to be employed or self-employed (e.g., Beide Eltern sind berufstätig.)"
+  },
+  {
+    "word": "dafür sein",
+    "translation": "to be in favour of (e.g., Ich bin dafür, dass wir mehr Pausen machen.)"
+  },
+  {
+    "word": "dagegen sein",
+    "translation": "to be against (e.g., Viele sind dagegen, dass die Arbeitszeit verlängert wird.)"
+  },
+  {
+    "word": "zu spät kommen",
+    "translation": "to be late (e.g., Heute bin ich wegen des Staus zu spät gekommen.)"
+  },
+  {
+    "word": "Vollzeit arbeiten",
+    "translation": "to work full time (e.g., Sie arbeitet seit letztem Jahr Vollzeit.)"
+  },
+  {
+    "word": "Teilzeit arbeiten",
+    "translation": "to work part time (e.g., Nach der Geburt ihres Kindes arbeitet sie Teilzeit.)"
+  },
+  {
+    "word": "Abitur",
+    "translation": "≈ A Levels (e.g., Sie hat das Abitur mit sehr guten Noten bestanden.)"
+  },
+  {
+    "word": "Abschluss",
+    "translation": "degree, certificate (e.g., Er hat seinen Abschluss an der Universität München gemacht.)"
+  },
+  {
+    "word": "Aufgabe",
+    "translation": "task (e.g., Die Aufgabe für heute ist es, den Text zu lesen.)"
+  },
+  {
+    "word": "Ausbildung",
+    "translation": "vocational training (e.g., Er macht eine Ausbildung als Mechaniker.)"
+  },
+  {
+    "word": "Berufsschule",
+    "translation": "vocational college (e.g., Die Berufsschule bietet Kurse für verschiedene Berufe an.)"
+  },
+  {
+    "word": "Betreuung",
+    "translation": "mentoring (e.g., Die Betreuung der Schüler erfolgt durch erfahrene Lehrer.)"
+  },
+  {
+    "word": "Einladung",
+    "translation": "invitation (e.g., Ich habe eine Einladung zur Schulfeier bekommen.)"
+  },
+  {
+    "word": "Elternabend",
+    "translation": "parent-teacher conference (e.g., Der Elternabend findet nächste Woche statt.)"
+  },
+  {
+    "word": "Elternbrief",
+    "translation": "information letter for parents (e.g., Im Elternbrief steht alles über den Ausflug.)"
+  },
+  {
+    "word": "Erzieherin",
+    "translation": "kindergarten teacher (e.g., Die Erzieherin spielt mit den Kindern im Garten.)"
+  },
+  {
+    "word": "Ferien",
+    "translation": "holidays (e.g., In den Sommerferien fahren wir ans Meer.)"
+  },
+  {
+    "word": "Fest",
+    "translation": "celebration (e.g., Das Schulfest findet im Juni statt.)"
+  },
+  {
+    "word": "Hort",
+    "translation": "day-home for schoolchildren (e.g., Die Kinder gehen nach der Schule in den Hort.)"
+  },
+  {
+    "word": "Grundschule",
+    "translation": "primary school (e.g., Meine Tochter besucht die Grundschule im Dorf.)"
+  },
+  {
+    "word": "Gymnasium",
+    "translation": "≈ grammar school (e.g., Das Gymnasium bereitet die Schüler auf die Universität vor.)"
+  },
+  {
+    "word": "Kindergarten",
+    "translation": "kindergarten (e.g., Der Kindergarten hat einen großen Spielplatz.)"
+  },
+  {
+    "word": "Kita",
+    "translation": "kindergarten (e.g., In der Kita lernen die Kinder spielerisch neue Dinge.)"
+  },
+  {
+    "word": "Krippenplatz",
+    "translation": "day nursery admission (e.g., Wir haben endlich einen Krippenplatz für unser Kind bekommen.)"
+  },
+  {
+    "word": "Lehre/Lehrstelle",
+    "translation": "apprenticeship (e.g., Er hat eine Lehrstelle als Bäcker gefunden.)"
+  },
+  {
+    "word": "Lehrer",
+    "translation": "(form) teacher (e.g., Der Lehrer erklärt die Grammatik sehr gut.)"
+  },
+  {
+    "word": "Lösung",
+    "translation": "solution (e.g., Die Lösung zur Aufgabe steht auf der letzten Seite.)"
+  },
+  {
+    "word": "Mitschüler",
+    "translation": "schoolfellow (e.g., Mein Mitschüler hilft mir bei den Hausaufgaben.)"
+  },
+  {
+    "word": "Note",
+    "translation": "grade, mark (e.g., Sie hat eine gute Note in Mathe bekommen.)"
+  },
+  {
+    "word": "Pause",
+    "translation": "break (e.g., In der Pause spielen die Kinder Fußball.)"
+  },
+  {
+    "word": "Realschule",
+    "translation": "secondary school for pupils up to 16 (e.g., Die Realschule bietet viele praktische Fächer an.)"
+  },
+  {
+    "word": "Schule",
+    "translation": "school (e.g., Die Schule beginnt um acht Uhr.)"
+  },
+  {
+    "word": "Stundenplan",
+    "translation": "timetable (e.g., Der Stundenplan hängt im Klassenzimmer.)"
+  },
+  {
+    "word": "Tagesmutter",
+    "translation": "childminder (e.g., Die Tagesmutter betreut drei Kleinkinder.)"
+  },
+  {
+    "word": "Tagesstätte",
+    "translation": "day-care centre (e.g., Die Tagesstätte hat helle, freundliche Räume.)"
+  },
+  {
+    "word": "Unterricht",
+    "translation": "lessons (e.g., Der Unterricht endet heute früher.)"
+  },
+  {
+    "word": "Unterrichtsstunde",
+    "translation": "lesson (e.g., Die erste Unterrichtsstunde ist Mathematik.)"
+  },
+  {
+    "word": "Apotheke",
+    "translation": "chemist’s (e.g., Die Apotheke hat auch am Wochenende geöffnet.)"
+  },
+  {
+    "word": "Arzt",
+    "translation": "doctor (e.g., Der Arzt untersucht den Patienten gründlich.)"
+  },
+  {
+    "word": "Facharzt",
+    "translation": "specialist (e.g., Der Facharzt für Augenheilkunde ist sehr erfahren.)"
+  },
+  {
+    "word": "Bauchschmerzen",
+    "translation": "stomach ache (e.g., Er fehlt heute in der Schule wegen starker Bauchschmerzen.)"
+  },
+  {
+    "word": "Erkältung",
+    "translation": "(head) cold (e.g., Wegen einer Erkältung bleibe ich heute zu Hause.)"
+  },
+  {
+    "word": "Gesicht",
+    "translation": "face (e.g., Er hat ein freundliches Gesicht.)"
+  },
+  {
+    "word": "Grippe",
+    "translation": "flu (e.g., Die Grippewelle hat viele Menschen krank gemacht.)"
+  },
+  {
+    "word": "Halsschmerzen",
+    "translation": "sore throat (e.g., Bei Halsschmerzen trinke ich gern warmen Tee.)"
+  },
+  {
+    "word": "Husten",
+    "translation": "cough (e.g., Sein Husten klingt schon viel besser.)"
+  },
+  {
+    "word": "Körper",
+    "translation": "body (e.g., Bewegung ist wichtig für den ganzen Körper.)"
+  },
+  {
+    "word": "Krankenhaus",
+    "translation": "hospital (e.g., Er musste nach dem Unfall ins Krankenhaus.)"
+  },
+  {
+    "word": "Krankenschein",
+    "translation": "certificate of illness (e.g., Der Krankenschein muss bei der Krankenkasse eingereicht werden.)"
+  },
+  {
+    "word": "Krankenschwester",
+    "translation": "nurse (e.g., Die Krankenschwester bringt dem Patienten das Frühstück.)"
+  },
+  {
+    "word": "Magenschmerzen",
+    "translation": "stomach ache (e.g., Magenschmerzen können von zu schnellem Essen kommen.)"
+  },
+  {
+    "word": "Medizin",
+    "translation": "medicine (e.g., Diese Medizin muss dreimal täglich eingenommen werden.)"
+  },
+  {
+    "word": "Medikament",
+    "translation": "medication (e.g., Der Arzt hat ein neues Medikament verschrieben.)"
+  },
+  {
+    "word": "Notfall",
+    "translation": "emergency (e.g., Im Notfall rufen Sie bitte die 112 an.)"
+  },
+  {
+    "word": "Notruf",
+    "translation": "emergency call (e.g., Der Notruf wurde sofort entgegengenommen.)"
+  },
+  {
+    "word": "Packungsbeilage",
+    "translation": "patient information leaflet (e.g., Lesen Sie die Packungsbeilage vor der Einnahme.)"
+  },
+  {
+    "word": "Patient",
+    "translation": "patient (e.g., Der Patient wartet im Wartezimmer.)"
+  },
+  {
+    "word": "Pflaster",
+    "translation": "(sticking) plaster (e.g., Sie klebt ein Pflaster auf die kleine Wunde.)"
+  },
+  {
+    "word": "Praxis",
+    "translation": "practice (e.g., Die Praxis ist montags und donnerstags geöffnet.)"
+  },
+  {
+    "word": "Quartal",
+    "translation": "quarter (of the year) (e.g., Die Rechnung wird pro Quartal gestellt.)"
+  },
+  {
+    "word": "Rezept",
+    "translation": "prescription (e.g., Das Rezept kann in jeder Apotheke eingelöst werden.)"
+  },
+  {
+    "word": "Rücken",
+    "translation": "back (e.g., Nach langem Sitzen tut mir der Rücken weh.)"
+  },
+  {
+    "word": "Ruhe",
+    "translation": "rest (e.g., Nach der Operation braucht der Patient viel Ruhe.)"
+  },
+  {
+    "word": "Salbe",
+    "translation": "ointment (e.g., Die Salbe hilft gegen Hautausschlag.)"
+  },
+  {
+    "word": "Schmerz",
+    "translation": "pain (e.g., Der Schmerz im Knie ist nach dem Training stärker geworden.)"
+  },
+  {
+    "word": "Schnupfen",
+    "translation": "cold; runny nose (e.g., Bei Schnupfen trinke ich gern heißen Tee mit Honig.)"
+  },
+  {
+    "word": "Sprechstunde",
+    "translation": "consulting hours (e.g., Die Sprechstunde ist heute von 9 bis 12 Uhr.)"
+  },
+  {
+    "word": "Untersuchung",
+    "translation": "examination (e.g., Die Untersuchung dauert etwa 20 Minuten.)"
+  },
+  {
+    "word": "Verband",
+    "translation": "bandage (e.g., Der Verband muss täglich gewechselt werden.)"
+  },
+  {
+    "word": "Verletzung",
+    "translation": "injury (e.g., Die Verletzung am Arm ist nicht schlimm.)"
+  },
+  {
+    "word": "Wunde",
+    "translation": "wound (e.g., Die Wunde wird sorgfältig gereinigt.)"
+  },
+  {
+    "word": "abnehmen",
+    "translation": "to lose weight (e.g., Er möchte fünf Kilo abnehmen, bevor der Sommer kommt.)"
+  },
+  {
+    "word": "atmen",
+    "translation": "to breathe (e.g., Bitte tief ein- und ausatmen.)"
+  },
+  {
+    "word": "behandeln",
+    "translation": "to treat (e.g., Der Arzt behandelt die Wunde mit einer speziellen Salbe.)"
+  },
+  {
+    "word": "betreuen",
+    "translation": "to look after (e.g., Die Krankenschwester betreut die Patienten auf der Station.)"
+  },
+  {
+    "word": "bluten",
+    "translation": "to bleed (e.g., Die Schnittwunde blutet stark.)"
+  },
+  {
+    "word": "einnehmen",
+    "translation": "to take (medicine) (e.g., Das Medikament sollte nach dem Essen eingenommen werden.)"
+  },
+  {
+    "word": "sich ernähren",
+    "translation": "to eat (healthily/unhealthily) (e.g., Er ernährt sich sehr gesund und isst viel Gemüse.)"
+  },
+  {
+    "word": "heilen",
+    "translation": "to heal (e.g., Die Verletzung ist nach zwei Wochen vollständig geheilt.)"
+  },
+  {
+    "word": "husten",
+    "translation": "to cough (e.g., Er hustet seit drei Tagen und sollte zum Arzt gehen.)"
+  },
+  {
+    "word": "operieren",
+    "translation": "to operate (e.g., Der Chirurg operiert morgen drei Patienten.)"
+  },
+  {
+    "word": "pflegen",
+    "translation": "to care for (e.g., Die Tochter pflegt ihre kranke Mutter zu Hause.)"
+  },
+  {
+    "word": "schaden",
+    "translation": "smth harms someone (e.g., Rauchen schadet der Gesundheit.)"
+  },
+  {
+    "word": "schmerzen",
+    "translation": "smth hurts (e.g., Mein Rücken schmerzt nach dem langen Sitzen.)"
+  },
+  {
+    "word": "untersuchen",
+    "translation": "to examine (e.g., Der Arzt untersucht den Patienten sehr gründlich.)"
+  },
+  {
+    "word": "verschreiben",
+    "translation": "to prescribe (e.g., Der Arzt verschreibt ein Antibiotikum.)"
+  },
+  {
+    "word": "wehtun",
+    "translation": "to hurt (e.g., Mein Kopf tut seit dem Morgen weh.)"
+  },
+  {
+    "word": "zunehmen",
+    "translation": "to gain weight (e.g., Er hat im Winter drei Kilo zugenommen.)"
+  },
+  {
+    "word": "dick",
+    "translation": "fat (e.g., Die Katze ist dick, weil sie zu viel frisst.)"
+  },
+  {
+    "word": "dünn",
+    "translation": "thin (e.g., Das Mädchen ist sehr dünn, aber gesund.)"
+  },
+  {
+    "word": "gesund",
+    "translation": "healthy (e.g., Obst und Gemüse sind gesund.)"
+  },
+  {
+    "word": "gut gebaut",
+    "translation": "well-built (e.g., Der Athlet ist groß und gut gebaut.)"
+  },
+  {
+    "word": "krank",
+    "translation": "ill (e.g., Er ist seit gestern krank und bleibt im Bett.)"
+  },
+  {
+    "word": "mollig",
+    "translation": "plump (e.g., Das Baby ist rundlich und mollig.)"
+  },
+  {
+    "word": "schwanger",
+    "translation": "pregnant (e.g., Sie ist im dritten Monat schwanger.)"
+  },
+  {
+    "word": "kräftig",
+    "translation": "strong, heavy (e.g., Der Mann hat einen kräftigen Händedruck.)"
+  },
+  {
+    "word": "abholen",
+    "translation": "to get, to pick up (e.g., Ich muss die Kinder um drei Uhr von der Schule abholen.)"
+  },
+  {
+    "word": "abstimmen über",
+    "translation": "to vote on (e.g., Die Schüler stimmen über das Thema des Projekts ab.)"
+  },
+  {
+    "word": "ändern",
+    "translation": "to change (e.g., Wir müssen den Plan kurzfristig ändern.)"
+  },
+  {
+    "word": "anerkennen",
+    "translation": "to acknowledge (e.g., Der Lehrer erkennt ihre guten Leistungen an.)"
+  },
+  {
+    "word": "anfangen",
+    "translation": "to begin (e.g., Der Unterricht fängt um acht Uhr an.)"
+  },
+  {
+    "word": "anmelden",
+    "translation": "to register (e.g., Bitte melden Sie sich für den Kurs an.)"
+  },
+  {
+    "word": "anrufen",
+    "translation": "to call (on the phone) (e.g., Ich rufe dich heute Abend an.)"
+  },
+  {
+    "word": "antworten",
+    "translation": "to answer (e.g., Bitte antworte schnell auf die E-Mail.)"
+  },
+  {
+    "word": "auffordern zu",
+    "translation": "to prompt, to urge (e.g., Der Lehrer fordert die Schüler zum Mitmachen auf.)"
+  },
+  {
+    "word": "aufhören mit",
+    "translation": "to stop (e.g., Bitte hört jetzt mit dem Lärm auf.)"
+  },
+  {
+    "word": "bedeuten",
+    "translation": "to mean (e.g., Was bedeutet dieses Wort auf Englisch?)"
+  },
+  {
+    "word": "bekommen",
+    "translation": "to get, to receive (e.g., Ich habe gestern einen Brief bekommen.)"
+  },
+  {
+    "word": "benötigen",
+    "translation": "to need (e.g., Für die Aufgabe benötigen wir Papier und Stifte.)"
+  },
+  {
+    "word": "beraten",
+    "translation": "to consult (e.g., Die Schülerin wird von der Lehrerin beraten.)"
+  },
+  {
+    "word": "betreuen",
+    "translation": "to look after (e.g., Die Lehrerin betreut die Klasse während des Ausflugs.)"
+  },
+  {
+    "word": "dabei sein",
+    "translation": "to be there (e.g., Viele Eltern waren beim Schulfest dabei.)"
+  },
+  {
+    "word": "enttäuschen",
+    "translation": "to disappoint (e.g., Er möchte seine Eltern nicht enttäuschen.)"
+  },
+  {
+    "word": "sich entschuldigen bei",
+    "translation": "to apologize (e.g., Er entschuldigt sich bei seiner Lehrerin für die Verspätung.)"
+  },
+  {
+    "word": "erlauben",
+    "translation": "to permit (e.g., Der Lehrer erlaubt es, im Unterricht Wasser zu trinken.)"
+  },
+  {
+    "word": "fehlen",
+    "translation": "to be missing (e.g., Zwei Schüler fehlen heute im Unterricht.)"
+  },
+  {
+    "word": "schauen",
+    "translation": "to look (e.g., Schau mal aus dem Fenster!)"
+  },
+  {
+    "word": "schreiben",
+    "translation": "to write (e.g., Die Schüler schreiben einen Aufsatz.)"
+  },
+  {
+    "word": "sitzen bleiben",
+    "translation": "to repeat a year (e.g., Er musste sitzen bleiben, weil seine Noten zu schlecht waren.)"
+  },
+  {
+    "word": "stattfinden",
+    "translation": "to take place (e.g., Die Prüfung findet nächste Woche statt.)"
+  },
+  {
+    "word": "wiederholen",
+    "translation": "to repeat (e.g., Bitte wiederholen Sie den Satz noch einmal.)"
+  },
+  {
+    "word": "aktuell",
+    "translation": "current (e.g., Das ist die aktuellste Version des Lehrplans.)"
+  },
+  {
+    "word": "anstrengend",
+    "translation": "exhausting (e.g., Die Matheprüfung war sehr anstrengend.)"
+  },
+  {
+    "word": "anwesend",
+    "translation": "present (e.g., Heute sind alle Schüler anwesend.)"
+  },
+  {
+    "word": "aufmerksam",
+    "translation": "attentive (e.g., Die Klasse hört dem Vortrag aufmerksam zu.)"
+  },
+  {
+    "word": "befriedigend",
+    "translation": "satisfactory (e.g., Seine Leistung in Englisch ist befriedigend.)"
+  },
+  {
+    "word": "begrenzt",
+    "translation": "limited (e.g., Die Teilnehmerzahl ist auf 20 begrenzt.)"
+  },
+  {
+    "word": "einfach",
+    "translation": "simple (e.g., Die Aufgabe ist sehr einfach.)"
+  },
+  {
+    "word": "fleißig",
+    "translation": "diligent (e.g., Sie ist eine fleißige Schülerin.)"
+  },
+  {
+    "word": "intelligent",
+    "translation": "intelligent (e.g., Er ist sehr intelligent und lernt schnell.)"
+  },
+  {
+    "word": "schwierig",
+    "translation": "difficult (e.g., Die Prüfung war ziemlich schwierig.)"
+  },
+  {
+    "word": "zusammen",
+    "translation": "together (e.g., Wir arbeiten zusammen an dem Projekt.)"
+  },
+  {
+    "word": "Abschnitt",
+    "translation": "section (e.g., Bitte lesen Sie den dritten Abschnitt des Textes.)"
+  },
+  {
+    "word": "Anweisung",
+    "translation": "instruction (e.g., Folgen Sie bitte genau den Anweisungen auf der Verpackung.)"
+  },
+  {
+    "word": "Anzeige",
+    "translation": "ad (e.g., Die Anzeige in der Zeitung bewirbt ein neues Auto.)"
+  },
+  {
+    "word": "Artikel",
+    "translation": "article (e.g., Ich habe einen interessanten Artikel über Umwelt gelesen.)"
+  },
+  {
+    "word": "Beitrag",
+    "translation": "article, contribution (e.g., Sein Beitrag im Forum war sehr hilfreich.)"
+  },
+  {
+    "word": "Broschüre",
+    "translation": "brochure (e.g., In der Broschüre finden Sie Informationen über die Stadt.)"
+  },
+  {
+    "word": "Prospekt",
+    "translation": "leaflet (e.g., Der Prospekt enthält aktuelle Angebote.)"
+  },
+  {
+    "word": "Durchsage",
+    "translation": "announcement (e.g., Die Durchsage am Bahnhof informierte über Verspätungen.)"
+  },
+  {
+    "word": "Einzelheit",
+    "translation": "detail (e.g., Die Einzelheiten des Vertrags werden noch besprochen.)"
+  },
+  {
+    "word": "E-Mail",
+    "translation": "email (e.g., Ich habe dir gestern eine E-Mail geschickt.)"
+  },
+  {
+    "word": "Gebrauchsanweisung",
+    "translation": "instruction manual (e.g., Lesen Sie die Gebrauchsanweisung vor der Benutzung.)"
+  },
+  {
+    "word": "Hinweis",
+    "translation": "hint, reference (e.g., Der Lehrer gab uns einen Hinweis zur Lösung.)"
+  },
+  {
+    "word": "Interview",
+    "translation": "interview (e.g., Das Interview mit der Schauspielerin war spannend.)"
+  },
+  {
+    "word": "Kritik",
+    "translation": "critique, criticism (e.g., Seine Kritik am Film war sehr ausführlich.)"
+  },
+  {
+    "word": "Moderator",
+    "translation": "moderator, host (e.g., Der Moderator führte souverän durch die Sendung.)"
+  },
+  {
+    "word": "Monitor",
+    "translation": "monitor (e.g., Der neue Monitor hat eine hohe Auflösung.)"
+  },
+  {
+    "word": "Nachricht",
+    "translation": "news (e.g., Ich habe eine gute Nachricht für dich.)"
+  },
+  {
+    "word": "Presse",
+    "translation": "press (e.g., Die Presse berichtet über das Ereignis.)"
+  },
+  {
+    "word": "Rundfunk",
+    "translation": "radio (e.g., Der Rundfunk sendet heute eine Live-Reportage.)"
+  },
+  {
+    "word": "Überschrift",
+    "translation": "headline (e.g., Die Überschrift des Artikels macht neugierig.)"
+  },
+  {
+    "word": "Sendung",
+    "translation": "programme (e.g., Die Sendung läuft jeden Freitagabend.)"
+  },
+  {
+    "word": "Vortrag",
+    "translation": "lecture (e.g., Der Vortrag über Klimawandel war sehr informativ.)"
+  },
+  {
+    "word": "Zeitung",
+    "translation": "newspaper (e.g., Die Zeitung erscheint täglich.)"
+  },
+  {
+    "word": "Zeitschrift",
+    "translation": "magazine (e.g., Sie liest gern Modezeitschriften.)"
+  },
+  {
+    "word": "Serie",
+    "translation": "series (e.g., Diese Serie ist gerade sehr beliebt.)"
+  },
+  {
+    "word": "anfangen mit",
+    "translation": "to begin with (e.g., Wir fangen mit einer kurzen Einführung an.)"
+  },
+  {
+    "word": "sich ärgern über",
+    "translation": "to be angry about (e.g., Er ärgert sich über den verpassten Zug.)"
+  },
+  {
+    "word": "beenden",
+    "translation": "to finish (e.g., Wir beenden die Arbeit um 17 Uhr.)"
+  },
+  {
+    "word": "berichten",
+    "translation": "to report (e.g., Die Zeitung berichtet über das Konzert.)"
+  },
+  {
+    "word": "beschreiben",
+    "translation": "to describe (e.g., Beschreiben Sie bitte den Tatort.)"
+  },
+  {
+    "word": "sich informieren über",
+    "translation": "to get informed (e.g., Sie informiert sich über aktuelle Nachrichten.)"
+  },
+  {
+    "word": "sich erinnern an",
+    "translation": "to remember (e.g., Ich erinnere mich gern an meinen Urlaub.)"
+  },
+  {
+    "word": "erzählen über/von",
+    "translation": "to tell (e.g., Er erzählt von seinen Erlebnissen in Kanada.)"
+  },
+  {
+    "word": "kritisieren",
+    "translation": "to criticize (e.g., Sie kritisiert den neuen Film scharf.)"
+  },
+  {
+    "word": "schreiben",
+    "translation": "to write (e.g., Er schreibt einen Artikel für die Zeitung.)"
+  },
+  {
+    "word": "senden an/nach",
+    "translation": "to send to (e.g., Sie sendet das Paket nach Berlin.)"
+  },
+  {
+    "word": "sich unterhalten über",
+    "translation": "to talk about (e.g., Wir unterhalten uns über das neue Buch.)"
+  },
+  {
+    "word": "zuhören",
+    "translation": "to listen (e.g., Bitte hör mir genau zu.)"
+  },
+  {
+    "word": "zuschauen bei",
+    "translation": "to watch (e.g., Er schaut ihr beim Kochen zu.)"
+  },
+  {
+    "word": "Abschluss",
+    "translation": "degree, conclusion (e.g., Nach drei Jahren hat sie endlich ihren Abschluss gemacht.)"
+  },
+  {
+    "word": "Aufgabe",
+    "translation": "task (e.g., Die heutige Aufgabe ist sehr anspruchsvoll.)"
+  },
+  {
+    "word": "Erfahrung",
+    "translation": "experience (e.g., Er hat viel Erfahrung im Unterrichten.)"
+  },
+  {
+    "word": "Erfolg",
+    "translation": "success (e.g., Der Vortrag war ein großer Erfolg.)"
+  },
+  {
+    "word": "Ergebnis",
+    "translation": "result (e.g., Das Ergebnis der Prüfung wird nächste Woche bekanntgegeben.)"
+  },
+  {
+    "word": "Fachmann",
+    "translation": "specialist (e.g., Der Fachmann repariert die defekte Maschine.)"
+  },
+  {
+    "word": "Fachfrau",
+    "translation": "specialist (e.g., Die Fachfrau berät Kunden im Geschäft.)"
+  },
+  {
+    "word": "Fehler",
+    "translation": "mistake (e.g., Jeder macht mal einen Fehler.)"
+  },
+  {
+    "word": "Fortschritt",
+    "translation": "progress (e.g., Du hast große Fortschritte im Deutschlernen gemacht.)"
+  },
+  {
+    "word": "Fremdsprache",
+    "translation": "foreign language (e.g., Englisch ist eine wichtige Fremdsprache.)"
+  },
+  {
+    "word": "Gebühr",
+    "translation": "fee (e.g., Für den Kurs fällt eine Gebühr von 50 Euro an.)"
+  },
+  {
+    "word": "Kursgebühr",
+    "translation": "course fee (e.g., Die Kursgebühr muss vor Beginn bezahlt werden.)"
+  },
+  {
+    "word": "Hörverstehen",
+    "translation": "auditory comprehension (e.g., Das Hörverstehen wird in der Prüfung getestet.)"
+  },
+  {
+    "word": "Kurs",
+    "translation": "course (e.g., Der Kurs findet zweimal pro Woche statt.)"
+  },
+  {
+    "word": "Integrationskurs",
+    "translation": "integrative course (e.g., Der Integrationskurs hilft beim Deutschlernen.)"
+  },
+  {
+    "word": "Intensivkurs",
+    "translation": "intensive course (e.g., Der Intensivkurs dauert vier Wochen.)"
+  },
+  {
+    "word": "Kursleiter",
+    "translation": "instructor (e.g., Der Kursleiter erklärt die Grammatikregeln.)"
+  },
+  {
+    "word": "Kursleiterin",
+    "translation": "instructor (e.g., Die Kursleiterin gibt den Teilnehmern Hausaufgaben.)"
+  },
+  {
+    "word": "Lehrer",
+    "translation": "teacher (e.g., Der Lehrer hilft den Schülern bei den Übungen.)"
+  },
+  {
+    "word": "Lehrerin",
+    "translation": "teacher (e.g., Die Lehrerin bereitet den Unterricht sorgfältig vor.)"
+  },
+  {
+    "word": "Leute",
+    "translation": "people (e.g., Viele Leute lernen Deutsch als Fremdsprache.)"
+  },
+  {
+    "word": "Platz",
+    "translation": "place, space, spot (e.g., Für dich ist hier noch ein Platz frei.)"
+  },
+  {
+    "word": "Prüfung",
+    "translation": "exam (e.g., Die Prüfung beginnt um neun Uhr.)"
+  },
+  {
+    "word": "Teilnehmer",
+    "translation": "participant (e.g., Jeder Teilnehmer bekommt ein Zertifikat.)"
+  },
+  { "word": "Test", "translation": "test (e.g., Der Test dauert 30 Minuten.)" },
+  {
+    "word": "Thema",
+    "translation": "topic (e.g., Das Thema der Stunde ist Umweltschutz.)"
+  },
+  {
+    "word": "Übung",
+    "translation": "exercise (e.g., Die Übung hilft beim Festigen des Wissens.)"
+  },
+  {
+    "word": "Zertifikat",
+    "translation": "certificate (e.g., Das Zertifikat bestätigt den erfolgreichen Kursabschluss.)"
+  },
+  {
+    "word": "Zeugnis",
+    "translation": "report (e.g., Im Zeugnis stehen alle Noten des Schuljahres.)"
+  },
+  {
+    "word": "ausfüllen",
+    "translation": "to fill out (e.g., Bitte füllen Sie das Formular vollständig aus.)"
+  },
+  {
+    "word": "bestehen",
+    "translation": "to insist (e.g., Er besteht darauf, den Kurs zu Ende zu machen.)"
+  },
+  {
+    "word": "dabei sein",
+    "translation": "to take part (e.g., Viele Freunde werden bei der Abschlussfeier dabei sein.)"
+  },
+  {
+    "word": "durchfallen",
+    "translation": "to fail (e.g., Er ist leider in der Prüfung durchgefallen.)"
+  },
+  {
+    "word": "hören",
+    "translation": "to hear (e.g., Ich kann dich kaum hören, die Musik ist zu laut.)"
+  },
+  {
+    "word": "lehren",
+    "translation": "to teach (e.g., Er lehrt Deutsch an einer Sprachschule.)"
+  },
+  {
+    "word": "lernen",
+    "translation": "to learn (e.g., Sie lernt jeden Tag neue Vokabeln.)"
+  },
+  {
+    "word": "lesen",
+    "translation": "to read (e.g., Ich lese gern Bücher auf Deutsch.)"
+  },
+  {
+    "word": "nachholen",
+    "translation": "to catch up (e.g., Er muss den verpassten Stoff nachholen.)"
+  },
+  {
+    "word": "prüfen",
+    "translation": "to test (e.g., Der Lehrer prüft die Kenntnisse der Schüler.)"
+  },
+  {
+    "word": "schaffen",
+    "translation": "to manage (e.g., Sie hat es geschafft, die Prüfung zu bestehen.)"
+  },
+  {
+    "word": "sprechen über",
+    "translation": "to talk about (e.g., Wir sprechen über die Hausaufgaben.)"
+  },
+  {
+    "word": "teilnehmen an",
+    "translation": "to take part in (e.g., Viele Schüler nehmen am Projekt teil.)"
+  },
+  {
+    "word": "üben",
+    "translation": "to practise (e.g., Wir üben heute das Hörverstehen.)"
+  },
+  {
+    "word": "unterrichten",
+    "translation": "to teach (e.g., Die Lehrerin unterrichtet Englisch.)"
+  },
+  {
+    "word": "verstehen",
+    "translation": "to understand (e.g., Ich verstehe den Text nicht.)"
+  },
+  {
+    "word": "vorbereiten auf",
+    "translation": "to prepare (e.g., Wir bereiten uns auf die Prüfung vor.)"
+  },
+  {
+    "word": "wiederholen",
+    "translation": "to repeat (e.g., Bitte wiederholen Sie den Satz.)"
+  },
+  {
+    "word": "öffentlich",
+    "translation": "publicly (e.g., Er sprach öffentlich über seine Erfahrungen.)"
+  },
+  {
+    "word": "schriftlich",
+    "translation": "in writing (e.g., Bitte bestätigen Sie den Termin schriftlich.)"
+  },
+  {
+    "word": "schwer",
+    "translation": "hard (e.g., Die Aufgabe ist sehr schwer.)"
+  },
+  {
+    "word": "schwierig",
+    "translation": "difficult (e.g., Das Thema ist wirklich schwierig.)"
+  },
+  {
+    "word": "verständlich",
+    "translation": "comprehensible (e.g., Die Erklärung des Lehrers war leicht verständlich.)"
+  },
+  {
+    "word": "Ausbildung",
+    "translation": "vocational training (e.g., Er macht eine Ausbildung zum Elektriker.)"
+  },
+  {
+    "word": "Berufsschule",
+    "translation": "vocational college (e.g., Die Berufsschule vermittelt theoretisches Wissen.)"
+  },
+  {
+    "word": "Fachmann",
+    "translation": "specialist (e.g., Der Fachmann repariert die Maschine schnell und zuverlässig.)"
+  },
+  {
+    "word": "Fachfrau",
+    "translation": "specialist (e.g., Die Fachfrau gibt hilfreiche Ratschläge.)"
+  },
+  {
+    "word": "Fortbildung",
+    "translation": "skills enhancement (e.g., Er nimmt an einer Fortbildung für Führungskräfte teil.)"
+  },
+  {
+    "word": "Karriere",
+    "translation": "career (e.g., Sie plant eine Karriere im Gesundheitswesen.)"
+  },
+  {
+    "word": "Organisation",
+    "translation": "organisation (e.g., Die Organisation hilft Menschen in Not.)"
+  },
+  {
+    "word": "Praktikum",
+    "translation": "internship (e.g., Das Praktikum dauert drei Monate.)"
+  },
+  {
+    "word": "Projekt",
+    "translation": "project (e.g., Das Projekt wird von internationalen Partnern unterstützt.)"
+  },
+  {
+    "word": "Programm",
+    "translation": "programme (e.g., Das Programm bietet viele interessante Vorträge.)"
+  },
+  {
+    "word": "Semester",
+    "translation": "semester (e.g., Das Wintersemester beginnt im Oktober.)"
+  },
+  {
+    "word": "Studium",
+    "translation": "(course of) study (e.g., Er hat sein Studium der Medizin abgeschlossen.)"
+  },
+  {
+    "word": "Studierende",
+    "translation": "student (e.g., Die Studierenden nehmen an der Vorlesung teil.)"
+  },
+  {
+    "word": "Weiterbildung",
+    "translation": "skills enhancement, further training (e.g., Die Weiterbildung wird vom Arbeitgeber finanziert.)"
+  },
+  {
+    "word": "Qualifikation",
+    "translation": "qualification (e.g., Für diese Stelle braucht man eine spezielle Qualifikation.)"
+  },
+  {
+    "word": "ausbilden",
+    "translation": "to train (e.g., Die Firma bildet jedes Jahr zehn Auszubildende aus.)"
+  },
+  {
+    "word": "anbieten",
+    "translation": "to offer (e.g., Die Schule bietet einen Deutschkurs für Anfänger an.)"
+  },
+  {
+    "word": "präsentieren",
+    "translation": "to present (e.g., Er präsentiert das Projekt vor der Klasse.)"
+  },
+  {
+    "word": "sprechen über",
+    "translation": "to talk about (e.g., Wir sprechen über die Ergebnisse der Umfrage.)"
+  },
+  {
+    "word": "vortragen",
+    "translation": "to present (e.g., Die Schülerin trägt ihr Gedicht vor.)"
+  },
+  {
+    "word": "offiziell",
+    "translation": "official (e.g., Das ist die offizielle Version des Berichts.)"
+  },
+  {
+    "word": "niedrig",
+    "translation": "low (e.g., Die Preise sind derzeit sehr niedrig.)"
+  },
+  {
+    "word": "hoch",
+    "translation": "high (e.g., Die Nachfrage nach dem Produkt ist hoch.)"
+  },
+  {
+    "word": "Buchung",
+    "translation": "booking (e.g., Die Buchung der Reise wurde per Kreditkarte bezahlt.)"
+  },
+  {
+    "word": "Bankangestellte",
+    "translation": "bank employee (e.g., Der Bankangestellte hilft dem Kunden bei der Kontoeröffnung.)"
+  },
+  {
+    "word": "Dauerauftrag",
+    "translation": "standing order (e.g., Ich habe einen Dauerauftrag für meine Miete eingerichtet.)"
+  },
+  {
+    "word": "Gebühr",
+    "translation": "fees (e.g., Für die Überweisung ins Ausland fällt eine Gebühr an.)"
+  },
+  {
+    "word": "Geldautomat",
+    "translation": "cash machine (e.g., Ich hebe Geld am Geldautomaten ab.)"
+  },
+  {
+    "word": "Girokonto",
+    "translation": "current account (e.g., Mein Gehalt wird auf mein Girokonto überwiesen.)"
+  },
+  {
+    "word": "Kontoauszug",
+    "translation": "bank statement (e.g., Der Kontoauszug zeigt alle Transaktionen des Monats.)"
+  },
+  {
+    "word": "Kontoauszugsdrucker",
+    "translation": "statement printer (e.g., Der Kontoauszugsdrucker ist momentan außer Betrieb.)"
+  },
+  {
+    "word": "Kredit",
+    "translation": "credit (e.g., Er hat einen Kredit für den Hauskauf aufgenommen.)"
+  },
+  {
+    "word": "Überziehungskredit",
+    "translation": "overdraft facility (e.g., Das Girokonto hat einen Überziehungskredit von 1000 Euro.)"
+  },
+  {
+    "word": "PIN/TAN-Nummer",
+    "translation": "PIN/TAN number (e.g., Die PIN-Nummer darf nicht weitergegeben werden.)"
+  },
+  {
+    "word": "Scheck",
+    "translation": "cheque (e.g., Der Kunde bezahlt die Rechnung mit einem Scheck.)"
+  },
+  {
+    "word": "Überweisung",
+    "translation": "bank transfer (e.g., Die Überweisung des Geldes erfolgt sofort.)"
+  },
+  {
+    "word": "Zins",
+    "translation": "interest rate (e.g., Der Zins für den Kredit ist sehr niedrig.)"
+  },
+  {
+    "word": "abheben",
+    "translation": "to withdraw (e.g., Ich möchte 100 Euro vom Konto abheben.)"
+  },
+  {
+    "word": "einzahlen",
+    "translation": "to pay in (e.g., Er hat das Geld auf sein Sparkonto eingezahlt.)"
+  },
+  {
+    "word": "überweisen",
+    "translation": "to transfer (e.g., Bitte überweisen Sie den Betrag bis Ende des Monats.)"
+  },
+  {
+    "word": "Arbeitslosenversicherung",
+    "translation": "unemployment insurance (e.g., Die Arbeitslosenversicherung unterstützt Menschen, die ihre Arbeit verloren haben.)"
+  },
+  {
+    "word": "Haftpflicht",
+    "translation": "liability (e.g., Die Haftpflicht deckt Schäden, die man anderen zufügt.)"
+  },
+  {
+    "word": "Haftpflichtversicherung",
+    "translation": "liability insurance (e.g., Eine Haftpflichtversicherung ist in Deutschland sehr wichtig.)"
+  },
+  {
+    "word": "Krankenkasse",
+    "translation": "health insurance company (e.g., Die Krankenkasse übernimmt die Kosten für den Arztbesuch.)"
+  },
+  {
+    "word": "Krankenversicherung",
+    "translation": "health insurance (e.g., In Deutschland muss jeder eine Krankenversicherung haben.)"
+  },
+  {
+    "word": "Laufzeit",
+    "translation": "term time (e.g., Die Laufzeit des Vertrags beträgt zwei Jahre.)"
+  },
+  {
+    "word": "Lebensversicherung",
+    "translation": "life insurance (e.g., Die Lebensversicherung sichert die Familie finanziell ab.)"
+  },
+  {
+    "word": "Versicherungsmakler",
+    "translation": "insurance agent (e.g., Der Versicherungsmakler berät Kunden zu verschiedenen Angeboten.)"
+  },
+  {
+    "word": "Versicherungsagentur",
+    "translation": "insurance agency (e.g., Die Versicherungsagentur bietet verschiedene Policen an.)"
+  },
+  {
+    "word": "eine Versicherung / einen Vertrag abschließen",
+    "translation": "to conclude an (insurance) contract (e.g., Ich möchte eine neue Autoversicherung abschließen.)"
+  },
+  {
+    "word": "sich versichern",
+    "translation": "to get insured (e.g., Bevor man reist, sollte man sich versichern.)"
+  },
+  {
+    "word": "einen Vertrag kündigen",
+    "translation": "to terminate a contract (e.g., Ich möchte meinen Handyvertrag kündigen.)"
+  },
+  {
+    "word": "Abteilung",
+    "translation": "department (e.g., Die Abteilung für Personal kümmert sich um neue Mitarbeiter.)"
+  },
+  {
+    "word": "Amt",
+    "translation": "department, office (e.g., Das Amt ist für die Ausstellung von Pässen zuständig.)"
+  },
+  {
+    "word": "Antrag",
+    "translation": "application (e.g., Der Antrag auf Unterstützung wurde genehmigt.)"
+  },
+  {
+    "word": "Antragsteller",
+    "translation": "applicant (e.g., Der Antragsteller muss alle erforderlichen Unterlagen einreichen.)"
+  },
+  {
+    "word": "Aufgabe",
+    "translation": "task (e.g., Die Aufgabe der Behörde ist es, Gesetze umzusetzen.)"
+  },
+  {
+    "word": "Ausländeramt",
+    "translation": "Foreigners' (Registration) Office (e.g., Das Ausländeramt bearbeitet Visa-Anträge.)"
+  },
+  {
+    "word": "Arbeitserlaubnis",
+    "translation": "work permit (e.g., Für den Job braucht man eine Arbeitserlaubnis.)"
+  },
+  {
+    "word": "Aufenthalt",
+    "translation": "stay, residence (e.g., Sein Aufenthalt in Berlin dauerte drei Monate.)"
+  },
+  {
+    "word": "Ausländer",
+    "translation": "foreigner (e.g., Viele Ausländer besuchen Deutschland als Touristen.)"
+  },
+  {
+    "word": "Ausweis",
+    "translation": "ID card (e.g., Bitte zeigen Sie Ihren Ausweis vor.)"
+  },
+  {
+    "word": "Beamte",
+    "translation": "official (e.g., Der Beamte prüft die Dokumente.)"
+  },
+  {
+    "word": "Behörde",
+    "translation": "department (e.g., Die Behörde ist für diesen Fall zuständig.)"
+  },
+  {
+    "word": "Büro",
+    "translation": "office (e.g., Mein Büro befindet sich im dritten Stock.)"
+  },
+  {
+    "word": "Bürokratie",
+    "translation": "bureaucracy (e.g., Die Bürokratie macht vieles komplizierter.)"
+  },
+  {
+    "word": "Einbürgerung",
+    "translation": "naturalisation (e.g., Nach zehn Jahren erhielt er die Einbürgerung.)"
+  },
+  {
+    "word": "Einwohnermeldeamt",
+    "translation": "Residents’ Registration Office (e.g., Die Adresse muss beim Einwohnermeldeamt gemeldet werden.)"
+  },
+  {
+    "word": "Erlaubnis",
+    "translation": "permission (e.g., Ohne Erlaubnis dürfen Sie hier nicht parken.)"
+  },
+  {
+    "word": "Formular",
+    "translation": "form (e.g., Bitte füllen Sie das Formular sorgfältig aus.)"
+  },
+  {
+    "word": "Gebühr",
+    "translation": "fee (e.g., Für den neuen Pass fällt eine Gebühr an.)"
+  },
+  {
+    "word": "Genehmigung",
+    "translation": "permission (e.g., Für den Bau braucht man eine Genehmigung.)"
+  },
+  {
+    "word": "GEZ",
+    "translation": "department for media fees (e.g., Die GEZ erhebt Gebühren für öffentlich-rechtliches Fernsehen und Radio.)"
+  },
+  {
+    "word": "Kindergeldstelle",
+    "translation": "Child Benefit Office (e.g., Die Kindergeldstelle bearbeitet Anträge auf Kindergeld.)"
+  },
+  {
+    "word": "Mitarbeiter",
+    "translation": "staff, employee (e.g., Der Mitarbeiter hilft bei der Antragstellung.)"
+  },
+  {
+    "word": "Papier",
+    "translation": "paper (e.g., Ich habe alle wichtigen Papiere zu Hause.)"
+  },
+  {
+    "word": "Sachbearbeiter",
+    "translation": "person responsible (e.g., Der Sachbearbeiter kümmert sich um Ihren Fall.)"
+  },
+  {
+    "word": "Termin",
+    "translation": "appointment (e.g., Für den Passantrag braucht man einen Termin.)"
+  },
+  {
+    "word": "Visum",
+    "translation": "visa (e.g., Er hat ein Visum für sechs Monate erhalten.)"
+  },
+  {
+    "word": "Vordruck",
+    "translation": "form (e.g., Der Vordruck kann online heruntergeladen werden.)"
+  },
+  {
+    "word": "Zuständigkeit",
+    "translation": "(area of) responsibility (e.g., Die Zuständigkeit für dieses Projekt liegt bei der Abteilung Marketing.)"
+  },
+  {
+    "word": "ablehnen",
+    "translation": "to reject (e.g., Der Antrag wurde aus formalen Gründen abgelehnt.)"
+  },
+  {
+    "word": "anerkennen",
+    "translation": "to acknowledge (e.g., Das Diplom wurde in Deutschland anerkannt.)"
+  },
+  {
+    "word": "sich melden",
+    "translation": "to register, to report (e.g., Bitte melden Sie sich beim Empfang.)"
+  },
+  {
+    "word": "sich anmelden",
+    "translation": "to register (e.g., Sie müssen sich für den Kurs anmelden.)"
+  },
+  {
+    "word": "ausfüllen",
+    "translation": "to fill out (e.g., Bitte füllen Sie das Antragsformular aus.)"
+  },
+  {
+    "word": "ausstellen",
+    "translation": "to issue, to write out (e.g., Der Pass wird von der Behörde ausgestellt.)"
+  },
+  {
+    "word": "beantragen",
+    "translation": "to apply for (e.g., Sie hat ein neues Visum beantragt.)"
+  },
+  {
+    "word": "sich befinden",
+    "translation": "to be (somewhere) (e.g., Die Behörde befindet sich im Stadtzentrum.)"
+  },
+  {
+    "word": "entscheiden",
+    "translation": "to decide (e.g., Die Behörde entscheidet über den Antrag nächste Woche.)"
+  },
+  {
+    "word": "verantwortlich sein",
+    "translation": "to be responsible (e.g., Er ist verantwortlich für die Organisation der Veranstaltung.)"
+  },
+  {
+    "word": "zuständig sein",
+    "translation": "to be responsible, relevant (e.g., Für Ihren Antrag ist Frau Müller zuständig.)"
   }
 ]
